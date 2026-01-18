@@ -1,0 +1,16 @@
+# Netlify Configuration
+# This file configures the build and deployment settings for Netlify
+
+[build]
+  # Directory to publish (the build output)
+  publish = "dist"
+  
+  # Build command
+  command = "npm run build"
+
+# Redirects for SPA (Single Page Application) routing
+# This ensures that all routes work correctly with React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -6,6 +6,7 @@ import CJPage from './pages/CJPage';
 import FlashcardsPage from './pages/FlashcardsPage';
 import ProgressPage from './pages/ProgressPage';
 import SearchPage from './pages/SearchPage';
+import QuestionDetailPage from './pages/QuestionDetailPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/it" element={<ITPage />} />
+          <Route path="/it/question/:id" element={<QuestionDetailPage />} />
           <Route path="/cj" element={<CJPage />} />
           <Route path="/flashcards" element={<FlashcardsPage />} />
           <Route path="/progress" element={<ProgressPage />} />

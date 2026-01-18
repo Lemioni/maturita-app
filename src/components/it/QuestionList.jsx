@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { FaCheck, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaCheck, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import itQuestionsData from '../../data/it-questions.json';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const QuestionList = ({ filter, sort }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
-  const [expandedId, setExpandedId] = useState(null);
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
@@ -66,49 +66,52 @@ const QuestionList = ({ filter, sort }) => {
 
   return (
     <div className="space-y-4">
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-        <p className="text-sm text-blue-800">
-          Zobrazeno {questions.length} otázek
+      <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded">
+        <p className="text-sm text-blue-800 dark:text-blue-300">
+          Zobrazeno {questions.length} otázek. Klikni na otázku pro zobrazení detailu.
         </p>
       </div>
 
       {questions.map((question) => {
         const known = isKnown(question.id);
-        const expanded = expandedId === question.id;
         const color = getCategoryColor(question.category);
 
         return (
-          <div
+          <Link
             key={question.id}
-            className={`bg-white rounded-xl shadow-md overflow-hidden transition-all ${
-              known ? 'border-2 border-green-300' : ''
+            to={`/it/question/${question.id}`}
+            className={`block bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all hover:shadow-lg border-2 ${
+              known ? 'border-green-300 dark:border-green-700' : 'border-transparent dark:border-gray-700'
             }`}
           >
             <div className="p-6">
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-semibold text-gray-500">
+                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
                       #{question.id}
                     </span>
                     <span className={`px-2 py-1 text-xs font-medium rounded ${color.bg} ${color.text}`}>
                       {question.category}
                     </span>
-                    <span className="px-2 py-1 text-xs font-medium rounded bg-gray-100 text-gray-700">
+                    <span className="px-2 py-1 text-xs font-medium rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
                       {question.exam}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                     {question.question}
                   </h3>
                 </div>
                 
-                <button
-                  onClick={() => toggleKnown(question.id)}
+                <div
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleKnown(question.id);
+                  }}
                   className={`ml-4 px-4 py-2 rounded-lg font-medium transition-colors flex items-center ${
                     known
-                      ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-900/50'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }`}
                 >
                   {known ? (
@@ -122,52 +125,32 @@ const QuestionList = ({ filter, sort }) => {
                       Neznám
                     </>
                   )}
-                </button>
+                </div>
               </div>
 
-              <button
-                onClick={() => setExpandedId(expanded ? null : question.id)}
-                className="w-full mt-4 px-4 py-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors flex items-center justify-center font-medium"
-              >
-                {expanded ? (
-                  <>
-                    <FaChevronUp className="mr-2" />
-                    Skrýt odpověď
-                  </>
-                ) : (
-                  <>
-                    <FaChevronDown className="mr-2" />
-                    Zobrazit odpověď
-                  </>
-                )}
-              </button>
-
-              {expanded && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <h4 className="font-semibold text-gray-900 mb-2">Odpověď:</h4>
-                  <div className="text-gray-700 whitespace-pre-wrap">
-                    {question.answer}
-                  </div>
-                  
-                  {question.keywords && question.keywords.length > 0 && (
-                    <div className="mt-4">
-                      <h5 className="text-sm font-semibold text-gray-700 mb-2">Klíčová slova:</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {question.keywords.map((keyword, i) => (
-                          <span
-                            key={i}
-                            className="px-2 py-1 bg-white text-gray-600 text-xs rounded border border-gray-200"
-                          >
-                            {keyword}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+              {question.keywords && question.keywords.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {question.keywords.slice(0, 5).map((keyword, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                  {question.keywords.length > 5 && (
+                    <span className="px-2 py-1 text-gray-500 dark:text-gray-500 text-xs">
+                      +{question.keywords.length - 5} dalších
+                    </span>
                   )}
                 </div>
               )}
+              
+              <div className="mt-4 text-sm text-blue-600 dark:text-blue-400 font-medium">
+                Klikni pro zobrazení odpovědi →
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

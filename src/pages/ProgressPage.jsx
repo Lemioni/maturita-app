@@ -71,24 +71,24 @@ const ProgressPage = () => {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Tvůj pokrok</h1>
-        <p className="text-gray-600">Sleduj, jak se zlepšuješ</p>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Tvůj pokrok</h1>
+        <p className="text-gray-600 dark:text-gray-400">Sleduj, jak se zlepšuješ</p>
       </div>
 
       {/* Overall Progress */}
-      <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg p-8 text-white mb-8">
+      <div className="bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 rounded-2xl shadow-lg p-8 text-white mb-8">
         <h2 className="text-2xl font-bold mb-4">Celkový pokrok v IT</h2>
         <div className="flex items-end justify-between mb-4">
           <div>
             <div className="text-5xl font-bold">{percentage}%</div>
-            <div className="text-blue-100">zvládnuto</div>
+            <div className="text-blue-100 dark:text-blue-200">zvládnuto</div>
           </div>
           <div className="text-right">
             <div className="text-3xl font-bold">{stats.itKnown} / {stats.itTotal}</div>
-            <div className="text-blue-100">otázek</div>
+            <div className="text-blue-100 dark:text-blue-200">otázek</div>
           </div>
         </div>
-        <div className="w-full bg-blue-400 rounded-full h-4">
+        <div className="w-full bg-blue-400 dark:bg-blue-500 rounded-full h-4">
           <div 
             className="bg-white h-4 rounded-full transition-all"
             style={{ width: `${percentage}%` }}
@@ -98,56 +98,56 @@ const ProgressPage = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-3xl font-bold text-green-600">{stats.itKnown}</div>
-              <div className="text-gray-600">Znám</div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400">{stats.itKnown}</div>
+              <div className="text-gray-600 dark:text-gray-400">Znám</div>
             </div>
-            <FaCheck className="text-4xl text-green-200" />
+            <FaCheck className="text-4xl text-green-200 dark:text-green-800" />
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-3xl font-bold text-red-600">{stats.itUnknown}</div>
-              <div className="text-gray-600">Neznám</div>
+              <div className="text-3xl font-bold text-red-600 dark:text-red-400">{stats.itUnknown}</div>
+              <div className="text-gray-600 dark:text-gray-400">Neznám</div>
             </div>
-            <FaTimes className="text-4xl text-red-200" />
+            <FaTimes className="text-4xl text-red-200 dark:text-red-800" />
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-3xl font-bold text-blue-600">{stats.itTotal}</div>
-              <div className="text-gray-600">Celkem</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">{stats.itTotal}</div>
+              <div className="text-gray-600 dark:text-gray-400">Celkem</div>
             </div>
-            <FaClock className="text-4xl text-blue-200" />
+            <FaClock className="text-4xl text-blue-200 dark:text-blue-800" />
           </div>
         </div>
       </div>
 
       {/* By Exam */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Pokrok podle zkoušky</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Pokrok podle zkoušky</h2>
         <div className="space-y-4">
           {Object.entries(stats.byExam).map(([exam, data]) => {
             const examPercentage = data.total > 0 ? Math.round((data.known / data.total) * 100) : 0;
             return (
               <div key={exam}>
                 <div className="flex justify-between mb-2">
-                  <span className="font-medium text-gray-700">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
                     {exam} - {itQuestionsData.exams[exam].name}
                   </span>
-                  <span className="text-gray-600">
+                  <span className="text-gray-600 dark:text-gray-400">
                     {data.known} / {data.total} ({examPercentage}%)
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
                   <div 
-                    className="bg-blue-500 h-2.5 rounded-full transition-all"
+                    className="bg-blue-500 dark:bg-blue-400 h-2.5 rounded-full transition-all"
                     style={{ width: `${examPercentage}%` }}
                   ></div>
                 </div>
@@ -158,22 +158,22 @@ const ProgressPage = () => {
       </div>
 
       {/* By Category */}
-      <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Pokrok podle kategorie</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Pokrok podle kategorie</h2>
         <div className="space-y-4">
           {Object.entries(stats.byCategory).map(([category, data]) => {
             const categoryPercentage = data.total > 0 ? Math.round((data.known / data.total) * 100) : 0;
             return (
               <div key={category}>
                 <div className="flex justify-between mb-2">
-                  <span className="font-medium text-gray-700">{category}</span>
-                  <span className="text-gray-600">
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{category}</span>
+                  <span className="text-gray-600 dark:text-gray-400">
                     {data.known} / {data.total} ({categoryPercentage}%)
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
                   <div 
-                    className="bg-green-500 h-2.5 rounded-full transition-all"
+                    className="bg-green-500 dark:bg-green-400 h-2.5 rounded-full transition-all"
                     style={{ width: `${categoryPercentage}%` }}
                   ></div>
                 </div>
@@ -185,16 +185,16 @@ const ProgressPage = () => {
 
       {/* Recent Activity */}
       {stats.recentActivity.length > 0 && (
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Nedávná aktivita</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Nedávná aktivita</h2>
           <div className="space-y-3">
             {stats.recentActivity.map((activity, index) => (
-              <div key={index} className="flex items-start justify-between p-3 bg-gray-50 rounded-lg">
+              <div key={index} className="flex items-start justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="flex-1">
-                  <div className="font-medium text-gray-900">
+                  <div className="font-medium text-gray-900 dark:text-white">
                     {activity.question?.question}
                   </div>
-                  <div className="text-sm text-gray-500 mt-1">
+                  <div className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                     {new Date(activity.lastReviewed).toLocaleDateString('cs-CZ', {
                       day: 'numeric',
                       month: 'long',
@@ -205,8 +205,8 @@ const ProgressPage = () => {
                 </div>
                 <div className={`ml-4 px-3 py-1 rounded-full text-sm font-medium ${
                   activity.known 
-                    ? 'bg-green-100 text-green-700' 
-                    : 'bg-red-100 text-red-700'
+                    ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300' 
+                    : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300'
                 }`}>
                   {activity.known ? 'Znám' : 'Neznám'}
                 </div>

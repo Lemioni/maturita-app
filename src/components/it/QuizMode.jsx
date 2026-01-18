@@ -56,8 +56,8 @@ const QuizMode = ({ filter }) => {
 
   if (!currentQuestion) {
     return (
-      <div className="bg-white rounded-xl shadow-md p-12 text-center">
-        <p className="text-gray-600">Žádné otázky k zobrazení</p>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-12 text-center">
+        <p className="text-gray-600 dark:text-gray-400">Žádné otázky k zobrazení</p>
       </div>
     );
   }
@@ -68,52 +68,52 @@ const QuizMode = ({ filter }) => {
     <div className="max-w-3xl mx-auto">
       {/* Progress Bar */}
       <div className="mb-6">
-        <div className="flex justify-between text-sm text-gray-600 mb-2">
+        <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
           <span>Otázka {currentIndex + 1} z {questions.length}</span>
           <span>
             Skóre: {score.correct} / {score.total} 
             {score.total > 0 && ` (${Math.round((score.correct / score.total) * 100)}%)`}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
           <div 
-            className="bg-blue-500 h-2 rounded-full transition-all"
+            className="bg-blue-500 dark:bg-blue-400 h-2 rounded-full transition-all"
             style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
           ></div>
         </div>
       </div>
 
       {!isFinished ? (
-        <div className="bg-white rounded-xl shadow-md p-8">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
           <div className="mb-6">
             <div className="flex gap-2 mb-4">
-              <span className="px-3 py-1 text-sm font-medium rounded bg-blue-100 text-blue-700">
+              <span className="px-3 py-1 text-sm font-medium rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
                 {currentQuestion.category}
               </span>
-              <span className="px-3 py-1 text-sm font-medium rounded bg-gray-100 text-gray-700">
+              <span className="px-3 py-1 text-sm font-medium rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
                 {currentQuestion.exam}
               </span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
               {currentQuestion.question}
             </h2>
           </div>
 
           {!showAnswer ? (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Tvoje odpověď:
               </label>
               <textarea
                 value={userAnswer}
                 onChange={(e) => setUserAnswer(e.target.value)}
                 placeholder="Napiš, co víš o této otázce..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                 rows="6"
               />
               <button
                 onClick={handleSubmit}
-                className="mt-4 w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
+                className="mt-4 w-full px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors font-medium"
               >
                 Zobrazit správnou odpověď
               </button>
@@ -121,32 +121,32 @@ const QuizMode = ({ filter }) => {
           ) : (
             <div>
               {userAnswer && (
-                <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">Tvoje odpověď:</h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{userAnswer}</p>
+                <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Tvoje odpověď:</h3>
+                  <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{userAnswer}</p>
                 </div>
               )}
               
-              <div className="p-4 bg-blue-50 rounded-lg mb-6">
-                <h3 className="font-semibold text-gray-900 mb-2">Správná odpověď:</h3>
-                <p className="text-gray-700 whitespace-pre-wrap">{currentQuestion.answer}</p>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg mb-6">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Správná odpověď:</h3>
+                <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{currentQuestion.answer}</p>
               </div>
 
-              <div className="border-t pt-6">
-                <p className="text-center text-gray-700 mb-4 font-medium">
+              <div className="border-t dark:border-gray-700 pt-6">
+                <p className="text-center text-gray-700 dark:text-gray-300 mb-4 font-medium">
                   Odpověděl/a jsi správně?
                 </p>
                 <div className="flex gap-4">
                   <button
                     onClick={() => handleNext(false)}
-                    className="flex-1 flex items-center justify-center px-6 py-3 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors font-medium"
+                    className="flex-1 flex items-center justify-center px-6 py-3 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/70 transition-colors font-medium"
                   >
                     <FaTimes className="mr-2" />
                     Ne, neznám
                   </button>
                   <button
                     onClick={() => handleNext(true)}
-                    className="flex-1 flex items-center justify-center px-6 py-3 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors font-medium"
+                    className="flex-1 flex items-center justify-center px-6 py-3 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/70 transition-colors font-medium"
                   >
                     <FaCheck className="mr-2" />
                     Ano, znám
@@ -157,39 +157,39 @@ const QuizMode = ({ filter }) => {
           )}
         </div>
       ) : (
-        <div className="bg-white rounded-xl shadow-md p-12 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-12 text-center">
           <div className="mb-6">
             <div className="text-6xl mb-4">
               {score.correct / score.total >= 0.8 ? '🎉' : score.correct / score.total >= 0.5 ? '👍' : '📚'}
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
               Kvíz dokončen!
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Tvoje skóre: {score.correct} z {score.total} ({Math.round((score.correct / score.total) * 100)}%)
             </p>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="p-4 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-700">{score.correct}</div>
-              <div className="text-sm text-green-600">Správně</div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
+              <div className="text-2xl font-bold text-green-700 dark:text-green-400">{score.correct}</div>
+              <div className="text-sm text-green-600 dark:text-green-500">Správně</div>
             </div>
-            <div className="p-4 bg-red-50 rounded-lg">
-              <div className="text-2xl font-bold text-red-700">{score.total - score.correct}</div>
-              <div className="text-sm text-red-600">Špatně</div>
+            <div className="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
+              <div className="text-2xl font-bold text-red-700 dark:text-red-400">{score.total - score.correct}</div>
+              <div className="text-sm text-red-600 dark:text-red-500">Špatně</div>
             </div>
-            <div className="p-4 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-bold text-blue-700">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+              <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">
                 {Math.round((score.correct / score.total) * 100)}%
               </div>
-              <div className="text-sm text-blue-600">Úspěšnost</div>
+              <div className="text-sm text-blue-600 dark:text-blue-500">Úspěšnost</div>
             </div>
           </div>
 
           <button
             onClick={handleRestart}
-            className="flex items-center justify-center mx-auto px-8 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium"
+            className="flex items-center justify-center mx-auto px-8 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors font-medium"
           >
             <FaRedo className="mr-2" />
             Zkusit znovu

@@ -75,10 +75,10 @@ const HomePage = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
           Příprava na maturitu
         </h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 dark:text-gray-400">
           IT a Čeština - vše na jednom místě
         </p>
       </div>
@@ -116,22 +116,22 @@ const HomePage = () => {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl shadow-md p-8">
-        <h2 className="text-2xl font-bold mb-4 text-gray-900">Rychlý start</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 border border-transparent dark:border-gray-700">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Rychlý start</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link 
             to="/it" 
-            className="p-4 border-2 border-blue-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-colors"
+            className="p-4 border-2 border-blue-200 dark:border-blue-800 rounded-lg hover:border-blue-400 dark:hover:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors"
           >
-            <h3 className="font-semibold text-blue-600 mb-1">Náhodná IT otázka</h3>
-            <p className="text-sm text-gray-600">Procvič si jednu náhodnou otázku</p>
+            <h3 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">Náhodná IT otázka</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Procvič si jednu náhodnou otázku</p>
           </Link>
           <Link 
             to="/flashcards" 
-            className="p-4 border-2 border-orange-200 rounded-lg hover:border-orange-400 hover:bg-orange-50 transition-colors"
+            className="p-4 border-2 border-orange-200 dark:border-orange-800 rounded-lg hover:border-orange-400 dark:hover:border-orange-600 hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-colors"
           >
-            <h3 className="font-semibold text-orange-600 mb-1">Flashcards</h3>
-            <p className="text-sm text-gray-600">Rychlé opakování kartiček</p>
+            <h3 className="font-semibold text-orange-600 dark:text-orange-400 mb-1">Flashcards</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Rychlé opakování kartiček</p>
           </Link>
         </div>
       </div>
