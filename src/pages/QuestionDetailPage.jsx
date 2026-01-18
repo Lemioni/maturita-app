@@ -1,10 +1,11 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import itQuestionsData from '../data/it-questions.json';
 import useLocalStorage from '../hooks/useLocalStorage';
-import formatAnswer from '../utils/formatAnswer';
+import formatAnswer, { extractTableOfContents } from '../utils/formatAnswer';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
+import TableOfContents from '../components/common/TableOfContents';
 
 const QuestionDetailPage = () => {
   const { id } = useParams();
@@ -18,6 +19,12 @@ const QuestionDetailPage = () => {
   
   const questionId = parseInt(id);
   const question = itQuestionsData.questions.find(q => q.id === questionId);
+  
+  // Extract table of contents from answer
+  const tableOfContents = useMemo(() => {
+    if (!question) return [];
+    return extractTableOfContents(question.answer);
+  }, [question]);
   
   if (!question) {
     return (
@@ -97,9 +104,14 @@ const QuestionDetailPage = () => {
           &gt; ANSWER
         </div>
         
+        {/* Table of Contents */}
+        {tableOfContents.length > 0 && (
+          <TableOfContents sections={tableOfContents} />
+        )}
+        
         <div 
           className="prose prose-invert prose-sm max-w-none text-terminal-text/90"
-          dangerouslySetInnerHTML={{ __html: formatAnswer(question.answer) }}
+          dangerouslySetInnerHTML={{ __html: formatAnswer(question.answer, question.keywords) }}
         />
         
         {/* Keywords */}
