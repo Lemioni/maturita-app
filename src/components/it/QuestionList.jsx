@@ -78,7 +78,7 @@ const QuestionList = ({ filter, sort }) => {
                   </span>
                   <span className="text-xs text-terminal-text/40">{question.exam}</span>
                 </div>
-                <h3 className="text-sm text-terminal-text group-hover:text-terminal-green transition-colors">
+                 <h3 className="text-sm text-terminal-text group-hover:text-terminal-accent transition-colors">
                   {question.question}
                 </h3>
 

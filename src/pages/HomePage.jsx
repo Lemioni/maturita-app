@@ -6,7 +6,7 @@ const HomePage = () => {
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Header */}
       <div className="border-b border-terminal-border/20 pb-4">
-        <h1 className="text-2xl font-bold text-terminal-green tracking-wider">
+         <h1 className="text-2xl font-bold text-terminal-accent tracking-wider">
           &gt; DASHBOARD
         </h1>
       </div>

@@ -32,7 +32,7 @@ const QuestionDetailPage = () => {
         <div className="terminal-card border-l-4 border-terminal-red">
           <h2 className="text-lg font-bold text-terminal-red mb-2">ERROR: QUESTION NOT FOUND</h2>
           <p className="text-terminal-text/60 mb-4">Question #{id} does not exist.</p>
-          <Link to="/it" className="text-terminal-green hover:underline">
+           <Link to="/it" className="text-terminal-accent hover:underline">
             ← BACK TO LIST
           </Link>
         </div>
@@ -65,7 +65,7 @@ const QuestionDetailPage = () => {
       {/* Back Button */}
       <button
         onClick={() => navigate('/it')}
-        className="flex items-center text-terminal-green hover:text-terminal-border transition-colors"
+        className="flex items-center text-terminal-accent hover:text-terminal-border transition-colors"
       >
         <FaArrowLeft className="mr-2" />
         BACK
@@ -83,7 +83,7 @@ const QuestionDetailPage = () => {
           </span>
         </div>
         
-        <h1 className="text-2xl font-bold text-terminal-green mb-4">
+         <h1 className="text-2xl font-bold text-terminal-accent mb-4">
           {question.question}
         </h1>
         

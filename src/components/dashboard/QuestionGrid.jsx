@@ -62,10 +62,10 @@ const QuestionGrid = () => {
         </div>
 
         {/* Stats in corner */}
-        <div className="text-xs text-terminal-text/60">
-          <span className="text-terminal-green">{stats.known}</span>
-          <span className="mx-1">/</span>
-          <span className="text-terminal-red">{stats.unknown}</span>
+         <div className="text-xs text-terminal-text/60">
+           <span className="text-terminal-accent">{stats.known}</span>
+           <span className="mx-1">/</span>
+           <span className="text-terminal-red">{stats.unknown}</span>
           <span className="mx-1">/</span>
           <span>{stats.total}</span>
         </div>

@@ -22,7 +22,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link to="/" className="text-terminal-green font-bold tracking-wider">
+           <Link to="/" className="text-terminal-accent font-bold tracking-wider">
             &gt; MATURITA
           </Link>
           

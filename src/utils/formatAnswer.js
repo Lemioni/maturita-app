@@ -75,7 +75,7 @@ export const formatAnswer = (text, keywords = []) => {
     const sectionMatch = line.match(/^(\d+)\.\s+(.+)/);
     if (sectionMatch && line.length < 100) {
       const sectionId = `section-${sectionMatch[1]}`;
-      formattedHTML += `<h3 id="${sectionId}" class="text-xl font-bold mt-6 mb-3 text-terminal-green scroll-mt-20">${escapeHtml(line)}</h3>`;
+      formattedHTML += `<h3 id="${sectionId}" class="text-xl font-bold mt-6 mb-3 text-terminal-accent scroll-mt-20">${escapeHtml(line)}</h3>`;
       continue;
     }
     
@@ -128,7 +128,7 @@ const renderTable = (rows) => {
     const isHeader = index === 0;
     const tag = isHeader ? 'th' : 'td';
     const className = isHeader 
-      ? 'border border-terminal-border/30 px-4 py-2 bg-terminal-border/10 font-semibold text-terminal-green'
+      ? 'border border-terminal-border/30 px-4 py-2 bg-terminal-border/10 font-semibold text-terminal-accent'
       : 'border border-terminal-border/30 px-4 py-2 text-terminal-text/90';
     
     html += '<tr>';

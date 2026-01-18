@@ -85,7 +85,7 @@ const FlashcardMode = ({ filter }) => {
       {parentQuestion && (
         <Link 
           to={`/it/question/${parentQuestion.id}`}
-          className="block text-xs text-terminal-green hover:text-terminal-border transition-colors border-l-2 border-terminal-border/30 pl-2"
+           className="block text-xs text-terminal-accent hover:text-terminal-border transition-colors border-l-2 border-terminal-border/30 pl-2"
         >
           &gt; FROM Q#{parentQuestion.id}: {parentQuestion.question}
         </Link>
@@ -103,7 +103,7 @@ const FlashcardMode = ({ filter }) => {
           {/* Front */}
           <div className={`absolute w-full h-full backface-hidden p-8 ${isFlipped ? 'hidden' : ''}`}>
             <div className="flex flex-col items-center justify-center h-full">
-              <div className="text-xs text-terminal-green/60 mb-4 tracking-wider">
+               <div className="text-xs text-terminal-accent/60 mb-4 tracking-wider">
                 &gt; QUESTION
               </div>
               <h2 className="text-xl text-center text-terminal-text">
@@ -118,7 +118,7 @@ const FlashcardMode = ({ filter }) => {
           {/* Back */}
           <div className={`absolute w-full h-full backface-hidden p-8 ${!isFlipped ? 'hidden' : ''}`}>
             <div className="flex flex-col h-full">
-              <div className="text-xs text-terminal-green/60 mb-3 tracking-wider">
+               <div className="text-xs text-terminal-accent/60 mb-3 tracking-wider">
                 &gt; ANSWER
               </div>
               <div className="flex-1 overflow-y-auto">

@@ -16,13 +16,13 @@ const TableOfContents = ({ sections }) => {
   };
 
   return (
-    <div className="terminal-card mb-4 border-l-4 border-terminal-green">
+    <div className="terminal-card mb-4 border-l-4 border-terminal-accent">
       {/* Header */}
       <div 
         className="flex items-center justify-between cursor-pointer"
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
-        <div className="text-xs text-terminal-green font-bold tracking-wider">
+         <div className="text-xs text-terminal-accent font-bold tracking-wider">
           &gt; OBSAH
         </div>
         <button className="icon-btn p-1">
@@ -37,9 +37,9 @@ const TableOfContents = ({ sections }) => {
             <button
               key={section.id}
               onClick={() => handleSectionClick(section.id)}
-              className="block w-full text-left text-sm text-terminal-text/80 hover:text-terminal-green hover:pl-2 transition-all duration-150"
+               className="block w-full text-left text-sm text-terminal-text/80 hover:text-terminal-accent hover:pl-2 transition-all duration-150"
             >
-              <span className="text-terminal-green/60 mr-2">{section.number}.</span>
+              <span className="text-terminal-accent/60 mr-2">{section.number}.</span>
               {section.title}
             </button>
           ))}

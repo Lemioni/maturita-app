@@ -32,7 +32,7 @@ const MaturityCountdown = () => {
       <div className="flex items-center gap-4">
         <FaCalendarAlt className="text-terminal-border text-2xl" />
         <div>
-          <div className="text-3xl font-bold text-terminal-green">
+           <div className="text-3xl font-bold text-terminal-accent">
             {daysLeft > 0 ? daysLeft : 0}
           </div>
           <div className="text-xs text-terminal-text/60">DNÍ DO MATURITY</div>

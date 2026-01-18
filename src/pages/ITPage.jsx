@@ -34,7 +34,7 @@ const ITPage = () => {
     <div className="max-w-7xl mx-auto space-y-4">
       {/* Header */}
       <div className="border-b border-terminal-border/20 pb-3">
-        <h1 className="text-xl text-terminal-green tracking-wider">
+         <h1 className="text-xl text-terminal-accent tracking-wider">
           &gt; IT OTÁZKY
         </h1>
       </div>

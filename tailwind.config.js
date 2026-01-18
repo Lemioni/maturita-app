@@ -14,16 +14,18 @@ export default {
         terminal: {
           bg: '#0a0a0a',
           text: '#e0e0e0',
-          border: '#33ff33',
-          glow: '#00ff00',
+          border: '#ffffff',
+          accent: '#ffffff', // bílá pro text/bordery
+          glow: '#ffffff',
           red: '#ff3333',
-          green: '#33ff33',
+          green: '#33ff33', // zelená jen pro checkboxy
           dim: '#1a1a1a',
         },
       },
       boxShadow: {
         'glow-green': '0 0 10px rgba(51, 255, 51, 0.3)',
         'glow-red': '0 0 10px rgba(255, 51, 51, 0.3)',
+        'glow-white': '0 0 10px rgba(255, 255, 255, 0.3)',
       },
     },
   },
