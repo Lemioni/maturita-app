@@ -4,20 +4,29 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors;
+    @apply font-mono bg-terminal-bg text-terminal-text transition-colors;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply px-4 py-2 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors;
+  /* Terminal-style card with glowing border */
+  .terminal-card {
+    @apply bg-terminal-dim border border-terminal-border/30 rounded-sm p-4 
+           hover:border-terminal-border/60 transition-all duration-200;
   }
   
-  .btn-secondary {
-    @apply px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded-lg hover:bg-green-600 dark:hover:bg-green-700 transition-colors;
+  /* Glowing border effect */
+  .terminal-glow {
+    @apply shadow-glow-green;
   }
   
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow border border-transparent dark:border-gray-700;
+  /* Icon button - minimal style */
+  .icon-btn {
+    @apply p-2 border border-terminal-text/20 hover:border-terminal-border/60 
+           rounded-sm transition-all duration-200 hover:shadow-glow-green;
+  }
+  
+  .icon-btn.active {
+    @apply border-terminal-border bg-terminal-border/10 shadow-glow-green;
   }
 }

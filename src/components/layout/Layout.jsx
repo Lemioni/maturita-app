@@ -2,14 +2,14 @@ import Header from './Header';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-terminal-bg">
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-6">
         {children}
       </main>
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-12 transition-colors">
-        <div className="container mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400">
-          <p>Maturitní aplikace IT + Čeština © 2026</p>
+      <footer className="border-t border-terminal-border/20 mt-12">
+        <div className="container mx-auto px-4 py-4 text-center text-terminal-text/40 text-xs">
+          <p>&gt; MATURITA.APP © 2026</p>
         </div>
       </footer>
     </div>

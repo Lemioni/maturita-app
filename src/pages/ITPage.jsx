@@ -1,93 +1,103 @@
-import { useState, useEffect } from 'react';
-import { FaList, FaLayerGroup, FaQuestion } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaList, FaLayerGroup, FaQuestion, FaFilter, FaSortAmountDown } from 'react-icons/fa';
 import itQuestionsData from '../data/it-questions.json';
 import QuestionList from '../components/it/QuestionList';
 import FlashcardMode from '../components/it/FlashcardMode';
 import QuizMode from '../components/it/QuizMode';
 
 const ITPage = () => {
-  const [mode, setMode] = useState('list'); // 'list', 'flashcard', 'quiz'
-  const [filter, setFilter] = useState('all'); // 'all', 'IKT1', 'IKT2', or category name
-  const [sort, setSort] = useState('chronological'); // 'chronological', 'exam', 'category'
+  const [mode, setMode] = useState('list');
+  const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('chronological');
+  const [showFilters, setShowFilters] = useState(false);
 
   const modes = [
-    { id: 'list', icon: FaList, label: 'Seznam otázek', 
-      activeClass: 'border-blue-500 bg-blue-50 text-blue-700' },
-    { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcard režim', 
-      activeClass: 'border-green-500 bg-green-50 text-green-700' },
-    { id: 'quiz', icon: FaQuestion, label: 'Kvíz', 
-      activeClass: 'border-orange-500 bg-orange-50 text-orange-700' },
+    { id: 'list', icon: FaList },
+    { id: 'flashcard', icon: FaLayerGroup },
+    { id: 'quiz', icon: FaQuestion },
+  ];
+
+  const filters = [
+    { id: 'all', label: 'ALL' },
+    { id: 'IKT1', label: 'IKT1' },
+    { id: 'IKT2', label: 'IKT2' },
+    ...itQuestionsData.categories.map(cat => ({ id: cat, label: cat.substring(0, 4).toUpperCase() }))
+  ];
+
+  const sorts = [
+    { id: 'chronological', label: 'CHR' },
+    { id: 'exam', label: 'EXM' },
+    { id: 'category', label: 'CAT' },
   ];
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">IT Otázky</h1>
-        <p className="text-gray-600 dark:text-gray-400">47 maturitních otázek z IKT</p>
+    <div className="max-w-7xl mx-auto space-y-4">
+      {/* Header */}
+      <div className="border-b border-terminal-border/20 pb-3">
+        <h1 className="text-xl text-terminal-green tracking-wider">
+          &gt; IT OTÁZKY
+        </h1>
       </div>
 
-      {/* Mode Selection */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-6">
-        <h2 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">Režim učení</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {modes.map((m) => (
-            <button
-              key={m.id}
-              onClick={() => setMode(m.id)}
-              className={`flex items-center justify-center p-4 rounded-lg border-2 transition-all ${
-                mode === m.id
-                  ? m.activeClass
-                  : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 text-gray-700 dark:text-gray-300'
-              }`}
-            >
-              <m.icon className="mr-3 text-xl" />
-              <span className="font-medium">{m.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* Controls Bar */}
+      <div className="terminal-card">
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Mode Selection - Icon only */}
+          <div className="flex gap-1 border-r border-terminal-border/20 pr-3">
+            {modes.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => setMode(m.id)}
+                className={`icon-btn ${mode === m.id ? 'active' : ''}`}
+                title={m.id}
+              >
+                <m.icon />
+              </button>
+            ))}
+          </div>
 
-      {/* Filters and Sorting */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Filtrovat
-            </label>
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="all">Všechny otázky</option>
-              <option value="IKT1">IKT 1 (Hardware, OS, Sítě)</option>
-              <option value="IKT2">IKT 2 (Programování, DB)</option>
-              <optgroup label="Kategorie">
-                {itQuestionsData.categories.map((cat) => (
-                  <option key={cat} value={cat}>{cat}</option>
+          {/* Filter Toggle */}
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className={`icon-btn ${showFilters ? 'active' : ''}`}
+            title="Filtry"
+          >
+            <FaFilter />
+          </button>
+
+          {/* Filter Pills - Hidden by default */}
+          {showFilters && (
+            <>
+              <div className="flex gap-1 flex-wrap">
+                {filters.slice(0, 6).map((f) => (
+                  <button
+                    key={f.id}
+                    onClick={() => setFilter(f.id)}
+                    className={`icon-btn text-xs px-2 ${filter === f.id ? 'active' : ''}`}
+                  >
+                    {f.label}
+                  </button>
                 ))}
-              </optgroup>
-            </select>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Seřadit podle
-            </label>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="chronological">Chronologicky (1-47)</option>
-              <option value="exam">Podle zkoušky (IKT 1/2)</option>
-              <option value="category">Podle kategorie</option>
-            </select>
-          </div>
+              </div>
+
+              <div className="flex gap-1 border-l border-terminal-border/20 pl-3">
+                <FaSortAmountDown className="text-terminal-text/40 self-center" />
+                {sorts.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setSort(s.id)}
+                    className={`icon-btn text-xs px-2 ${sort === s.id ? 'active' : ''}`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
-      {/* Content based on mode */}
+      {/* Content */}
       <div>
         {mode === 'list' && <QuestionList filter={filter} sort={sort} />}
         {mode === 'flashcard' && <FlashcardMode filter={filter} />}

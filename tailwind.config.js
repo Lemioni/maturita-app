@@ -4,13 +4,26 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // Enable class-based dark mode
+  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['Consolas', 'Monaco', 'Courier New', 'monospace'],
+      },
       colors: {
-        primary: '#3B82F6',
-        secondary: '#10B981',
-        accent: '#F59E0B',
+        terminal: {
+          bg: '#0a0a0a',
+          text: '#e0e0e0',
+          border: '#33ff33',
+          glow: '#00ff00',
+          red: '#ff3333',
+          green: '#33ff33',
+          dim: '#1a1a1a',
+        },
+      },
+      boxShadow: {
+        'glow-green': '0 0 10px rgba(51, 255, 51, 0.3)',
+        'glow-red': '0 0 10px rgba(255, 51, 51, 0.3)',
       },
     },
   },
