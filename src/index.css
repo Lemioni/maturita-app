@@ -29,4 +29,50 @@
   .icon-btn.active {
     @apply border-terminal-border bg-terminal-border/10 shadow-glow-green;
   }
+  
+  /* Markdown content styling */
+  .markdown-body {
+    @apply text-terminal-text/90 leading-relaxed;
+  }
+  
+  .markdown-body > *:first-child {
+    @apply mt-0;
+  }
+  
+  .markdown-body > *:last-child {
+    @apply mb-0;
+  }
+  
+  /* Alert boxes */
+  .alert-box {
+    @apply rounded-r transition-all duration-200;
+  }
+  
+  .alert-box:hover {
+    @apply shadow-md;
+  }
+  
+  /* Keyword highlighting */
+  .keyword-highlight {
+    @apply bg-terminal-accent/20 text-terminal-accent px-0.5 rounded-sm font-medium;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Better list styling in markdown */
+  .markdown-body ul ul,
+  .markdown-body ol ol,
+  .markdown-body ul ol,
+  .markdown-body ol ul {
+    @apply mt-1 mb-0;
+  }
+  
+  /* Table hover effect */
+  .markdown-body table tr:hover td {
+    @apply bg-terminal-border/10;
+  }
+  
+  /* Smooth scroll for TOC navigation */
+  html {
+    scroll-behavior: smooth;
+  }
 }

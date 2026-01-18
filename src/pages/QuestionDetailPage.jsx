@@ -3,9 +3,10 @@ import { FaArrowLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useEffect, useMemo } from 'react';
 import itQuestionsData from '../data/it-questions.json';
 import useLocalStorage from '../hooks/useLocalStorage';
-import formatAnswer, { extractTableOfContents } from '../utils/formatAnswer';
+import { extractHeadings } from '../utils/markdownComponents';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
+import MarkdownRenderer from '../components/common/MarkdownRenderer';
 
 const QuestionDetailPage = () => {
   const { id } = useParams();
@@ -16,36 +17,36 @@ const QuestionDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
-  
+
   const questionId = parseInt(id);
   const question = itQuestionsData.questions.find(q => q.id === questionId);
-  
-  // Extract table of contents from answer
+
+  // Extract table of contents from answer (now using Markdown headings)
   const tableOfContents = useMemo(() => {
     if (!question) return [];
-    return extractTableOfContents(question.answer);
+    return extractHeadings(question.answer);
   }, [question]);
-  
+
   if (!question) {
     return (
       <div className="max-w-4xl mx-auto">
         <div className="terminal-card border-l-4 border-terminal-red">
           <h2 className="text-lg font-bold text-terminal-red mb-2">ERROR: QUESTION NOT FOUND</h2>
           <p className="text-terminal-text/60 mb-4">Question #{id} does not exist.</p>
-           <Link to="/it" className="text-terminal-accent hover:underline">
+          <Link to="/it" className="text-terminal-accent hover:underline">
             ← BACK TO LIST
           </Link>
         </div>
       </div>
     );
   }
-  
+
   const currentIndex = itQuestionsData.questions.findIndex(q => q.id === questionId);
   const prevQuestion = currentIndex > 0 ? itQuestionsData.questions[currentIndex - 1] : null;
   const nextQuestion = currentIndex < itQuestionsData.questions.length - 1 ? itQuestionsData.questions[currentIndex + 1] : null;
-  
+
   const isKnown = progress.itQuestions?.[questionId]?.known || false;
-  
+
   const toggleKnown = (known) => {
     setProgress(prev => ({
       ...prev,
@@ -59,7 +60,7 @@ const QuestionDetailPage = () => {
       }
     }));
   };
-  
+
   return (
     <div className="max-w-5xl mx-auto space-y-4">
       {/* Back Button */}
@@ -70,7 +71,7 @@ const QuestionDetailPage = () => {
         <FaArrowLeft className="mr-2" />
         BACK
       </button>
-      
+
       {/* Question Header */}
       <div className="terminal-card">
         <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -82,11 +83,11 @@ const QuestionDetailPage = () => {
             {question.exam}
           </span>
         </div>
-        
-         <h1 className="text-2xl font-bold text-terminal-accent mb-4">
+
+        <h1 className="text-2xl font-bold text-terminal-accent mb-4">
           {question.question}
         </h1>
-        
+
         {/* Checkbox */}
         <div className="flex items-center gap-3">
           <span className="text-xs text-terminal-text/60">STATUS:</span>
@@ -97,23 +98,23 @@ const QuestionDetailPage = () => {
           />
         </div>
       </div>
-      
+
       {/* Answer Content */}
       <div className="terminal-card">
         <div className="text-xs text-terminal-text/60 mb-3 pb-2 border-b border-terminal-border/20">
           &gt; ANSWER
         </div>
-        
+
         {/* Table of Contents */}
         {tableOfContents.length > 0 && (
           <TableOfContents sections={tableOfContents} />
         )}
-        
-        <div 
-          className="prose prose-invert prose-sm max-w-none text-terminal-text/90"
-          dangerouslySetInnerHTML={{ __html: formatAnswer(question.answer, question.keywords) }}
+
+        <MarkdownRenderer
+          content={question.answer}
+          keywords={question.keywords}
         />
-        
+
         {/* Keywords */}
         {question.keywords && question.keywords.length > 0 && (
           <div className="mt-6 pt-4 border-t border-terminal-border/20">
@@ -131,7 +132,7 @@ const QuestionDetailPage = () => {
           </div>
         )}
       </div>
-      
+
       {/* Navigation */}
       <div className="flex justify-between items-center">
         {prevQuestion ? (
@@ -145,7 +146,7 @@ const QuestionDetailPage = () => {
         ) : (
           <div></div>
         )}
-        
+
         {nextQuestion ? (
           <Link
             to={`/it/question/${nextQuestion.id}`}

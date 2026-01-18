@@ -9,11 +9,60 @@
   "exams": {
     "IKT1": {
       "name": "Hardware, Operační systémy, Počítačové sítě",
-      "questions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+      "questions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ]
     },
     "IKT2": {
       "name": "Programování, Databázové systémy",
-      "questions": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+      "questions": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ]
     }
   },
   "questions": [
@@ -22,8 +71,24 @@
       "exam": "IKT1",
       "question": "Napájecí zdroje PC, záložní zdroje energie UPS, Case a chlazení PC",
       "category": "Hardware",
-      "answer": "Napájecí zdroje PC, záložní zdroje energie UPS a počítačové skříně\n\nVelký obrázek\n\nTato maturitní otázka pokrývá tři klíčové hardwarové komponenty, které tvoří základ každého počítače: napájecí zdroj (PSU), který poskytuje energii všem součástkám; záložní zdroj UPS, který chrání hardware a data před výpadky proudu; a počítačovou skříň (case), která zajišťuje mechanickou ochranu, chlazení a správné uspořádání komponent.\n\n1. Napájecí zdroje PC (PSU)\n\nNapájecí zdroj (PSU – Power Supply Unit) je srdcem počítače, které transformuje střídavé napětí z elektrické sítě (230 V) na stabilní stejnosměrné napětí (+3,3 V, +5 V, +12 V) potřebné pro provoz všech vnitřních komponent. Kvalita zdroje přímo ovlivňuje stabilitu celého systému, jeho životnost a energetickou efektivitu. Moderní zdroje jsou konstruovány jako spínané zdroje, což umožňuje vysoký výkon při malých rozměrech.\n\nZnalostní základ (Co MUSÍŠ znát)\n\nFunkce: Přeměna AC (střídavý proud) na DC (stejnosměrný proud)\nVýstupní napětí: Hlavní větve jsou +12 V (pro CPU a GPU), +5 V a +3,3 V (pro desku a disky)\nStandard ATX: Definuje rozměry zdroje a typy konektorů\nÚčinnost (80 PLUS): Certifikace zaručující minimální energetické ztráty\n\nPrincip spínaného zdroje (SMPS)\n\nNa rozdíl od starých lineárních zdrojů s těžkým transformátorem pracují moderní PC zdroje na principu vysokofrekvenčního spínání:\n\n- Vstupní napětí (230 V) je usměrněno a vyhlazeno\n- Tranzistory jej \"rozsekají\" na vysokou frekvenci (desítky kHz)\n- Malý transformátor sníží napětí\n- Výstup je znovu usměrněn a vyfiltrován na přesné hodnoty\n\nKonektory zdroje\n\n- 24-pin ATX: Hlavní napájení základní desky\n- 4/8-pin EPS: Napájení pro procesor (CPU)\n- 6/8-pin PCIe: Napájení pro výkonné grafické karty\n- SATA: Napájení pro HDD, SSD a optické mechaniky\n- Molex: Starší typ konektoru pro ventilátory nebo starší disky\n\nParametry a certifikace\n\nVýkon (Wattáž)\n\nCelkový výkon musí pokrýt špičkový odběr všech komponent s rezervou (ideálně 20–30 %).\n\nCertifikace 80 PLUS\n\nUdává účinnost zdroje při různém zatížení. Čím vyšší certifikace, tím méně energie se přemění na odpadní teplo.\n\nÚrovně: 80 PLUS Standard / Bronze / Silver / Gold / Platinum / Titanium\n\nKonstrukce kabeláže\n\n- Nemodulární: Všechny kabely jsou pevně připojené\n- Semi-modulární: Hlavní kabely (24-pin) jsou pevné, ostatní lze odpojit\n- Plně modulární: Všechny kabely lze odpojit (usnadňuje montáž a airflow)\n\nVýznam +12V větve\n\nV moderních PC je nejdůležitější +12V větev, protože z ní odebírají energii energeticky nejnáročnější komponenty (CPU a GPU). Kvalitní zdroje mají silnou \"single rail\" +12V větev, která dokáže dodat téměř celý výkon zdroje právě do této větve.\n\nSignály PS_ON a PWR_OK\n\n- PS_ON: Signál, kterým základní deska zapíná zdroj (zkratováním na zem)\n- PWR_OK (Power Good): Signál, kterým zdroj oznamuje desce, že napětí jsou stabilizovaná a bezpečná pro start CPU\n\n2. Záložní zdroje energie UPS\n\nUPS (Uninterruptible Power Supply) neboli záložní zdroj energie je klíčovým prvkem pro ochranu hardware a dat. V případě výpadku proudu okamžitě přebírá napájení z vlastních akumulátorů, čímž poskytuje čas pro bezpečné uložení práce a vypnutí systému, nebo překlenutí krátkodobých výpadků. Kromě zálohování energie funguje UPS také jako filtr, který chrání připojená zařízení před přepětím, podpětím a rušením v elektrické síti.\n\nZnalostní základ (Co MUSÍŠ znát)\n\nHlavní účel: Ochrana před ztrátou dat při výpadku a ochrana hardware před poškozením výkyvy napětí\nKlíčová součást: Akumulátor (nejčastěji olověný VRLA) a elektronika pro správu nabíjení a přepínání\nVýkon: Udává se ve voltampérech (VA) nebo wattech (W)\nTypy: Rozlišujeme tři základní architektury: Off-line, Line-interactive a On-line\n\nTypy UPS\n\nOff-line (Standby) UPS\n\nPrincip: Nejjednodušší a nejlevnější varianta. Za běžného stavu prochází proud ze sítě přímo do zařízení. Při výpadku nebo výrazném výkyvu elektronika přepne na baterii.\n\nPřepínací doba: 5–15 ms (v této době je zařízení bez napájení, což standardní zdroje PC díky kondenzátorům překlenou)\n\nPoužití: Běžná domácí PC, monitory, nenáročná elektronika\n\nLine-interactive UPS\n\nPrincip: Obsahuje autotransformátor s funkcí AVR (Automatic Voltage Regulation). Dokáže vyrovnávat mírné podpětí nebo přepětí bez nutnosti vybíjet baterii.\n\nPřepínací doba: 2–5 ms\n\nPoužití: Kancelářské stanice, herní PC, malé servery\n\nOn-line (Double Conversion) UPS\n\nPrincip: Napětí ze sítě je trvale usměrněno na stejnosměrné (nabíjí baterii) a následně střídačem zpět převedeno na čisté střídavé napětí.\n\nPřepínací doba: 0 ms (žádná). Zařízení je trvale napájeno z měniče.\n\nVýhody: Dokonalá filtrace, naprosto čistá sinusoida, maximální ochrana\n\nNevýhody: Vyšší cena, hlučnost (ventilátory), nižší účinnost (ztráty při dvojité konverzi)\n\nPoužití: Kritické servery, zdravotnická zařízení, datová centra\n\nKlíčové parametry\n\nKapacita a doba zálohování: Závisí na kapacitě baterií a zátěži. Obvykle dimenzováno na 5–15 minut při plném zatížení.\n\nTvar výstupního napětí:\n- Aproximovaná sinusoida: Levnější UPS, schodovitý průběh (může vadit citlivým zdrojům s aktivním PFC)\n- Čistá sinusoida: Kvalitní UPS, stejný průběh jako v zásuvce\n\nKomunikace s PC: Většina UPS má USB nebo síťový port pro automatické vypnutí PC při vybití baterie.\n\nVýpočet potřebného výkonu\n\nPři výběru UPS je nutné počítat s rezervou. Pokud má PC zdroj 500 W, UPS by měla mít výkon alespoň 800–1000 VA (vzhledem k účiníku a špičkovým odběrům).\n\nŽivotnost baterií\n\nAkumulátory v UPS mají omezenou životnost (typicky 3–5 let). Teplo je jejich největším nepřítelem – umístění UPS v nevětraném prostoru výrazně zkracuje životnost baterie.\n\n3. Počítačové skříně (Case)\n\nPočítačová skříň (case) není jen \"krabice na součástky\". Je to komplexní mechanický systém, který plní několik kritických funkcí: drží komponenty pohromadě, chrání je před prachem a poškozením, zajišťuje elektrické stínění (EMI) a především definuje cestu pro proudění vzduchu (airflow). Kvalitní skříň je základem pro tichý a stabilní počítač s dlouhou životností.\n\nZnalostní základ (Co MUSÍŠ znát)\n\nFunkce: Mechanická ochrana, nosná konstrukce, stínění (EMI), chlazení\nFormáty (Standardy): Definuje, jakou základní desku lze osadit (ATX, Micro-ATX, Mini-ITX)\nMateriály: Nejčastěji ocel (SECC), hliník, plast a dnes i temperované sklo\nAirflow: Systém uspořádání ventilátorů pro efektivní odvod tepla\n\nFormáty a rozměry skříní\n\nTyp skříně se vybírá podle plánovaného využití a velikosti základní desky:\n\nFormát | Typické použití | Max. velikost desky\nBig Tower | Servery, high-end pracovní stanice | E-ATX, ATX\nMidi/Middle Tower | Nejběžnější herní a domácí PC | ATX, Micro-ATX\nMini Tower | Kancelářské sestavy | Micro-ATX, Mini-ITX\nSFF (Small Form Factor) | Kompaktní multimediální PC | Mini-ITX\nRackmount | Montáž do serverových rozvaděčů | Podle typu (1U, 2U, 4U...)\n\nVnitřní uspořádání\n\nPozice (Bays):\n- 3.5\" a 2.5\" – pro pevné disky a SSD\n- 5.25\" (vnější) – dnes již vzácné, dříve pro optické mechaniky\n\nManagement kabeláže: Prostor za pravou bočnicí pro skrytí kabelů, což zlepšuje vzhled i airflow.\n\nEMI stínění: Kovová konstrukce zabraňuje vyzařování elektromagnetického rušení ven a zároveň chrání komponenty před vnějším rušením.\n\nAirflow (Proudění vzduchu)\n\nSprávný airflow je klíčový. Vzduch by měl proudit jedním směrem (zepředu dozadu a zespodu nahoru).\n\n- Pozitivní tlak: Více vzduchu je nasáváno dovnitř než vyfukováno ven. Výhoda: prach se nedostává dovnitř škvírami, ale pouze přes filtry\n- Negativní tlak: Více vzduchu je vyfukováno ven. Výhoda: rychlejší odvod tepla, ale PC nasává prach všemi netěsnostmi\n- Neutrální tlak: Vyvážený stav\n\nModerní trendy\n\n- Perforace (Mesh): Přední panely z mřížky pro maximální přísun vzduchu\n- Temperované sklo: Estetika, umožňuje pohled na komponenty\n- Prachové filtry: Magnetické mřížky, které výrazně usnadňují údržbu\n- Vertikální montáž GPU: Estetická záležitost u herních PC\n\nFront Panel konektory\n\nSkříň obsahuje kabely pro propojení tlačítek (Power, Reset) a portů (USB, Audio) se základní deskou. Zapojení se provádí do tzv. JFP1 (Front Panel) konektoru na desce.\n\nKontrolní otázky k opakování\n\n- Jaké jsou hlavní výstupní hodnoty napětí v PC zdroji?\n- Vysvětlete výhodu spínaného zdroje oproti klasickému lineárnímu\n- Co nám říká certifikace 80 PLUS Gold?\n- K čemu slouží konektory EPS a PCIe?\n- Jaké jsou tři typy UPS a v čem se liší?\n- Vysvětlete rozdíl mezi pozitivním a negativním tlakem v PC skříni\n- Proč je důležitá +12V větev v moderních PC zdrojích?",
-      "keywords": ["PSU", "napájení", "UPS", "AVR", "ATX", "chlazení", "case", "airflow", "80 PLUS", "EPS", "PCIe", "SATA", "Molex", "sinusoida", "EMI"],
+      "answer": "Tato maturitní otázka pokrývá tři klíčové hardwarové komponenty, které tvoří základ každého počítače: **napájecí zdroj (PSU)**, který poskytuje energii všem součástkám; **záložní zdroj UPS**, který chrání hardware a data před výpadky proudu; a **počítačovou skříň (case)**, která zajišťuje mechanickou ochranu, chlazení a správné uspořádání komponent.\n\n---\n\n## 1. Napájecí zdroje PC (PSU)\n\nNapájecí zdroj (**PSU** – Power Supply Unit) je srdcem počítače, které transformuje střídavé napětí z elektrické sítě (230 V) na stabilní stejnosměrné napětí (+3,3 V, +5 V, +12 V) potřebné pro provoz všech vnitřních komponent.\n\n> [!IMPORTANT]\n> Kvalita zdroje přímo ovlivňuje stabilitu celého systému, jeho životnost a energetickou efektivitu.\n\n### Znalostní základ (Co MUSÍŠ znát)\n\n- **Funkce**: Přeměna AC (střídavý proud) na DC (stejnosměrný proud)\n- **Výstupní napětí**: Hlavní větve jsou +12 V (pro CPU a GPU), +5 V a +3,3 V (pro desku a disky)\n- **Standard ATX**: Definuje rozměry zdroje a typy konektorů\n- **Účinnost (80 PLUS)**: Certifikace zaručující minimální energetické ztráty\n\n### Princip spínaného zdroje (SMPS)\n\nNa rozdíl od starých lineárních zdrojů s těžkým transformátorem pracují moderní PC zdroje na principu vysokofrekvenčního spínání:\n\n1. Vstupní napětí (230 V) je usměrněno a vyhlazeno\n2. Tranzistory jej \"rozsekají\" na vysokou frekvenci (desítky kHz)\n3. Malý transformátor sníží napětí\n4. Výstup je znovu usměrněn a vyfiltrován na přesné hodnoty\n\n### Konektory zdroje\n\n| Konektor | Použití |\n|----------|--------|\n| **24-pin ATX** | Hlavní napájení základní desky |\n| **4/8-pin EPS** | Napájení pro procesor (CPU) |\n| **6/8-pin PCIe** | Napájení pro výkonné grafické karty |\n| **SATA** | Napájení pro HDD, SSD a optické mechaniky |\n| **Molex** | Starší typ konektoru pro ventilátory nebo starší disky |\n\n### Parametry a certifikace\n\n#### Výkon (Wattáž)\n\nCelkový výkon musí pokrýt špičkový odběr všech komponent s rezervou (ideálně 20–30 %).\n\n#### Certifikace 80 PLUS\n\nUdává účinnost zdroje při různém zatížení. Čím vyšší certifikace, tím méně energie se přemění na odpadní teplo.\n\n> [!TIP]\n> Úrovně certifikace: 80 PLUS Standard → Bronze → Silver → Gold → Platinum → Titanium\n\n#### Konstrukce kabeláže\n\n- **Nemodulární**: Všechny kabely jsou pevně připojené\n- **Semi-modulární**: Hlavní kabely (24-pin) jsou pevné, ostatní lze odpojit\n- **Plně modulární**: Všechny kabely lze odpojit (usnadňuje montáž a airflow)\n\n### Význam +12V větve\n\nV moderních PC je nejdůležitější **+12V větev**, protože z ní odebírají energii energeticky nejnáročnější komponenty (CPU a GPU). Kvalitní zdroje mají silnou \"single rail\" +12V větev.\n\n### Signály PS_ON a PWR_OK\n\n- **PS_ON**: Signál, kterým základní deska zapíná zdroj (zkratováním na zem)\n- **PWR_OK** (Power Good): Signál, kterým zdroj oznamuje desce, že napětí jsou stabilizovaná\n\n---\n\n## 2. Záložní zdroje energie UPS\n\n**UPS** (Uninterruptible Power Supply) je klíčovým prvkem pro ochranu hardware a dat. V případě výpadku proudu okamžitě přebírá napájení z vlastních akumulátorů.\n\n> [!IMPORTANT]\n> UPS chrání připojená zařízení před přepětím, podpětím a rušením v elektrické síti.\n\n### Znalostní základ (Co MUSÍŠ znát)\n\n- **Hlavní účel**: Ochrana před ztrátou dat a poškozením hardware\n- **Klíčová součást**: Akumulátor (nejčastěji olověný VRLA)\n- **Výkon**: Udává se ve voltampérech (VA) nebo wattech (W)\n- **Typy**: Off-line, Line-interactive, On-line\n\n### Typy UPS\n\n#### Off-line (Standby) UPS\n\n| Vlastnost | Hodnota |\n|-----------|--------|\n| Princip | Proud prochází přímo, při výpadku přepne na baterii |\n| Přepínací doba | 5–15 ms |\n| Použití | Běžná domácí PC, monitory |\n\n#### Line-interactive UPS\n\n| Vlastnost | Hodnota |\n|-----------|--------|\n| Princip | Obsahuje AVR (Automatic Voltage Regulation) |\n| Přepínací doba | 2–5 ms |\n| Použití | Kancelářské stanice, herní PC, malé servery |\n\n#### On-line (Double Conversion) UPS\n\n| Vlastnost | Hodnota |\n|-----------|--------|\n| Princip | Trvale usměrňuje a zpět převádí napětí |\n| Přepínací doba | 0 ms |\n| Použití | Kritické servery, datová centra |\n\n> [!TIP]\n> On-line UPS poskytuje dokonalou filtraci a naprosto čistou sinusoidu.\n\n### Klíčové parametry\n\n**Tvar výstupního napětí:**\n- *Aproximovaná sinusoida*: Levnější UPS, schodovitý průběh\n- *Čistá sinusoida*: Kvalitní UPS, stejný průběh jako v zásuvce\n\n> [!WARNING]\n> Akumulátory v UPS mají omezenou životnost (typicky 3–5 let). Teplo výrazně zkracuje jejich životnost!\n\n---\n\n## 3. Počítačové skříně (Case)\n\nPočítačová skříň není jen \"krabice na součástky\". Je to komplexní mechanický systém s několika kritickými funkcemi.\n\n### Znalostní základ (Co MUSÍŠ znát)\n\n- **Funkce**: Mechanická ochrana, nosná konstrukce, stínění (EMI), chlazení\n- **Formáty**: ATX, Micro-ATX, Mini-ITX\n- **Materiály**: Ocel (SECC), hliník, plast, temperované sklo\n- **Airflow**: Systém uspořádání ventilátorů pro efektivní odvod tepla\n\n### Formáty a rozměry skříní\n\n| Formát | Typické použití | Max. velikost desky |\n|--------|-----------------|--------------------|\n| Big Tower | Servery, high-end stanice | E-ATX, ATX |\n| Midi Tower | Nejběžnější herní a domácí PC | ATX, Micro-ATX |\n| Mini Tower | Kancelářské sestavy | Micro-ATX, Mini-ITX |\n| SFF | Kompaktní multimediální PC | Mini-ITX |\n| Rackmount | Serverové rozvaděče | Podle typu (1U, 2U, 4U) |\n\n### Airflow (Proudění vzduchu)\n\nSprávný airflow je klíčový. Vzduch by měl proudit jedním směrem (zepředu dozadu a zespodu nahoru).\n\n| Typ tlaku | Popis | Výhoda |\n|-----------|-------|--------|\n| **Pozitivní** | Více vzduchu dovnitř | Prach pouze přes filtry |\n| **Negativní** | Více vzduchu ven | Rychlejší odvod tepla |\n| **Neutrální** | Vyvážený stav | Kompromis |\n\n> [!TIP]\n> Pro většinu uživatelů je nejlepší mírně pozitivní tlak – chrání před prachem.\n\n### Moderní trendy\n\n- **Mesh panely**: Maximální přísun vzduchu\n- **Temperované sklo**: Estetika, pohled na komponenty\n- **Prachové filtry**: Magnetické mřížky pro snadnou údržbu\n- **Vertikální montáž GPU**: Estetická záležitost\n\n### Front Panel konektory\n\nSkříň obsahuje kabely pro propojení tlačítek (Power, Reset) a portů (USB, Audio) se základní deskou. Zapojení se provádí do **JFP1** (Front Panel) konektoru.\n\n---\n\n## Kontrolní otázky\n\n1. Jaké jsou hlavní výstupní hodnoty napětí v PC zdroji?\n2. Vysvětlete výhodu spínaného zdroje oproti klasickému lineárnímu\n3. Co nám říká certifikace 80 PLUS Gold?\n4. K čemu slouží konektory EPS a PCIe?\n5. Jaké jsou tři typy UPS a v čem se liší?\n6. Vysvětlete rozdíl mezi pozitivním a negativním tlakem v PC skříni\n7. Proč je důležitá +12V větev v moderních PC zdrojích?",
+      "keywords": [
+        "PSU",
+        "napájení",
+        "UPS",
+        "AVR",
+        "ATX",
+        "chlazení",
+        "case",
+        "airflow",
+        "80 PLUS",
+        "EPS",
+        "PCIe",
+        "SATA",
+        "Molex",
+        "sinusoida",
+        "EMI"
+      ],
       "difficulty": "střední"
     },
     {
@@ -32,7 +97,11 @@
       "question": "Základní desky a závady PC",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["základní deska", "závady", "diagnostika"],
+      "keywords": [
+        "základní deska",
+        "závady",
+        "diagnostika"
+      ],
       "difficulty": "střední"
     },
     {
@@ -41,7 +110,11 @@
       "question": "Procesory",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["CPU", "procesor", "jádra"],
+      "keywords": [
+        "CPU",
+        "procesor",
+        "jádra"
+      ],
       "difficulty": "střední"
     },
     {
@@ -50,7 +123,11 @@
       "question": "Tranzistorové elektronické paměti",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["RAM", "paměť", "tranzistor"],
+      "keywords": [
+        "RAM",
+        "paměť",
+        "tranzistor"
+      ],
       "difficulty": "střední"
     },
     {
@@ -59,7 +136,11 @@
       "question": "Pevné disky a RAID pole",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["HDD", "SSD", "RAID"],
+      "keywords": [
+        "HDD",
+        "SSD",
+        "RAID"
+      ],
       "difficulty": "střední"
     },
     {
@@ -68,7 +149,11 @@
       "question": "Grafický subsystém PC",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["GPU", "grafika", "video"],
+      "keywords": [
+        "GPU",
+        "grafika",
+        "video"
+      ],
       "difficulty": "střední"
     },
     {
@@ -77,7 +162,10 @@
       "question": "Zvukový subsystém PC",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["zvuková karta", "audio"],
+      "keywords": [
+        "zvuková karta",
+        "audio"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -86,7 +174,12 @@
       "question": "Optická a elektronická paměťová média",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["CD", "DVD", "USB", "flash"],
+      "keywords": [
+        "CD",
+        "DVD",
+        "USB",
+        "flash"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -95,7 +188,11 @@
       "question": "Tiskárny a plotry",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["tiskárna", "plotr", "periférie"],
+      "keywords": [
+        "tiskárna",
+        "plotr",
+        "periférie"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -104,7 +201,11 @@
       "question": "Vstupní zařízení",
       "category": "Hardware",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["klávesnice", "myš", "periférie"],
+      "keywords": [
+        "klávesnice",
+        "myš",
+        "periférie"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -113,7 +214,11 @@
       "question": "Historie a vývoj počítačových sítí, Internet",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["historie", "Internet", "síť"],
+      "keywords": [
+        "historie",
+        "Internet",
+        "síť"
+      ],
       "difficulty": "střední"
     },
     {
@@ -121,8 +226,17 @@
       "exam": "IKT1",
       "question": "Fyzická vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "Fyzická vrstva modelu ISO/OSI (Physical Layer)\n\nVelký obrázek\n\nFyzická vrstva je první a nejnižší vrstva modelu ISO/OSI. Tato vrstva je zodpovědná za přenos dat ve formě signálů mezi síťovými zařízeními. Zajišťuje, aby jednotlivé bity byly správně přeneseny z jednoho zařízení na druhé přes fyzické přenosové médium.\n\n1. Pozice vrstvy v modelech, funkce\n\nPozice v modelu ISO/OSI\n\nFyzická vrstva se nachází na samém spodku sedmivrstvého modelu ISO/OSI\nJejí funkcí je zprostředkovat fyzické spojení mezi zařízeními\nZajišťuje přenos datových bitů prostřednictvím přenosových médií\n\nVrstva | Název | Datová jednotka\n7 | Aplikační | Data\n6 | Prezentační | Data\n5 | Relační | Data\n4 | Transportní | Segment\n3 | Síťová | Paket\n2 | Linková | Rámec\n1 | Fyzická | Bit\n\nFunkce fyzické vrstvy\n\nPřevod dat na signály:\n- Převádí digitální data na fyzické signály (elektrické, optické, nebo rádiové)\n- Zajišťuje reprezentaci bitů 0 a 1\n\nDefinice přenosových médií:\n- Stanovuje, jaké typy kabelů nebo bezdrátových médií budou použity\n- Určuje specifikace konektorů a rozhraní\n\nSynchronizace bitů:\n- Zajišťuje správnou synchronizaci při přenosu dat\n- Přijímač ví, kde začíná a končí datový bit\n\nPřenosová rychlost:\n- Určuje maximální rychlost přenosu dat v síti\n- Měřeno v bitech za sekundu (bps, Mbps, Gbps)\n\nFyzická topologie:\n- Řídí uspořádání připojení mezi zařízeními\n- Hvězda, sběrnice, kruh, mesh\n\n2. Druhy kabeláže, konektory\n\nDruhy kabeláže\n\nKroucená dvojlinka (Twisted Pair)\n\nSkládá se z párů měděných vodičů kroucených do spirály, což minimalizuje elektromagnetické rušení.\n\nTypy:\n- UTP (Unshielded Twisted Pair): Bez stínění, vhodné pro kancelářské a domácí sítě\n- STP (Shielded Twisted Pair): S ochranou proti rušení, vhodné pro průmyslové prostředí\n- FTP (Foiled Twisted Pair): Fóliové stínění celého kabelu\n- S/FTP: Stínění jednotlivých párů i celého kabelu\n\nKategorie kabelů:\n\nKategorie | Max. frekvence | Max. rychlost | Max. délka\nCat 5 | 100 MHz | 100 Mbps | 100 m\nCat 5e | 100 MHz | 1 Gbps | 100 m\nCat 6 | 250 MHz | 10 Gbps (55 m) | 100 m\nCat 6a | 500 MHz | 10 Gbps | 100 m\nCat 7 | 600 MHz | 10 Gbps | 100 m\nCat 8 | 2000 MHz | 25-40 Gbps | 30 m\n\nKoaxiální kabel (Coaxial Cable)\n\nMá centrální vodič obklopený izolací, stíněním a pláštěm\nPoužívá se pro kabelové televize a starší sítě\n\nVýhody: Vysoká odolnost proti rušení\nNevýhody: Omezená flexibilita, větší průměr\n\nOptické vlákno (Fiber Optic Cable)\n\nPřenáší data prostřednictvím světelných pulzů ve skleněném nebo plastovém vlákně.\n\nTypy optických vláken:\n\nSingle-mode (jednovidové):\n- Velmi tenké jádro (~9 µm)\n- Jeden paprsek světla\n- Pro přenos na dlouhé vzdálenosti (desítky až stovky km)\n- Vyšší cena, využívá laserový zdroj\n\nMulti-mode (mnohovidové):\n- Silnější jádro (50 nebo 62,5 µm)\n- Více paprsků různými úhly\n- Pro kratší vzdálenosti (stovky metrů)\n- Např. v datových centrech\n\nVýhody optiky:\n- Vysoká přenosová rychlost (Tbit/s)\n- Velké vzdálenosti bez opakovačů\n- Imunita vůči elektromagnetickému rušení\n- Obtížné odposlouchávání\n\nNevýhody optiky:\n- Vyšší cena\n- Náročnější instalace a opravy\n\nKonektory\n\nRJ-45\n- Používá se s kroucenou dvojlinkou pro Ethernet\n- 8 pozic, 8 kontaktů (8P8C)\n- Podporuje přenosové rychlosti od 10 Mbps do 10 Gbps\n- Zapojení: T568A nebo T568B\n\nRJ-11\n- 6 pozic, 4 nebo 2 kontakty\n- Telefonní linky\n\nBNC (Bayonet Neill-Concelman)\n- Pro koaxiální kabely\n- Používán v CCTV a starších sítích\n- Bajonetový zámek\n\nOptické konektory\n- SC (Subscriber Connector): Push-pull mechanismus\n- LC (Lucent Connector): Malý, nejběžnější dnes\n- ST (Straight Tip): Bajonetový závit\n- MPO/MTP: Multi-vláknový pro high-density aplikace\n\n3. Vlastnosti přenosových médií, typy přenosů\n\nVlastnosti přenosových médií\n\nŠířka pásma (Bandwidth):\n- Maximální kapacita přenosu dat\n- Měděný kabel: typicky do 10 Gbps\n- Optické vlákno: až 100 Gbps a více\n\nRušení (EMI/RFI):\n- Elektrická a rádiová interference\n- Může narušit přenos dat\n- Řešení: stínění, kroucení vodičů\n\nVzdálenost:\n- Kroucená dvojlinka: max 100 m\n- Optické vlákno: stovky km\n\nLatence:\n- Doba zpoždění signálu mezi odesláním a přijetím\n- Závisí na médiu a vzdálenosti\n\nTypy přenosů\n\nSimplexní přenos\n- Data proudí pouze jedním směrem\n- Příklad: rozhlasové vysílání, klávesnice\n\nPoloduplexní přenos (Half-duplex)\n- Data mohou proudit oběma směry, ale ne současně\n- Příklad: vysílačky, starší Ethernet s hubem\n\nPlný duplex (Full-duplex)\n- Obousměrná komunikace v reálném čase\n- Příklad: telefonní hovory, moderní Ethernet se switchem\n\n4. Analogové a digitální sítě, kódování a modulace\n\nAnalogové sítě\n- Přenášejí plynulé (spojité) signály\n- Např. zvuk telefonních hovorů\n- Používají amplitudu a frekvenci pro přenos dat\n- Náchylnější k šumu a zkreslení\n\nDigitální sítě\n- Přenášejí diskrétní signály (hodnoty 0 a 1)\n\nVýhody:\n- Nižší náchylnost k šumu\n- Vyšší spolehlivost\n- Možnost komprese a šifrování\n\nKódování\n\nPřevádí digitální data na signály vhodné pro přenos.\n\nNRZ (Non-Return to Zero):\n- Jednoduché kódování binárních hodnot\n- 1 = vysoká úroveň, 0 = nízká úroveň\n- Problém: ztráta synchronizace při dlouhých sekvencích\n\nManchester:\n- Data kódována s vloženými hodinovými signály\n- Přechod uprostřed každého bitu\n- 10BASE-T Ethernet\n\n4B/5B, 8B/10B:\n- Kódování 4 bitů do 5 symbolů\n- Zajištění dostatečných přechodů pro synchronizaci\n- Fast Ethernet, Gigabit Ethernet\n\nModulace\n\nPřizpůsobuje signál přenosovému médiu:\n\n- AM (Amplitudová modulace): Změna amplitudy signálu\n- FM (Frekvenční modulace): Změna frekvence signálu\n- PM (Fázová modulace): Změna fáze signálu\n- QAM (Kvadraturní amplitudová modulace): Kombinace změny amplitudy a fáze, vysoká efektivita\n\n5. Síťové prvky a jejich funkce\n\nRepeater (Opakovač)\n\nFunkce:\n- Zesiluje a regeneruje signál\n- Prodlužuje dosah sítě\n- Pracuje pouze na fyzické vrstvě (L1)\n- Neprovádí žádné filtrování dat\n\nHub (Rozbočovač)\n\nFunkce:\n- Přeposílá data všem zařízením v síti bez ohledu na cíl\n- Multiportový opakovač\n- Sdílená šířka pásma – všechna zařízení sdílí jednu kolizní doménu\n- Zastaralý – nahrazen switchi\n\nMédia konvertor\n- Převádí signál mezi různými médii\n- Optika ↔ měď\n- Umožňuje propojení různých typů sítí\n\nPoznámka k dalším prvkům\n\nNásledující prvky pracují na vyšších vrstvách:\n- Switch: Linková vrstva (L2) – přeposílá rámce na základě MAC adres\n- Router: Síťová vrstva (L3) – směruje pakety mezi sítěmi\n- Modem: Převádí digitální data na analogový signál a naopak\n\nShrnutí\n\nFyzická vrstva modelu ISO/OSI je základem síťové komunikace. Zajišťuje:\n- Fyzický přenos bitů přes přenosová média\n- Definici konektorů a kabeláže\n- Synchronizaci a kódování signálů\n\nSprávná volba kabeláže, konektorů a síťových prvků je klíčová pro spolehlivou síťovou infrastrukturu.",
-      "keywords": ["ISO/OSI", "fyzická vrstva", "kabely", "UTP", "optika", "RJ-45", "kódování", "modulace"],
+      "answer": "**Fyzická vrstva** je první a nejnižší vrstva modelu ISO/OSI. Tato vrstva je zodpovědná za přenos dat ve formě signálů mezi síťovými zařízeními.\n\n> [!IMPORTANT]\n> Fyzická vrstva zajišťuje, aby jednotlivé **bity** byly správně přeneseny z jednoho zařízení na druhé přes fyzické přenosové médium.\n\n---\n\n## 1. Pozice vrstvy v modelech, funkce\n\n### Pozice v modelu ISO/OSI\n\n| Vrstva | Název | Datová jednotka |\n|--------|-------|----------------|\n| 7 | Aplikační | Data |\n| 6 | Prezentační | Data |\n| 5 | Relační | Data |\n| 4 | Transportní | Segment |\n| 3 | Síťová | Paket |\n| 2 | Linková | Rámec |\n| **1** | **Fyzická** | **Bit** |\n\n### Funkce fyzické vrstvy\n\n#### Převod dat na signály\n- Převádí digitální data na fyzické signály (elektrické, optické, nebo rádiové)\n- Zajišťuje reprezentaci bitů 0 a 1\n\n#### Definice přenosových médií\n- Stanovuje, jaké typy kabelů nebo bezdrátových médií budou použity\n- Určuje specifikace konektorů a rozhraní\n\n#### Synchronizace bitů\n- Zajišťuje správnou synchronizaci při přenosu dat\n- Přijímač ví, kde začíná a končí datový bit\n\n#### Přenosová rychlost\n- Určuje maximální rychlost přenosu dat v síti\n- Měřeno v bitech za sekundu (bps, Mbps, Gbps)\n\n#### Fyzická topologie\n- Řídí uspořádání připojení mezi zařízeními\n- Hvězda, sběrnice, kruh, mesh\n\n---\n\n## 2. Druhy kabeláže, konektory\n\n### Kroucená dvojlinka (Twisted Pair)\n\nSkládá se z párů měděných vodičů kroucených do spirály, což minimalizuje elektromagnetické rušení.\n\n**Typy:**\n- **UTP** (Unshielded Twisted Pair): Bez stínění, vhodné pro kancelářské a domácí sítě\n- **STP** (Shielded Twisted Pair): S ochranou proti rušení, vhodné pro průmyslové prostředí\n- **FTP** (Foiled Twisted Pair): Fóliové stínění celého kabelu\n- **S/FTP**: Stínění jednotlivých párů i celého kabelu\n\n### Kategorie kabelů\n\n| Kategorie | Max. frekvence | Max. rychlost | Max. délka |\n|-----------|---------------|---------------|------------|\n| Cat 5 | 100 MHz | 100 Mbps | 100 m |\n| Cat 5e | 100 MHz | 1 Gbps | 100 m |\n| Cat 6 | 250 MHz | 10 Gbps (55 m) | 100 m |\n| Cat 6a | 500 MHz | 10 Gbps | 100 m |\n| Cat 7 | 600 MHz | 10 Gbps | 100 m |\n| Cat 8 | 2000 MHz | 25-40 Gbps | 30 m |\n\n> [!TIP]\n> Pro běžné domácí a kancelářské sítě stačí Cat 5e. Pro 10Gbps sítě použij Cat 6a nebo vyšší.\n\n### Koaxiální kabel (Coaxial Cable)\n\nMá centrální vodič obklopený izolací, stíněním a pláštěm. Používá se pro kabelové televize a starší sítě.\n\n| Vlastnost | Hodnota |\n|-----------|--------|\n| Výhody | Vysoká odolnost proti rušení |\n| Nevýhody | Omezená flexibilita, větší průměr |\n\n### Optické vlákno (Fiber Optic Cable)\n\nPřenáší data prostřednictvím světelných pulzů ve skleněném nebo plastovém vlákně.\n\n#### Single-mode (jednovidové)\n- Velmi tenké jádro (~9 µm)\n- Jeden paprsek světla\n- Pro přenos na dlouhé vzdálenosti (desítky až stovky km)\n- Vyšší cena, využívá laserový zdroj\n\n#### Multi-mode (mnohovidové)\n- Silnější jádro (50 nebo 62,5 µm)\n- Více paprsků různými úhly\n- Pro kratší vzdálenosti (stovky metrů)\n- Např. v datových centrech\n\n**Výhody optiky:**\n- Vysoká přenosová rychlost (Tbit/s)\n- Velké vzdálenosti bez opakovačů\n- Imunita vůči elektromagnetickému rušení\n- Obtížné odposlouchávání\n\n**Nevýhody optiky:**\n- Vyšší cena\n- Náročnější instalace a opravy\n\n### Konektory\n\n#### RJ-45\n- Používá se s kroucenou dvojlinkou pro Ethernet\n- 8 pozic, 8 kontaktů (8P8C)\n- Podporuje přenosové rychlosti od 10 Mbps do 10 Gbps\n- Zapojení: **T568A** nebo **T568B**\n\n#### RJ-11\n- 6 pozic, 4 nebo 2 kontakty\n- Telefonní linky\n\n#### BNC (Bayonet Neill-Concelman)\n- Pro koaxiální kabely\n- Používán v CCTV a starších sítích\n- Bajonetový zámek\n\n#### Optické konektory\n- **SC** (Subscriber Connector): Push-pull mechanismus\n- **LC** (Lucent Connector): Malý, nejběžnější dnes\n- **ST** (Straight Tip): Bajonetový závit\n- **MPO/MTP**: Multi-vláknový pro high-density aplikace\n\n---\n\n## 3. Vlastnosti přenosových médií, typy přenosů\n\n### Vlastnosti přenosových médií\n\n| Vlastnost | Popis |\n|-----------|-------|\n| **Šířka pásma** | Maximální kapacita přenosu dat (měď: ~10 Gbps, optika: 100+ Gbps) |\n| **Rušení (EMI/RFI)** | Elektrická a rádiová interference – řešení: stínění, kroucení |\n| **Vzdálenost** | Kroucená dvojlinka: max 100 m, Optika: stovky km |\n| **Latence** | Doba zpoždění signálu mezi odesláním a přijetím |\n\n### Typy přenosů\n\n| Typ | Směr | Příklad |\n|-----|------|---------|\n| **Simplex** | Pouze jeden směr | Rozhlasové vysílání, klávesnice |\n| **Half-duplex** | Oba směry, ale ne současně | Vysílačky, starší Ethernet s hubem |\n| **Full-duplex** | Oba směry současně | Telefonní hovory, moderní Ethernet |\n\n---\n\n## 4. Analogové a digitální sítě, kódování a modulace\n\n### Analogové vs. Digitální sítě\n\n| Typ | Charakteristika | Příklad |\n|-----|-----------------|--------|\n| **Analogové** | Plynulé signály, náchylné k šumu | Staré telefonní linky |\n| **Digitální** | Diskrétní signály (0 a 1), spolehlivější | Ethernet, internet |\n\n> [!TIP]\n> Digitální sítě umožňují kompresi a šifrování dat, analogové ne.\n\n### Kódování\n\nPřevádí digitální data na signály vhodné pro přenos.\n\n| Kódování | Popis | Použití |\n|----------|-------|--------|\n| **NRZ** | 1 = vysoká, 0 = nízká úroveň | Jednoduché, problém se synchronizací |\n| **Manchester** | Přechod uprostřed každého bitu | 10BASE-T Ethernet |\n| **4B/5B, 8B/10B** | Více bitů = zajištěná synchronizace | Fast/Gigabit Ethernet |\n\n### Modulace\n\nPřizpůsobuje signál přenosovému médiu:\n\n- **AM** (Amplitudová modulace): Změna amplitudy signálu\n- **FM** (Frekvenční modulace): Změna frekvence signálu\n- **PM** (Fázová modulace): Změna fáze signálu\n- **QAM** (Kvadraturní amplitudová modulace): Kombinace amplitudy a fáze, vysoká efektivita\n\n---\n\n## 5. Síťové prvky a jejich funkce\n\n### Repeater (Opakovač)\n\n- Zesiluje a regeneruje signál\n- Prodlužuje dosah sítě\n- Pracuje pouze na fyzické vrstvě (L1)\n- Neprovádí žádné filtrování dat\n\n### Hub (Rozbočovač)\n\n- Přeposílá data **všem** zařízením v síti bez ohledu na cíl\n- Multiportový opakovač\n- Sdílená šířka pásma – všechna zařízení sdílí jednu kolizní doménu\n\n> [!WARNING]\n> Hub je zastaralý a byl nahrazen switchi. Nepoužívej ho v moderních sítích!\n\n### Média konvertor\n\n- Převádí signál mezi různými médii (optika ↔ měď)\n- Umožňuje propojení různých typů sítí\n\n### Poznámka k dalším prvkům\n\n| Prvek | Vrstva | Funkce |\n|-------|--------|--------|\n| **Switch** | L2 (Linková) | Přeposílá rámce podle MAC adres |\n| **Router** | L3 (Síťová) | Směruje pakety mezi sítěmi |\n| **Modem** | L1/L2 | Převádí digitální ↔ analogový signál |\n\n---\n\n## Shrnutí\n\nFyzická vrstva modelu ISO/OSI je základem síťové komunikace. Zajišťuje:\n\n- Fyzický přenos bitů přes přenosová média\n- Definici konektorů a kabeláže\n- Synchronizaci a kódování signálů\n\n> [!IMPORTANT]\n> Správná volba kabeláže, konektorů a síťových prvků je klíčová pro spolehlivou síťovou infrastrukturu.",
+      "keywords": [
+        "ISO/OSI",
+        "fyzická vrstva",
+        "kabely",
+        "UTP",
+        "optika",
+        "RJ-45",
+        "kódování",
+        "modulace"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -131,7 +245,11 @@
       "question": "Linková vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["ISO/OSI", "linková vrstva", "MAC"],
+      "keywords": [
+        "ISO/OSI",
+        "linková vrstva",
+        "MAC"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -140,7 +258,11 @@
       "question": "Síťová vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["ISO/OSI", "síťová vrstva", "IP"],
+      "keywords": [
+        "ISO/OSI",
+        "síťová vrstva",
+        "IP"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -149,7 +271,11 @@
       "question": "Adresace a směřování v sítích",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["IP adresa", "routing", "směrování"],
+      "keywords": [
+        "IP adresa",
+        "routing",
+        "směrování"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -158,7 +284,11 @@
       "question": "Transportní, relační a prezentační vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["ISO/OSI", "TCP", "UDP"],
+      "keywords": [
+        "ISO/OSI",
+        "TCP",
+        "UDP"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -167,7 +297,11 @@
       "question": "Aplikační vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["ISO/OSI", "aplikační vrstva", "HTTP"],
+      "keywords": [
+        "ISO/OSI",
+        "aplikační vrstva",
+        "HTTP"
+      ],
       "difficulty": "střední"
     },
     {
@@ -176,7 +310,11 @@
       "question": "Síťové prvky modelu ISO/OSI a strukturovaná kabeláž",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["switch", "router", "kabeláž"],
+      "keywords": [
+        "switch",
+        "router",
+        "kabeláž"
+      ],
       "difficulty": "střední"
     },
     {
@@ -185,7 +323,10 @@
       "question": "Ethernet",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["Ethernet", "LAN"],
+      "keywords": [
+        "Ethernet",
+        "LAN"
+      ],
       "difficulty": "střední"
     },
     {
@@ -194,7 +335,10 @@
       "question": "Bezdrátové síťové technologie",
       "category": "Počítačové sítě",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["WiFi", "bezdrátové sítě"],
+      "keywords": [
+        "WiFi",
+        "bezdrátové sítě"
+      ],
       "difficulty": "střední"
     },
     {
@@ -203,7 +347,11 @@
       "question": "Historie operačních systémů, jejich architektura a dělení podle různých kritérií",
       "category": "Operační systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["OS", "historie", "architektura"],
+      "keywords": [
+        "OS",
+        "historie",
+        "architektura"
+      ],
       "difficulty": "střední"
     },
     {
@@ -212,7 +360,11 @@
       "question": "Správa uživatelů, procesů a služeb v operačních systémech",
       "category": "Operační systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["uživatelé", "procesy", "služby"],
+      "keywords": [
+        "uživatelé",
+        "procesy",
+        "služby"
+      ],
       "difficulty": "střední"
     },
     {
@@ -221,7 +373,11 @@
       "question": "Souborové systémy, správa adresářů a souborů v operačních systémech, řízení přístupu k adresářům a souborům",
       "category": "Operační systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["souborový systém", "NTFS", "oprávnění"],
+      "keywords": [
+        "souborový systém",
+        "NTFS",
+        "oprávnění"
+      ],
       "difficulty": "střední"
     },
     {
@@ -230,7 +386,11 @@
       "question": "Nastavení a diagnostika síťového prostředí v operačních systémech",
       "category": "Operační systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["síť", "diagnostika", "konfigurace"],
+      "keywords": [
+        "síť",
+        "diagnostika",
+        "konfigurace"
+      ],
       "difficulty": "střední"
     },
     {
@@ -239,7 +399,11 @@
       "question": "Rozdělení programovacích jazyků, základní pojmy",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["programování", "jazyky", "kompilace"],
+      "keywords": [
+        "programování",
+        "jazyky",
+        "kompilace"
+      ],
       "difficulty": "střední"
     },
     {
@@ -248,7 +412,12 @@
       "question": "Proměnné a datové typy",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["proměnné", "datové typy", "int", "string"],
+      "keywords": [
+        "proměnné",
+        "datové typy",
+        "int",
+        "string"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -257,7 +426,11 @@
       "question": "Řízení toku programu",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["if", "else", "podmínky"],
+      "keywords": [
+        "if",
+        "else",
+        "podmínky"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -266,7 +439,11 @@
       "question": "Cykly",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["for", "while", "cykly"],
+      "keywords": [
+        "for",
+        "while",
+        "cykly"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -275,7 +452,12 @@
       "question": "Datové pole C++ a C#",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["array", "pole", "C++", "C#"],
+      "keywords": [
+        "array",
+        "pole",
+        "C++",
+        "C#"
+      ],
       "difficulty": "střední"
     },
     {
@@ -284,7 +466,11 @@
       "question": "Datové kontejnery C++ a C#",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["vector", "list", "kontejnery"],
+      "keywords": [
+        "vector",
+        "list",
+        "kontejnery"
+      ],
       "difficulty": "střední"
     },
     {
@@ -293,7 +479,11 @@
       "question": "Funkce a metody",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["funkce", "metody", "parametry"],
+      "keywords": [
+        "funkce",
+        "metody",
+        "parametry"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -302,7 +492,12 @@
       "question": "Datové proudy",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["stream", "I/O", "vstup", "výstup"],
+      "keywords": [
+        "stream",
+        "I/O",
+        "vstup",
+        "výstup"
+      ],
       "difficulty": "střední"
     },
     {
@@ -311,7 +506,11 @@
       "question": "Struktury C++",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["struct", "struktura", "C++"],
+      "keywords": [
+        "struct",
+        "struktura",
+        "C++"
+      ],
       "difficulty": "střední"
     },
     {
@@ -320,7 +519,11 @@
       "question": "Třídy C++ a C#",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["class", "OOP", "objekty"],
+      "keywords": [
+        "class",
+        "OOP",
+        "objekty"
+      ],
       "difficulty": "střední"
     },
     {
@@ -329,7 +532,11 @@
       "question": "Dědičnost C++",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["dědičnost", "inheritance", "C++"],
+      "keywords": [
+        "dědičnost",
+        "inheritance",
+        "C++"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -338,7 +545,11 @@
       "question": "Dědičnost C#",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["dědičnost", "inheritance", "C#"],
+      "keywords": [
+        "dědičnost",
+        "inheritance",
+        "C#"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -347,7 +558,11 @@
       "question": "Dynamická alokace paměti – ukazatele",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["pointer", "ukazatel", "dynamická paměť"],
+      "keywords": [
+        "pointer",
+        "ukazatel",
+        "dynamická paměť"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -356,7 +571,11 @@
       "question": "Základní syntaxe jazyka VBA",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["VBA", "Visual Basic", "Excel"],
+      "keywords": [
+        "VBA",
+        "Visual Basic",
+        "Excel"
+      ],
       "difficulty": "střední"
     },
     {
@@ -365,7 +584,11 @@
       "question": "Hyper Text Markup Language (HTML)",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["HTML", "web", "markup"],
+      "keywords": [
+        "HTML",
+        "web",
+        "markup"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -374,7 +597,11 @@
       "question": "Kaskádové styly (CSS)",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["CSS", "styly", "web"],
+      "keywords": [
+        "CSS",
+        "styly",
+        "web"
+      ],
       "difficulty": "lehké"
     },
     {
@@ -383,7 +610,12 @@
       "question": "Programování backendu webových aplikací v Pythonu",
       "category": "Programování",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["Python", "backend", "Flask", "Django"],
+      "keywords": [
+        "Python",
+        "backend",
+        "Flask",
+        "Django"
+      ],
       "difficulty": "střední"
     },
     {
@@ -392,7 +624,11 @@
       "question": "Databázový systém, typy databází, relační databáze",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["databáze", "relační", "SQL"],
+      "keywords": [
+        "databáze",
+        "relační",
+        "SQL"
+      ],
       "difficulty": "střední"
     },
     {
@@ -401,7 +637,11 @@
       "question": "Databáze a tabulky v relačních databázích",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["tabulky", "relace", "databáze"],
+      "keywords": [
+        "tabulky",
+        "relace",
+        "databáze"
+      ],
       "difficulty": "střední"
     },
     {
@@ -410,7 +650,12 @@
       "question": "SQL dotazy",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["SQL", "SELECT", "INSERT", "UPDATE"],
+      "keywords": [
+        "SQL",
+        "SELECT",
+        "INSERT",
+        "UPDATE"
+      ],
       "difficulty": "střední"
     },
     {
@@ -419,7 +664,11 @@
       "question": "Vestavěné funkce MySQL",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["MySQL", "funkce", "agregace"],
+      "keywords": [
+        "MySQL",
+        "funkce",
+        "agregace"
+      ],
       "difficulty": "střední"
     },
     {
@@ -428,7 +677,11 @@
       "question": "Indexy a omezení v relačních databázích",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["indexy", "constraints", "primární klíč"],
+      "keywords": [
+        "indexy",
+        "constraints",
+        "primární klíč"
+      ],
       "difficulty": "těžké"
     },
     {
@@ -437,7 +690,11 @@
       "question": "Spojování tabulek v relačních databázích",
       "category": "Databázové systémy",
       "answer": "Zatím není vyplněno - doplníš odpověď později",
-      "keywords": ["JOIN", "spojování", "relace"],
+      "keywords": [
+        "JOIN",
+        "spojování",
+        "relace"
+      ],
       "difficulty": "těžké"
     }
   ]
