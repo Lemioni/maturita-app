@@ -1,0 +1,444 @@
+{
+  "categories": [
+    "Hardware",
+    "Operační systémy",
+    "Počítačové sítě",
+    "Programování",
+    "Databázové systémy"
+  ],
+  "exams": {
+    "IKT1": {
+      "name": "Hardware, Operační systémy, Počítačové sítě",
+      "questions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    },
+    "IKT2": {
+      "name": "Programování, Databázové systémy",
+      "questions": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+    }
+  },
+  "questions": [
+    {
+      "id": 1,
+      "exam": "IKT1",
+      "question": "Napájecí zdroje PC, záložní zdroje energie UPS, Case a chlazení PC",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["napájení", "UPS", "chlazení", "case"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 2,
+      "exam": "IKT1",
+      "question": "Základní desky a závady PC",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["základní deska", "závady", "diagnostika"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 3,
+      "exam": "IKT1",
+      "question": "Procesory",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["CPU", "procesor", "jádra"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 4,
+      "exam": "IKT1",
+      "question": "Tranzistorové elektronické paměti",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["RAM", "paměť", "tranzistor"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 5,
+      "exam": "IKT1",
+      "question": "Pevné disky a RAID pole",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["HDD", "SSD", "RAID"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 6,
+      "exam": "IKT1",
+      "question": "Grafický subsystém PC",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["GPU", "grafika", "video"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 7,
+      "exam": "IKT1",
+      "question": "Zvukový subsystém PC",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["zvuková karta", "audio"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 8,
+      "exam": "IKT1",
+      "question": "Optická a elektronická paměťová média",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["CD", "DVD", "USB", "flash"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 9,
+      "exam": "IKT1",
+      "question": "Tiskárny a plotry",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["tiskárna", "plotr", "periférie"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 10,
+      "exam": "IKT1",
+      "question": "Vstupní zařízení",
+      "category": "Hardware",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["klávesnice", "myš", "periférie"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 11,
+      "exam": "IKT1",
+      "question": "Historie a vývoj počítačových sítí, Internet",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["historie", "Internet", "síť"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 12,
+      "exam": "IKT1",
+      "question": "Fyzická vrstva modelu ISO/OSI",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["ISO/OSI", "fyzická vrstva", "kabely"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 13,
+      "exam": "IKT1",
+      "question": "Linková vrstva modelu ISO/OSI",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["ISO/OSI", "linková vrstva", "MAC"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 14,
+      "exam": "IKT1",
+      "question": "Síťová vrstva modelu ISO/OSI",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["ISO/OSI", "síťová vrstva", "IP"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 15,
+      "exam": "IKT1",
+      "question": "Adresace a směřování v sítích",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["IP adresa", "routing", "směrování"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 16,
+      "exam": "IKT1",
+      "question": "Transportní, relační a prezentační vrstva modelu ISO/OSI",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["ISO/OSI", "TCP", "UDP"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 17,
+      "exam": "IKT1",
+      "question": "Aplikační vrstva modelu ISO/OSI",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["ISO/OSI", "aplikační vrstva", "HTTP"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 18,
+      "exam": "IKT1",
+      "question": "Síťové prvky modelu ISO/OSI a strukturovaná kabeláž",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["switch", "router", "kabeláž"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 19,
+      "exam": "IKT1",
+      "question": "Ethernet",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["Ethernet", "LAN"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 20,
+      "exam": "IKT1",
+      "question": "Bezdrátové síťové technologie",
+      "category": "Počítačové sítě",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["WiFi", "bezdrátové sítě"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 21,
+      "exam": "IKT1",
+      "question": "Historie operačních systémů, jejich architektura a dělení podle různých kritérií",
+      "category": "Operační systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["OS", "historie", "architektura"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 22,
+      "exam": "IKT1",
+      "question": "Správa uživatelů, procesů a služeb v operačních systémech",
+      "category": "Operační systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["uživatelé", "procesy", "služby"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 23,
+      "exam": "IKT1",
+      "question": "Souborové systémy, správa adresářů a souborů v operačních systémech, řízení přístupu k adresářům a souborům",
+      "category": "Operační systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["souborový systém", "NTFS", "oprávnění"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 24,
+      "exam": "IKT1",
+      "question": "Nastavení a diagnostika síťového prostředí v operačních systémech",
+      "category": "Operační systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["síť", "diagnostika", "konfigurace"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 25,
+      "exam": "IKT2",
+      "question": "Rozdělení programovacích jazyků, základní pojmy",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["programování", "jazyky", "kompilace"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 26,
+      "exam": "IKT2",
+      "question": "Proměnné a datové typy",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["proměnné", "datové typy", "int", "string"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 27,
+      "exam": "IKT2",
+      "question": "Řízení toku programu",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["if", "else", "podmínky"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 28,
+      "exam": "IKT2",
+      "question": "Cykly",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["for", "while", "cykly"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 29,
+      "exam": "IKT2",
+      "question": "Datové pole C++ a C#",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["array", "pole", "C++", "C#"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 30,
+      "exam": "IKT2",
+      "question": "Datové kontejnery C++ a C#",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["vector", "list", "kontejnery"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 31,
+      "exam": "IKT2",
+      "question": "Funkce a metody",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["funkce", "metody", "parametry"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 32,
+      "exam": "IKT2",
+      "question": "Datové proudy",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["stream", "I/O", "vstup", "výstup"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 33,
+      "exam": "IKT2",
+      "question": "Struktury C++",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["struct", "struktura", "C++"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 34,
+      "exam": "IKT2",
+      "question": "Třídy C++ a C#",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["class", "OOP", "objekty"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 35,
+      "exam": "IKT2",
+      "question": "Dědičnost C++",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["dědičnost", "inheritance", "C++"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 36,
+      "exam": "IKT2",
+      "question": "Dědičnost C#",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["dědičnost", "inheritance", "C#"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 37,
+      "exam": "IKT2",
+      "question": "Dynamická alokace paměti – ukazatele",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["pointer", "ukazatel", "dynamická paměť"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 38,
+      "exam": "IKT2",
+      "question": "Základní syntaxe jazyka VBA",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["VBA", "Visual Basic", "Excel"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 39,
+      "exam": "IKT2",
+      "question": "Hyper Text Markup Language (HTML)",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["HTML", "web", "markup"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 40,
+      "exam": "IKT2",
+      "question": "Kaskádové styly (CSS)",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["CSS", "styly", "web"],
+      "difficulty": "lehké"
+    },
+    {
+      "id": 41,
+      "exam": "IKT2",
+      "question": "Programování backendu webových aplikací v Pythonu",
+      "category": "Programování",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["Python", "backend", "Flask", "Django"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 42,
+      "exam": "IKT2",
+      "question": "Databázový systém, typy databází, relační databáze",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["databáze", "relační", "SQL"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 43,
+      "exam": "IKT2",
+      "question": "Databáze a tabulky v relačních databázích",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["tabulky", "relace", "databáze"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 44,
+      "exam": "IKT2",
+      "question": "SQL dotazy",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["SQL", "SELECT", "INSERT", "UPDATE"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 45,
+      "exam": "IKT2",
+      "question": "Vestavěné funkce MySQL",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["MySQL", "funkce", "agregace"],
+      "difficulty": "střední"
+    },
+    {
+      "id": 46,
+      "exam": "IKT2",
+      "question": "Indexy a omezení v relačních databázích",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["indexy", "constraints", "primární klíč"],
+      "difficulty": "těžké"
+    },
+    {
+      "id": 47,
+      "exam": "IKT2",
+      "question": "Spojování tabulek v relačních databázích",
+      "category": "Databázové systémy",
+      "answer": "Zatím není vyplněno - doplníš odpověď později",
+      "keywords": ["JOIN", "spojování", "relace"],
+      "difficulty": "těžké"
+    }
+  ]
+}
