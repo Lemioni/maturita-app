@@ -1,3 +1,487 @@
 {
-  "books": []
+  "periods": [
+    "Literatura do konce 18. století",
+    "Literatura 19. století",
+    "Světová literatura 20. a 21. století",
+    "Česká literatura 20. a 21. století"
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Lakomec",
+      "author": "Molière",
+      "period": "Literatura do konce 18. století",
+      "genre": "Komedie",
+      "literaryForm": "Drama",
+      "year": "1668",
+      "keywords": [
+        "divadlo",
+        "klasicismus",
+        "francouzská literatura",
+        "satira"
+      ],
+      "analysis": {
+        "plot": "Harpagon je bohatý pařížský vdovec, který žije se svými dvěma dětmi – synem Kleantem a dcerou Eliškou. Je nesmírně lakomý a své bohatství střeží jako oko v hlavě. Svou truhlici s deseti tisíci zlatých dukátů ukrývá na zahradě.\n\nKleantes je zamilován do chudé dívky Mariany, která žije se svou nemocnou matkou. Když se Harpagon rozhodne, že si Marianu vezme sám za ženu, dojde mezi otcem a synem k ostrému konfliktu. Eliška je zase zamilována do Valéra, který se dostal do domu jako správce pod falešnou identitou.\n\nHarpagon plánuje provdat Elišku za starého bohatého pána Anselma bez věna a oženit Kleanta s bohatou vdovou. Děti jsou zoufalé z otcových sobeckých plánů.\n\nSituace se vyhrotí, když Čipera (Harpagonův sluha, kterého si najal Kleantes) ukradne Harpagonovu truhlici s penězi. Harpagon zuří a obviňuje všechny kolem sebe. Podezírá Valéra, který se přizná k \"únosu\", ale myslí tím Elišku, nikoli peníze.\n\nV závěrečném rozuzlení se zjistí, že Valér a Mariana jsou ve skutečnosti ztracené děti bohatého Anselma, které ztratil při ztroskotání lodi před šestnácti lety. Anselmo je šťasten, že našel své děti.\n\nPříběh končí šťastně – Kleantes dostane Marianu, Eliška Valéra, a Harpagon svou truhlici zpět. Anselmo zaplatí obě svatby, čímž se Harpagon vyhne jakýmkoli výdajům.",
+        "themes": {
+          "main": "Kritika lakomství jako zhoubné lidské vlastnosti, která ničí mezilidské vztahy a rodinné pouto",
+          "motifs": [
+            "lakomství",
+            "touha po penězích",
+            "láska vs. peníze",
+            "konflikt generací",
+            "pokrytectví",
+            "přetvářka",
+            "svatba z rozumu"
+          ]
+        },
+        "setting": {
+          "place": "Paříž, Harpagonův dům a zahrada",
+          "time": "17. století, doba klasicismu za vlády Ludvíka XIV."
+        },
+        "characters": [
+          {
+            "name": "Harpagon",
+            "description": "Hlavní postava – bohatý lakomý vdovec, posedlý penězi. Jeho jméno je odvozeno od latinského \"harpago\" (dravec). Představuje ztělesnění lakoty – peníze jsou pro něj důležitější než vlastní děti. Komická postava, jejíž chorobná lakota je terčem satiry.",
+            "isMain": true
+          },
+          {
+            "name": "Kleantes",
+            "description": "Harpagonův syn, zamilovaný do Mariany. Reprezentuje mladou generaci v konfliktu s konzervativním otcem. Je ochoten jít proti otci, aby dosáhl své lásky.",
+            "isMain": false
+          },
+          {
+            "name": "Eliška",
+            "description": "Harpagonova dcera, miluje Valéra. Oddaná svému milému, ale bojí se otcova hněvu. Pasivnější než její bratr.",
+            "isMain": false
+          },
+          {
+            "name": "Valér",
+            "description": "Správce v Harpagonově domě, ve skutečnosti šlechtic – syn Anselma. Přijal službu, aby mohl být blízko Elišce. Diplomatický, snaží se vyjít s Harpagonem.",
+            "isMain": false
+          },
+          {
+            "name": "Mariana",
+            "description": "Chudá, ctnostná dívka, do které se zamiluje Harpagon i Kleantes. Je dcerou Anselma. Ztělesňuje čistotu a mravnost.",
+            "isMain": false
+          },
+          {
+            "name": "Anselmo",
+            "description": "Starý bohatý šlechtic z Neapole. Otec Valéra a Mariany, které ztratil při ztroskotání lodi. Velikodušný, platí za svatby.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Drama – bez vypravěče, přímá řeč postav",
+          "style": "Dialogická forma typická pro divadelní hru"
+        },
+        "languageDevices": [
+          "Próza – na rozdíl od většiny Molièrových her není psána ve verších",
+          "Živé dialogy – dynamické rozhovory mezi postavami",
+          "Komické opakování – Harpagon neustále opakuje \"Bez věna!\"",
+          "Monology – slavný Harpagonův monolog po krádeži truhlice",
+          "Slovní hříčky a dvojsmysly",
+          "Hyperbola – přehánění Harpagonovy lakoty pro komický efekt"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Satira",
+            "example": "zesměšnění lakoty jako společenského nešvaru"
+          },
+          {
+            "name": "Ironie",
+            "example": "Harpagon nedokáže vidět vlastní pokrytectví"
+          },
+          {
+            "name": "Personifikace",
+            "example": "peníze jsou pro Harpagona jako živá bytost (\"má krev, můj život\")"
+          },
+          {
+            "name": "Hyperbola",
+            "example": "přehnané reakce Harpagona (\"Zloději! Vrazi!\")"
+          },
+          {
+            "name": "Kontrast",
+            "example": "mladí zamilovaní vs. starý lakomec"
+          }
+        ],
+        "authorContext": {
+          "bio": "Jean-Baptiste Poquelin (1622–1673), známý pod pseudonymem Molière, byl francouzský dramatik, herec a divadelní ředitel. Je považován za největšího francouzského komediografa.",
+          "life": [
+            "Narodil se 15. ledna 1622 v Paříži v rodině královského čalouníka a dekoratéra",
+            "Jeho matka Marie Cressé zemřela, když mu bylo 10 let",
+            "Studoval na prestižní jezuitské koleji Collège de Clermont",
+            "Vystudoval práva v Orléans a získal licenci (1642), ale nikdy jako právník nepracoval",
+            "V roce 1643 založil s rodinou Béjartů divadelní společnost L'Illustre Théâtre",
+            "Společnost zbankrotovala a Molière byl kvůli dluhům krátce uvězněn (1645)",
+            "Následujících 13 let cestoval s kočovnou divadelní společností po francouzském venkově",
+            "V roce 1658 se vrátil do Paříže a získal přízeň krále Ludvíka XIV.",
+            "Zemřel 17. února 1673, několik hodin po kolapsu na jevišti během představení Zdravý nemocný"
+          ],
+          "otherWorks": [
+            {
+              "title": "Tartuffe",
+              "year": "1664",
+              "note": "kritika náboženského pokrytectví, zakázána církví"
+            },
+            {
+              "title": "Don Juan",
+              "year": "1665",
+              "note": "zpracování legendy o svůdníkovi"
+            },
+            {
+              "title": "Misantrop",
+              "year": "1666",
+              "note": "kritika společenských konvencí"
+            },
+            {
+              "title": "Zdravý nemocný",
+              "year": "1673",
+              "note": "satira na hypochondrii, jeho poslední hra"
+            }
+          ]
+        },
+        "literaryContext": {
+          "movement": "Klasicismus",
+          "period": "17.–18. století",
+          "description": "Umělecký směr, který vznikl ve Francii za vlády Ludvíka XIV.",
+          "characteristics": [
+            "Důraz na rozum a řád",
+            "Dodržování pravidla tří jednot (místo, čas, děj)",
+            "Vzory v antice (Aristoteles, řecké drama)",
+            "Střídmost, vyváženost, jasnost",
+            "Oddělení žánrů – vysoké (tragédie) a nízké (komedie)"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Jean Racine",
+              "years": "1639–1699",
+              "note": "Francouzský dramatik, autor tragédií",
+              "works": [
+                "Faidra",
+                "Andromacha",
+                "Berenika"
+              ]
+            },
+            {
+              "name": "Pierre Corneille",
+              "years": "1606–1684",
+              "note": "Otec francouzské tragédie",
+              "works": [
+                "Cid",
+                "Horatius"
+              ]
+            },
+            {
+              "name": "Jean de La Fontaine",
+              "years": "1621–1695",
+              "note": "Autor bajek",
+              "works": [
+                "Bajky"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "Romeo a Julie",
+      "author": "William Shakespeare",
+      "period": "Literatura do konce 18. století",
+      "genre": "Tragédie",
+      "literaryForm": "Drama",
+      "year": "1597",
+      "keywords": [
+        "divadlo",
+        "renesance",
+        "anglická literatura",
+        "láska"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 3,
+      "title": "Král Lávra",
+      "author": "Karel Havlíček Borovský",
+      "period": "Literatura 19. století",
+      "genre": "Satirická báseň",
+      "literaryForm": "Poezie",
+      "year": "1870",
+      "keywords": [
+        "satira",
+        "alegorie",
+        "česká literatura"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 4,
+      "title": "Povídky",
+      "author": "Edgar Allan Poe",
+      "period": "Literatura 19. století",
+      "genre": "Povídka",
+      "literaryForm": "Próza",
+      "year": "19. století",
+      "subworks": [
+        "Jáma a kyvadlo",
+        "Černý kocour",
+        "+1 navíc"
+      ],
+      "keywords": [
+        "romantismus",
+        "horor",
+        "americká literatura",
+        "detektivka"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 5,
+      "title": "Tyrolské elegie",
+      "author": "Karel Havlíček Borovský",
+      "period": "Literatura 19. století",
+      "genre": "Satirická báseň",
+      "literaryForm": "Poezie",
+      "year": "1852",
+      "keywords": [
+        "satira",
+        "alegorie",
+        "česká literatura",
+        "politika"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 6,
+      "title": "Stařec a moře",
+      "author": "Ernest Hemingway",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Novela",
+      "literaryForm": "Próza",
+      "year": "1952",
+      "keywords": [
+        "americká literatura",
+        "nobelova cena",
+        "existencialismus"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 7,
+      "title": "Malý princ",
+      "author": "Antoine de Saint-Exupéry",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Pohádka / Filosofická próza",
+      "literaryForm": "Próza",
+      "year": "1943",
+      "keywords": [
+        "francouzská literatura",
+        "filosofie",
+        "alegorie"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 8,
+      "title": "Petr a Lucie",
+      "author": "Romain Rolland",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Novela",
+      "literaryForm": "Próza",
+      "year": "1920",
+      "keywords": [
+        "francouzská literatura",
+        "láska",
+        "válka",
+        "pacifismus"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 9,
+      "title": "Na západní frontě klid",
+      "author": "Erich Maria Remarque",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Román",
+      "literaryForm": "Próza",
+      "year": "1929",
+      "keywords": [
+        "německá literatura",
+        "válka",
+        "ztracená generace"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 10,
+      "title": "Velký Gatsby",
+      "author": "Francis Scott Fitzgerald",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Román",
+      "literaryForm": "Próza",
+      "year": "1925",
+      "keywords": [
+        "americká literatura",
+        "ztracená generace",
+        "americký sen"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 11,
+      "title": "Farma zvířat",
+      "author": "George Orwell",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Alegorický román",
+      "literaryForm": "Próza",
+      "year": "1945",
+      "keywords": [
+        "anglická literatura",
+        "dystopie",
+        "alegorie",
+        "totalitarismus"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 12,
+      "title": "Vražda v Orient Expresu",
+      "author": "Agatha Christie",
+      "period": "Světová literatura 20. a 21. století",
+      "genre": "Detektivní román",
+      "literaryForm": "Próza",
+      "year": "1934",
+      "keywords": [
+        "anglická literatura",
+        "detektivka",
+        "Hercule Poirot"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 13,
+      "title": "Němá barikáda",
+      "author": "Jan Drda",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Povídka",
+      "literaryForm": "Próza",
+      "year": "1946",
+      "keywords": [
+        "česká literatura",
+        "válka",
+        "povstání"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 14,
+      "title": "O myších a lidech",
+      "author": "John Steinbeck",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Novela",
+      "literaryForm": "Próza",
+      "year": "1937",
+      "keywords": [
+        "americká literatura",
+        "sociální román",
+        "přátelství"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 15,
+      "title": "Smrt krásných srnců",
+      "author": "Ota Pavel",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Povídka",
+      "literaryForm": "Próza",
+      "year": "1971",
+      "keywords": [
+        "česká literatura",
+        "autobiografie",
+        "válka",
+        "rodina"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 16,
+      "title": "Ostře sledované vlaky",
+      "author": "Bohumil Hrabal",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Novela",
+      "literaryForm": "Próza",
+      "year": "1965",
+      "keywords": [
+        "česká literatura",
+        "válka",
+        "film",
+        "postmoderna"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 17,
+      "title": "Bylo nás pět",
+      "author": "Karel Poláček",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Román",
+      "literaryForm": "Próza",
+      "year": "1946",
+      "pages": 155,
+      "keywords": [
+        "česká literatura",
+        "humor",
+        "dětství"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 18,
+      "title": "Bílá Nemoc",
+      "author": "Karel Čapek",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Drama",
+      "literaryForm": "Drama",
+      "year": "1937",
+      "keywords": [
+        "česká literatura",
+        "divadlo",
+        "antifašismus",
+        "humanismus"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 19,
+      "title": "R.U.R.",
+      "author": "Karel Čapek",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Drama",
+      "literaryForm": "Drama",
+      "year": "1920",
+      "keywords": [
+        "česká literatura",
+        "divadlo",
+        "sci-fi",
+        "robot"
+      ],
+      "analysis": null
+    },
+    {
+      "id": 20,
+      "title": "Saturnin",
+      "author": "Zdeněk Jirotka",
+      "period": "Česká literatura 20. a 21. století",
+      "genre": "Humoristický román",
+      "literaryForm": "Próza",
+      "year": "1942",
+      "keywords": [
+        "česká literatura",
+        "humor",
+        "sluha"
+      ],
+      "analysis": null
+    }
+  ]
 }

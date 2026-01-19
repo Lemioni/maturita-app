@@ -7,6 +7,7 @@ import FlashcardsPage from './pages/FlashcardsPage';
 import ProgressPage from './pages/ProgressPage';
 import SearchPage from './pages/SearchPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
+import BookDetailPage from './pages/BookDetailPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/it" element={<ITPage />} />
           <Route path="/it/question/:id" element={<QuestionDetailPage />} />
           <Route path="/cj" element={<CJPage />} />
+          <Route path="/cj/book/:id" element={<BookDetailPage />} />
           <Route path="/flashcards" element={<FlashcardsPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/search" element={<SearchPage />} />
