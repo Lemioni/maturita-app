@@ -22,18 +22,32 @@ const BookDetailPage = () => {
     const tableOfContents = useMemo(() => {
         if (!book?.analysis) return [];
 
-        return [
-            { id: 'section-dej', title: 'Děj', level: 2, number: 1 },
-            { id: 'section-tema', title: 'Téma a motivy', level: 2, number: 2 },
-            { id: 'section-casoprostor', title: 'Časoprostor', level: 2, number: 3 },
-            { id: 'section-druh', title: 'Literární druh a žánr', level: 2, number: 4 },
-            { id: 'section-vypravec', title: 'Vypravěč', level: 2, number: 5 },
-            { id: 'section-postavy', title: 'Postavy', level: 2, number: 6 },
-            { id: 'section-jazyk', title: 'Jazykové prostředky', level: 2, number: 7 },
-            { id: 'section-tropy', title: 'Tropy a figury', level: 2, number: 8 },
-            { id: 'section-autor', title: 'Kontext autorovy tvorby', level: 2, number: 9 },
-            { id: 'section-literarni', title: 'Literární a kulturní kontext', level: 2, number: 10 },
+        const sections = [
+            { id: 'section-nazev', title: 'Analýza názvu', level: 2, number: 1 },
+            { id: 'section-dej', title: 'Děj', level: 2, number: 2 },
+            { id: 'section-tema', title: 'Téma a motivy', level: 2, number: 3 },
+            { id: 'section-casoprostor', title: 'Časoprostor', level: 2, number: 4 },
+            { id: 'section-kompozice', title: 'Kompozice', level: 2, number: 5 },
+            { id: 'section-druh', title: 'Literární druh a žánr', level: 2, number: 6 },
+            { id: 'section-vypravec', title: 'Vypravěč', level: 2, number: 7 },
+            { id: 'section-postavy', title: 'Postavy', level: 2, number: 8 },
+            { id: 'section-ukazka', title: 'Ukázka z textu', level: 2, number: 9 },
+            { id: 'section-jazyk', title: 'Jazykové prostředky', level: 2, number: 10 },
+            { id: 'section-tropy', title: 'Tropy a figury', level: 2, number: 11 },
+            { id: 'section-autor', title: 'Kontext autorovy tvorby', level: 2, number: 12 },
+            { id: 'section-literarni', title: 'Literární a kulturní kontext', level: 2, number: 13 },
+            { id: 'section-dalsi', title: 'Další informace', level: 2, number: 14 },
         ];
+        const analysis = book.analysis;
+        if (!analysis) return [];
+        // Filter out sections that don't have data
+        return sections.filter(section => {
+            if (section.id === 'section-nazev' && !analysis.titleAnalysis) return false;
+            if (section.id === 'section-kompozice' && !analysis.composition) return false;
+            if (section.id === 'section-ukazka' && !analysis.excerpt) return false;
+            if (section.id === 'section-dalsi' && !analysis.additionalInfo) return false;
+            return true;
+        });
     }, [book]);
 
     if (!book) {
@@ -127,6 +141,19 @@ const BookDetailPage = () => {
                             ANALÝZA UMĚLECKÉHO TEXTU
                         </div>
 
+                        {/* Analýza názvu */}
+                        {analysis.titleAnalysis && (
+                            <div id="section-nazev" className="mb-6 scroll-mt-4">
+                                <h3 className="flex items-center gap-2 text-terminal-accent mb-3">
+                                    <span className="text-sm">📌</span>
+                                    <span>Analýza názvu díla</span>
+                                </h3>
+                                <div className="text-terminal-text/90 pl-4 border-l-2 border-terminal-border/20">
+                                    {analysis.titleAnalysis}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Děj */}
                         <div id="section-dej" className="mb-6 scroll-mt-4">
                             <h3 className="flex items-center gap-2 text-terminal-accent mb-3">
@@ -183,6 +210,26 @@ const BookDetailPage = () => {
                                 </div>
                             </div>
                         </div>
+
+                        {/* Kompozice */}
+                        {analysis.composition && (
+                            <div id="section-kompozice" className="mb-6 scroll-mt-4">
+                                <h3 className="flex items-center gap-2 text-terminal-accent mb-3">
+                                    <span className="text-sm">🏗️</span>
+                                    <span>Kompozice</span>
+                                </h3>
+                                <div className="pl-4 border-l-2 border-terminal-border/20 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">STRUKTURA:</span>
+                                        <p className="text-terminal-text/90">{analysis.composition.structure}</p>
+                                    </div>
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">ČASOVÁ LINIE:</span>
+                                        <p className="text-terminal-text/90">{analysis.composition.timeline}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Literární druh a žánr */}
                         <div id="section-druh" className="mb-6 scroll-mt-4">
@@ -251,6 +298,25 @@ const BookDetailPage = () => {
                                 ))}
                             </div>
                         </div>
+
+                        {/* Ukázka z textu */}
+                        {analysis.excerpt && (
+                            <div id="section-ukazka" className="mb-6 scroll-mt-4">
+                                <h3 className="flex items-center gap-2 text-terminal-accent mb-3">
+                                    <span className="text-sm">📜</span>
+                                    <span>Ukázka z textu</span>
+                                </h3>
+                                <div className="pl-4 border-l-2 border-terminal-accent/50 space-y-4">
+                                    <div className="bg-terminal-bg/50 p-4 border border-terminal-border/30 font-mono text-sm whitespace-pre-line">
+                                        {analysis.excerpt.text}
+                                    </div>
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">KONTEXT:</span>
+                                        <p className="text-terminal-text/80 mt-1">{analysis.excerpt.context}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* III. ČÁST - Jazykové prostředky */}
@@ -318,6 +384,29 @@ const BookDetailPage = () => {
                                     </ul>
                                 </div>
 
+                                {/* Období tvorby */}
+                                {analysis.authorContext.creationPeriods && (
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">OBDOBÍ TVORBY:</span>
+                                        <div className="mt-2 space-y-2">
+                                            {analysis.authorContext.creationPeriods.map((period, i) => (
+                                                <div key={i} className="text-sm border-l border-terminal-accent/30 pl-3">
+                                                    <span className="text-terminal-accent font-bold">{period.name}</span>
+                                                    <p className="text-terminal-text/70">{period.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Zařazení díla */}
+                                {analysis.authorContext.workPosition && (
+                                    <div className="bg-terminal-accent/10 p-3 border border-terminal-accent/20">
+                                        <span className="text-xs text-terminal-accent">ZAŘAZENÍ DÍLA:</span>
+                                        <p className="text-terminal-text/90 mt-1">{analysis.authorContext.workPosition}</p>
+                                    </div>
+                                )}
+
                                 <div>
                                     <span className="text-xs text-terminal-text/50">DALŠÍ DÍLA:</span>
                                     <div className="mt-2 space-y-2">
@@ -379,6 +468,78 @@ const BookDetailPage = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* DALŠÍ INFORMACE */}
+                    {analysis.additionalInfo && (
+                        <div className="terminal-card">
+                            <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                                <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">DALŠÍ</span>
+                                DALŠÍ INFORMACE
+                            </div>
+
+                            <div id="section-dalsi" className="scroll-mt-4 space-y-6">
+                                {/* Základní info */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {analysis.additionalInfo.dominantStyle && (
+                                        <div className="pl-4 border-l-2 border-terminal-border/20">
+                                            <span className="text-xs text-terminal-text/50">SLOHOVÝ POSTUP:</span>
+                                            <p className="text-terminal-text/90">{analysis.additionalInfo.dominantStyle}</p>
+                                        </div>
+                                    )}
+                                    {analysis.additionalInfo.audience && (
+                                        <div className="pl-4 border-l-2 border-terminal-border/20">
+                                            <span className="text-xs text-terminal-text/50">ADRESÁT:</span>
+                                            <p className="text-terminal-text/90">{analysis.additionalInfo.audience}</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {analysis.additionalInfo.relevance && (
+                                    <div className="pl-4 border-l-2 border-terminal-border/20">
+                                        <span className="text-xs text-terminal-text/50">AKTUÁLNOST DÍLA:</span>
+                                        <p className="text-terminal-text/90">{analysis.additionalInfo.relevance}</p>
+                                    </div>
+                                )}
+
+                                {analysis.additionalInfo.purpose && (
+                                    <div className="pl-4 border-l-2 border-terminal-border/20">
+                                        <span className="text-xs text-terminal-text/50">SMYSL DÍLA:</span>
+                                        <p className="text-terminal-text/90">{analysis.additionalInfo.purpose}</p>
+                                    </div>
+                                )}
+
+                                {/* Podobná díla */}
+                                {analysis.additionalInfo.similarWorks && analysis.additionalInfo.similarWorks.length > 0 && (
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">TEMATICKY PODOBNÁ DÍLA:</span>
+                                        <div className="mt-2 space-y-3">
+                                            {analysis.additionalInfo.similarWorks.map((work, i) => (
+                                                <div key={i} className="pl-4 border-l-2 border-terminal-accent/30">
+                                                    <div>
+                                                        <span className="text-terminal-accent font-bold">{work.title}</span>
+                                                        <span className="text-terminal-text/50"> – {work.author} ({work.year})</span>
+                                                    </div>
+                                                    <p className="text-terminal-text/70 text-sm">{work.note}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Adaptace */}
+                                {analysis.additionalInfo.adaptations && analysis.additionalInfo.adaptations.length > 0 && (
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">FILMOVÉ A DIVADELNÍ ADAPTACE:</span>
+                                        <ul className="mt-2 space-y-1 pl-4">
+                                            {analysis.additionalInfo.adaptations.map((adaptation, i) => (
+                                                <li key={i} className="text-terminal-text/80 text-sm">• {adaptation}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </>
             ) : (
                 <div className="terminal-card">

@@ -195,9 +195,299 @@
         "divadlo",
         "renesance",
         "anglická literatura",
-        "láska"
+        "láska",
+        "tragédie"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Název Romeo a Julie zdůrazňuje ústřední postavy a jejich osudovou lásku. Pojmenování podle dvou milenců symbolizuje sílu citu překonávající nenávist i tragické následky rodových sporů.",
+        "plot": "Ve Veroně zuří dlouholetá krvavá rozepře mezi dvěma významnými rody – Monteky a Kapulety. Na ulicích dochází k neustálým potyčkám mezi služebníky obou rodin.\n\nRomeo Montek se tajně vydává na maškarní ples do domu Kapuletů, aby spatřil svou lásku Rosalinu. Místo ní však zahlédne Julii Kapuletovou a oba se do sebe okamžitě zamilují. Při slavné balkónové scéně si vyznávají lásku a rozhodnou se k tajnému sňatku.\n\nMnich otec Vavřinec je tajně oddá v naději, že jejich svazek ukončí nenávist mezi rody. Juliin bratranec Tybalt však vyzve Romea na souboj. Romeo odmítá (je nyní Tybaltův příbuzný), ale jeho přítel Merkucio za něj bojuje a je Tybaltem zabit. Romeo v návalu hněvu zabije Tybalta a je odsouzen k vyhnanství z Verony.\n\nRodiče Kapuletovi mezitím naplánují svatbu Julie s hrabětem Parisem. Zoufalá Julie požádá o pomoc otce Vavřince. Ten jí dá lektvar, který ji uvede do stavu zdánlivé smrti na 42 hodin. Zpráva o tomto plánu se však k Romeovi nedostane včas.\n\nRomeo se dozví pouze o Julině 'smrti'. Koupí jed a vydá se k její hrobce. Tam se střetne s Parisem a zabije ho. Nad Juliiným tělem vypije jed a umírá. Julie se probouzí, vidí mrtvého Romea a probodne se jeho dýkou.\n\nNad mrtvými těly svých dětí se oba rody konečně usmíří a slibují postavit zlaté sochy na jejich památku.",
+        "themes": {
+          "main": "Tragická láska dvou mladých lidí z nepřátelských rodin, která je zničena nenávistí a předsudky jejich okolí",
+          "motifs": [
+            "láska na první pohled",
+            "nenávist rodů",
+            "osud vs. svobodná vůle",
+            "smrt",
+            "mládí vs. stáří",
+            "tajemství",
+            "noc a tma",
+            "světlo a hvězdy"
+          ]
+        },
+        "setting": {
+          "place": "Verona (Itálie) – dům Kapuletů, balkón, klášter, hrobka; krátce Mantova",
+          "time": "Renesanční Itálie (16. století), děj trvá přibližně 5 dní"
+        },
+        "composition": {
+          "structure": "Hra se skládá z 5 dějství",
+          "timeline": "Děj se odvíjí chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Romeo Montek",
+            "description": "Mladý Montek, citlivý a vášnivý. Zpočátku melancholický, zamilovaný do představy lásky (Rosalina). Po setkání s Julií nachází pravý cit. Impulzivní – zabije Tybalta v afektu, rychle se rozhodne pro sebevraždu. Symbol romantické, absolutní lásky.",
+            "isMain": true
+          },
+          {
+            "name": "Julie Kapuletová",
+            "description": "Třináctiletá dcera Kapuletů. Zpočátku poslušná dívka, později silná a odhodlaná žena. Postupně dozrává od poslušné dívky k ženě, která se vzepře rodině. Statečná, rozhodná, ochotná zemřít pro lásku.",
+            "isMain": true
+          },
+          {
+            "name": "Merkucio",
+            "description": "Romeův nejlepší přítel, vtipný a sarkastický. Pronáší slavný monolog o královně Mab. Jeho smrt je zlomovým bodem tragédie – spustí tragickou část děje. Představuje hravost a životní energii.",
+            "isMain": false
+          },
+          {
+            "name": "Tybalt",
+            "description": "Juliin bratranec, horkokrevný a agresivní. Zosobňuje nenávist mezi rody. Zabije Merkucia a je zabit Romeem. Vznětlivý, provokuje, což se mu stane osudným.",
+            "isMain": false
+          },
+          {
+            "name": "Otec Vavřinec",
+            "description": "Františkánský mnich, Romeův duchovní rádce. Oddá milence v naději na smíření rodů. Jeho plán s uspávacím lektvarem selže. Moudrý, ale jeho dobré úmysly vedou ke katastrofě.",
+            "isMain": false
+          },
+          {
+            "name": "Paris",
+            "description": "Hrabě, nápadník Julie. Vznešený, ale nechápe Juliiny city. Juliin budoucí manžel – ona si ho odmítá vzít. Zabit Romeem u hrobky.",
+            "isMain": false
+          },
+          {
+            "name": "Chůva",
+            "description": "Juliina kojná a důvěrnice. Komická postava, prostořeká. Zpočátku pomáhá milencům, později zradí Julii tím, že jí radí vzít si Parise.",
+            "isMain": false
+          },
+          {
+            "name": "Benvolio",
+            "description": "Romeův přítel, mírný a rozumný. Jeho jméno je odvozeno z latinského 'benevolens' – laskavý.",
+            "isMain": false
+          },
+          {
+            "name": "Kníže Eskalus",
+            "description": "Vládce Verony, symbol řádu.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Drama – bez klasického vypravěče. Děj posouvají repliky postav. Vypravěč se projevuje pouze prostřednictvím scénických poznámek.",
+          "style": "Zvláštní postavou je Chór v prologu – uvede děj a předznamená tragický osud milenců. Dále už děj tvoří dialogy a monology postav."
+        },
+        "languageDevices": [
+          "Blankvers – nerýmovaný pětistopý jamb, typický pro Shakespeara, dodává důstojnost a rytmus",
+          "Střídání prózy a veršů – próza pro nižší postavy a komické scény",
+          "Sonety – první setkání Romea a Julie je psáno jako sonet",
+          "Slovní hříčky a dvojsmysly (zejména Merkucio a Chůva)",
+          "Antiteze – kontrasty: láska/nenávist, světlo/tma, život/smrt",
+          "Bohatá obraznost – metafory spojující lásku s náboženstvím",
+          "Živé dialogy – dynamické rozhovory mezi postavami",
+          "Monology – významné monology obou hlavních postav"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Oxymóron",
+            "example": "'krásná nenávisti', 'milující nenávist', 'hojivá smrt' – vyjadřuje paradox lásky uprostřed nenávisti"
+          },
+          {
+            "name": "Metafora",
+            "example": "Julie jako slunce, Romeo jako hvězda, 'moje láska' = Romeo"
+          },
+          {
+            "name": "Apostrofa",
+            "example": "'Ó Romeo, Romeo! Proč jsi Romeo?', 'Ty sobče', 'Drahá dýko' – oslovení nepřítomného, zdůrazňuje osamělost a zoufalství"
+          },
+          {
+            "name": "Personifikace",
+            "example": "smrt jako milenec Julie ('Smrt si tě vzala')"
+          },
+          {
+            "name": "Epiteton",
+            "example": "'hvězdami zkřížení milenci' (star-crossed lovers), 'hojivá smrt'"
+          },
+          {
+            "name": "Ironie osudu",
+            "example": "tragické nedorozumění s dopisem"
+          },
+          {
+            "name": "Řečnická otázka",
+            "example": "'Co mně má pomoct?' – vyjadřuje paniku"
+          },
+          {
+            "name": "Epizeuxis",
+            "example": "'Tak jděte, jděte!' – zvyšuje napětí"
+          },
+          {
+            "name": "Eufemismus",
+            "example": "'věčnost' místo smrti – poetické zjemnění tragédie"
+          }
+        ],
+        "excerpt": {
+          "text": "JULIE: Tak jděte, jděte! Já nemám kam jít.\\nCopak to svírá v prstech moje láska?\\nSkleničku? Jed ti pomohl na věčnost?\\nTy sobče, nenechals mi ani kapku.\\nCo mně má pomoct? Slíbám tvoje rty.\\nSnad na nich troška jedu ulpěla a\\nopět spojí nás hojivá smrt.\\n(Líbá Romea na rty.)\\nTvé rty jsou ještě teplé.\\n1. STRÁŽNÍ: (Za scénou) Veď nás! Kudy, chlapče?\\nJULIE: Cože? Už jdou? Tak rychle!\\n(Vezme Romeovu dýku.)\\nDrahá dýko.\\nZde je tvé místo, tady zrezavěj!\\n(Probodne se, padne a zemře.)",
+          "context": "Úryvek je ze závěru knihy, je klíčový v kontextu celé knihy. Dříve dal Vavřinec Julii nápoj, který ji uspal na 2×21 hodin. Když ji uviděl nic netušící Romeo, vypil jed a lehl si na tělo Julie. Poté se Julie probouzí a vidí mrtvého Romea."
+        },
+        "authorContext": {
+          "bio": "William Shakespeare (1564–1616) – anglický dramatik a básník, považovaný za největšího spisovatele anglického jazyka a nejvlivnějšího dramatika světové literatury.",
+          "life": [
+            "Narodil se 23. dubna 1564 ve Stratfordu nad Avonou (Stratford-upon-Avon), Anglie",
+            "Jeho otec John Shakespeare byl úspěšný rukavičkář a městský radní",
+            "Matka Mary Ardenová pocházela z drobné šlechty",
+            "Navštěvoval King's New School ve Stratfordu, kde se učil latinu a rétoriku",
+            "V 18 letech (1582) se oženil s Anne Hathawayovou, která byla o 8 let starší",
+            "Měl tři děti: Susannu (1583) a dvojčata Hamneta a Judith (1585) – Hamnet zemřel v 11 letech",
+            "Kolem roku 1585–1592 jsou tzv. 'ztracená léta' – není známo, co dělal",
+            "Od roku 1592 je doložen v Londýně jako herec a začínající dramatik",
+            "Stal se členem a spolumajitelem divadelní společnosti Lord Chamberlain's Men (později King's Men)",
+            "V roce 1599 se stal spolumajitelem slavného divadla Globe Theatre",
+            "V roce 1611 se vrátil do Stratfordu, kde žil až do smrti",
+            "Zemřel 23. dubna 1616 (v den svých narozenin)"
+          ],
+          "creationPeriods": [
+            {
+              "name": "Rané období (1590–1594)",
+              "description": "Historické hry, první komedie"
+            },
+            {
+              "name": "Období komedií (1594–1600)",
+              "description": "Sen noci svatojánské, Kupec benátský"
+            },
+            {
+              "name": "Období velkých tragédií (1600–1608)",
+              "description": "Hamlet, Othello, Macbeth, Král Lear"
+            },
+            {
+              "name": "Pozdní období – romances",
+              "description": "Bouře, Zimní pohádka"
+            }
+          ],
+          "otherWorks": [
+            {
+              "title": "Hamlet",
+              "year": "1601",
+              "note": "alžbětinská tragédie o dánském princi, krize jednotlivce i společenských hodnot"
+            },
+            {
+              "title": "Othello",
+              "year": "1604",
+              "note": "tragédie žárlivosti"
+            },
+            {
+              "title": "Macbeth",
+              "year": "1606",
+              "note": "tragédie ctižádosti"
+            },
+            {
+              "title": "Král Lear",
+              "year": "1605",
+              "note": "vrcholná anglická pozdně renesanční tragédie s námětem z keltských pověstí"
+            },
+            {
+              "title": "Sen noci svatojánské",
+              "year": "1595",
+              "note": "romantická komedie"
+            },
+            {
+              "title": "Bouře",
+              "year": "1611",
+              "note": "pozdně renesanční poetické drama, vztahy mýtu a umění"
+            }
+          ],
+          "workPosition": "Romeo a Julie patří mezi rané tragédie Shakespeara. Je to poslední hra napsaná v optimistickém období – jakýsi předvoj pro pesimistické období. Důraz na vášeň, konflikt rozumu a citu, osudovost, krásu jazyka."
+        },
+        "literaryContext": {
+          "movement": "Renesance a humanismus",
+          "period": "14.–16. století",
+          "description": "Kulturní hnutí, které začalo v Itálii a rozšířilo se do Evropy. Anglická renesance vyvrcholila za vlády Alžběty I. (alžbětinská doba). Znovuzrození antických ideálů – rozum, krása, rovnováha.",
+          "characteristics": [
+            "Humanismus – zájem o člověka, jeho schopnosti a přirozenost",
+            "Důraz na člověka, vzdělání, svobodu myšlení",
+            "Návrat k antickým vzorům",
+            "Rozvoj divadla – veřejná divadla (Globe)",
+            "Důraz na individualitu a lidské vášně",
+            "Mísení tragického a komického",
+            "Rozvoj vědy a objevů: knihtisk, Koperník, Galilei",
+            "Postavy s hlubokou psychologií, příběhy o lásce, vášni a lidskosti"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Francesco Petrarca",
+              "years": "1304–1374",
+              "note": "Italský básník, 'otec humanismu'",
+              "works": [
+                "Sonety Lauře (Zpěvník)"
+              ]
+            },
+            {
+              "name": "Giovanni Boccaccio",
+              "years": "1313–1375",
+              "note": "Italský prozaik",
+              "works": [
+                "Dekameron – sbírka 100 novel"
+              ]
+            },
+            {
+              "name": "Miguel de Cervantes",
+              "years": "1547–1616",
+              "note": "Španělský spisovatel, vrcholný autor zlatého věku",
+              "works": [
+                "Důmyslný rytíř Don Quijote de la Mancha"
+              ]
+            },
+            {
+              "name": "Christopher Marlowe",
+              "years": "1564–1593",
+              "note": "Anglický dramatik, Shakespearův současník",
+              "works": [
+                "Doktor Faustus",
+                "Tamburlaine Veliký"
+              ]
+            },
+            {
+              "name": "Geoffrey Chaucer",
+              "years": "1340–1400",
+              "note": "První velký anglický básník",
+              "works": [
+                "Canterburské povídky"
+              ]
+            },
+            {
+              "name": "Francois Villon",
+              "years": "1431–1463",
+              "note": "Francouzský básník, první prokletý básník",
+              "works": [
+                "Odkaz (Malý testament)",
+                "Závěť (Velký testament)"
+              ]
+            },
+            {
+              "name": "Lope de Vega",
+              "years": "1562–1635",
+              "note": "Španělský dramatik, napsal přes 1800 her",
+              "works": [
+                "Fuente Ovejuna (Ovčí pramen)"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Hlavním tématem díla je láska a složitost lidských vztahů, což můžeme považovat za věčné a stále aktuální téma.",
+          "audience": "Kniha může oslovit mladší, ale i starší lidi, protože zamilovaný může být člověk v každém věku.",
+          "purpose": "Smyslem je poukázat na sílu lásky dvou mladých lidí, mezi něž se postaví intriky.",
+          "similarWorks": [
+            {
+              "title": "Romeo, Julie a tma",
+              "author": "Jan Otčenášek",
+              "year": "1958",
+              "note": "Tragická novela z prostředí okupace Československa za druhé světové války, heydrichiády. Příběh Pavla a židovky Ester, jejichž lásku rozdělí vojáci. Slovo 'tma' symbolizuje dusné prostředí stanného práva."
+            }
+          ],
+          "adaptations": [
+            "Americký film Romeo a Julie z roku 1996 – Leonardo DiCaprio v hlavní roli",
+            "Americký animovaný film Romeo a Julie z roku 2006 – pozměněný konec",
+            "Mnoho dalších divadelních i filmových zpracování"
+          ]
+        }
+      }
     },
     {
       "id": 3,
@@ -210,9 +500,195 @@
       "keywords": [
         "satira",
         "alegorie",
-        "česká literatura"
+        "česká literatura",
+        "politika"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Snaha o vtipnou zveršovanou pohádku, zesměšnění vrchnosti. Král Lávra = hlavní hrdina příběhu.",
+        "plot": "Vypravěč povídá píseň o starém, irském králi Lávrovi. Lid má krále rád, protože dobře vládne, jen jednu slabost má, a to, že po oholení holiče na šibenici posílá. Ale i na to si lidé zvykli, až na holiče, ti si zvyknout nemohli.\n\nLetos padl los na holiče Kukulína, staré vdovy syna. Potom co krále ostříhal a táhli ho na šibenici, jeho matka ho od krále nakonec vyprosila. Lávra si tedy pozval Kukulína a ten mu slíbil, že bude mlčet a stane se jeho dvorním holičem.\n\nBohatý dvorní holič však trápení měl, že tajemství nikomu prozradit nesměl. Jeho maminka ho tedy poslala do lesa pro radu k poustevníkovi. Poustevník mu řekl jediný lék, pošeptat vrbě svůj zármutek.\n\nPo krátké době objednal si král české karlovarské hudebníky na svůj bál. Basista Červíček ztratil z basy kolíček a u Vinkovského brodu udělal si nový ze staré vrby. Když na bále smyčcem spustil, basa začala řvát: 'Král Lávra má dlouhé oslí uši, král je ušatec!'\n\nCo nyní celý svět věděl od basy, nebylo nic platno skrývat pod vlasy. Po krátké době si lid zvykl, že dlouhé uši koruně docela sluší. Kukulín krále stříhal dál, protože nikdy nevyšlo, jak tajemství na svět z basy přišlo. A tak, když tě něco na jazyku svrbí, zašeptej to do staré vrby.",
+        "themes": {
+          "main": "Královo tajemství a jeho odhalení – satira na vrchnost a tyranii moci",
+          "motifs": [
+            "tajemství",
+            "oslí uši",
+            "šibenice",
+            "holič",
+            "vrba",
+            "basa",
+            "moc a tyranie"
+          ]
+        },
+        "setting": {
+          "place": "Irsko, královský dvůr",
+          "time": "Před dávnou dobou (neurčený čas, pohádkový rámec)"
+        },
+        "composition": {
+          "structure": "Báseň má 34 strof po 7 verších",
+          "timeline": "Děj se odvíjí chronologicky",
+          "rhyme": "1. a 3. verš se nerýmuje, rýmové schéma – ABCBDDB"
+        },
+        "characters": [
+          {
+            "name": "Král Lávra",
+            "description": "Dobrý panovník, nechce, aby nikdo věděl jeho tajemství – stydí se za svoje oslí uši. Nechává popravit každého holiče, který jeho tajemství pozná.",
+            "isMain": true
+          },
+          {
+            "name": "Kukulín",
+            "description": "Holič, čestný, spravedlivý, bojácný, smířený s osudem, utrápený potřebou se svěřit. Syn staré vdovy.",
+            "isMain": true
+          },
+          {
+            "name": "Kukulínova matka",
+            "description": "Vdova, milující matka, která zachránila syna před šibenicí – vyprosila ho u krále.",
+            "isMain": false
+          },
+          {
+            "name": "Muzikant Červíček",
+            "description": "Basista z karlovarské kapely, který si vyrobil kolíček z vrby a nevědomky prozradil královo tajemství.",
+            "isMain": false
+          },
+          {
+            "name": "Poustevník",
+            "description": "Moudrý rádce v lese, poradil Kukulínovi, aby tajemství pošeptal vrbě.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Er-forma (vševědoucí vypravěč)",
+          "style": "Písňová forma, pásmo vypravěče s přímou řečí postav"
+        },
+        "excerpt": {
+          "text": "Všem se kázal vzdálit,\njen sám Kukulín,\npovolán ku králi,\nbledý jako stín;\nKrál tu sedí, na klíně korunu:\n'Přistup, synu, blíže sem ke trůnu\ni pod baldachýn.\n\nPřísahej, že smlčíš\nNa věčné časy,\nco jsi na mé hlavě\nviděl pod vlasy,\npak se tobě neublíží v ničem\na ty budeš mým dvorním holičem\npo všechny časy.'",
+          "context": "Úryvek je z poloviny básně. Král si pozval Kukulína a nabízí mu život výměnou za mlčení o jeho tajemství – oslích uších."
+        },
+        "languageDevices": [
+          "Knižní výrazy – 'povolán ku králi'",
+          "Familiární oslovení – 'synu'",
+          "Archaismy – 'baldachýn', 'smlčíš'",
+          "Lidová mluva",
+          "Přímá řeč krále"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Přirovnání",
+            "example": "'bledý jako stín'"
+          },
+          {
+            "name": "Hyperbola",
+            "example": "'na věčné časy', 'po všechny časy' – přehánění pro zdůraznění"
+          },
+          {
+            "name": "Alegorie",
+            "example": "Celý příběh je alegorií na tyranii moci a utajování pravdy před lidem"
+          },
+          {
+            "name": "Písňová forma",
+            "example": "Pravidelné strofy s refrénovým charakterem"
+          }
+        ],
+        "authorContext": {
+          "bio": "Karel Havlíček Borovský (1821–1856) – český básník, novinář, ekonom, překladatel a politik. Považován za zakladatele české žurnalistiky, satiry a literární kritiky. Literárně řazen do realismu, politicky patří do tzv. generace národních buditelů.",
+          "life": [
+            "Přídomek 'Borovský' je odvozen od místa narození – Borová u Přibyslavi",
+            "Jako devítiletý odchází na školu do Jihlavy, kde se učil němčině",
+            "Gymnázium studoval v Německém Brodě (dnes Havlíčkův Brod)",
+            "Od roku 1838 studoval filozofii v Praze",
+            "V 19 letech vstoupil do semináře, ale odešel – nesnesl přesný režim a přetvářku církve",
+            "Odjel do Ruska jako vychovatel, po roce se vrátil vystřízlivěný z ruských poměrů",
+            "Redaktor a zakladatel Národních novin",
+            "V roce 1848 zatčen za rušení veřejného pokoje, ale brilantní obhajobou osvobozen",
+            "Vykázán z Prahy, usadil se v Kutné Hoře, kde vydával časopis Slovan",
+            "V letech 1851–1855 deportován do tyrolského Brixenu, kde napsal Tyrolské elegie, Král Lávra a Křest svatého Vladimíra",
+            "Během návštěvy rodiny se nakazil tuberkulózou",
+            "Na pohřbu Božena Němcová položila na jeho rakev trnovou korunu jako symbol mučednictví"
+          ],
+          "otherWorks": [
+            {
+              "title": "Tyrolské elegie",
+              "year": "1852",
+              "note": "satirická báseň o cestě do Brixenu, výsměch rakouské vládě"
+            },
+            {
+              "title": "Křest svatého Vladimíra",
+              "year": "1854",
+              "note": "satirická skladba o carovi, který nechá utopit boha Peruna"
+            },
+            {
+              "title": "Epigramy",
+              "year": "1845",
+              "note": "krátké satirické básně"
+            },
+            {
+              "title": "Obrazy z Rus",
+              "year": "1843",
+              "note": "cestopisné reportáže z Ruska"
+            }
+          ],
+          "workPosition": "Král Lávra patří mezi tři vrcholné satirické skladby, které Havlíček napsal v Brixenu. Je to politická satira – vrchol jeho tvorby."
+        },
+        "literaryContext": {
+          "movement": "Národní obrození, počátky realismu",
+          "period": "1. polovina 19. století (4. fáze národního obrození)",
+          "description": "Hledání východiska z krize světa, důraz na národ, prolínání romantismu s realismem. Potřeba vlastenectví s funkcí literatury ve vztahu ke společnosti. Hájení demokratických zásad proti vládě a církvi.",
+          "characteristics": [
+            "Důraz na národ, vychází z lidové tvorby",
+            "Prolínání romantismu s realismem",
+            "Venkovská próza, idylické dětství",
+            "Hájení demokratických zásad proti vládě a církvi",
+            "Realismus – přiblížení se ke skutečnosti a objektivitě"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Josef Kajetán Tyl",
+              "years": "1808–1856",
+              "note": "Významný český dramatik, putoval s kočovným divadlem",
+              "works": [
+                "Strakonický dudák",
+                "Fidlovačka"
+              ]
+            },
+            {
+              "name": "Karel Jaromír Erben",
+              "years": "1811–1870",
+              "note": "Sbíral lidové písně a pohádky, seznámil se s Palackým",
+              "works": [
+                "Kytice z pověstí národních",
+                "Prostonárodní české písně a říkadla"
+              ]
+            },
+            {
+              "name": "Božena Němcová",
+              "years": "1820–1862",
+              "note": "Dětství v ratibořickém údolí, dívčí jméno Barbora Panklová",
+              "works": [
+                "Babička",
+                "Divá Bára",
+                "V zámku a v podzámčí"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo je stále aktuální – každý člověk dělá chyby a nemusí se stydět za to, jak vypadá.",
+          "purpose": "Satira, která je zdánlivě prostoupena mírnějším tónem. Havlíček pojednává o králi s oslíma ušima, který nechává popravit každého, kdo pozná pravdu. I smírný konec je parodií na 'hodné' panovníky.",
+          "similarWorks": [
+            {
+              "title": "Tyrolské elegie",
+              "author": "Karel Havlíček Borovský",
+              "year": "1852",
+              "note": "Další satirická skladba, ostré vystupování proti vládě"
+            },
+            {
+              "title": "Křest svatého Vladimíra",
+              "author": "Karel Havlíček Borovský",
+              "year": "1854",
+              "note": "Nedokončená satirická skladba o carovi a náboženství"
+            }
+          ]
+        }
+      }
     },
     {
       "id": 4,
@@ -247,9 +723,193 @@
         "satira",
         "alegorie",
         "česká literatura",
-        "politika"
+        "politika",
+        "Brixen"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Tyrolské elegie – město Brixen v Tyrolsku (místo, kde byl K. H. B. vězněn), elegie = žalozpěv. Název odkazuje na místo vyhnanství a žánr lyrické poezie.",
+        "plot": "Borovského dílo popisuje jeho cestu do rakouského Brixenu v devíti zpěvech.\n\nV prvním zpěvu Borovský promlouvá k měsíci v Brixenu. Druhý zpěv vypráví o 'návštěvě' policajtů – dvě hodiny po půlnoci přicházejí s dopisem z Vídně od pana Bacha.\n\nVe třetím zpěvu čte dopis a dozvídá se, že prý kvůli jeho zdraví musí odjet do Brixenu. Čtvrtý zpěv – policajti mají naspěch a radí mu, aby si nebral žádné zbraně, ochraňovat ho budou oni.\n\nV pátém zpěvu mluví o loučení s rodinou: 'Matka, žena, sestra, dcerka, malá Zdenička, stály okolo mne v tichém pláči – hořká chvilinka.'\n\nŠestý zpěv – za dohledu četníků vyráží na cestu. Sedmý zpěv vypráví o cestě a městech, hradech, které potkal. Zároveň si utahuje ze svých 'strážců'.\n\nV osmém, nejdelším zpěvu vypráví o tom, jak se splašili koně a policajti vyskákali z kočáru. Do Brixenu přijíždí sám, policajti za ním pěšky: 'Ach, ty vládo, převrácená vládo! Národy na šnůrce vodit chceš, ale čtyřmi koňmi bez opratí vládnout nemůžeš.'\n\nDevátý zpěv – Borovský přijel do Brixenu, je vězněn: 'Místo mne ten kus papíru vrátili do Čech, mne zde černý dvojhlavý orel drží v klepetech.'",
+        "themes": {
+          "main": "Cesta do vyhnanství v Brixenu – satirický výsměch rakouské vládě a policejnímu státu",
+          "motifs": [
+            "cesta do vyhnanství",
+            "policajti",
+            "vláda",
+            "svoboda",
+            "rodina",
+            "Alpy",
+            "splašení koně"
+          ]
+        },
+        "setting": {
+          "place": "Čechy → cesta do Brixenu (Tyrolsko, Rakousko)",
+          "time": "Cesta započala 16. prosince 1851"
+        },
+        "composition": {
+          "structure": "Báseň má 9 zpěvů, každá sloka má 4 verše",
+          "timeline": "Děj je vyprávěn chronologicky",
+          "rhyme": "Rým je přerývaný (ABCB)"
+        },
+        "characters": [
+          {
+            "name": "Vypravěč (K. H. Borovský)",
+            "description": "Autor díla, škodolibý, moudrý, ironický. Vypráví svůj příběh v ich-formě s humorem a sarkasmem.",
+            "isMain": true
+          },
+          {
+            "name": "Policajti",
+            "description": "Vládní příslušníci, slepě plní rozkazy od hlavy státu. Komické postavy, které autor zesměšňuje.",
+            "isMain": false
+          },
+          {
+            "name": "Dedera",
+            "description": "Policejní komisař Franz Dedera, skutečná postava. Slepě plní úkoly, omezený.",
+            "isMain": false
+          },
+          {
+            "name": "Postmistr Dahrupp",
+            "description": "Skutečná postava, svědek příjezdu Borovského do Brixenu.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma (vypravěčem je sám Borovský)",
+          "style": "Monolog vypravěče s neznačenou přímou řečí, satirický tón"
+        },
+        "excerpt": {
+          "text": "Ach ty světe, obrácený světe!\nVzhůru nohami ve škarpě leží stráž,\nale s panem delikventem samým\nkluše ekypáž!\n\nAch ty vládo, převrácená vládo!\nNárody na šňůrce vodit chceš,\nale čtyřmi koňmi na opratích\nvládnout nemůžeš!",
+          "context": "Osmý zpěv, téměř konec cesty. Koně se splašili, policajti vyskákali z kočáru a Borovský přijíždí do Brixenu sám."
+        },
+        "languageDevices": [
+          "Archaismy – 'pravím', 'svěřiti', 'resignace'",
+          "Citoslovce – 'ejhle!'",
+          "Nespisovná slova – 'policajti', 'škarpa', 'čerstvěj'",
+          "Přechodník minulý – 'vyrazivše'",
+          "Slova cizího původu – 'ekypáž' (kočár)",
+          "Řečnická otázka – 'Což se mi může horšího již stát?'",
+          "Vulgarismus – 'v hubě'",
+          "Rozkazovací věty – 'Metejme los!'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Apostrofa",
+            "example": "'Ach ty světe, obrácený světe!', 'Ach ty vládo, převrácená vládo!' – oslovení nepřítomného"
+          },
+          {
+            "name": "Personifikace",
+            "example": "'národy na šňůrce vodit chceš' – vláda personifikována jako kočí"
+          },
+          {
+            "name": "Přirovnání",
+            "example": "'tak jsem cválal sám a sám v kočáře jako vítr s Alpy'"
+          },
+          {
+            "name": "Ironie a sarkasmus",
+            "example": "Celá báseň je prostoupena ironickým tónem vůči rakouské vládě"
+          },
+          {
+            "name": "Antiteze",
+            "example": "Kontrast mezi 'delikventem' a jeho důstojným chováním vs. směšností policajtů"
+          }
+        ],
+        "authorContext": {
+          "bio": "Karel Havlíček Borovský (1821–1856) – český básník, novinář, ekonom, překladatel a politik. Považován za zakladatele české žurnalistiky, satiry a literární kritiky.",
+          "life": [
+            "Přídomek 'Borovský' je odvozen od místa narození – Borová u Přibyslavi",
+            "Jako devítiletý odchází na školu do Jihlavy",
+            "Gymnázium studoval v Německém Brodě (dnes Havlíčkův Brod)",
+            "Od roku 1838 studoval filozofii v Praze",
+            "V 19 letech vstoupil do semináře, ale odešel – nesnesl přesný režim církve",
+            "Odjel do Ruska jako vychovatel, po roce se vrátil vystřízlivěný",
+            "Redaktor a zakladatel Národních novin",
+            "V roce 1848 zatčen, ale brilantní obhajobou osvobozen",
+            "V Kutné Hoře vydával časopis Slovan – jediný veřejný časopis proti vládě",
+            "V letech 1851–1855 deportován do Brixenu, kde napsal své vrcholné satirické skladby",
+            "Během návštěvy rodiny se nakazil tuberkulózou a zemřel"
+          ],
+          "otherWorks": [
+            {
+              "title": "Král Lávra",
+              "year": "1854",
+              "note": "satirická báseň o králi s oslíma ušima"
+            },
+            {
+              "title": "Křest svatého Vladimíra",
+              "year": "1854",
+              "note": "nedokončená satirická skladba o carovi, který nechá utopit boha Peruna"
+            },
+            {
+              "title": "Epigramy",
+              "year": "1845",
+              "note": "krátké satirické básně"
+            },
+            {
+              "title": "Obrazy z Rus",
+              "year": "1843",
+              "note": "cestopisné reportáže z Ruska"
+            }
+          ],
+          "workPosition": "Tyrolské elegie patří mezi tři vrcholné skladby, které vznikly v Brixenu v letech 1851–1855. Je to politická satira – vrchol tvorby."
+        },
+        "literaryContext": {
+          "movement": "Národní obrození, počátky realismu",
+          "period": "1. polovina 19. století (4. fáze národního obrození)",
+          "description": "Hledání východiska z krize světa, důraz na národ. Potřeba vlastenectví s funkcí literatury ve vztahu ke společnosti. Hájení demokratických zásad proti vládě a církvi.",
+          "characteristics": [
+            "Důraz na národ, vychází z lidové tvorby",
+            "Prolínání romantismu s realismem",
+            "Hájení demokratických zásad proti vládě a církvi",
+            "Realismus – přiblížení se ke skutečnosti"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Josef Kajetán Tyl",
+              "years": "1808–1856",
+              "note": "Významný český dramatik",
+              "works": [
+                "Strakonický dudák",
+                "Fidlovačka"
+              ]
+            },
+            {
+              "name": "Karel Jaromír Erben",
+              "years": "1811–1870",
+              "note": "Sbíral lidové písně a pohádky",
+              "works": [
+                "Kytice z pověstí národních"
+              ]
+            },
+            {
+              "name": "Božena Němcová",
+              "years": "1820–1862",
+              "note": "Autorka Babičky",
+              "works": [
+                "Babička",
+                "Divá Bára"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo je v dnešní době spíše neaktuální jako přímá kritika – bylo myšleno jako výsměch rakouské vládě. Obecně však zůstává aktuální jako satira na byrokratický stát.",
+          "purpose": "Báseň vypráví o autorově cestě do rakouského Brixenu, naráží na vládu a vysmívá se jí. Osobní zážitky vyjadřuje ironicky a sarkasticky, ponižuje rakouskou monarchii.",
+          "similarWorks": [
+            {
+              "title": "Král Lávra",
+              "author": "Karel Havlíček Borovský",
+              "year": "1854",
+              "note": "Další satirická skladba z Brixenu"
+            },
+            {
+              "title": "Křest sv. Vladimíra",
+              "author": "Karel Havlíček Borovský",
+              "year": "1854",
+              "note": "Satiry zaměřené na politickou situaci"
+            }
+          ]
+        }
+      }
     },
     {
       "id": 6,
