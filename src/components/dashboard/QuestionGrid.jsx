@@ -82,7 +82,7 @@ const QuestionGrid = () => {
 
         {/* Stats in corner */}
         <div className="text-xs text-terminal-text/60">
-          <span className="text-terminal-accent">{stats.known}</span>
+          <span className="text-terminal-green">{stats.known}</span>
           <span className="mx-1">/</span>
           <span className="text-terminal-red">{stats.unknown}</span>
           <span className="mx-1">/</span>
@@ -107,8 +107,8 @@ const QuestionGrid = () => {
                   key={`it-${question.id}`}
                   to={`/it/question/${question.id}`}
                   className={`aspect-square border transition-all duration-200 hover:scale-110 ${known
-                      ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50'
-                      : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50'
+                    ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50'
+                    : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50'
                     }`}
                   title={`IT #${question.id}: ${question.question}`}
                 />
@@ -135,8 +135,8 @@ const QuestionGrid = () => {
                   key={`cj-${book.id}`}
                   to={`/cj/book/${book.id}`}
                   className={`aspect-square border transition-all duration-200 hover:scale-110 flex items-center justify-center text-xs font-mono ${known
-                      ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50 text-terminal-green'
-                      : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50 text-terminal-red'
+                    ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50 text-terminal-green'
+                    : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50 text-terminal-red'
                     }`}
                   title={`ČJ #${book.id}: ${book.title} - ${book.author}`}
                 >

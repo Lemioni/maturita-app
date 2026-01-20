@@ -36,8 +36,6 @@ const Header = () => {
     { path: '/', icon: FaHome, label: 'HOME' },
     { path: '/it', icon: FaLaptopCode, label: 'IT' },
     { path: '/cj', icon: FaBook, label: 'CJ' },
-    { path: '/flashcards', icon: FaLayerGroup, label: 'FLASH' },
-    { path: '/progress', icon: FaChartLine, label: 'PROG' },
     { path: '/search', icon: FaSearch, label: 'SRCH' },
   ];
 
