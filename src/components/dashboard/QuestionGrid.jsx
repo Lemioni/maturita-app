@@ -1,40 +1,54 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaDesktop, FaBook, FaLayerGroup } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
+import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const QuestionGrid = () => {
   const [progress] = useLocalStorage('maturita-progress', {});
-  const [viewMode, setViewMode] = useState('all'); // 'all', 'category', 'activity'
-  const [questions, setQuestions] = useState([]);
+  const [viewMode, setViewMode] = useState('all'); // 'all', 'it', 'cj'
+  const [itQuestions, setItQuestions] = useState([]);
+  const [cjBooks, setCjBooks] = useState([]);
 
   useEffect(() => {
-    let processedQuestions = [...itQuestionsData.questions];
+    setItQuestions([...itQuestionsData.questions]);
+    setCjBooks([...cjBooksData.books]);
+  }, []);
 
-    if (viewMode === 'category') {
-      // Group by category
-      processedQuestions.sort((a, b) => a.category.localeCompare(b.category));
-    } else if (viewMode === 'activity') {
-      // Sort by most recently reviewed
-      processedQuestions.sort((a, b) => {
-        const aTime = progress.itQuestions?.[a.id]?.lastReviewed || 0;
-        const bTime = progress.itQuestions?.[b.id]?.lastReviewed || 0;
-        return new Date(bTime) - new Date(aTime);
-      });
-    }
-
-    setQuestions(processedQuestions);
-  }, [viewMode, progress]);
-
-  const getQuestionStatus = (questionId) => {
+  const getItQuestionStatus = (questionId) => {
     return progress.itQuestions?.[questionId]?.known || false;
   };
 
-  const stats = {
-    total: questions.length,
-    known: questions.filter(q => getQuestionStatus(q.id)).length,
-    unknown: questions.filter(q => !getQuestionStatus(q.id)).length,
+  const getCjBookStatus = (bookId) => {
+    return progress.cjBooks?.[bookId]?.known || false;
   };
+
+  const itStats = {
+    total: itQuestions.length,
+    known: itQuestions.filter(q => getItQuestionStatus(q.id)).length,
+    unknown: itQuestions.filter(q => !getItQuestionStatus(q.id)).length,
+  };
+
+  const cjStats = {
+    total: cjBooks.length,
+    known: cjBooks.filter(b => getCjBookStatus(b.id)).length,
+    unknown: cjBooks.filter(b => !getCjBookStatus(b.id)).length,
+  };
+
+  const totalStats = {
+    total: itStats.total + cjStats.total,
+    known: itStats.known + cjStats.known,
+    unknown: itStats.unknown + cjStats.unknown,
+  };
+
+  const getCurrentStats = () => {
+    if (viewMode === 'it') return itStats;
+    if (viewMode === 'cj') return cjStats;
+    return totalStats;
+  };
+
+  const stats = getCurrentStats();
 
   return (
     <div className="terminal-card">
@@ -43,64 +57,91 @@ const QuestionGrid = () => {
         <div className="flex gap-2">
           <button
             onClick={() => setViewMode('all')}
-            className={`icon-btn text-xs px-3 ${viewMode === 'all' ? 'active' : ''}`}
+            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'all' ? 'active' : ''}`}
+            title="Vše (IT + ČJ)"
           >
-            ALL
+            <FaDesktop className="text-xs" />
+            <span className="mx-0.5">/</span>
+            <FaBook className="text-xs" />
           </button>
           <button
-            onClick={() => setViewMode('category')}
-            className={`icon-btn text-xs px-3 ${viewMode === 'category' ? 'active' : ''}`}
+            onClick={() => setViewMode('it')}
+            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'it' ? 'active' : ''}`}
+            title="Informační technologie"
           >
-            CAT
+            <FaDesktop className="text-sm" />
           </button>
           <button
-            onClick={() => setViewMode('activity')}
-            className={`icon-btn text-xs px-3 ${viewMode === 'activity' ? 'active' : ''}`}
+            onClick={() => setViewMode('cj')}
+            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'cj' ? 'active' : ''}`}
+            title="Český jazyk"
           >
-            ACT
+            <FaBook className="text-sm" />
           </button>
         </div>
 
         {/* Stats in corner */}
-         <div className="text-xs text-terminal-text/60">
-           <span className="text-terminal-accent">{stats.known}</span>
-           <span className="mx-1">/</span>
-           <span className="text-terminal-red">{stats.unknown}</span>
+        <div className="text-xs text-terminal-text/60">
+          <span className="text-terminal-accent">{stats.known}</span>
+          <span className="mx-1">/</span>
+          <span className="text-terminal-red">{stats.unknown}</span>
           <span className="mx-1">/</span>
           <span>{stats.total}</span>
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-1">
-        {questions.map((question) => {
-          const known = getQuestionStatus(question.id);
-          return (
-            <Link
-              key={question.id}
-              to={`/it/question/${question.id}`}
-              className={`aspect-square border transition-all duration-200 hover:scale-110 ${
-                known
-                  ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50'
-                  : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50'
-              }`}
-              title={`#${question.id}: ${question.question}`}
-            />
-          );
-        })}
-      </div>
-
-      {/* Category legend if in category mode */}
-      {viewMode === 'category' && (
-        <div className="mt-4 pt-3 border-t border-terminal-border/20">
-          <div className="text-xs text-terminal-text/60 space-y-1">
-            {[...new Set(questions.map(q => q.category))].map((cat, i) => {
-              const count = questions.filter(q => q.category === cat).length;
+      {/* IT Questions Grid */}
+      {(viewMode === 'all' || viewMode === 'it') && (
+        <div className="mb-4">
+          {viewMode === 'all' && (
+            <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60">
+              <FaDesktop />
+              <span>IT ({itStats.known}/{itStats.total})</span>
+            </div>
+          )}
+          <div className="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-1">
+            {itQuestions.map((question) => {
+              const known = getItQuestionStatus(question.id);
               return (
-                <div key={cat} className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-terminal-border/50" />
-                  <span>{cat} ({count})</span>
-                </div>
+                <Link
+                  key={`it-${question.id}`}
+                  to={`/it/question/${question.id}`}
+                  className={`aspect-square border transition-all duration-200 hover:scale-110 ${known
+                      ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50'
+                      : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50'
+                    }`}
+                  title={`IT #${question.id}: ${question.question}`}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* CJ Books Grid */}
+      {(viewMode === 'all' || viewMode === 'cj') && (
+        <div>
+          {viewMode === 'all' && (
+            <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60 mt-4 pt-3 border-t border-terminal-border/20">
+              <FaBook />
+              <span>ČJ ({cjStats.known}/{cjStats.total})</span>
+            </div>
+          )}
+          <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 lg:grid-cols-10 gap-1">
+            {cjBooks.map((book) => {
+              const known = getCjBookStatus(book.id);
+              return (
+                <Link
+                  key={`cj-${book.id}`}
+                  to={`/cj/book/${book.id}`}
+                  className={`aspect-square border transition-all duration-200 hover:scale-110 flex items-center justify-center text-xs font-mono ${known
+                      ? 'border-terminal-green bg-terminal-green/30 hover:bg-terminal-green/50 text-terminal-green'
+                      : 'border-terminal-red bg-terminal-red/30 hover:bg-terminal-red/50 text-terminal-red'
+                    }`}
+                  title={`ČJ #${book.id}: ${book.title} - ${book.author}`}
+                >
+                  {book.id}
+                </Link>
               );
             })}
           </div>
@@ -111,3 +152,4 @@ const QuestionGrid = () => {
 };
 
 export default QuestionGrid;
+
