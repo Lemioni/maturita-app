@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaList, FaLayerGroup, FaQuestion, FaFilter, FaSortAmountDown } from 'react-icons/fa';
-import cjBooksData from '../data/cj-books.json';
+import cjBooksData from '../data/bookData.js';
 import BookList from '../components/cj/BookList';
 import FlashcardMode from '../components/cj/FlashcardMode';
 import QuizMode from '../components/cj/QuizMode';

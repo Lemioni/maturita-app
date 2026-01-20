@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaBook, FaUser, FaMapMarkerAlt, FaClock, FaTheaterMasks, FaPen, FaGlobe } from 'react-icons/fa';
 import { useEffect, useMemo } from 'react';
-import cjBooksData from '../data/cj-books.json';
+import cjBooksData from '../data/bookData.js';
 import useLocalStorage from '../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
@@ -64,9 +64,10 @@ const BookDetailPage = () => {
         );
     }
 
-    const currentIndex = cjBooksData.books.findIndex(b => b.id === bookId);
-    const prevBook = currentIndex > 0 ? cjBooksData.books[currentIndex - 1] : null;
-    const nextBook = currentIndex < cjBooksData.books.length - 1 ? cjBooksData.books[currentIndex + 1] : null;
+    const allBooks = cjBooksData.books;
+    const currentIndex = allBooks.findIndex(b => b.id === bookId);
+    const prevBook = currentIndex > 0 ? allBooks[currentIndex - 1] : null;
+    const nextBook = currentIndex < allBooks.length - 1 ? allBooks[currentIndex + 1] : null;
 
     const isKnown = progress.cjBooks?.[bookId]?.known || false;
 

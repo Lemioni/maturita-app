@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import cjBooksData from '../../data/cj-books.json';
+import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
 
@@ -98,7 +98,7 @@ const BookList = ({ filter, sort }) => {
                   </div>
                 )}
               </Link>
-              
+
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="flex-shrink-0"

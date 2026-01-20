@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight, FaRandom } from 'react-icons/fa';
-import cjBooksData from '../../data/cj-books.json';
+import cjBooksData from '../../data/bookData.js';
 
 const FlashcardMode = ({ filter }) => {
     const [books, setBooks] = useState([]);

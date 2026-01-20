@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaCheck, FaTimes, FaRedo } from 'react-icons/fa';
-import cjBooksData from '../../data/cj-books.json';
+import cjBooksData from '../../data/bookData.js';
 
 const QuizMode = ({ filter }) => {
     const [books, setBooks] = useState([]);

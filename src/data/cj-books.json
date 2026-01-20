@@ -2101,7 +2101,200 @@
         "detektivka",
         "Hercule Poirot"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Vražda v Orient expresu – zločin se odehrál ve vlaku s názvem Orient expres.",
+        "plot": "Detektiv Hercule Poirot se vrací domů ze Sýrie, kde řešil případ. Ve vlaku do Cařihradu si všimne dvojice, Angličanky a jistého plukovníka, ale není si jist jejich vztahem. Do Cařihradu přijde Poirotovi telegram a on musí změnit trasu, aby se dostal do Londýna. Měl jet Orient expresem na trase Istanbul–Calais. S ním cestuje také Belgičan Bouc, ředitel železniční společnosti. Kupodivu je vlak zcela obsazený, ale nakonec se jedno místo uvolnilo. Celkem je zde 13 cestujících a mezi nimi i dvojice, kterou již Poirot potkal cestou.\n\nJeden z cestujících, velmi nepříjemný Američan Ratchett, se Poirotovi svěřil, že se bojí, že bude zavražděn, chodily mu totiž výhružné dopisy. Poirot mu ale odmítl pomoct. Během noci vjel vlak do závěje a zastavil se. Ráno byl Ratchett nalezen mrtvý – někdo ho ubodal. Zajímavé bylo, že některé z 12 bodných ran byly velmi slabé a některé zase velmi razantní. Hodinky se Ratchettovi zastavily v 01:15, což byl předpokládaný čas smrti. Další stopou byl dámský kapesník, čistič na dýmku a kousek výhružného dopisu. Poirot rozluštil zmínku o malé Daisy Armstrongové, což byla nedávno zavražděná dívenka, o jejímž případu se všude psalo. Přišel s odhalením, že Ratchett je onen vrah pod novou identitou.\n\nHercule Poirot postupně vyslechl všechny cestující, dělal si poznámky a načrtnul plánek vlaku. Zjistil, že jedna z podezřelých znala rodinu malé Daisy. Několik cestujících v noci vidělo projít kupé ženu v červeném županu, další viděli průvodčího na jeho židli na konci kupé a další zaslechli výkřik. Poirot provedl prohlídku kufrů, v jednom našel uniformu falešného průvodčího a v tom svém červené kimono.\n\nHercule si povšiml několika poznámek, zamyslel se a zjistil, že úplně všichni cestující měli něco do činění s rodinou Armstrongových. Došlo mu také, že se tu všichni sešli záměrně, a proto byl vlak plně obsazen i v zimě. Vydedukoval, že se všichni chtěli Ratchettovi pomstít, a z toho důvodu naplánovali zločin společně. Věděl dokonce přesně, jak to bylo a kdo hrál při vraždě jakou roli. Ratchett byl zavražděn 12 ranami, každou zasadil jiný cestující. Chápal, proč se Ratchettovi mstili, a tak vymyslel ještě jedno – náhradní – řešení. Když stál vlak v závěji, vlezl do vlaku vrah v uniformě průvodčího, zavraždil Ratchetta a zase uprchnul. Lékař i Poirotův přítel Bouc se shodli, že policii předloží tuto variantu, 12 skutečných vrahů tedy zůstalo nepotrestáno.",
+        "themes": {
+          "main": "Vyšetřování vraždy",
+          "motifs": [
+            "kapesníček",
+            "čistič na lulku",
+            "kimono"
+          ]
+        },
+        "setting": {
+          "place": "Vlak Orient expres na území Jugoslávie, vyšetřování probíhalo v jídelním voze",
+          "time": "Není přesně určen; krátce po smrti pana Ratchetta, zima, rok 1929"
+        },
+        "composition": {
+          "structure": "Příběh se skládá ze tří částí: Fakta, Výpovědi, Hercule Poirot si sedne a přemýšlí",
+          "timeline": "Příběh je vyprávěn chronologicky, při rekonstrukci vraždy retrospektivně"
+        },
+        "characters": [
+          {
+            "name": "Hercule Poirot",
+            "description": "Belgičan, detektiv, je neskutečně všímavý, pozorný, až geniální, zároveň výborný psycholog. Vystupuje mírně výstředně a ne každému je sympatický. Je popisován jako menší tmavovlasý muž s knírkem. O jeho soukromí nic nevíme.",
+            "isMain": true
+          },
+          {
+            "name": "Monsieur Bouc",
+            "description": "Ředitel drah, snaží se být při vyšetřování nápomocný, ale sám by na nic nepřišel.",
+            "isMain": false
+          },
+          {
+            "name": "Lékař",
+            "description": "Odborník ve svém oboru, přesně určil čas smrti a příčinu smrti.",
+            "isMain": false
+          },
+          {
+            "name": "Ratchett",
+            "description": "Ve skutečnosti Casetti, vrah malé Daisy, chladnokrevný, zlý, krutý, všemi nenáviděný podvodník.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Vypravěč vystupuje v er-formě a sděluje čtenáři jen takové informace, které má k dispozici i vyšetřovatel Poirot (= vypravěč není vševědoucí).",
+          "style": "V úryvku se v menší míře objevuje pásmo vypravěče, ve větší míře dialog (rozhovor) Poirota, lékaře a Bouca."
+        },
+        "excerpt": {
+          "text": "Sám jste říkal, monsieur Poirote, vložil se do toho lékař, že dvě stopy je trochu moc. Souhlasím s monsieur Boucem. Kapesníček tam zůstal omylem, proto se žádná nepřizná, že jí patří. Čistič na lulku je falešná stopa. Pro tuto teorii mluví ostatně také to, že plukovník Arbuthnot, jak jste si všiml, bez váhání a otevřeně přiznal, že kouří lulku a že užívá čističe tohoto druhu.\n\nUsuzujete dobře, řekl Poirot.\n\nOtázka číslo 3 – kdo chodil v rudém kimonu? pokračoval monsieur Bouc. Přiznám se, že o tom nemám ani zdání. Máte na to nějaké vysvětlení, doktore?\n\nNemám.\n\nV tomto bodě jsme tedy bezradní a přiznáváme se k tomu. Ale příští otázka nám každopádně dává jakési možnosti. Kdo byl muž či žena převlečený nebo převlečená za průvodčího?",
+          "context": "Úryvek je ze třetí části knihy, kdy k sobě Poirot skládá poslední indicie a dedukuje, kdo je vrah."
+        },
+        "languageDevices": [
+          "Francouzské slovo – 'monsieur'",
+          "Slovo zdrobnělé – 'kapesníček'",
+          "Archaická větná vazba – 'užívá čističe'",
+          "Výčet – Hardman, plukovník Arbuthnot, Foscarelli, hrabě Andrényi a Hector MacQueen…"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Ironie",
+            "example": "'dvě stopy je trochu moc'"
+          },
+          {
+            "name": "Personifikace",
+            "example": "'pro tuto teorii mluví to...'"
+          },
+          {
+            "name": "Dysfemismus",
+            "example": "'jsou příliš tlusté'"
+          }
+        ],
+        "authorContext": {
+          "bio": "Agatha Mary Clarissa Christie (1890–1976) – druhá nejprodávanější spisovatelka všech dob (první je W. Shakespeare), nejznámější spisovatelka všech dob.",
+          "life": [
+            "Z viktoriánské anglické rodiny, narozená jako Millerová",
+            "Vyučována doma, poté na studiích v Paříži",
+            "Výborně zpívala a hrála na klavír",
+            "Provdala se roku 1914 za důstojníka Archibalda Christie, měli spolu dceru Rosalind, r. 1928 se rozvedli",
+            "V první světové válce pracovala jako dobrovolná sestra a lékárnice",
+            "R. 1926 se na 2 týdny ztratila, dodnes se neví, kam a proč",
+            "Druhý manžel byl archeolog Max Mallowan",
+            "Během druhé světové války pracovala ve výdejně léků",
+            "Byla jmenována Komandérem britského impéria a z rukou královny získala titul Dáma britského impéria",
+            "Díky manželovi mohla používat titul lady",
+            "Vydávala asi jednu knihu ročně",
+            "Celkem se prodalo přes 2 miliardy výtisků jejích knih",
+            "Je překládána do více než 100 jazyků",
+            "Někdy používala pseudonym Mary Westmacott – pod ním vyšlo 6 romantických románů",
+            "Napsala 66 detektivních románů, 16 divadelních her a 14 povídkových souborů",
+            "Nejslavnějšími detektivy jsou Hercule Poirot a slečna Marplová"
+          ],
+          "otherWorks": [
+            {
+              "title": "Záhada na zámku Styles",
+              "year": "1921",
+              "note": "první detektivka, poprvé Hercule Poirot"
+            },
+            {
+              "title": "Vraždy podle abecedy",
+              "year": "",
+              "note": "jeden z nejznámějších románů"
+            },
+            {
+              "title": "Smrt na Nilu",
+              "year": "",
+              "note": "detektivka s vyšetřovatelem Poirotem"
+            },
+            {
+              "title": "Deset malých černoušků",
+              "year": "",
+              "note": "jeden z nejznámějších románů"
+            },
+            {
+              "title": "Past na myši",
+              "year": "",
+              "note": "divadelní hra"
+            },
+            {
+              "title": "Svědek obžaloby",
+              "year": "",
+              "note": "divadelní hra"
+            }
+          ],
+          "workPosition": "Kniha vyšla roku 1934 a je jednou z mnoha autorčiných detektivek, v nichž vystupuje vyšetřovatel Hercule Poirot."
+        },
+        "literaryContext": {
+          "movement": "Detektivní literatura",
+          "period": "20. století",
+          "description": "Jeden z nejoblíbenějších žánrů zábavné literatury, za zakladatele je považován Edgar Allan Poe. Vznikla až koncem 19. století, počátky můžeme najít již v 18. století (loupežnické a pikareskní romány). Detektivka = příběh se zápletkou, která je založena na zločinu (nejčastěji vraždě), který vyšetřuje detektiv.",
+          "characteristics": [
+            "Příběh založen na zločinu, nejčastěji vraždě",
+            "Detektiv (profesionál, policista, soukromý detektiv, laik) vyšetřuje",
+            "Čtenář sleduje spolu s vyšetřovatelem stopy",
+            "Čtenář dedukuje z různých informací"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Edgar Allan Poe",
+              "years": "1809–1849",
+              "note": "Romantický básník, prozaik, literární teoretik, esejista. Zakladatel detektivky, 'mistr krátké prózy'.",
+              "works": [
+                "Zánik domu Usherů",
+                "Vražda v ulici Morgue",
+                "Jáma a kyvadlo",
+                "Zlatý brouk",
+                "Černý kocour"
+              ]
+            },
+            {
+              "name": "Robert Louis Stevenson",
+              "years": "1850–1894",
+              "note": "Skotský romanopisec, básník, povídkář, cestopisec. 'Mistr krátké sevřené prózy', představitel novoromantismu.",
+              "works": [
+                "Ostrov pokladů",
+                "Podivný případ dr. Jekylla a pana Hyda"
+              ]
+            },
+            {
+              "name": "Oscar Wilde",
+              "years": "1854–1900",
+              "note": "Ir, prozaik, dramatik, básník a esejista. Nejúspěšnější dramatik pozdně viktoriánského Londýna.",
+              "works": [
+                "Obraz Doriana Graye",
+                "Jak je důležité míti Filipa"
+              ]
+            },
+            {
+              "name": "Arthur Conan Doyle",
+              "years": "1859–1930",
+              "note": "Ovlivnil podobu detektivního žánru svými příběhy o Sherlocku Holmesovi.",
+              "works": [
+                "Dobrodružství Sherlocka Holmese",
+                "Pes baskervillský"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Vraždy jsou stále aktuální téma, pouze vyšetřovací metody jsou dnes jiné. Ovšem i dnešní vyšetřovatelé musejí použít hlavně rozum, technika je pouze pomocný prostředek k odhalení vraha.",
+          "audience": "Kdokoli, kdo má rád klasickou detektivku.",
+          "purpose": "Příběh ukazuje, jak důležitý je zdravý lidský rozum a bystrý úsudek. Autorka čtenářům předložila stejná fakta, která měl k dispozici sám vyšetřovatel, ale jen on byl schopný odhalit vraha.",
+          "similarWorks": [
+            {
+              "title": "Smrt na Nilu",
+              "author": "Agatha Christie",
+              "year": "",
+              "note": "Detektivka s vyšetřovatelem Poirotem"
+            }
+          ],
+          "adaptations": [
+            "Film z roku 1974 – zcela neodpovídá předloze, ale neliší se v podstatných věcech",
+            "Nejnovější zpracování z roku 2017 (USA, Malta, režie K. Branagh), roli zavražděného vraha hraje Johnny Depp"
+          ]
+        }
+      }
     },
     {
       "id": 13,

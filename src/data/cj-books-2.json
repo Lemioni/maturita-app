@@ -1,0 +1,1293 @@
+{
+    "books": [
+        {
+            "id": 13,
+            "title": "Němá barikáda",
+            "author": "Jan Drda",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Válečné povídky",
+            "literaryForm": "Próza",
+            "year": "1946",
+            "keywords": [
+                "česká literatura",
+                "válka",
+                "povstání",
+                "2. světová válka"
+            ],
+            "analysis": {
+                "titleAnalysis": "Název je podle barikády, která skutečně existovala.",
+                "plot": "Kniha obsahuje 11 povídek s válečnou tematikou.\n\nZÁKEŘNÍK: Když si šly děti hrát, odstřelil je zákeřník. Seběhli se místní muži a začali přemýšlet, odkud se střílelo. Pan Martínek prohledal dům a našel Němce Waltera − zákeřníka. Stařena, zákeřníkova matka, se snažila syna ochránit. Zákeřníka předali partyzánům.\n\nVYŠŠÍ PRINCIP: Třídní učitel septimy, profesor latiny, je přezdíván 'Vyšší princip'. Po atentátu na Heydricha jsou tři žáci udáni gestapu a usmrceni. Profesor souhlasí s atentátem na tyrana, který dle něj z vyššího mravního principu není zločinem.",
+                "themes": {
+                    "main": "Vražda malých dětí na ulici, válečné hrdinství běžných lidí",
+                    "motifs": [
+                        "děti",
+                        "krev",
+                        "hrůza",
+                        "smrt",
+                        "válka"
+                    ]
+                },
+                "setting": {
+                    "place": "Protektorát Čechy a Morava",
+                    "time": "Poslední dny 2. světové války"
+                },
+                "composition": {
+                    "structure": "11 povídek",
+                    "timeline": "Děj povídek se odvíjí chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Zákeřník",
+                        "description": "Ledový pohled, chladný muž, Němec, zabiják",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Pan Martínek",
+                        "description": "Statečný, muž, kovář, nebojácný",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Helenka",
+                        "description": "Malá zabitá holčička",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Er-forma (vševědoucí vypravěč)",
+                    "style": "Pásmo vypravěče"
+                },
+                "excerpt": {
+                    "text": "Vlhká a tvárná je zem, z níž byly vyrvány dlažební kostky. Nelze udržet děti doma. Vyběhnou před dům s lopatkou a kbelíčkem. A pak najednou ratatata. Děti zavyjí hrůzou, rozstříknou se jako kuřata. Helenka už neběží.",
+                    "context": "Úryvek je z povídky Zákeřník."
+                },
+                "languageDevices": [
+                    "Citoslovce – 'ratatata'",
+                    "Zdrobněliny – 's lopatkou a kbelíčkem'",
+                    "Hypokoristikon – 'Helenka'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Nadsázka",
+                        "example": "'déšť zalézal až do morku kostí'"
+                    },
+                    {
+                        "name": "Přirovnání",
+                        "example": "'rozstříknou se jako kuřata'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Jan Drda (1915–1970) – spisovatel, scenárista, dramatik, prozaik, novinář.",
+                    "life": [
+                        "Narodil se v Příbrami",
+                        "Studoval filologii na pražské univerzitě",
+                        "Zemřel osamělý na zámku v Dobříši"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "České pohádky",
+                            "year": "",
+                            "note": "Soubor 12 pohádek"
+                        },
+                        {
+                            "title": "Hrátky s čertem",
+                            "year": "",
+                            "note": "Divadelní hra"
+                        }
+                    ],
+                    "workPosition": "Povídky vznikaly jako bezprostřední reakce na válečné události."
+                },
+                "literaryContext": {
+                    "movement": "Česká literatura 2. poloviny 20. století",
+                    "period": "Po 2. světové válce",
+                    "description": "Reakce na válku a radost ze získané svobody.",
+                    "characteristics": [
+                        "Reakce na válku",
+                        "Radost ze získané svobody"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Jiří Weil",
+                            "years": "1900–1959",
+                            "note": "Člen Devětsilu, novinář, prozaik",
+                            "works": [
+                                "Život s hvězdou"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Dílo již aktuální není, je z doby po válce.",
+                    "audience": "Dospělý člověk snažící se pochopit atmosféru druhé světové války.",
+                    "purpose": "Bezprostřední reakce na válečné události.",
+                    "similarWorks": [
+                        {
+                            "title": "Romeo, Julie a tma",
+                            "author": "Jan Otčenášek",
+                            "year": "",
+                            "note": "Dílo s válečnou tematikou"
+                        }
+                    ],
+                    "adaptations": [
+                        "Filmová verze povídky Vyšší princip (1960)"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 14,
+            "title": "O myších a lidech",
+            "author": "John Steinbeck",
+            "period": "Světová literatura 20. a 21. století",
+            "genre": "Novela",
+            "literaryForm": "Próza",
+            "year": "1937",
+            "keywords": [
+                "americká literatura",
+                "sociální román",
+                "přátelství",
+                "Lost generation"
+            ],
+            "analysis": {
+                "titleAnalysis": "Lennie si na začátku knihy hladí hebkou myší srst.",
+                "plot": "Hlavními postavami jsou Lennie Small a George Milton. Lennie není z nejchytřejších. Po smrti tety Kláry se ho ujal kamarád George. Dostali práci na ranči v Soledadu. Oba sní o vlastním hospodářství s králíky.\n\nCurleyova žena navštívila Lennieho, kterému se líbily její vlasy. Lennie je hladil tak silně, že jí nechtěně zlomil vaz. George ho našel dřív než Curley a zastřelil ho, aby ho ochránil před krutým zacházením.",
+                "themes": {
+                    "main": "Přátelství, nemožnost dosáhnout amerického snu",
+                    "motifs": [
+                        "vlasy",
+                        "králíci",
+                        "ruce"
+                    ]
+                },
+                "setting": {
+                    "place": "Kalifornie, ranč v Soledadu",
+                    "time": "30. léta 20. století"
+                },
+                "composition": {
+                    "structure": "Novela",
+                    "timeline": "Děj je vyprávěný chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Lennie Small",
+                        "description": "Plachý, hodný, mentálně opožděný, miluje hebké věci",
+                        "isMain": true
+                    },
+                    {
+                        "name": "George Milton",
+                        "description": "Stará se o Lennieho a má ho rád, je pracovitý",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Curleyova žena",
+                        "description": "Nešťastná, hledá společnost",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Er-forma, vševědoucí vypravěč",
+                    "style": "Pásmo vypravěče, přímá řeč"
+                },
+                "excerpt": {
+                    "text": "Lennieho ohromné prsty ji začaly hladit po vlasech. 'Jé, to je hezký,' liboval si. Uškubla hlavou, a Lennieho prsty se jí na vlasech sevřely. 'Pusťte!' Lennie se vyděsil.",
+                    "context": "Těsně před tím, než Lennie ženu zabije."
+                },
+                "languageDevices": [
+                    "Citoslovce – 'jé'",
+                    "Věta rozkazovací – 'Pusťte!'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Personifikace",
+                        "example": "'prsty se sevřely a nechtěly pustit'"
+                    },
+                    {
+                        "name": "Gradace",
+                        "example": "'Dejte pozor...' A pak rozzlobeně: 'Nechte toho!'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "John Steinbeck (1902–1968) – americký spisovatel, držitel Nobelovy ceny z roku 1962.",
+                    "life": [
+                        "Jako školák vypomáhal na farmách",
+                        "Odešel do New Yorku jako reportér",
+                        "Zemřel v New Yorku"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Hrozny hněvu",
+                            "year": "",
+                            "note": "Osudy rodiny chudých zemědělců"
+                        },
+                        {
+                            "title": "Na východ od ráje",
+                            "year": "1952",
+                            "note": "Románová kronika"
+                        }
+                    ],
+                    "workPosition": "Americký realismus, období hospodářské krize."
+                },
+                "literaryContext": {
+                    "movement": "Americký realismus, Lost generation",
+                    "period": "1. polovina 20. století",
+                    "description": "Generace amerických autorů poznamenáni 1. sv. válkou, vystřízlivěli z amerického snu.",
+                    "characteristics": [
+                        "Pocity zklamání a skepse",
+                        "Rozklad hodnot"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Ernest Hemingway",
+                            "years": "1899–1961",
+                            "note": "Metoda ledovce",
+                            "works": [
+                                "Stařec a moře",
+                                "Sbohem, armádo"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Kritika rasismu a vykořisťování stále aktuální.",
+                    "audience": "Milovníci americké literatury.",
+                    "purpose": "Ukázka společenských poměrů v tehdejší Americe.",
+                    "similarWorks": [],
+                    "adaptations": [
+                        "Film z roku 1992, režie Gary Sinise, ČSFD 86 %"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 15,
+            "title": "Smrt krásných srnců",
+            "author": "Ota Pavel",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Povídky",
+            "literaryForm": "Próza",
+            "year": "1971",
+            "keywords": [
+                "česká literatura",
+                "autobiografie",
+                "válka",
+                "rodina",
+                "rybaření"
+            ],
+            "analysis": {
+                "titleAnalysis": "Smrt krásných srnců – název podle třetí z povídek.",
+                "plot": "Kniha se skládá ze sedmi povídek. Ústřední postavou je Otův tatínek Leo Popper, snílek a dobrodruh.\n\nVE SLUŽBÁCH ŠVÉDSKA: Tatínek byl ve firmě Elektrolux nejlepším prodejcem. Na večeři se znemožnil, když jedl kuře rukama.\n\nSMRT KRÁSNÝCH SRNCŮ: Když byli Otovi bratři povoláni do transportu, tatínek obstaral srnčí maso, aby lépe přečkali koncentrační tábor.\n\nKAPŘI PRO WEHRMACHT: Tatínek musel odevzdat rybník Němcům. Noc před transportem vylovil s Otou kapry a Němcům 'vypálil rybník'.",
+                "themes": {
+                    "main": "Vzpomínky na dětství a rodinu",
+                    "motifs": [
+                        "medaile",
+                        "vidlička",
+                        "ryby",
+                        "kapři"
+                    ]
+                },
+                "setting": {
+                    "place": "Buštěhrad",
+                    "time": "Třicátá léta 20. století, druhá světová válka"
+                },
+                "composition": {
+                    "structure": "Sedm povídek",
+                    "timeline": "Povídky jsou řazeny chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Tatínek (Leo Popper)",
+                        "description": "Mistr světa v prodeji ledniček, snílek a dobrodruh",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Ota",
+                        "description": "Vypravěč, nejmladší ze tří bratrů",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Maminka",
+                        "description": "Trpělivá, milující, starostlivá",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Er-forma, vypravěčem je malý Ota",
+                    "style": "Pásmo vypravěče, přímá řeč"
+                },
+                "excerpt": {
+                    "text": "V hotelu Alcron ho korunovali na mistra světa. Na banketu přinesli pečené kuře. Tatínek vzal vidličku, zaklepal na skleničku a pronesl: 'A teď vám ukážu, jak se jí u nás v Buštěhradě.' Vzal kuře do rukou a všichni ho následovali.",
+                    "context": "Úryvek je z povídky Ve službách Švédska."
+                },
+                "languageDevices": [
+                    "Zdrobnělina – 'tatínek', 'maminka'",
+                    "Hovorové slovo – 'cesťák'",
+                    "Expresivní slovo – 'chlap'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Personifikace",
+                        "example": "'v čele tabule zavládlo mrazivé ticho'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Ota Pavel (1930–1973) – vlastním jménem Otto Popper, prozaik, sportovní reportér.",
+                    "life": [
+                        "Narodil se v Praze, nejmladší ze tří bratrů",
+                        "Otec byl židovského původu",
+                        "Od r. 1964 trpěl duševní chorobou",
+                        "Zemřel v necelých 43 letech"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Jak jsem potkal ryby",
+                            "year": "",
+                            "note": "Autobiografické vzpomínkové prózy"
+                        },
+                        {
+                            "title": "Dukla mezi mrakodrapy",
+                            "year": "",
+                            "note": "Sportovní tematika"
+                        }
+                    ],
+                    "workPosition": "Povídky vznikaly v době duševní choroby, psaní mu bylo útěchou."
+                },
+                "literaryContext": {
+                    "movement": "Česká literatura po roce 1945",
+                    "period": "2. polovina 20. století",
+                    "description": "Literatura se židovskou tematikou, autobiografické vzpomínkové prózy.",
+                    "characteristics": [
+                        "Humorně laděné povídky",
+                        "Lidový jazyk",
+                        "Vzpomínky na dětství"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Bohumil Hrabal",
+                            "years": "1914–1997",
+                            "note": "'Pábení' – zvláštní druh vyprávění",
+                            "works": [
+                                "Ostře sledované vlaky"
+                            ]
+                        },
+                        {
+                            "name": "Arnošt Lustig",
+                            "years": "1926–2011",
+                            "note": "Židovská tématika",
+                            "works": [
+                                "Modlitba pro Kateřinu Horovitzovou"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Stále aktuální je láska k přírodě a krásné vztahy v rodině.",
+                    "audience": "Čtenář, který vzpomíná na válečná léta.",
+                    "purpose": "Vzpomínky na dětství s láskou.",
+                    "similarWorks": [
+                        {
+                            "title": "Jak jsem potkal ryby",
+                            "author": "Ota Pavel",
+                            "year": "",
+                            "note": "Vzpomínky na dětství"
+                        }
+                    ],
+                    "adaptations": [
+                        "Film Smrt krásných srnců (1986), Karel Kachyňa, ČSFD 87 %"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 16,
+            "title": "Ostře sledované vlaky",
+            "author": "Bohumil Hrabal",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Novela",
+            "literaryForm": "Próza",
+            "year": "1965",
+            "keywords": [
+                "česká literatura",
+                "válka",
+                "film",
+                "Oskar"
+            ],
+            "analysis": {
+                "titleAnalysis": "Podle ostře sledovaného transportu, který Miloš odstřelí.",
+                "plot": "Příběh se odehrává v zimě roku 1945 na železniční stanici. Miloš Hrma, dvaadvacetiletý výpravčí, se vrací do služby po psychiatrii – podřezal si žíly kvůli Máše.\n\nVýpravčí Hubička mu sdělí, že jejich stanicí projede transport zbraní, který chtějí zničit. Miloš se k nim přidá. Vyleze na návěstidlo a vhodí bombu do vlaku. Německý voják ho zpozoruje, vzájemně se zastřelí a oba umírají.",
+                "themes": {
+                    "main": "Atentát na německý vlak se zbraněmi",
+                    "motifs": [
+                        "lampa",
+                        "telegraf",
+                        "revolver",
+                        "perón"
+                    ]
+                },
+                "setting": {
+                    "place": "Železniční stanice v Čechách",
+                    "time": "Rok 1945"
+                },
+                "composition": {
+                    "structure": "Novela",
+                    "timeline": "Chronologicky s odbočkami do minulosti"
+                },
+                "characters": [
+                    {
+                        "name": "Miloš Hrma",
+                        "description": "Dvaadvacetiletý výpravčí, naivní ale citlivý, odvážný",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Hubička",
+                        "description": "Výpravčí, 'don juan'",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Viktoria Freie",
+                        "description": "Krásná Rakušanka",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Ich-forma (Miloš Hrma)",
+                    "style": "Pásmo vypravěče, přímá řeč"
+                },
+                "excerpt": {
+                    "text": "Výpravčí Hubička rozsvítil cloněnou lampu na telegrafním stole. 'Miloši,' řekl šeptem, 'nejlepší bude stát na perónu a hodit to na prostřední vagón. Hodíme tomu vlaku na stůj a v poslední chvíli mu dáme na zelenou...'",
+                    "context": "Domluva na zničení německého transportu."
+                },
+                "languageDevices": [
+                    "Profesní mluva – 'výpravčí', 'perón', 'vagón'",
+                    "Dlouhá přetížená souvětí",
+                    "Hovorová mluva – 'jinačího'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Přirovnání",
+                        "example": "'čárala po papíře jako kardiograf'"
+                    },
+                    {
+                        "name": "Metafora",
+                        "example": "'rychlíková raketa'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Bohumil Hrabal (1914–1997) – nejvýznamnější český prozaik.",
+                    "life": [
+                        "Dětství trávil v Nymburce",
+                        "Vystřídal řadu povolání: výpravčí, skladník, dělník",
+                        "Po roce 1968 dočasně zakázáno publikovat",
+                        "Zemřel pádem z okna při krmení holubů"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Perlička na dně",
+                            "year": "",
+                            "note": "Soubor povídek"
+                        },
+                        {
+                            "title": "Příliš hlučná samota",
+                            "year": "",
+                            "note": "Monolog baliče papíru Haňti"
+                        },
+                        {
+                            "title": "Obsluhoval jsem anglického krále",
+                            "year": "",
+                            "note": "Hlavní hrdina Jan Dítě"
+                        }
+                    ],
+                    "workPosition": "Jedno z jeho nejznámějších děl. 'Pábení' – zvláštní druh vyprávění."
+                },
+                "literaryContext": {
+                    "movement": "Česká próza 2. poloviny 20. století",
+                    "period": "2. polovina 20. století",
+                    "description": "Oficiálně vydávaná i zakázaná literatura.",
+                    "characteristics": [
+                        "Pábení",
+                        "Hovorový jazyk",
+                        "Erotické motivy",
+                        "Černý humor"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Ota Pavel",
+                            "years": "1930–1973",
+                            "note": "Autobiografické povídky",
+                            "works": [
+                                "Smrt krásných srnců"
+                            ]
+                        },
+                        {
+                            "name": "Milan Kundera",
+                            "years": "*1929",
+                            "note": "Světově nejpřekládanější autor",
+                            "works": [
+                                "Nesnesitelná lehkost bytí"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Aktuální je nesmělost mladého hrdiny.",
+                    "audience": "Odpůrci války a milovníci Hrabalova stylu.",
+                    "purpose": "Reakce na válku.",
+                    "similarWorks": [
+                        {
+                            "title": "Hlídač č. 47",
+                            "author": "Josef Kopta",
+                            "year": "",
+                            "note": "Tematicky podobné dílo"
+                        }
+                    ],
+                    "adaptations": [
+                        "Film režíroval Jiří Menzel (1966), Oskar 1967"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "title": "Bylo nás pět",
+            "author": "Karel Poláček",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Humoristický román",
+            "literaryForm": "Próza",
+            "year": "1946",
+            "keywords": [
+                "česká literatura",
+                "humor",
+                "dětství"
+            ],
+            "analysis": {
+                "titleAnalysis": "Podle partičky pěti chlapců, kteří spolu prožívali dobrodružství.",
+                "plot": "Petr Bajza nás seznámí s městečkem a lidmi. Se čtyřmi kamarády zažívají dobrodružství – chodí do kina zadem zadarmo, perou se s Ješiňáky a Habrováky.\n\nKdyž přijede cirkus, Petr se snaží být hodný, aby mohl jít. Pak chytne spálu a zdají se mu sny o Indii a slonovi Jumbovi. Petr se vyléčí a došlo mu, že si příběh vysnil.",
+                "themes": {
+                    "main": "Dobrodružství dětí",
+                    "motifs": [
+                        "krám",
+                        "psi",
+                        "Pajda",
+                        "buřty"
+                    ]
+                },
+                "setting": {
+                    "place": "Rychnov nad Kněžnou",
+                    "time": "Přelom 19. a 20. století"
+                },
+                "composition": {
+                    "structure": "Kapitoly",
+                    "timeline": "Chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Petr Bajza",
+                        "description": "Hravý, živý (někdy až příliš) kluk, který má bujnou představivost",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Zilvar z chudobince",
+                        "description": "Kluk z chudobince, který se nezatěžoval tím, že mluví jako dlaždič",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Eduard Kemlink (Éda)",
+                        "description": "Kluk z party, kteří se občas pohádají, ale pořád drží spolu",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Antonín Bejval (Tonda)",
+                        "description": "Kluk z party, kteří se občas pohádají, ale pořád drží spolu",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Čeněk Jirsák",
+                        "description": "Kluk z party, kteří se občas pohádají, ale pořád drží spolu",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Pan Fajst",
+                        "description": "Starší pán, který chce po mládeži úctu a vychování, a dělá jim proto problémy",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Pan Kemlink",
+                        "description": "Édův otec",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Pajda",
+                        "description": "Pes Édy Kemlinka",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Ich-forma (Petr Bajza)",
+                    "style": "Přímá řeč, nepřímá řeč"
+                },
+                "excerpt": {
+                    "text": "My jsme se divili a pravili jsme: 'Nehoupej nás,' ale Éda se dušoval, že je to prauda. Pan Kemlink pravil: 'To není prauda, pane Fajst, náš Pajda není takový, aby kradl.'",
+                    "context": "Jedna z příhod kluků."
+                },
+                "languageDevices": [
+                    "Slovo knižní – 'pravili jsme', 'pročež'",
+                    "Nářečí – 'prauda', 'porád'",
+                    "Nespisovný výraz – 'jináč', 'brejle'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Hromadění souřadně spojených vět",
+                        "example": "'a skákal a silně štěkal a točil se dokola'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Karel Poláček (1892–1945) – český spisovatel, novinář, humorista.",
+                    "life": [
+                        "Narozen v Rychnově nad Kněžnou",
+                        "Otec byl židovský obchodník",
+                        "Soudničkář v Lidových novinách",
+                        "1943 deportován do Terezína",
+                        "Popraven v Gleiwitz"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Muži v ofsajdu",
+                            "year": "",
+                            "note": "Osudy fotbalových fanoušků"
+                        },
+                        {
+                            "title": "Edudant a Francimor",
+                            "year": "",
+                            "note": "Tvorba pro děti"
+                        }
+                    ],
+                    "workPosition": "Kniha vyšla až po autorově smrti."
+                },
+                "literaryContext": {
+                    "movement": "Humanistická demokratická literatura",
+                    "period": "1. polovina 20. století",
+                    "description": "Demokratický proud meziválečné české prózy. Inteligentní humor.",
+                    "characteristics": [
+                        "Komika – mísí slova ze všech rovin",
+                        "Tvůrce sloupku"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Eduard Bass",
+                            "years": "1888–1946",
+                            "note": "Novinář, herec",
+                            "works": [
+                                "Cirkus Humberto"
+                            ]
+                        },
+                        {
+                            "name": "Karel Čapek",
+                            "years": "1890–1938",
+                            "note": "Prozaik, dramatik",
+                            "works": [
+                                "R. U. R.",
+                                "Bílá nemoc"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Dílo aktuální není, ale zavzpomínáte na dětství.",
+                    "audience": "Všechny generace.",
+                    "purpose": "Ukázat dětskou nevinnost a představivost.",
+                    "similarWorks": [
+                        {
+                            "title": "Dobrodružství Toma Sawyera",
+                            "author": "Mark Twain",
+                            "year": "",
+                            "note": "Příhody kluků"
+                        }
+                    ],
+                    "adaptations": [
+                        "Seriál z roku 1994, ČSFD 86 %"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "title": "Bílá Nemoc",
+            "author": "Karel Čapek",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Vědeckofantastické drama",
+            "literaryForm": "Drama",
+            "year": "1937",
+            "keywords": [
+                "česká literatura",
+                "divadlo",
+                "antifašismus",
+                "humanismus"
+            ],
+            "analysis": {
+                "titleAnalysis": "Bílá nemoc – nemoc, která postihuje lidi středního věku, je nakažlivá a nevyléčitelná. Lék na tuto nemoc může přinést světu mír.",
+                "plot": "Autorova předmluva – autor hovoří o poválečném stavu, kdy jednotlivec nic neznamená. Zdůvodňuje, proč nezvolil konkrétní nemoc a konkrétní zemi – situace zobrazená ve hře se dá aplikovat na více států.\n\nPrvní jednání: Tři malomocní se baví o nemoci, která je postihla. Projevuje se bílou skvrnou někde na těle a odpadáváním masa. Dvorní rada Sigelius podává informace o nemoci novinářovi. Na tzv. bílou nemoc zemřelo již 5 miliónů lidí, postihuje osoby starší čtyřiceti let a nedá se léčit. Za dvorním radou přichází doktor Galén, bývalý spolupracovník jeho tchána. Rada mu nejprve nevěří, že dokáže bílou nemoc vyléčit, ale nakonec mu svěří pokoj č. 13 s nejhoršími případy. Rodina debatuje o bílé nemoci nad článkem v novinách. Když Galén odmítne léčit Sigeliova soukromého pacienta, asistent nabídne svou léčbu, která zaručeně nefunguje. Do nemocnice dorazil maršál a ministr zdravotnictví. Galén sdělí svůj vzkaz pro lidstvo – je ochotný vyzradit svůj lék, pokud se všechny státy zavážou, že nebudou válčit. Pokud ne, bude dál léčit jen chudé. Sigelius Galéna vyhazuje z kliniky.\n\nDruhé jednání: Otec čte v novinách o doktoru Galénovi a jeho požadavku. Rozčiluje se, protože jemu samotnému nemoc přinesla povýšení. Ukáže se, že jeho žena má na krku bílou skvrnu. Oba jdou žádat Galéna, ale ten odmítá. Baron Krüg, ředitel továrny na výrobu válečného materiálu, přichází za radou Sigeliem. I on má bílou skvrnu. Převleče se za žebráka a jde ke Galénovi. Ten ho okamžitě pozná a chce po něm totéž – světový mír. Krüg hovoří s maršálem o své nemoci. Maršál je krutý, přikazuje zvýšit výrobu zbraní a munice, o míru nechce slyšet. Galén je předvolán k maršálovi. Maršál hrozí zatčením a mučením, pokud Galén nebude léčit Krüga, ale Galén je neoblomný. Telefon oznamuje, že baron Krüg se zastřelil.\n\nTřetí jednání: Ministr a maršál hovoří o svých možnostech. Shodnou se na rychlém útoku, po kterém by mohl přijít mír. Maršál promlouvá k národu, ale je již oslaben bílou nemocí. Jeho dcera Aneta a její milý, syn barona Krüga Pavel, mu pomáhají. Aneta a Pavel přesvědčí maršála, aby Galénovi slíbil mír. Když profesor Galén vystoupí z auta, aby donesl lék maršálovi, obestoupí ho rozvášněný dav bažící po válce, který vede syn. Galén je ušlapán i se svými léky.",
+                "themes": {
+                    "main": "Psychický nátlak, konflikt mezi humanismem a fašismem",
+                    "motifs": [
+                        "rozkaz",
+                        "zvonek",
+                        "pacient",
+                        "mrtví",
+                        "válka"
+                    ]
+                },
+                "setting": {
+                    "place": "Neurčený stát",
+                    "time": "Neurčený, krátce po roce 1923"
+                },
+                "composition": {
+                    "structure": "Drama o třech aktech ve 14 obrazech",
+                    "timeline": "Děj je vyprávěn chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Doktor Galén",
+                        "description": "Zástupce lidství, svobody, rozumu, míru, mluví opatrně, váží každé slovo",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Maršál",
+                        "description": "Touží po moci, je rozkazovačný, neústupný",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Dvorní rada Sigelius",
+                        "description": "Prospěchář, těží z Galénova úspěchu, který vydává za vlastní",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Baron Krüg",
+                        "description": "Voják tělem i duší, neunese nemoc a raději se zastřelí",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "V dramatu se neurčuje",
+                    "style": "Střídání přímých řečí postav, scénické poznámky"
+                },
+                "excerpt": {
+                    "text": "Maršál: Doktore, jsou prostředky, kterými lze lidi přinutit... aby splnili rozkazy.\nDr. Galén: Podívejte se, vy mě můžete dát zavřít, že ano, ale –\nMaršál: Dobře. (Sahá po zvonku.)\nDr. Galén: Poslyšte, pane, nedělejte to! Já mám tolik pacientů – Zabijete je, když mne dáte zavřít!\nMaršál (pouští zvonek): Nebyli by to první mrtví na mé cestě. Ale vy si to ještě rozmyslíte. (Vstane a jde k němu.) Člověče, jste blázen – nebo takový hrdina?",
+                    "context": "Konec druhého jednání. Maršál vyhrožuje doktoru Galénovi."
+                },
+                "languageDevices": [
+                    "Nedořečenost – 'kterými lze lidi přinutit...'",
+                    "Řečnická otázka – 'Člověče, jste blázen – nebo takový hrdina?'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Metafora",
+                        "example": "'na mé cestě'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Karel Čapek (1890–1938) – žurnalista, prozaik, dramatik, překladatel, kritik, esejista, cestovatel, psal knihy pro děti. Znal se s Masarykem (Hovory s TGM), oficiální autor; mluvčí Hradu.",
+                    "life": [
+                        "Narodil se 9. ledna 1890 v Malých Svatoňovicích",
+                        "Nejmladší ze tří dětí (Josef – malíř, spisovatel; Helena – autorka vzpomínkové knihy)",
+                        "Studoval gymnázium v Hradci Králové, maturoval v Praze, potom FF UK",
+                        "Po škole vychovatel, knihovník Národního muzea, redaktor Lidových novin",
+                        "Ve Vinohradském divadle 1921–23 jako dramaturg a režisér",
+                        "Zvolen prvním předsedou československého PEN klubu",
+                        "V r. 1935 se oženil se spisovatelkou a herečkou Olgou Scheinpflugovou",
+                        "Po abdikaci E. Beneše v roce 1938 se stal posledním symbolem první republiky",
+                        "Zemřel pár měsíců před plánovaným zatčením gestapem 25. 12. 1938",
+                        "Byl velice dobrým amatérským fotografem",
+                        "Často cestoval, rád zahradničil, měl rád zvířata, sbíral LP desky"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "R. U. R.",
+                            "year": "1920",
+                            "note": "Utopické drama o vzpouře robotů"
+                        },
+                        {
+                            "title": "Válka s mloky",
+                            "year": "",
+                            "note": "Satirický román"
+                        },
+                        {
+                            "title": "Matka",
+                            "year": "",
+                            "note": "Drama, reakce na válku ve Španělsku"
+                        },
+                        {
+                            "title": "Krakatit",
+                            "year": "",
+                            "note": "Román o zneužití vynálezu"
+                        },
+                        {
+                            "title": "Hovory s T. G. Masarykem",
+                            "year": "",
+                            "note": "Rozhovor, který vznikal 7 let"
+                        }
+                    ],
+                    "workPosition": "Hra byla uvedena r. 1937 – krátce před Čapkovou smrtí. Čapek proti fašismu vystupoval jasně a ostře."
+                },
+                "literaryContext": {
+                    "movement": "Humanistická demokratická literatura, demokratický proud",
+                    "period": "1. polovina 20. století – meziválečná doba",
+                    "description": "Na jeho tvorbu mělo velký vliv jeho filosofické a estetické vzdělání, především pragmatismus a expresionismus. V mnoha dílech vyjadřoval obavu, že jednou technika získá moc nad člověkem.",
+                    "characteristics": [
+                        "Utopická díla – převratný vynález má špatné účinky na lidstvo",
+                        "Katastrofy jsou varování",
+                        "Čapek nevěřil technice, vždy je v kontrastu s přírodou"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Josef Čapek",
+                            "years": "1887–1945",
+                            "note": "Malíř (kubismus), básník, prozaik, dramatik",
+                            "works": [
+                                "Ze života hmyzu",
+                                "Povídání o pejskovi a kočičce",
+                                "Stín kapradiny"
+                            ]
+                        },
+                        {
+                            "name": "Karel Poláček",
+                            "years": "1892–1944",
+                            "note": "Soudničkář a fejetonista v Lidových novinách, židovský původ",
+                            "works": [
+                                "Bylo nás pět",
+                                "Muži v ofsajdu"
+                            ]
+                        },
+                        {
+                            "name": "Eduard Bass",
+                            "years": "1888–1946",
+                            "note": "Spisovatel, novinář, redaktor, herec",
+                            "works": [
+                                "Klapzubova jedenáctka",
+                                "Cirkus Humberto"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Dílo je stále aktuální. Lidé toužící po válce a moci se nezastaví před ničím.",
+                    "audience": "Kdokoli. Každý by se měl řídit zdravým rozumem.",
+                    "purpose": "Sebeušlechtilejší člověk nezmůže nic proti zlu a proti rozvášněnému davu.",
+                    "similarWorks": [
+                        {
+                            "title": "R. U. R.",
+                            "author": "Karel Čapek",
+                            "year": "1920",
+                            "note": "Varování před moderním světem plným zloby"
+                        }
+                    ],
+                    "adaptations": [
+                        "Film Bílá nemoc z r. 1937 – režie Hugo Haas, v hlavní roli Hugo Haas, hodnocen 84 %"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 19,
+            "title": "R.U.R.",
+            "author": "Karel Čapek",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Antiutopické drama",
+            "literaryForm": "Drama",
+            "year": "1920",
+            "keywords": [
+                "česká literatura",
+                "divadlo",
+                "sci-fi",
+                "robot"
+            ],
+            "analysis": {
+                "titleAnalysis": "Zkratka z názvu továrny Rossumovi univerzální roboti (Rossum's Universal Robots).",
+                "plot": "Předmluva: Helena Gloryová přichází do továrny na výrobu robotů. Domin se do ní zamiluje a vysvětluje jí historii vyrábění robotů. Helena si roboty Sullu a Maria splete s lidmi. Busmana, dr. Galla, Hallemeiera, Fabryho a Alquista pro změnu pokládá za roboty, snaží se v nich vzbudit vzdor proti špatnému zacházení ze strany lidí. Všichni se do ní zamilují. Domin jí pokládá nabídku k sňatku.\n\n1. dějství: Po 10 letech. Helena je vdaná za Domina, ženy nerodí děti, Helena rozčilením spaluje nějaké dokumenty. Domin si myslí, že má všechno pod kontrolou, dokud nepřipluje loď, ze které se dozvídá o válce robotů proti lidem. Roboti se vzbouřili, chtějí lidi vyvraždit, jsou inteligentnější než lidé. Domin chce utéct na lodi Ultimus, ale i tu obsazují roboti.\n\n2. dějství: Roboti mají zbraně. Dr. Gall se přiznává, že změnil roboty, jejich povahu přeměnil na lidskou. Roboti tím přišli na to, že mají převahu nad lidmi a začali je nenávidět za to, jak s nimi zacházejí. Přichází Helena a přiznává, že dr. Gall provedl změnu na její přání, chtěla dát robotům duši. Roboti útočí, zabíjí Hallemeiera i ostatní, jediného Alquista nechávají žít, protože jako jediný pracoval.\n\n3. dějství: Roboti zabili všechny lidi kromě Alquista. Lidstvo tím vyhynulo. Roboti potřebují Rossumův předpis na výrobu robotů, ten ale spálila Helena. Alquist je donucen pitvat roboty, aby přišel na důležité poznatky pro výrobu. Roboti Primus a Helena se do sebe zamilují. Alquist chce pitvat Helenu nebo Prima, ale oba nabízí svůj život místo života toho druhého, chtějí být spolu. Alquist pochopí, že roboti jsou lidé, protože milují, takže lidstvo nevyhyne.",
+                "themes": {
+                    "main": "Zjišťování, kdo dal robotům city",
+                    "motifs": [
+                        "pokus",
+                        "povinnost",
+                        "nátlak",
+                        "experiment",
+                        "lež"
+                    ]
+                },
+                "setting": {
+                    "place": "Továrna Rossum's Universal Robots",
+                    "time": "Blíže nespecifikovaná budoucnost"
+                },
+                "composition": {
+                    "structure": "Předmluva a 3 dějství",
+                    "timeline": "Děj je vyprávěn chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Harry Domin",
+                        "description": "Osmatřicetiletý šéf firmy. Chce, aby lidé byli někým, aby nemuseli pracovat. Místo nich by pracovali roboti, dělníci bez duše.",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Helena Gloryová",
+                        "description": "Jednatřicetiletá Dominova manželka. Ztělesnění ženského, citového, laskavého přístupu k robotům i lidem. Je velmi elegantní.",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Dr. Gall",
+                        "description": "Přednosta fyziologického a výzkumného oddělení",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Dr. Hallemeier",
+                        "description": "Přednosta ústavu pro psychologii a výchovu robotů",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Stavitel Alquist",
+                        "description": "Za největší hodnotu považuje lidský život a práci, rozumový přístup k životu, lidskosti",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "V dramatu se neurčuje",
+                    "style": "Přímá řeč postav, polylog"
+                },
+                "excerpt": {
+                    "text": "Fabry: Doktore Galle, vy jste změnil výrobu Robotů?\nDr. Gall: Ano.\nFabry: Byl jste si vědom, co může být následkem vašeho... vašeho pokusu?\nDr. Gall: Byl. Jsem povinen počítat s takovou možností.\n(Ve dveřích zleva Helena. Všichni vstanou.)\nHelena: On lže! To je ohavné! Oh, Galle, jak můžete tak lhát?\nDomin: Heleno, ty? Ukaž se! Ty žiješ? (Bere ji do rukou.) Kdybys věděla, co se mně zdálo!\nHelena: Pusť, Harry! Gall není vinen, není, není vinen!",
+                    "context": "Úryvek je ze druhého dějství, kdy se zjišťuje, kdo dal robotům city."
+                },
+                "languageDevices": [
+                    "Apoziopeze (nedořečenost) – 'co může být následkem vašeho...'",
+                    "Řečnická otázka – 'Oh, Galle, jak můžete tak lhát?'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Epizeuxis",
+                        "example": "'Gall není vinen, není, není vinen!'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Karel Čapek (1890–1938) – žurnalista, prozaik, dramatik, překladatel, kritik, esejista, cestovatel, psal knihy pro děti.",
+                    "life": [
+                        "Narodil se 9. ledna 1890 v Malých Svatoňovicích",
+                        "Nejmladší ze tří dětí (Josef – malíř, spisovatel; Helena – autorka)",
+                        "Znal se s Masarykem (Hovory s TGM), oficiální autor; mluvčí Hradu",
+                        "Zvolen prvním předsedou československého PEN klubu",
+                        "V r. 1935 se oženil se spisovatelkou Olgou Scheinpflugovou",
+                        "Zemřel 25. 12. 1938"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Bílá nemoc",
+                            "year": "1937",
+                            "note": "Drama, konflikt mezi doktorem Galénem a diktátorem"
+                        },
+                        {
+                            "title": "Válka s mloky",
+                            "year": "",
+                            "note": "Satirický román"
+                        },
+                        {
+                            "title": "Továrna na absolutno",
+                            "year": "",
+                            "note": "Román, zvláštní karburátor rozbíjí atomy"
+                        },
+                        {
+                            "title": "Věc Makropulos",
+                            "year": "",
+                            "note": "Drama o prostředku prodlužujícím život"
+                        },
+                        {
+                            "title": "Krakatit",
+                            "year": "",
+                            "note": "Román o zneužití vynálezu třaskaviny"
+                        }
+                    ],
+                    "workPosition": "1920 – jedno z jeho prvních děl. Čapek se zabýval pragmatismem – kritériem pravdy je užitečnost."
+                },
+                "literaryContext": {
+                    "movement": "Humanistická demokratická literatura, demokratický proud",
+                    "period": "1. polovina 20. století – meziválečná doba",
+                    "description": "Na jeho tvorbu mělo vliv filosofické vzdělání, především pragmatismus a expresionismus. Vyjadřoval obavu, že jednou technika získá moc nad člověkem.",
+                    "characteristics": [
+                        "Utopická díla – převratný vynález má špatné účinky na lidstvo",
+                        "Katastrofy jsou varování",
+                        "Čapek nevěřil technice"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Josef Čapek",
+                            "years": "1887–1945",
+                            "note": "Malíř, básník, prozaik, dramatik. Společné práce: Krakonošova zahrada, Ze života hmyzu, Adam stvořitel",
+                            "works": [
+                                "Stín kapradiny",
+                                "Povídání o pejskovi a kočičce",
+                                "Básně z koncentračního tábora"
+                            ]
+                        },
+                        {
+                            "name": "Karel Poláček",
+                            "years": "1892–1944",
+                            "note": "Soudničkář v Lidových novinách, židovský původ, zahynul v Osvětimi",
+                            "works": [
+                                "Bylo nás pět",
+                                "Muži v ofsajdu",
+                                "Edudant a Francimor"
+                            ]
+                        },
+                        {
+                            "name": "Eduard Bass",
+                            "years": "1888–1946",
+                            "note": "Spisovatel, novinář, herec, autor textů pro kabaret",
+                            "works": [
+                                "Klapzubova jedenáctka",
+                                "Cirkus Humberto"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Dnes možná ještě aktuálnější než v době vzniku, protože Čapek varuje před případnými negativními vlivy techniky na lidstvo.",
+                    "audience": "Široká veřejnost.",
+                    "purpose": "Čapek se snaží varovat před přílišným zneužíváním technologií a varuje, aby člověku 'nepřerostla technika přes hlavu'.",
+                    "similarWorks": [
+                        {
+                            "title": "Planeta opic",
+                            "author": "Film",
+                            "year": "",
+                            "note": "Nejdříve byly opice sluhové a po katastrofě se vlády chopily opice"
+                        },
+                        {
+                            "title": "Já robot",
+                            "author": "Isaac Asimov",
+                            "year": "",
+                            "note": "Povídky o tom, jak roboti jsou chytřejší a jak se vzbouří"
+                        }
+                    ],
+                    "adaptations": [
+                        "R.U.R. (1938) – hrají: Derek Bond, Harvey Braban",
+                        "R.U.R. (1948) – režie: Jan Bussell",
+                        "R.U.R. (2014) – režie: James Kerwin"
+                    ]
+                }
+            }
+        },
+        {
+            "id": 20,
+            "title": "Saturnin",
+            "author": "Zdeněk Jirotka",
+            "period": "Česká literatura 20. a 21. století",
+            "genre": "Humoristický román",
+            "literaryForm": "Próza",
+            "year": "1942",
+            "keywords": [
+                "česká literatura",
+                "humor",
+                "sluha"
+            ],
+            "analysis": {
+                "titleAnalysis": "Podle toho, že se v ději objevuje jméno sluhy Saturnina, který je hlavní postavou.",
+                "plot": "Vypravěč se rozhodne, že si najme sluhu. Netuší však, že se jeho život rázem změní. Zprvu mu galantní sluha Saturnin oznámí, že ho odstěhoval na loď a jeho starý byt prodal. Později se k nim na hausbót nastěhuje teta se synem Miloušem, kterých se sluha zbaví mávnutím ruky. Tím začíná vlna nevšedností.\n\nSaturnin o svém pánovi začne vyprávět, že je velkým dobrodruhem a že má zalíbení v lovu divokých šelem, čímž svého pána dostává do nelehkých situací. Vypravěč, jehož jméno nebylo v knize zmíněno, je spíše flegmatický člověk, který má vybrané chování správného gentlemana. Na tenisovém kurtu se setkává se slečnou Barborou a zároveň se do ní zamiluje. Slečna Barbora vyniká i ve vaření a vždy oplývá dobrou náladou.\n\nPozději jsou pán a Saturnin pozváni k dědečkovi, aby tam strávili několik týdnů. Spolu s nimi se tam objevují i další postavy, např. slečna Barbora a doktor Vlach. A také tam začíná velké dobrodružství. Most, který je u domu, je pod vodou, a tak se naši hrdinové snaží vyžít se zásobami jídla. Saturnin se plně zhostí svých 'povinností' a vypíná přívod elektřiny. Jeho vynalézavost nezná meze. Přiměje Milouše, aby dědovi přinesl červy, později ho zamyká v pokoji.\n\nKdyž dochází zásoby, všichni se rozhodnou, že vyrazí pro zásoby přes kopec do srubu doktora Vlacha. Překonají nástrahy a dědeček si pohmoždí nohu. V pohodlí domova si děda vymyslí lest, jak vyzrát na tetu Kateřinu, a začne hrát, že se zbláznil. Celý příběh končí tím, že se Saturnin rozhodne na nějakou chvíli zůstat u dědečka.",
+                "themes": {
+                    "main": "Teta Kateřina a strýcova továrna, humor",
+                    "motifs": [
+                        "přísloví",
+                        "bruslení",
+                        "čisticí prostředky"
+                    ]
+                },
+                "setting": {
+                    "place": "Praha, hausbót na Vltavě, dědečkova chata",
+                    "time": "20.–30. léta 20. století"
+                },
+                "composition": {
+                    "structure": "Kniha je rozdělena do kapitol, na začátku každé kapitoly je stručný obsah",
+                    "timeline": "Děj je vyprávěn chronologicky"
+                },
+                "characters": [
+                    {
+                        "name": "Pán Saturnina (vypravěč)",
+                        "description": "Jeho jméno je nám po celou dobu příběhu zamlčeno; jedná se o mladého pána (asi třicátníka) z Prahy: gentleman, který prožívá svůj poněkud nudný život, ovšem pouze do doby, než přijme nevyzpytatelného sluhu Saturnina; zamilovává se do slečny Barbory",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Saturnin",
+                        "description": "Hlavní a klíčová postava celého příběhu; jedná se o sluhu, který zavádí svého pána (a nejen jeho) do neuvěřitelných situací; ovšem nejedná se o žádného trumberu; vše si pečlivě rozmýšlí a jedná podle svého uvážení; umí si se vším poradit, je chytrý, vynalézavý; pohrává si s lidmi ve svém okolí",
+                        "isMain": true
+                    },
+                    {
+                        "name": "Tetička Kateřina",
+                        "description": "Velice komická postava; vypočítavá vdova, která se neustále snaží přimět dědu, aby jí přiznal v závěti velký podíl majetku; její řeč se skládá z moudrostí a přísloví; má syna Milouše, jenž jí je zcela oddán",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Slečna Barbora",
+                        "description": "Elegantní mladá dáma, která se věnuje tenisu; jezdí ve svém rapidu; jedná se o vypravěčovu velkou lásku, do níž je ovšem zamilován i Milouš",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Milouš",
+                        "description": "Syn tetičky, mladý měšťák, který je omezený a snaží se působit sebejistě a statečně; jedná se o další loutku, z níž si Saturnin dělá legraci",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Doktor Vlach",
+                        "description": "Vzdělaný a inteligentní postarší muž, který o všech věcech kolem sebe přemýšlí a komentuje je; používá vznešenější jazyk",
+                        "isMain": false
+                    },
+                    {
+                        "name": "Dědeček",
+                        "description": "Starý muž, bohatý jak svými zkušenostmi, tak i opravdovým jměním; baví se tím, že spolu jeho příbuzní bojují o jeho majetek; tropí si žerty z tetičky Kateřiny",
+                        "isMain": false
+                    }
+                ],
+                "narration": {
+                    "narrator": "Ich-forma (vypravěčem je Saturninův pán, v seriálu má jméno Jiří Audrlický, v knize jméno nemá)",
+                    "style": "Pásmo vypravěče v ich-formě, nepřímá řeč"
+                },
+                "excerpt": {
+                    "text": "Myslím, že jsem se už zmínil, že mám tetu jménem Kateřina. Neštěstí nechodí po horách, ale po lidech. Teta Kateřina má syna. Je mu 18 let a jmenuje se Milouš. Neštěstí nechodí nikdy samo. Teta je vdova a Milouš je sirotek, protože strýc František před deseti lety zemřel. Jistě nelituje, že to udělal. Poslouchat celý život přísloví, pořekadla a zrnka moudrosti není maličkost.",
+                    "context": "Úryvek je v první čtvrtině knihy, když k vypravěči a Saturninovi přijde na loď teta Kateřina se synem Miloušem."
+                },
+                "languageDevices": [
+                    "Přísloví – 'Neštěstí nechodí po horách, ale po lidech.', 'Neštěstí nechodí nikdy samo.'",
+                    "Řečnická otázka – 'co bude, proboha, dělat v létě?'",
+                    "Archaismus – 'naň'",
+                    "Anglický humor – 'Strýc František před deseti lety zemřel. Jistě nelituje, že to udělal.'"
+                ],
+                "literaryDevices": [
+                    {
+                        "name": "Hyperbola",
+                        "example": "'překrásně bruslí'"
+                    },
+                    {
+                        "name": "Přirovnání",
+                        "example": "'Vykládala mi o něm, jako kdybych ho byl jakživ neviděl.'"
+                    }
+                ],
+                "authorContext": {
+                    "bio": "Zdeněk Jirotka (1911–2003) – spisovatel a fejetonista, autor humoristické literatury a rozhlasových her.",
+                    "life": [
+                        "Narozen v Ostravě, nedostudoval reálku, vyučil se zedníkem",
+                        "Maturoval na Stavební průmyslové škole v Hradci Králové",
+                        "Vstoupil do armády, sloužil v řadě měst (Olomouc, Brno, Banská Bystrica, Košice, Vyškov)",
+                        "Na začátku okupace pracoval na Ministerstvu veřejných prací",
+                        "Od roku 1940 pracoval v Lidových novinách, po válce ve Svobodných novinách a Dikobraze",
+                        "Od roku 1942, po úspěchu Saturnina, spisovatelem z povolání",
+                        "V 50. letech pracoval v Československém rozhlase",
+                        "Byl členem PEN-klubu",
+                        "Zemřel v Praze"
+                    ],
+                    "otherWorks": [
+                        {
+                            "title": "Muž se psem",
+                            "year": "1944",
+                            "note": "Humorná parodie na detektivní román"
+                        },
+                        {
+                            "title": "Profesor biologie na žebříku",
+                            "year": "1956",
+                            "note": "Sbírka anekdot a kratších povídek"
+                        },
+                        {
+                            "title": "Sedmilháři",
+                            "year": "",
+                            "note": "Soubor povídek"
+                        }
+                    ],
+                    "workPosition": "Bylo to jeho první dílo. Ve své další tvorbě tento román už nepřekonal. Dílo bylo inspirováno anglickým autorem P. G. Wodehouse – povídky se sluhou Jeevesem."
+                },
+                "literaryContext": {
+                    "movement": "Humoristická literatura",
+                    "period": "1. a 2. polovina 20. století",
+                    "description": "Důraz je kladen na zesměšnění, kritiku, na záporné lidské vlastnosti. Základem je zesměšnění módních literárních forem. Využití typického anglického humoru. Vtipnost spočívá v domýšlení situací.",
+                    "characteristics": [
+                        "Anglický humor",
+                        "Vtipnost spočívá v domýšlení situací",
+                        "Zesměšnění módních literárních forem"
+                    ],
+                    "otherAuthors": [
+                        {
+                            "name": "Vladislav Vančura",
+                            "years": "1891–1942",
+                            "note": "Český spisovatel, dramatik, filmový režisér. Původním povoláním lékař. V květnu 1942 zastřelen v Kobylisích.",
+                            "works": [
+                                "Rozmarné léto"
+                            ]
+                        },
+                        {
+                            "name": "Karel Poláček",
+                            "years": "1892–1944",
+                            "note": "Soudničkář v Lidových novinách, židovský původ, zahynul v Osvětimi",
+                            "works": [
+                                "Bylo nás pět",
+                                "Muži v ofsajdu"
+                            ]
+                        },
+                        {
+                            "name": "Eduard Bass",
+                            "years": "1888–1946",
+                            "note": "Spisovatel, novinář, herec, autor textů pro kabaret",
+                            "works": [
+                                "Klapzubova jedenáctka",
+                                "Cirkus Humberto"
+                            ]
+                        },
+                        {
+                            "name": "Karel Čapek",
+                            "years": "1890–1938",
+                            "note": "Žurnalista, prozaik, dramatik, překladatel",
+                            "works": [
+                                "Povídky z jedné kapsy",
+                                "Zahradníkův rok"
+                            ]
+                        },
+                        {
+                            "name": "Jaroslav Žák",
+                            "years": "1906–1960",
+                            "note": "Autor humoristických próz, středoškolský profesor",
+                            "works": [
+                                "Študáci a kantoři",
+                                "Cesta do hlubin študákovy duše"
+                            ]
+                        }
+                    ]
+                },
+                "additionalInfo": {
+                    "dominantStyle": "Vyprávěcí slohový postup",
+                    "relevance": "Autor se vysmívá tvůrcům otřepaných románů a některým lidským vlastnostem. Jeho cílem bylo pobavit čtenáře.",
+                    "audience": "Kniha je určena pro jakéhokoli čtenáře, který se rád pobaví a zasměje. Pro jakoukoliv věkovou kategorii.",
+                    "purpose": "Autorova hlavní myšlenka byla napsat zajímavý humoristický román s dalšími motivy (láska, boj o dědictví).",
+                    "similarWorks": [
+                        {
+                            "title": "Limonádový Joe",
+                            "author": "Jiří Brdečka",
+                            "year": "",
+                            "note": "Parodie"
+                        },
+                        {
+                            "title": "Černí baroni",
+                            "author": "Miroslav Švandrlík",
+                            "year": "",
+                            "note": "Satira"
+                        },
+                        {
+                            "title": "Osudy dobrého vojáka Švejka",
+                            "author": "Jaroslav Hašek",
+                            "year": "",
+                            "note": "Satira"
+                        }
+                    ],
+                    "adaptations": [
+                        "Komedii Saturnin natočil roku 1994 režisér Jiří Věrčák. Hlavní roli ztvárnil Oldřich Vízner. Film hodnocen 84 %."
+                    ]
+                }
+            }
+        }
+    ]
+}
