@@ -921,10 +921,185 @@
       "year": "1952",
       "keywords": [
         "americká literatura",
-        "nobelova cena",
-        "existencialismus"
+        "ztracená generace",
+        "moře",
+        "rybaření",
+        "symbolismus"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Většina příběhu se odehrává na moři, kde stařec Santiago rybaří a zápasí s rybou. Název odkazuje na hlavního hrdinu a místo děje.",
+        "plot": "Kniha vypráví o starém rybáři Santiagovi, pro kterého je rybaření jedinou obživou. Starci se ovšem dlouho nedaří chytit větší rybu, a proto je ostatním rybářům k smíchu. Aby toho nebylo málo, tak s ním na moře, kvůli zákazu svého otce, přestane jezdit velký pomocník, chlapec Manolin.\n\nStařec má ovšem svoji hrdost a rozhodne se všem dokázat, že stále dokáže chytit velkou rybu. Druhý den ráno se proto na moři vydá dál, než kdy byl. Kvůli svým zkušenostem ví, že pokud chce chytit velkou rybu, musí udice spustit do velkých hloubek.\n\nZa nějakou dobu zabere opravdu velká ryba. Jenomže má spoustu sil, a stařec ji proto nemůže ulovit. Zápasí s ní dva dny bez spaní a způsobí si drobná zranění. Rybář je ovšem rozhodnut, že nepovolí a rybu zabije, nebo že zabije ryba jeho. Po dvou probdělých nocích ryba ztrácí sílu a Santiago ji uloví. Zjistí, že je to mečoun a je několikrát větší než loďka.\n\nStařec ulovenou rybu přiváže k loďce a vydá se domů. Jenže krvácející ryba přivábí několik žraloků. Rybář se s nimi snaží bojovat, ale nemá šanci a žraloci mu rybu do posledního drobečku sežerou. Zůstane jenom kostra, se kterou se v noci vrátí do přístavu a vyčerpán odejde do svého domu. Ráno ho v posteli objeví chlapec, počká, až se probudí, a potom mu povídá, kolik lidí se shromáždilo kolem obří kostry. Lidé kostru ryby obdivují a on na sebe může být hrdý.",
+        "themes": {
+          "main": "Lov ryby jako symbol neustálého boje člověka s přírodou",
+          "motifs": [
+            "žralok",
+            "maso",
+            "stařec",
+            "krev",
+            "moře",
+            "ryba",
+            "hrdost",
+            "vytrvalost"
+          ]
+        },
+        "setting": {
+          "place": "Kubánská vesnice, moře poblíž hlavního města Kuby Havana",
+          "time": "1. polovina 20. století"
+        },
+        "composition": {
+          "structure": "Příběh je vyprávěn chronologicky",
+          "timeline": "Děj trvá několik dní"
+        },
+        "characters": [
+          {
+            "name": "Stařec Santiago",
+            "description": "Kubánský rybář velice pevné vůle a skromné povahy, který musí tvrdě pracovat, aby se uživil. Hrdý, vytrvalý, odhodlaný.",
+            "isMain": true
+          },
+          {
+            "name": "Chlapec Manolin",
+            "description": "Velmi obětavý, laskavý, pomocník při rybolovu, který má rád starce. Kvůli zákazu otce s ním přestane jezdit na moře.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Střídání er-formy (vypravěč) s ich-formou (rozmluvy Santiaga s chlapcem, s rybou a se sebou samým)",
+          "style": "Pouze pásmo vypravěče, metoda ledovce – podstatné je to 'pod vodou' (cílem si to domyslet)"
+        },
+        "excerpt": {
+          "text": "Žralok je rychle dohnal odzadu, a když se vrhl na rybu, viděl stařec jeho otevřenou tlamu a podivné oči a slyšel cvaknutí jeho zubů, když se zahryzl do rybího masa těsně nad ocasem. Žraločí hlava vyčnívala z vody a jeho hřbet se vynořoval a stařec slyšel, jak se na jeho velké rybě trhá kůže a maso. V tom okamžiku stařec vrazil harpunu žralokovi do hlavy v těch místech, kde spojnice mezi očima protínala čáru, táhnoucí se mu od nosu přímo vzad. Ty čáry nebylo ve skutečnosti vidět. Bylo vidět jen těžkou špičatou modrou hlavu a veliké oči a cvakající, dravě chňapající hltavé čelisti. Ale v těch místech má žralok mozek a stařec ho tam zasáhl. Zasáhl ho svýma krví pomazanýma rukama a vbodl mu tam dobře mířenou harpunu ze všech sil. Vrazil mu ji tam bez naděje, ale odhodlaně a s naprostou škodolibou nenávistí.",
+          "context": "Úryvek je ze závěrečné části knihy, kdy má stařec rybu ulovenou a při cestě domů bojuje se žraloky."
+        },
+        "languageDevices": [
+          "Onomatopie – 'cvaknutí', 'zadrnčel'",
+          "Odborný výraz – 'harpuna'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Epiteton",
+            "example": "'podivné oči', 'těžká špičatá modrá hlava', 'dravě chňapající hltavé čelisti'"
+          },
+          {
+            "name": "Eufemismus",
+            "example": "'mu v oku vyhasl život'"
+          },
+          {
+            "name": "Personifikace",
+            "example": "'žralok to nechtěl uznat'"
+          },
+          {
+            "name": "Přirovnání",
+            "example": "'rozrýval hladinu jako rychlý motorový člun'"
+          }
+        ],
+        "authorContext": {
+          "bio": "Ernest Hemingway (21. 7. 1899, USA – 2. 7. 1961, USA) – americký spisovatel, novinář, povídkář, dramatik. Miloval přírodu, lov a dobrodružství. Čelní představitel Ztracené generace.",
+          "life": [
+            "Po absolvování základní školy se stal reportérem kansaského listu Star",
+            "Byl velmi ovlivněn válečnými událostmi",
+            "Hned po vypuknutí 1. světové války vstoupil do italské armády jako dobrovolník ambulantních sborů Červeného kříže",
+            "Byl těžce raněn",
+            "Španělské občanské války se zúčastnil jako reportér",
+            "Válečný zpravodaj v Číně",
+            "Za druhé světové války pobýval na Kubě a vyhledával německé ponorky v Karibském moři",
+            "V roce 1953 získal Pulitzerovu cenu",
+            "V roce 1954 dostal Nobelovu cenu",
+            "Ve svých dílech vystupuje pod pseudonymem Nick Adams",
+            "V roce 1961 pravděpodobně spáchal sebevraždu (zastřelil se puškou)"
+          ],
+          "otherWorks": [
+            {
+              "title": "Sbohem, armádo",
+              "year": "1929",
+              "note": "Román s autobiografickými prvky. Vypravěčem je americký poručík Frederic Henry, který sloužil za první světové války v italské armádě."
+            },
+            {
+              "title": "Komu zvoní hrana",
+              "year": "1940",
+              "note": "Román z občanské války ve Španělsku"
+            },
+            {
+              "title": "Pátá kolona",
+              "year": "1938",
+              "note": "Jediné drama, které Hemingway napsal. Tematicky vychází ze zkušeností ze španělské občanské války."
+            }
+          ],
+          "style": "Metoda ledovce – podstatné je to 'pod vodou' (cílem si to domyslet). Jeho postavami jsou muži – stateční, cílevědomí, ctižádostiví, staví je do kritické mezní situace.",
+          "workPosition": "Poslední kniha, kterou napsal (1952), získal za ni Nobelovu cenu."
+        },
+        "literaryContext": {
+          "movement": "Ztracená generace",
+          "period": "1. polovina 20. století",
+          "description": "Skupina spisovatelů narozených kolem roku 1900, kteří zažili první světovou válku a zobrazovali ji ve svých dílech. Vyjadřují pocity vojáků po návratu z války (vrátili se duševně zmrzačeni a měli problémy se zařazením se do společnosti).",
+          "characteristics": [
+            "Spisovatelé zažili první světovou válku a zobrazovali ji ve svých dílech",
+            "Vyjadřují pocity vojáků po návratu z války",
+            "Pro autory jsou typické životní postoje, kterými dávají najevo nesouhlas a nedůvěru ke společnosti",
+            "Často staví své hrdiny do velmi nebezpečných situací, kde musí prokazovat svůj charakter",
+            "Základními tématy jsou zklamání a skepse, rozklad lidských a společenských hodnot",
+            "Hledání východiska v útěku do přírody nebo kultury"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Erich Maria Remarque",
+              "years": "1898–1970",
+              "note": "Vlastním jménem Erich Paul Remark, Němec. Odešel jako dobrovolník do 1. světové války, v roce 1918 byl raněn. Po nástupu fašismu v Německu v roce 1933 se dostal na seznam zakázaných autorů.",
+              "works": [
+                "Na západní frontě klid",
+                "Miluj bližního svého",
+                "Tři kamarádi"
+              ]
+            },
+            {
+              "name": "Romain Rolland",
+              "years": "1866–1944",
+              "note": "Francouz, prozaik, dramatik, esejista, hudební historik a literární kritik. Nositel Nobelovy ceny za literaturu (1915).",
+              "works": [
+                "Jan Kryštof",
+                "Petr a Lucie",
+                "Dobrý člověk ještě žije"
+              ]
+            },
+            {
+              "name": "William Faulkner",
+              "years": "1897–1962",
+              "note": "Američan, prozaik, básník, scenárista. Nositel Nobelovy ceny za literaturu (1949).",
+              "works": [
+                "Absolone, Absolone",
+                "Pobertové",
+                "Vojákův žold"
+              ]
+            },
+            {
+              "name": "John Steinbeck",
+              "years": "1902–1968",
+              "note": "Američan. Nositel Nobelovy ceny za literaturu (1962) a Pulitzerovy ceny (1940). Prokazuje zájem o sociální problémy.",
+              "works": [
+                "O myších a lidech",
+                "Hrozny hněvu",
+                "Na východ od ráje"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Opovrhování lidmi, kterým se nedaří, je dnes běžné. Závist je dnes také běžná. Lidská hrdost a víra ještě nevymizely, proto je dílo určitě aktuální.",
+          "audience": "Kniha má oslovit všechny generace lidí. Starší generaci kvůli zobrazení, že staří lidé nejsou zbyteční, ale dokážou spoustu věcí. Mladší generaci kvůli zobrazení chování a úcty mladšího ke staršímu.",
+          "purpose": "Novela řeší problém lidského přesvědčení a nezdolnost lidské odhodlanosti. Hlavní myšlenkou tohoto díla je ukázat na neustálý boj člověka s přírodou. Smyslem je poukázání na lidskou statečnost a velkou duševní sílu.",
+          "similarWorks": [
+            {
+              "title": "Robinson Crusoe",
+              "author": "Daniel Defoe",
+              "year": "1719",
+              "note": "Fyzicky zdatný muž je nucen postarat se sám o sebe"
+            }
+          ],
+          "adaptations": [
+            "Americký film Stařec a moře z roku 1958 je na ČSFD hodnocen 74 %"
+          ]
+        }
+      }
     },
     {
       "id": 7,
@@ -936,10 +1111,170 @@
       "year": "1943",
       "keywords": [
         "francouzská literatura",
-        "filosofie",
-        "alegorie"
+        "pohádka",
+        "filozofie",
+        "přátelství",
+        "děti"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Hlavním hrdinou díla je malý princ – záhadná bytost z jiné planety.",
+        "plot": "Kniha začíná příběhem malého chlapce, který se snaží zaujmout dospělé svými kresbami, ale nedaří se mu to. Dospělí pro něho nemají pochopení. Chlapec se rozhodne, že se nikdy nebude chovat jako dospělí.\n\nDalší děj se odehrává o několik let později, když chlapec vyroste v pilota a ztroskotá na Saharské poušti. Setká se tam s malým princem, který chce nakreslit beránka. Malý princ se s pilotem spřátelí a vypráví mu o své planetě a o svém cestování.\n\nNejprve popisuje svou planetu B612, na které má tři sopky, spoustu rostlin − baobabů a jednu květinu, která byla kvůli své kráse a pocitu, že je na světě jediná, velmi pyšná. Dále vyprávěl o svých cestách po okolních planetách. Na každé planetě byla pouze jedna osoba − král, domýšlivec, pijan, byznysmen, lampář a spisovatel (zeměpisec) − a každá zastupovala určitou vlastnost.\n\nJako poslední planetu navštívil Zemi, kde se seznámil s hadem a liškou, která mu vysvětlila důležitost přátelství. Objevil ozvěnu a květinovou zahradu. Seznámil se s výhybkářem a obchodníkem.\n\nNa závěr příběhu se nechá malý princ uštknout hadem, aby se vrátil na svoji planetku. Když to zjistí pilot, je smutný, protože ztratil svého přítele.",
+        "themes": {
+          "main": "Důležitost přátelství a kritika špatných lidských vlastností",
+          "motifs": [
+            "planeta",
+            "létání",
+            "beránek",
+            "snění",
+            "letadlo",
+            "růže",
+            "liška",
+            "had"
+          ]
+        },
+        "setting": {
+          "place": "Poušť Sahara, různé planety (B612, planeta krále, domýšlivce, pijana, byznysmena, lampáře, zeměpisce, Země)",
+          "time": "Není přesně určen; 1. polovina 20. století"
+        },
+        "composition": {
+          "structure": "Děj je vyprávěn retrospektivně – malý princ vypráví pilotovi, které planety navštívil a co na nich zažil",
+          "timeline": "Úryvek je rozdělen do odstavců"
+        },
+        "characters": [
+          {
+            "name": "Malý princ",
+            "description": "Zvědavý malý chlapec s blonďatými vlasy, přátelský. Pochází z planety B612.",
+            "isMain": true
+          },
+          {
+            "name": "Letec (pilot)",
+            "description": "Vypravěč, rozumný muž, přátelský. Reprezentuje samotného autora – Saint-Exupéryho.",
+            "isMain": true
+          },
+          {
+            "name": "Květina (růže)",
+            "description": "Pyšná růže, nedávající najevo své city. Důvod, proč malý princ opustil svou planetu.",
+            "isMain": false
+          },
+          {
+            "name": "Liška",
+            "description": "Moudrá, přátelská, radila princovi. Vysvětlila mu důležitost přátelství a zkrocení.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma – vypravěčem příběhu je pilot (sám Exupéry)",
+          "style": "Přímá řeč pilota a malého prince, dialog, pásmo vypravěče"
+        },
+        "excerpt": {
+          "text": "Co to je za věc? To není věc. To létá. Je to letadlo... Moje letadlo. A byl jsem hrdý, že mohu říci, že létám. A tu zvolal: Jejda! Ty jsi spadl z nebe! Ano, odpověděl jsem skromně. Jé, to je divné... A malý princ se roztomile zasmál. To mě hrozně pohněvalo. Chci, aby se mé nehody braly vážně. Potom dodal: Tak ty taky přicházíš z nebe! Z které jsi planety?",
+          "context": "Úryvek je ze začátku díla. V úryvku je zobrazeno seznámení letce s Malým princem."
+        },
+        "languageDevices": [
+          "Apoziopeze – 'Je to letadlo...', 'Jé, to je divné...', 'Pravda, na tomhle jsi nemohl přijít z moc velké dálky...'",
+          "Věty zvolací – 'Jejda! Ty jsi spadl z nebe!', 'Tak ty taky přicházíš z nebe!'",
+          "Citoslovce – 'Jejda!', 'Jé!'",
+          "Ustálené spojení slov – 'brát vážně', 'hned mi svitlo'",
+          "Zdrobnělina – 'beránka', 'človíčku'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Kontrast",
+            "example": "'A malý princ se roztomile zasmál. To mě hrozně pohněvalo.'"
+          },
+          {
+            "name": "Metonymie",
+            "example": "'vyndal mého beránka z kapsy' (beránek je kresba)"
+          },
+          {
+            "name": "Metafora",
+            "example": "'A nadlouho se ponořil do snění.', 'zabral se do pozorování svého pokladu'"
+          },
+          {
+            "name": "Personifikace",
+            "example": "'jakou zvědavost ve mně probudila ta zmínka o jiných planetách'"
+          }
+        ],
+        "authorContext": {
+          "bio": "Antoine de Saint-Exupéry (1900, Lyon, Francie – 1944) – francouzský spisovatel, letec, filozof, humanista. Syn hraběte, říkali mu Král Sluníčko pro jeho modré oči a blonďaté vlasy.",
+          "life": [
+            "Psal prózu pro dospělé",
+            "Vojenskou službu nastoupil roku 1921, na vlastní žádost byl přidělen k letectvu",
+            "Byl civilním letcem v severní Africe a Jižní Americe",
+            "Roku 1936 byl vyslán jako reportér do Španělska, kde zuřila občanská válka",
+            "Pokusil se o dálkový let New York – Ohňová země, ale v Guatemale došlo k havárii a Exupéry utrpěl četné zlomeniny",
+            "Za 2. světové války zahynul při průzkumném letu, pravděpodobně nad Středozemním mořem nedaleko Korsiky"
+          ],
+          "otherWorks": [
+            {
+              "title": "Noční let",
+              "year": "1931",
+              "note": "Román čerpá z jeho zkušeností ředitele společnosti Aeroposta Argentina, která dopravovala poštu na první velké jihoamerické letecké lince."
+            },
+            {
+              "title": "Země lidí",
+              "year": "1939",
+              "note": "Próza, která je souborem osmi statí a vzpomínek na zavádění prvních poštovních linek mezi Evropou a severní Afrikou."
+            },
+            {
+              "title": "Kurýr na jih",
+              "year": "1929",
+              "note": "Román, který autor napsal v Africe, kde byl v té době ředitelem pouštního civilního letiště."
+            }
+          ],
+          "workPosition": "Vrcholná a nejznámější kniha autora."
+        },
+        "literaryContext": {
+          "movement": "Francouzská próza mezi válkami",
+          "period": "1. polovina 20. století",
+          "description": "Vliv 1. světové války. Přibývá prvků absurdity, negativní postoj ke společnosti. Poezie více subjektivní, autoři experimentují s jazykem. Existenciální otázky a jejich řešení.",
+          "characteristics": [
+            "Vliv 1. světové války",
+            "Přibývá prvků absurdity",
+            "Negativní postoj ke společnosti",
+            "Poezie více subjektivní, autoři experimentují s jazykem",
+            "Existenciální otázky a jejich řešení"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Romain Rolland",
+              "years": "1866–1944",
+              "note": "Prozaik, dramatik, esejista, hudební historik a literární kritik. Představitel ztracené generace. Nositel Nobelovy ceny za literaturu (1915).",
+              "works": [
+                "Jan Kryštof",
+                "Petr a Lucie",
+                "Dobrý člověk ještě žije"
+              ]
+            },
+            {
+              "name": "Anatole France",
+              "years": "1844–1924",
+              "note": "Nositel Nobelovy ceny 1921. Aktivní v politice. Začínal poezií, poté psal romány – filozofické reflexe, kritika společnosti, silná ironie.",
+              "works": [
+                "Ostrov tučňáků"
+              ]
+            },
+            {
+              "name": "Henri Barbusse",
+              "years": "1873–1935",
+              "note": "Autor protiválečné literatury. Sugestivní líčení válečných hrůz.",
+              "works": [
+                "Oheň"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Kniha je aktuální, protože na světě má přátelství velmi důležitou roli a lidé budou mít vždy rozdílné vlastnosti.",
+          "audience": "Kniha je určena dospělým lidem, aby nemysleli pouze na sebe, ale i na ostatní, a hlavně na děti.",
+          "purpose": "V díle je zobrazeno mnoho špatných lidských vlastností, se kterými autor jistě nesouhlasil. Ukazuje, jak je důležité přátelství (letec + princ).",
+          "similarWorks": [],
+          "adaptations": [
+            "Malý princ – film s muzikálními prvky, vychází ze stejného základu jako kniha. Odehrává se tam stejný příběh s drobnými odchylkami. Hlavně obsazení planet se liší, například ve filmu není zobrazen pijan a lampář."
+          ]
+        }
+      }
     },
     {
       "id": 8,
@@ -951,11 +1286,189 @@
       "year": "1920",
       "keywords": [
         "francouzská literatura",
+        "první světová válka",
         "láska",
-        "válka",
-        "pacifismus"
+        "protiválečná literatura"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Petr a Lucie – jména hlavních hrdinů, jejichž tragická láska stojí v centru příběhu.",
+        "plot": "Osmnáctiletý Petr Aubier vyrůstá v měšťanské rodině. Jeho otec je soudce a jeho starší bratr se před několika lety dobrovolně přihlásil do války. Petr musí za půl roku nastoupit do války, kterou nedokáže pochopit a smířit se s tím. A tak celé dny bloumá po Paříži a přemýšlí nad nesmyslností války a nad smyslem života.\n\nPři náletu na Paříž 30. ledna 1918 se Petr stejně jako spousta lidí jde rychle ukrýt do podzemní dráhy. Tam se poprvé střetne s Lucií a zahoří k ní velkou láskou. Ze strachu se i chytnou za ruce, na další zastávce však dívka vystoupí, aniž by si všimla mladíka po svém boku. Petr od té doby nemyslel na nic jiného než na Lucii. Dál se toulá Paříží a doufá, že dívku někde potká. Když se tak náhodou stane, není schopen vůbec promluvit.\n\nPři dalším setkáním se Petr osmělí a dá se s dívkou do řeči. Tak se seznamují. Petr se dozvídá dívčino jméno a něco o jejím životě. Dále se dozvídá o dívčině práci. Lucie se živí jako malířka, která překresluje známé obrazy a fotografie. Žije s maminkou, která ovšem kvůli práci v továrně nebývá moc doma a s Lucií se odcizila. Kvůli válce a smrti svého tatínka Lucie nedostudovala malířství.\n\nOba se do sebe zamilují spojeni poutem vzájemné úcty a porozumění. Ve světě beznaděje a utrpení si vytvoří vlastní svět. Svět, kde naděje vítězí nad válkou. Oba si uvědomují, že Petrovi se čas do narukování krátí, ale i tak sní o radostné budoucnosti. Avšak ani oni dva neuniknou vnějšímu světu plného nenávisti a smrti. O Velkém pátku, když se rozhodli přislíbit si lásku v chrámu svatého Gervasia, byl chrám zbombardován a oba milence pohřbil pod velkým padajícím pilířem.",
+        "themes": {
+          "main": "Zoufalý protest proti válce, utrpení, smrti; shakespearovský motiv – láska je silnější než smrt",
+          "motifs": [
+            "pohled",
+            "rusovláska",
+            "pilíř",
+            "srdce",
+            "bombardování",
+            "válka",
+            "láska",
+            "smrt"
+          ]
+        },
+        "setting": {
+          "place": "Chrám sv. Gervasia, Paříž",
+          "time": "Jaro za první světové války (od 30. 1. do Velkého pátku 29. 3. 1918)"
+        },
+        "composition": {
+          "structure": "Děj se odvíjí chronologicky",
+          "timeline": "Příběh se odehrává v rozmezí několika měsíců"
+        },
+        "characters": [
+          {
+            "name": "Petr",
+            "description": "Mladý, upřímný, uzavřený, milý, snílek, často se rozčiluje nad světem. Osmnáctiletý student, který musí za půl roku nastoupit do války.",
+            "isMain": true
+          },
+          {
+            "name": "Lucie",
+            "description": "Mladá, svěží, klidná, veselá, něžná, citlivá, prostá a optimistická dívka, která přes svoji chudobu a válku dokáže vnímat krásy světa. Žije přítomností. Živí se jako malířka.",
+            "isMain": true
+          },
+          {
+            "name": "Filip",
+            "description": "Petrův starší bratr, který se dobrovolně přihlásil do války. Během ní ale přichází o veškeré iluze, a když vidí iluze ve svém bratrovi, je vůči němu odtažitý. Rád vidí Petra šťastného a zamilovaného.",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Er-forma – vševědoucí vypravěč",
+          "style": "Vypravěčův monolog, pouze pásmo vypravěče v er-formě"
+        },
+        "excerpt": {
+          "text": "V té chvíli Lucie, jež zrovna vášnivým pohledem políbila drahého přítele (oči maje přivřeny a rty pootevřeny, zdál se ztracen v slastné extázi, a jakoby nadnášen věčnou radostí, pozdvihoval hlavu k oné nejvyšší Síle, kterou člověk pudově hledá vždycky nahoře), užasle spatřila v červeném a zlatém okně postranní kaple tvář té rusovlásky. A zatímco tak na ni mlčky pohlížela, trnouc úžasem, znovu na té zvláštní tvářičce uviděla onen výraz zděšení a soucitu. V témž okamžiku se silný pilíř, o nějž se opírali, pohnul a celý kostel se do základů zachvěl.",
+          "context": "Úryvek je finální část příběhu, kde Petr s Lucií umírají v náručí při bombardování kostela."
+        },
+        "languageDevices": [
+          "Přechodník – 'maje', 'trnouc', 'nemajíc'",
+          "Zdrobnělina – 'tvářičce', 'klubíčko'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Epiteton",
+            "example": "'vášnivým pohledem', 'v slastné extázi', 'mateřským objetím', 'nepatrné klubíčko'"
+          },
+          {
+            "name": "Metafora",
+            "example": "'vášnivým pohledem políbila drahého přítele'"
+          },
+          {
+            "name": "Personifikace",
+            "example": "'k oné nejvyšší Síle', 'tvář té rusovlásky', 'silný pilíř se pohnul', 'kostel se zachvěl', 'pilíř je pohřbil'"
+          },
+          {
+            "name": "Přirovnání",
+            "example": "'aby ho jako slepice svá kuřátka'"
+          },
+          {
+            "name": "Synekdocha",
+            "example": "'drahou hlavu ze všech sil přitiskla'"
+          }
+        ],
+        "authorContext": {
+          "bio": "Romain Rolland (1866–1944) – francouzský dramatik, prozaik, literární kritik a hudební historik. Narodil se v burgundském městečku Clamecy jako syn notáře.",
+          "life": [
+            "V roce 1880 se rodina na nátlak matky přestěhovala do Paříže, aby zde jejich syn mohl získat nejlepší vzdělání",
+            "V Paříži vystudoval v letech 1886–1889 elitní školu Ecole Normale Supérieure. Poté začal studovat v Římě, kde také zahájil svoji literární činnost",
+            "V letech 1893–1912 přednášel jako profesor dějiny umění na Ecole Normale a dějiny hudby na Sorbonně",
+            "Od roku 1912 se již věnoval pouze umělecké činnosti",
+            "V roce 1915 získal jako jeden z prvních na světě Nobelovu cenu za literaturu",
+            "Po 1. světové válce usiloval o založení jednotné kulturní fronty proti válce a fašismu",
+            "Zemřel v roce 1944 v Burgundsku, ve městečku Vézelay poblíž svého rodiště"
+          ],
+          "otherWorks": [
+            {
+              "title": "Jan Kryštof",
+              "year": "1904–1912",
+              "note": "Román o deseti dílech, rozvržen do čtyř částí. Líčí život Jana Kryštofa, slavného německého hudebníka. Za toto dílo dostal autor Nobelovu cenu."
+            },
+            {
+              "title": "Okouzlená duše",
+              "year": "1922–1933",
+              "note": "Druhý autorův rozsáhlý románový cyklus. Román zrcadlí historický vývoj francouzské a evropské společnosti na počátku 20. století a v době nástupu fašismu v Itálii."
+            },
+            {
+              "title": "Dobrý člověk ještě žije",
+              "year": "1939",
+              "note": "Svérázný historický román odehrávající se v Burgundsku za vlády Ludvíka XIII. Ústřední myšlenkou je, že hrdina dokáže žít šťastně i v nešťastných poměrech."
+            }
+          ],
+          "workPosition": "Vydáno roku 1920. V díle se částečně promítá i autorův osobní zážitek. Při bombardování Paříže na Velký pátek roku 1918 mu zemřela žena spolu s několika jeho dalšími přáteli."
+        },
+        "literaryContext": {
+          "movement": "První světová válka ve světové literatuře",
+          "period": "Konec 19. století, první polovina 20. století",
+          "description": "Literatura ovlivněná první světovou válkou, protiválečné tendence, zobrazování hrůz války a jejích dopadů na jednotlivce i společnost.",
+          "characteristics": [
+            "Protiválečná literatura",
+            "Zobrazování hrůz války",
+            "Důraz na lidské hodnoty",
+            "Kritika společnosti",
+            "Humanistické ideály"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Ernest Hemingway",
+              "years": "1899–1961",
+              "note": "Americký spisovatel, čelní představitel Ztracené generace. Nositel Pulitzerovy ceny (1953) a Nobelovy ceny (1954).",
+              "works": [
+                "Sbohem, armádo!",
+                "Stařec a moře"
+              ]
+            },
+            {
+              "name": "Erich Maria Remarque",
+              "years": "1898–1970",
+              "note": "Vlastním jménem Erich Paul Remark, německý spisovatel. Roku 1916 odešel jako dobrovolník do 1. světové války, v roce 1918 byl raněn.",
+              "works": [
+                "Na západní frontě klid",
+                "Cesta zpátky",
+                "Tři kamarádi",
+                "Čas žít, čas umírat"
+              ]
+            },
+            {
+              "name": "Arnold Zweig",
+              "years": "1887–1968",
+              "note": "Německý spisovatel, prozaik a dramatik. První světovou válku prožil u Verdunu a na srbské frontě.",
+              "works": [
+                "Válka bílých mužů"
+              ]
+            },
+            {
+              "name": "Henri Barbusse",
+              "years": "1873–1935",
+              "note": "Francouzský spisovatel, kritik a publicista. Jako dobrovolník se přihlásil do armády a bojoval v přední linii.",
+              "works": [
+                "Oheň aneb Deník bojového družstva"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup, Lucie s Petrem vedou časté dialogy",
+          "relevance": "Dílo dnes už sice není aktuální, ale můžeme ho brát do jisté míry i jako historicky naučné, neboť obsahuje fakta a podává jasný obraz o bombardování Paříže v době, kdy se dílo odehrává.",
+          "audience": "Kniha je určená všem věkovým kategoriím.",
+          "purpose": "Zoufalý protest proti válce, utrpení, smrti; shakespearovský motiv, láska je silnější než smrt.",
+          "similarWorks": [
+            {
+              "title": "Romeo a Julie",
+              "author": "William Shakespeare",
+              "year": "1597",
+              "note": "Motiv zabitých milenců"
+            },
+            {
+              "title": "Romeo, Julie a tma",
+              "author": "Jan Otčenášek",
+              "year": "1958",
+              "note": "Motiv zabitých milenců"
+            }
+          ],
+          "adaptations": [
+            "Československý film natočený režisérem Tiborem Rakovským vznikl v roce 1968. Režisér vynechal určité pasáže z knihy a nahradil je vlastními, kde ukazuje atmosféru na vojně a bídu mezi lidmi. Film získal na ČSFD hodnocení 85 %."
+          ]
+        }
+      }
     },
     {
       "id": 9,
@@ -967,10 +1480,203 @@
       "year": "1929",
       "keywords": [
         "německá literatura",
-        "válka",
-        "ztracená generace"
+        "první světová válka",
+        "ztracená generace",
+        "protiválečná literatura"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Na západní frontě klid  protože se na západní frontě bojovalo a v den, kdy hlavní hrdina umřel, noviny psaly, že se již nebojuje. V originále Im Westen nichts Neues.",
+        "plot": "Kniha vypráví příběh Paula Bäumera, který je spolu se svými kamarády Müllerem, Kroppem, Kemmerichem a Leerem po maturitě donucen profesorem Kantorkem jít do armády jako dobrovolník.\\n\\nNejprve prošli tvrdým 10denním výcvikem plným šikany od desátníka Himmelstosse. Po výcviku nastupují všichni rovnou na frontu a hned při prvním boji je raněn jejich kamarád Kemmerich, který dostal kulku do stehna. Nohu mu musí amputovat.\\n\\nPo tomto boji utrpěla jejich rota velké ztráty a byla doplněna o rekruty. Vojáci přežívají v zákopech díky neuvěřitelnému množství drobných náhod. Pavlovi kamarádi jeden po druhém umírají.\\n\\nPavel dostane dovolenou a jede za rodinou. Dozvídá se, že jeho maminka umírá na rakovinu. Pavel zatajuje před rodiči všechny hrůzy, které zažil a viděl. Navštěvuje matku zesnulého Kemmericha a oznamuje jí, že její syn zemřel.\\n\\nPo dovolené je vyslán na průzkum terénu. Zabíjí tam Francouze, protože když ho nezabije, zabije Francouz jeho. Pak svého činu velmi lituje. Pavel a Kropp jsou zraněni a pobývají v katolické nemocnici. Kroppovi amputují nohu.\\n\\nKdyž se Pavel uzdraví, vrací se na frontu, kde zjistí, že Leer a Müller jsou mrtví. Pavlův nejlepší přítel Katczinski je zraněn a umírá. Pavel zůstává na frontě sám, bez svých kamarádů. Na konci války umírá i Pavel právě v den, který byl tak tichý, že vrchní velitelství napsalo do zprávy: Na západní frontě klid.",
+        "themes": {
+          "main": "Návštěva ve vojenské nemocnici, zobrazení válečných hrůz a varování před nimi",
+          "motifs": [
+            "karbol",
+            "úsměv",
+            "hodinky",
+            "noha",
+            "válka",
+            "smrt",
+            "přátelství",
+            "zákopy"
+          ]
+        },
+        "setting": {
+          "place": "Západní fronta, Německo",
+          "time": "1. světová válka (19141918)"
+        },
+        "composition": {
+          "structure": "Děj je vyprávěn chronologicky",
+          "timeline": "Příběh sleduje válečné období"
+        },
+        "characters": [
+          {
+            "name": "Pavel Bäumer",
+            "description": "Vypravěč, chytrý, citlivý, přátelský mladý voják",
+            "isMain": true
+          },
+          {
+            "name": "František Kemmerich",
+            "description": "Citlivý, přišel o nohu, první z kamarádů, kdo umírá",
+            "isMain": false
+          },
+          {
+            "name": "Müller",
+            "description": "Je nemotora, tvrdohlavec",
+            "isMain": false
+          },
+          {
+            "name": "Kropp",
+            "description": "Starostlivý kamarád Pavla",
+            "isMain": false
+          },
+          {
+            "name": "Stanislav Katczinský",
+            "description": "Nejlepší přítel Pavla, původním povoláním švec, přímý, statečný",
+            "isMain": false
+          },
+          {
+            "name": "Kantorek",
+            "description": "Třídní profesor, podporoval své studenty v tom, aby šli do války",
+            "isMain": false
+          },
+          {
+            "name": "Himmelstoss",
+            "description": "Velitel výcviku, tvrdý, drsný, bezcitný",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma, vypravěčem je Pavel Bäumer",
+          "style": "Převažuje pásmo vypravěče v ich-formě, přímá řeč postav"
+        },
+        "excerpt": {
+          "text": "Než vyrazíme ke Kemmerichovi, balíme jeho věci; bude jich po cestě potřebovat. V polním lazaretu je hodně práce; páchne tam jako vždy karbolem, hnisem a potem. Člověk je z baráku na ledacos zvyklý, ale tady by ti přec jen mohlo přijít na nic. Ptáme se po Kemmerichovi; leží v jednom sále a uvítá nás slabým úsměvem radosti a bezmocným rozčilením.",
+          "context": "Úryvek je ze začátku díla, Kemmerich je první, kdo umírá."
+        },
+        "languageDevices": [
+          "Archaická vazba  bude jich po cestě potřebovat",
+          "Výčet  páchne tam jako vždy karbolem, hnisem a potem",
+          "Nespisovné slovo  baráku, saniťák",
+          "Vulgarismus  držel hubu",
+          "Zdrobnělina  Frantíku",
+          "Vojenský slang  lazaret, sál, svrchnice"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Přirovnání",
+            "example": "jako vždy"
+          },
+          {
+            "name": "Epiteton",
+            "example": "slabým úsměvem radosti a bezmocným rozčilením"
+          },
+          {
+            "name": "Eufemismus",
+            "example": "Kemmerich už z toho sálu nevyjde"
+          }
+        ],
+        "authorContext": {
+          "bio": "Erich Maria Remarque (18981970)  vlastním jménem Erich Paul Remark, německý spisovatel.",
+          "life": [
+            "Narodil se 22. června 1898 v Osnabrücku do rodiny knihvazače",
+            "Hned po ukončení školy v roce 1916 narukoval do armády, kde byl v roce 1918 několikrát raněn",
+            "Kvůli tomu je celé jeho dílo poznamenáno odporem k válce a antimilitarismem",
+            "Po návratu z války měl problémy začlenit se do normální společnosti",
+            "Po 1. světové válce vystřídal řadu povolání",
+            "Roku 1931 se přestěhoval do Švýcarska",
+            "V roce 1938 byl zbaven německého občanství, jeho knihy byly veřejně páleny",
+            "1939 emigroval do New Yorku",
+            "Zemřel 25. září 1970 v Locarnu"
+          ],
+          "otherWorks": [
+            {
+              "title": "Cesta zpátky",
+              "year": "1931",
+              "note": "Volné pokračování románu Na západní frontě klid"
+            },
+            {
+              "title": "Tři kamarádi",
+              "year": "1936",
+              "note": "Román o osudech vojáků po válce"
+            },
+            {
+              "title": "Vítězný oblouk",
+              "year": "1945",
+              "note": "Román o německém emigrantovi v Paříži"
+            },
+            {
+              "title": "Čas žít, čas umírat",
+              "year": "1954",
+              "note": "Román o 2. světové válce"
+            }
+          ],
+          "style": "V dílech se blíží stylu tzv. ztracené generace. Silné antifašistické zaměření, humanista, kritik společnosti.",
+          "workPosition": "Prvotina, světový úspěch  jeho zřejmě nejznámější dílo."
+        },
+        "literaryContext": {
+          "movement": "Ztracená generace, protiválečná literatura",
+          "period": "1. polovina 20. století",
+          "description": "Zobrazení válečné tematiky, cílem bylo vylíčit válečné hrůzy a varovat před nimi.",
+          "characteristics": [
+            "Zobrazení válečných hrůz",
+            "Protiválečná literatura",
+            "Kritika společnosti",
+            "Odpor k válce a antimilitarismus"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Arnold Zweig",
+              "years": "18871968",
+              "note": "Německý prozaik a dramatik",
+              "works": [
+                "Spor o seržanta Gríšu"
+              ]
+            },
+            {
+              "name": "Romain Rolland",
+              "years": "18661944",
+              "note": "Francouzský prozaik, nositel Nobelovy ceny (1915)",
+              "works": [
+                "Petr a Lucie"
+              ]
+            },
+            {
+              "name": "Henri Barbusse",
+              "years": "18741935",
+              "note": "Francouzský spisovatel",
+              "works": [
+                "Oheň aneb deník bojového družstva"
+              ]
+            },
+            {
+              "name": "Ernest Hemingway",
+              "years": "18991961",
+              "note": "Americký prozaik, nositel Nobelovy ceny (1954)",
+              "works": [
+                "Sbohem, armádo",
+                "Stařec a moře"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo je aktuální, jelikož v některých zemích se stále válčí.",
+          "audience": "Čtenář, kterému nevadí popis zmrzačených lidí a pravda o válce.",
+          "purpose": "Tato kniha nechce být ani obžalobou, ani vyznáním. Chce se pokusit vydat svědectví o generaci, která byla válkou rozbita  i když unikla jejím granátům.",
+          "similarWorks": [
+            {
+              "title": "Oheň aneb Deník bojového družstva",
+              "author": "Henri Barbusse",
+              "year": "1916",
+              "note": "Zachycuje každodenní život vojáků"
+            }
+          ],
+          "adaptations": [
+            "Na západní frontě klid  Delbert Mann, 1979"
+          ]
+        }
+      }
     },
     {
       "id": 10,
@@ -983,9 +1689,197 @@
       "keywords": [
         "americká literatura",
         "ztracená generace",
-        "americký sen"
+        "jazzový věk",
+        "20. léta"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Velký Gatsby  přezdívka hlavního hrdiny Jay Gatze, který je velmi zámožný.",
+        "plot": "Nick Carraway se po první světové válce přestěhoval do New Yorku. Pracuje zde jako makléř. Jeho novým sousedem na Long Islandu, tzv. Západním vejci, je Jay Gatz řečený Velký Gatsby. Ten pořádá nákladné večírky a je oblíbený široko daleko.\\n\\nNa Západním vejci bydlí také Nickova vzdálená sestřenice Daisy, její manžel Tom Buchanan a malá dcerka. Tom je Daisy nevěrný s Myrtle Wilsonovou, manželkou automechanika.\\n\\nNick na večírku poznal Daisyinu přítelkyni, hráčku golfu Jordan. Gatsby se původně jmenoval Gatz a byl z chudých poměrů. Utekl z domova a postupně si vydělal dost peněz. Potom poznal Daisy a bezhlavě se do ní zamiloval.\\n\\nGatsby Nicka poprosí, jestli by se s Daisy nemohl setkat v jeho domě. Znovu se stávají milenci. Gatsby Tomovi řekne, že ho jeho žena nemiluje. Po nastalé hádce Daisy a Gatsby odjíždějí Gatsbyho autem, řídí Daisy a v rozrušení přejede a zabije ženu, která proti autu vyběhla. Touto ženou je Myrtle, milenka Toma.\\n\\nManžel zabité ženy Wilson se dozví, že auto patří Gatsbymu. Rozhodne se pomstít a zastřelí Gatsbyho v jeho domě. Následně se sám střelí. Nick zdrceně sleduje, že na Gatsbyho pohřeb nikdo nepřišel.",
+        "themes": {
+          "main": "Kritika amerického snu a povrchnosti vyšší společnosti",
+          "motifs": [
+            "Západní vejce",
+            "sousedství",
+            "svíčky",
+            "večírky",
+            "bohatství",
+            "láska",
+            "smrt"
+          ]
+        },
+        "setting": {
+          "place": "USA, New York  Západní vejce, dům manželů Buchananových",
+          "time": "20. léta 20. století"
+        },
+        "composition": {
+          "structure": "Vyprávění chronologické a retrospektivní",
+          "timeline": "Text je rozdělen na odstavce"
+        },
+        "characters": [
+          {
+            "name": "Nick Carraway",
+            "description": "Makléř, vypravěč, který stojí v pozadí příběhu, z chudých poměrů, nezkažený, upřímný",
+            "isMain": true
+          },
+          {
+            "name": "Jay Gatsby",
+            "description": "Vypracoval se sám, žije osaměle, až nekriticky miluje Daisy, pořádá večírky, ale nemá opravdové přátele",
+            "isMain": true
+          },
+          {
+            "name": "Daisy Buchananová",
+            "description": "Zkažená zbohatlá panička, krásná, ale jen navenek",
+            "isMain": false
+          },
+          {
+            "name": "Jordan Bakerová",
+            "description": "Sportovní typ, přítelkyně Nicka, hráčka golfu",
+            "isMain": false
+          },
+          {
+            "name": "Tom Buchanan",
+            "description": "Nevěrný Daisyin manžel, zbohatlík",
+            "isMain": false
+          },
+          {
+            "name": "Myrtle",
+            "description": "Tomova milenka, důvěřivá",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma, vypravěčem je spisovatel Nick Carraway",
+          "style": "Přímá řeč postav, dialog, pásmo vypravěče"
+        },
+        "excerpt": {
+          "text": "Vy bydlíte na Západním vejci, poznamenala s opovržením. Znám tam někoho. Neznám tam ani živou  Přece musíte znát Gatsbyho. Gatsbyho? zeptala se Daisy. Jakého Gatsbyho?",
+          "context": "Začátek knihy, kdy se Daisy dozví, že její dávná láska Gatsby bydlí poblíž."
+        },
+        "languageDevices": [
+          "Přezdívka  Gatsby",
+          "Řečnická otázka  Gatsbyho?",
+          "Zdrobnělina  figurku"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Apoziopeze",
+            "example": "Neznám tam ani živou "
+          },
+          {
+            "name": "Přirovnání",
+            "example": "vyvedl mě z pokoje, jako by přesunoval figurku v dámě na jiné políčko"
+          },
+          {
+            "name": "Epiteton",
+            "example": "v ochablém větru"
+          },
+          {
+            "name": "Metafora",
+            "example": "celá rozzářená"
+          }
+        ],
+        "authorContext": {
+          "bio": "Francis Scott Key Fitzgerald (18961940)  Američan, spisovatel a scenárista, považován za jednoho z nejlepších amerických spisovatelů. Autor jazzového věku.",
+          "life": [
+            "Narozen v Minnesotě, z rodiny irských přistěhovalců",
+            "Studoval v New Jersey a v Princetonu",
+            "Dobrovolně narukoval, ale ve válce nikdy nebyl",
+            "Po úspěchu prvního románu se oženil se Zeldou Sayrovou",
+            "Vedli nákladný život, byli zadlužení",
+            "V Paříži se seznámili s Hemingwayovými",
+            "Pracoval jako scenárista v Hollywoodu",
+            "Zemřel na infarkt v Hollywoodu"
+          ],
+          "otherWorks": [
+            {
+              "title": "Na prahu ráje",
+              "year": "1920",
+              "note": "Prvotina"
+            },
+            {
+              "title": "Krásní a prokletí",
+              "year": "1922",
+              "note": "Román o americké smetánce"
+            },
+            {
+              "title": "Něžná je noc",
+              "year": "1934",
+              "note": "Román o psychiatrovi"
+            },
+            {
+              "title": "Poslední magnát",
+              "year": "1941",
+              "note": "Nedokončený, vydán posmrtně"
+            }
+          ],
+          "style": "Píše o generaci 20. let, tzv. zlaté mládeži.",
+          "workPosition": "Román se stal oblíbeným až v 50. letech, stal se povinnou četbou."
+        },
+        "literaryContext": {
+          "movement": "Ztracená generace",
+          "period": "1. polovina 20. století",
+          "description": "Skupina spisovatelů narozených kolem roku 1900, kteří zažili první světovou válku.",
+          "characteristics": [
+            "Zklamání a skepse",
+            "Rozklad lidských a společenských hodnot",
+            "Hledání východiska v útěku do přírody nebo kultury",
+            "Kritika společnosti"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Ernest Hemingway",
+              "years": "18991961",
+              "note": "Americký spisovatel, nositel Nobelovy ceny",
+              "works": [
+                "Stařec a moře",
+                "Sbohem, armádo"
+              ]
+            },
+            {
+              "name": "William Faulkner",
+              "years": "18971962",
+              "note": "Americký prozaik, nositel Nobelovy ceny",
+              "works": [
+                "Absolone, Absolone"
+              ]
+            },
+            {
+              "name": "John Steinbeck",
+              "years": "19021968",
+              "note": "Americký spisovatel",
+              "works": [
+                "O myších a lidech",
+                "Hrozny hněvu"
+              ]
+            },
+            {
+              "name": "Erich Maria Remarque",
+              "years": "18981970",
+              "note": "Německý spisovatel",
+              "works": [
+                "Na západní frontě klid"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Honba za penězi a posuzování lidí podle jejich pověsti je stále aktuální.",
+          "audience": "Kdokoli, kniha není úzce zaměřena.",
+          "purpose": "Kritika amerického snu a povrchnosti vyšší společnosti ve 20. letech.",
+          "similarWorks": [
+            {
+              "title": "Krásní a prokletí",
+              "author": "F. S. Fitzgerald",
+              "year": "1922",
+              "note": "Zobrazení americké smetánky ve 20. letech"
+            }
+          ],
+          "adaptations": [
+            "Nejnovější zpracování (2013) s Leonardem Dicapriem má hodnocení 73 %"
+          ]
+        }
+      }
     },
     {
       "id": 11,
@@ -997,11 +1891,202 @@
       "year": "1945",
       "keywords": [
         "anglická literatura",
-        "dystopie",
+        "antiutopie",
         "alegorie",
+        "satira",
         "totalitarismus"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Děj knihy se odehrává na zvířecí farmě.",
+        "plot": "Příběh se odehrává na zvířecí farmě zvané Panská farma. Starý inteligentní kanec Mojžíš (Major) naučil ostatní prasata píseň Zvířata Anglie, čímž vznikl tzv. animalismus. Mojžíš nabádal ostatní k revoluci, která byla po jeho smrti uskutečněna a při které prasata převzala moc a vyhnala z farmy jejího majitele pana Jonese.\\n\\nFarmě dávají název Zvířecí farma a je sepsáno 7 pravidel, která všechna zvířata musí dodržovat. Zvířatům vládnou kanec Napoleon a kanec Kuliš, kteří se neustále dohadují. Napoleon všechny poštve proti Kulišovi a sám sebe učiní Velkým vůdcem.\\n\\nZvířata na farmě pracují mnohem více než dřív, ale jejich životní podmínky se nezměnily. Sedmero je upravováno v prasečí prospěch, a jakmile ostatní zvířata protestují, prasata je umlčí svými argumenty.\\n\\nPo roce je produkce farmy stále nižší, což se svádí na vyhnaného Kuliše. Zvířata odhalují jeho pomocníky a popravují je. I přikázání byla pozměněna, ale zvířata si myslí, že už si je správně nepamatují.\\n\\nZvířata se přestěhovala do domu, začala nosit šaty, spát v posteli, pít alkohol a obchodovat s lidmi. Postupně také začínají chodit po dvou. Napoleon farmě vrátil označení Panská. V závěru hrají všichni poker a není možné rozeznat, kdo je člověk a kdo prase. Na vratech už visí jen jediné pravidlo: Všechna zvířata jsou si rovna, ale některá jsou si rovnější.",
+        "themes": {
+          "main": "Varování před stalinskou hrůzovládou, varování před jakoukoli totalitní mocí",
+          "motifs": [
+            "kanec",
+            "sen",
+            "stodola",
+            "farma",
+            "sláma",
+            "revoluce",
+            "pravidla",
+            "moc"
+          ]
+        },
+        "setting": {
+          "place": "Anglie, Panská farma",
+          "time": "Není určen"
+        },
+        "composition": {
+          "structure": "Kniha je rozdělena na 10 kapitol",
+          "timeline": "Děj je vyprávěn chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Major",
+            "description": "Inteligentní prase, dvanáctiletý (starý), středně bílý, má představovat Lenina",
+            "isMain": false
+          },
+          {
+            "name": "Napoleon",
+            "description": "Rvavé prase toužící po moci, zbaví se Kuliše, má představovat Stalina",
+            "isMain": true
+          },
+          {
+            "name": "Kuliš",
+            "description": "Prase vládnoucí nejprve spolu s Napoleonem, má představovat Trockého",
+            "isMain": false
+          },
+          {
+            "name": "Boxer",
+            "description": "Silný hřebec s bílým pruhem na nose, představuje pracující lid",
+            "isMain": false
+          },
+          {
+            "name": "Lupina",
+            "description": "Statná klisna středního věku, dobračka",
+            "isMain": false
+          },
+          {
+            "name": "Benjamin",
+            "description": "Osel intelektuál, pasivní, ačkoli si uvědomuje reálný stav věcí",
+            "isMain": false
+          },
+          {
+            "name": "pan Jones",
+            "description": "Majitel farmy, rád se napil a zapomněl nakrmit zvířata",
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Vševědoucí vypravěč v er-formě",
+          "style": "Pouze pásmo vypravěče"
+        },
+        "excerpt": {
+          "text": "Celý den se mezi zvířaty povídalo, že starý Major, výstavní středně bílý kanec, několikrát oceněný ve své kategorii, měl v noci podivný sen, který chtěl vyprávět ostatním. Zvířata se tedy dohodla, že až pan Jones usne, sejdou se ve velké stodole.",
+          "context": "Úryvek je z počátku knihy, kdy ještě žije Major a farmu spravuje pan Jones."
+        },
+        "languageDevices": [
+          "Spisovný jazyk",
+          "Hypokoristika (domácí jména)  Bára, Janina",
+          "Zdrobnělina  zvířátkům",
+          "Nomen omen  hřebec Boxer"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Metafora",
+            "example": "co má na srdci"
+          },
+          {
+            "name": "Eufemismus",
+            "example": "nebyl opravdu příliš inteligentní"
+          },
+          {
+            "name": "Alegorie",
+            "example": "Celý příběh je alegorií na stalinský režim"
+          }
+        ],
+        "authorContext": {
+          "bio": "George Orwell (19031950)  vlastním jménem Eric Arthur Blair, britský novinář, esejista a spisovatel.",
+          "life": [
+            "Narodil se 25. června 1903 v Motihari v Indii",
+            "Vyrůstal v Oxfordshiru a podle místní říčky Orwell si dal svůj pseudonym",
+            "Vystudoval prestižní Eton College",
+            "V roce 1922 pracoval pro Indickou imperiální policii v Barmě",
+            "Po roce 1936 se jako dobrovolník zapojil do španělské občanské války",
+            "Druhé světové války se neúčastnil kvůli vleklé tuberkulóze",
+            "V roce 1950 na tuberkulózu zemřel",
+            "V komunistickém Československu byl na seznamu zakázaných autorů"
+          ],
+          "otherWorks": [
+            {
+              "title": "1984",
+              "year": "1949",
+              "note": "Antiutopický román"
+            },
+            {
+              "title": "Barmské dny",
+              "year": "1934",
+              "note": "Román odehrávající se v Barmě"
+            },
+            {
+              "title": "Na dně v Paříži a Londýně",
+              "year": "1933",
+              "note": "Zážitky z dob, kdy byl Orwell tulákem"
+            }
+          ],
+          "style": "Psal knihy o diktaturách komunistického typu. Jeho knihy a eseje se týkají politiky, komentují život doby.",
+          "workPosition": "Farma zvířat a 1984 jsou nejznámější Orwellovy romány."
+        },
+        "literaryContext": {
+          "movement": "Antiutopie, meziválečná anglická próza",
+          "period": "30. až 50. léta 20. století",
+          "description": "Literatura varující před totalitními režimy.",
+          "characteristics": [
+            "Alegorie na totalitní režimy",
+            "Kritika komunismu a stalinismu",
+            "Varování před zneužitím moci",
+            "Satirické prvky"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Jevgenij Zamjatin",
+              "years": "18841937",
+              "note": "Ruský autor antiutopií",
+              "works": [
+                "My"
+              ]
+            },
+            {
+              "name": "J. R. R. Tolkien",
+              "years": "18921973",
+              "note": "Anglický spisovatel",
+              "works": [
+                "Hobit",
+                "Pán Prstenů"
+              ]
+            },
+            {
+              "name": "C. S. Lewis",
+              "years": "18981963",
+              "note": "Tolkienův kolega",
+              "works": [
+                "Letopisy Narnie"
+              ]
+            },
+            {
+              "name": "Edgar Rice Burroughs",
+              "years": "18751950",
+              "note": "Americký spisovatel",
+              "works": [
+                "Tarzan"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Hrozba totalitních režimů je stále aktuální.",
+          "audience": "Člověk, který prožil totalitu a pozná jasné narážky na historické postavy a události. Člověk, který totalitu nepoznal a má být varován.",
+          "purpose": "Varování před stalinskou hrůzovládou v Rusku v první polovině 20. století, varování před jakoukoli totalitní mocí.",
+          "similarWorks": [
+            {
+              "title": "1984",
+              "author": "George Orwell",
+              "year": "1949",
+              "note": "Hrůzy totalitního systému"
+            },
+            {
+              "title": "Bajky",
+              "author": "Jean de La Fontaine",
+              "year": "17. stol.",
+              "note": "Alegorické příběhy s poučením"
+            }
+          ],
+          "adaptations": [
+            "Farma zvířat  anglický animovaný film z roku 1954, na ČSFD hodnoceno 81 %"
+          ]
+        }
+      }
     },
     {
       "id": 12,
