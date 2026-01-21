@@ -31,7 +31,7 @@ const FlashcardMode = ({ filter }) => {
   }, [filter]);
 
   const currentFlashcard = flashcards[currentIndex];
-  const parentQuestion = currentFlashcard 
+  const parentQuestion = currentFlashcard
     ? itQuestionsData.questions.find(q => q.id === currentFlashcard.questionId)
     : null;
 
@@ -83,50 +83,48 @@ const FlashcardMode = ({ filter }) => {
 
       {/* Parent Question Link */}
       {parentQuestion && (
-        <Link 
+        <Link
           to={`/it/question/${parentQuestion.id}`}
-           className="block text-xs text-terminal-accent hover:text-terminal-border transition-colors border-l-2 border-terminal-border/30 pl-2"
+          className="block text-xs text-terminal-accent hover:text-terminal-border transition-colors border-l-2 border-terminal-border/30 pl-2"
         >
           &gt; FROM Q#{parentQuestion.id}: {parentQuestion.question}
         </Link>
       )}
 
       {/* Flashcard */}
-      <div className="perspective-1000">
-        <div
-          onClick={() => setIsFlipped(!isFlipped)}
-          className={`relative w-full terminal-card cursor-pointer transition-transform duration-500 transform-style-3d ${
-            isFlipped ? 'rotate-y-180' : ''
-          }`}
-          style={{ minHeight: '350px' }}
-        >
-          {/* Front */}
-          <div className={`absolute w-full h-full backface-hidden p-8 ${isFlipped ? 'hidden' : ''}`}>
-            <div className="flex flex-col items-center justify-center h-full">
-               <div className="text-xs text-terminal-accent/60 mb-4 tracking-wider">
-                &gt; QUESTION
-              </div>
-              <h2 className="text-xl text-center text-terminal-text">
-                {currentFlashcard.front}
-              </h2>
+      <div
+        onClick={() => setIsFlipped(!isFlipped)}
+        className="terminal-card cursor-pointer transition-all duration-300"
+      >
+        {/* Question */}
+        <div className="p-8">
+          <div className="flex flex-col items-center justify-center">
+            <div className="text-xs text-terminal-accent/60 mb-4 tracking-wider">
+              &gt; QUESTION
+            </div>
+            <h2 className="text-xl text-center text-terminal-text">
+              {currentFlashcard.front}
+            </h2>
+            {!isFlipped && (
               <div className="mt-6 text-xs text-terminal-text/40">
                 [ CLICK TO REVEAL ]
               </div>
-            </div>
+            )}
           </div>
+        </div>
 
-          {/* Back */}
-          <div className={`absolute w-full h-full backface-hidden p-8 ${!isFlipped ? 'hidden' : ''}`}>
-            <div className="flex flex-col h-full">
-               <div className="text-xs text-terminal-accent/60 mb-3 tracking-wider">
-                &gt; ANSWER
-              </div>
-              <div className="flex-1 overflow-y-auto">
-                <p className="text-sm text-terminal-text/90 whitespace-pre-wrap">
-                  {currentFlashcard.back}
-                </p>
-              </div>
+        {/* Answer - Slide down */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-out ${isFlipped ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+        >
+          <div className="border-t border-terminal-border/30 p-8">
+            <div className="text-xs text-terminal-accent/60 mb-3 tracking-wider">
+              &gt; ANSWER
             </div>
+            <p className="text-sm text-terminal-text/90 whitespace-pre-wrap">
+              {currentFlashcard.back}
+            </p>
           </div>
         </div>
       </div>
@@ -148,21 +146,6 @@ const FlashcardMode = ({ filter }) => {
           <FaArrowRight />
         </button>
       </div>
-
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-        .transform-style-3d {
-          transform-style: preserve-3d;
-        }
-        .rotate-y-180 {
-          transform: rotateY(180deg);
-        }
-        .backface-hidden {
-          backface-visibility: hidden;
-        }
-      `}</style>
     </div>
   );
 };
