@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaLaptopCode, FaBook, FaSearch } from 'react-icons/fa';
+import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire } from 'react-icons/fa';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
 const Header = () => {
@@ -8,6 +8,7 @@ const Header = () => {
   const [maturityDate, setMaturityDate] = useLocalStorage('maturity-date', '2026-05-05');
   const [isEditing, setIsEditing] = useState(false);
   const [daysLeft, setDaysLeft] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const calculateDays = () => {
@@ -47,6 +48,8 @@ const Header = () => {
           <div
             className="cursor-pointer group md:absolute md:left-1/2 md:-translate-x-1/2"
             onClick={() => !isEditing && setIsEditing(true)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             title="Klikni pro změnu data"
           >
             {isEditing ? (
@@ -56,19 +59,26 @@ const Header = () => {
                 onChange={handleDateChange}
                 onBlur={() => setIsEditing(false)}
                 autoFocus
-                className="bg-terminal-dim border border-purple-500/50 px-2 py-0.5 text-xs rounded-sm focus:outline-none focus:border-purple-400 w-28"
+                className="bg-terminal-dim border border-terminal-accent/50 px-2 py-0.5 text-xs focus:outline-none focus:border-terminal-accent w-28"
               />
             ) : (
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute -inset-2 bg-purple-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="flex items-center gap-2">
+                {/* Fire icons on hover */}
+                <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                  <FaFire className="text-orange-500 animate-pulse" />
+                </div>
 
-                {/* Main display */}
-                <div className="relative flex items-baseline gap-1 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-950/50 to-fuchsia-950/50 border border-purple-500/30 group-hover:border-purple-400/50 transition-all duration-300">
-                  <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400 tabular-nums">
+                {/* Plain text display */}
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xl font-bold text-terminal-text tabular-nums">
                     {daysLeft}
                   </span>
-                  <span className="text-xs text-purple-300/70 font-medium">dní</span>
+                  <span className="text-xs text-terminal-text/50">dní</span>
+                </div>
+
+                {/* Fire icons on hover */}
+                <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                  <FaFire className="text-orange-500 animate-pulse" />
                 </div>
               </div>
             )}

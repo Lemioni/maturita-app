@@ -4,35 +4,22 @@ import itQuestionsData from '../../data/it-questions.json';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
 
-const QuestionList = ({ filter, sort }) => {
+const QuestionList = ({ filter }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
 
-    // Apply filter
-    if (filter === 'IKT1' || filter === 'IKT2') {
-      filtered = filtered.filter(q => q.exam === filter);
-    } else if (filter !== 'all') {
-      filtered = filtered.filter(q => q.category === filter);
-    }
-
-    // Apply sort
-    if (sort === 'exam') {
-      filtered.sort((a, b) => {
-        if (a.exam === b.exam) return a.id - b.id;
-        return a.exam.localeCompare(b.exam);
-      });
-    } else if (sort === 'category') {
-      filtered.sort((a, b) => {
-        if (a.category === b.category) return a.id - b.id;
-        return a.category.localeCompare(b.category);
-      });
+    // Apply filter based on known status
+    if (filter === 'known') {
+      filtered = filtered.filter(q => progress.itQuestions?.[q.id]?.known === true);
+    } else if (filter === 'unknown') {
+      filtered = filtered.filter(q => !progress.itQuestions?.[q.id]?.known);
     }
 
     setQuestions(filtered);
-  }, [filter, sort]);
+  }, [filter, progress]);
 
   const updateKnowledge = (questionId, known) => {
     setProgress(prev => ({
@@ -78,7 +65,7 @@ const QuestionList = ({ filter, sort }) => {
                   </span>
                   <span className="text-xs text-terminal-text/40">{question.exam}</span>
                 </div>
-                 <h3 className="text-sm text-terminal-text group-hover:text-terminal-accent transition-colors">
+                <h3 className="text-sm text-terminal-text group-hover:text-terminal-accent transition-colors">
                   {question.question}
                 </h3>
 
@@ -95,7 +82,7 @@ const QuestionList = ({ filter, sort }) => {
                   </div>
                 )}
               </Link>
-              
+
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="flex-shrink-0"

@@ -205,11 +205,9 @@ const BookDetailPage = () => {
                                 <span>Téma a motivy</span>
                             </h3>
                             {isShortVersion ? (
-                                <div className="pl-4 border-l-2 border-terminal-border/20">
+                                <div className="pl-4 border-l-2 border-terminal-border/20 space-y-2">
+                                    <p className="text-terminal-text/90 text-sm">{analysis.themes.main}</p>
                                     <div className="flex flex-wrap gap-2">
-                                        <span className="px-2 py-0.5 text-xs bg-terminal-accent/10 border border-terminal-accent/30 text-terminal-accent">
-                                            {analysis.themes.main.split(',')[0].split(' ').slice(0, 3).join(' ')}
-                                        </span>
                                         {analysis.themes.motifs.map((motif, i) => (
                                             <span key={i} className="px-2 py-0.5 text-xs border border-terminal-border/30 text-terminal-text/70">
                                                 {motif}
@@ -326,14 +324,18 @@ const BookDetailPage = () => {
                                 <span>Postavy</span>
                             </h3>
                             {isShortVersion ? (
-                                <div className="pl-4 border-l-2 border-terminal-border/20 flex flex-wrap gap-2">
+                                <div className="space-y-2">
                                     {analysis.characters.map((char, i) => (
-                                        <span
+                                        <div
                                             key={i}
-                                            className={`px-2 py-1 text-xs border ${char.isMain ? 'bg-terminal-accent/10 border-terminal-accent/30 text-terminal-accent' : 'border-terminal-border/30 text-terminal-text/70'}`}
+                                            className={`pl-4 border-l-2 ${char.isMain ? 'border-terminal-accent' : 'border-terminal-border/20'}`}
                                         >
-                                            {char.name} {char.isMain && '★'}
-                                        </span>
+                                            <span className={`font-bold text-sm ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>
+                                                {char.name}
+                                            </span>
+                                            {char.isMain && <span className="text-terminal-accent text-xs ml-1">★</span>}
+                                            <span className="text-terminal-text/60 text-xs"> – {char.description}</span>
+                                        </div>
                                     ))}
                                 </div>
                             ) : (
@@ -459,16 +461,15 @@ const BookDetailPage = () => {
                             <div className="pl-4 border-l-2 border-terminal-border/20 space-y-4">
                                 <p className="text-terminal-text/90">{analysis.authorContext.bio}</p>
 
-                                {!isShortVersion && (
-                                    <div>
-                                        <span className="text-xs text-terminal-text/50">ŽIVOT:</span>
-                                        <ul className="mt-2 space-y-1">
-                                            {analysis.authorContext.life.map((item, i) => (
-                                                <li key={i} className="text-terminal-text/80 text-sm">• {item}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )}
+                                {/* ŽIVOT - always show, just more compact in short version */}
+                                <div>
+                                    <span className="text-xs text-terminal-text/50">ŽIVOT:</span>
+                                    <ul className="mt-2 space-y-1">
+                                        {analysis.authorContext.life.map((item, i) => (
+                                            <li key={i} className="text-terminal-text/80 text-sm">• {item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
 
                                 {/* Období tvorby - only in full version */}
                                 {!isShortVersion && analysis.authorContext.creationPeriods && (
@@ -526,14 +527,22 @@ const BookDetailPage = () => {
                             </h3>
                             <div className="pl-4 border-l-2 border-terminal-border/20 space-y-4">
                                 {isShortVersion ? (
-                                    <div className="flex flex-wrap gap-2">
-                                        <span className="px-2 py-1 text-xs bg-terminal-accent/10 border border-terminal-accent/30 text-terminal-accent">
-                                            {analysis.literaryContext.movement}
-                                        </span>
-                                        <span className="px-2 py-1 text-xs border border-terminal-border/30 text-terminal-text/70">
-                                            {analysis.literaryContext.period}
-                                        </span>
-                                    </div>
+                                    <>
+                                        <div>
+                                            <span className="text-lg text-terminal-accent">{analysis.literaryContext.movement}</span>
+                                            <span className="text-terminal-text/50"> ({analysis.literaryContext.period})</span>
+                                        </div>
+                                        <div>
+                                            <span className="text-xs text-terminal-text/50">CHARAKTERISTIKA:</span>
+                                            <div className="flex flex-wrap gap-2 mt-1">
+                                                {analysis.literaryContext.characteristics.map((char, i) => (
+                                                    <span key={i} className="px-2 py-0.5 text-xs border border-terminal-border/30 text-terminal-text/70">
+                                                        {char}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </>
                                 ) : (
                                     <>
                                         <div>

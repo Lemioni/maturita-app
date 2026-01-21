@@ -12,16 +12,19 @@ const FlashcardMode = ({ filter }) => {
   useEffect(() => {
     let filtered = [...flashcardsData.flashcards];
 
-    // Filter by exam or category
-    if (filter === 'IKT1' || filter === 'IKT2') {
+    // Get progress from localStorage
+    const progressData = JSON.parse(localStorage.getItem('maturita-progress') || '{}');
+
+    // Filter by known/unknown status
+    if (filter === 'known') {
       filtered = filtered.filter(card => {
         const question = itQuestionsData.questions.find(q => q.id === card.questionId);
-        return question?.exam === filter;
+        return question && progressData.itQuestions?.[question.id]?.known === true;
       });
-    } else if (filter !== 'all') {
+    } else if (filter === 'unknown') {
       filtered = filtered.filter(card => {
         const question = itQuestionsData.questions.find(q => q.id === card.questionId);
-        return question?.category === filter;
+        return question && !progressData.itQuestions?.[question.id]?.known;
       });
     }
 

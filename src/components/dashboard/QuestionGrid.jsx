@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaDesktop, FaBook, FaLayerGroup } from 'react-icons/fa';
+import { FaDesktop, FaBook, FaCheck, FaTimes, FaLayerGroup } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
 import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
@@ -8,6 +8,7 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 const QuestionGrid = () => {
   const [progress] = useLocalStorage('maturita-progress', {});
   const [viewMode, setViewMode] = useState('all'); // 'all', 'it', 'cj'
+  const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'known', 'unknown'
   const [itQuestions, setItQuestions] = useState([]);
   const [cjBooks, setCjBooks] = useState([]);
 
@@ -23,6 +24,19 @@ const QuestionGrid = () => {
   const getCjBookStatus = (bookId) => {
     return progress.cjBooks?.[bookId]?.known || false;
   };
+
+  // Filter by status
+  const filteredItQuestions = itQuestions.filter(q => {
+    if (statusFilter === 'known') return getItQuestionStatus(q.id);
+    if (statusFilter === 'unknown') return !getItQuestionStatus(q.id);
+    return true;
+  });
+
+  const filteredCjBooks = cjBooks.filter(b => {
+    if (statusFilter === 'known') return getCjBookStatus(b.id);
+    if (statusFilter === 'unknown') return !getCjBookStatus(b.id);
+    return true;
+  });
 
   const itStats = {
     total: itQuestions.length,
@@ -55,29 +69,55 @@ const QuestionGrid = () => {
       {/* View Mode Switcher */}
       <div className="flex items-center justify-between mb-4 pb-3 border-b border-terminal-border/20">
         <div className="flex gap-2">
-          <button
-            onClick={() => setViewMode('all')}
-            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'all' ? 'active' : ''}`}
-            title="Vše (IT + ČJ)"
-          >
-            <FaDesktop className="text-xs" />
-            <span className="mx-0.5">/</span>
-            <FaBook className="text-xs" />
-          </button>
-          <button
-            onClick={() => setViewMode('it')}
-            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'it' ? 'active' : ''}`}
-            title="Informační technologie"
-          >
-            <FaDesktop className="text-sm" />
-          </button>
-          <button
-            onClick={() => setViewMode('cj')}
-            className={`icon-btn text-xs px-3 flex items-center gap-1 ${viewMode === 'cj' ? 'active' : ''}`}
-            title="Český jazyk"
-          >
-            <FaBook className="text-sm" />
-          </button>
+          {/* Subject filter */}
+          <div className="flex gap-1 border-r border-terminal-border/20 pr-2">
+            <button
+              onClick={() => setViewMode('all')}
+              className={`icon-btn ${viewMode === 'all' ? 'active' : ''}`}
+              title="Vše (IT + ČJ)"
+            >
+              <FaLayerGroup />
+            </button>
+            <button
+              onClick={() => setViewMode('it')}
+              className={`icon-btn ${viewMode === 'it' ? 'active' : ''}`}
+              title="IT"
+            >
+              <FaDesktop />
+            </button>
+            <button
+              onClick={() => setViewMode('cj')}
+              className={`icon-btn ${viewMode === 'cj' ? 'active' : ''}`}
+              title="ČJ"
+            >
+              <FaBook />
+            </button>
+          </div>
+
+          {/* Status filter */}
+          <div className="flex gap-1">
+            <button
+              onClick={() => setStatusFilter('all')}
+              className={`icon-btn ${statusFilter === 'all' ? 'active' : ''}`}
+              title="VŠE"
+            >
+              <FaLayerGroup />
+            </button>
+            <button
+              onClick={() => setStatusFilter('known')}
+              className={`icon-btn ${statusFilter === 'known' ? 'active' : ''}`}
+              title="UMÍM"
+            >
+              <FaCheck />
+            </button>
+            <button
+              onClick={() => setStatusFilter('unknown')}
+              className={`icon-btn ${statusFilter === 'unknown' ? 'active' : ''}`}
+              title="NEUMÍM"
+            >
+              <FaTimes />
+            </button>
+          </div>
         </div>
 
         {/* Stats in corner */}
@@ -91,16 +131,16 @@ const QuestionGrid = () => {
       </div>
 
       {/* IT Questions Grid */}
-      {(viewMode === 'all' || viewMode === 'it') && (
+      {(viewMode === 'all' || viewMode === 'it') && filteredItQuestions.length > 0 && (
         <div className="mb-4">
           {viewMode === 'all' && (
             <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60">
               <FaDesktop />
-              <span>IT ({itStats.known}/{itStats.total})</span>
+              <span>IT ({filteredItQuestions.length})</span>
             </div>
           )}
           <div className="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-1">
-            {itQuestions.map((question) => {
+            {filteredItQuestions.map((question) => {
               const known = getItQuestionStatus(question.id);
               return (
                 <Link
@@ -119,16 +159,16 @@ const QuestionGrid = () => {
       )}
 
       {/* CJ Books Grid */}
-      {(viewMode === 'all' || viewMode === 'cj') && (
+      {(viewMode === 'all' || viewMode === 'cj') && filteredCjBooks.length > 0 && (
         <div>
           {viewMode === 'all' && (
             <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60 mt-4 pt-3 border-t border-terminal-border/20">
               <FaBook />
-              <span>ČJ ({cjStats.known}/{cjStats.total})</span>
+              <span>ČJ ({filteredCjBooks.length})</span>
             </div>
           )}
           <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 lg:grid-cols-10 gap-1">
-            {cjBooks.map((book) => {
+            {filteredCjBooks.map((book) => {
               const known = getCjBookStatus(book.id);
               return (
                 <Link
@@ -147,9 +187,15 @@ const QuestionGrid = () => {
           </div>
         </div>
       )}
+
+      {/* Empty state */}
+      {filteredItQuestions.length === 0 && filteredCjBooks.length === 0 && (
+        <div className="text-center py-8 text-terminal-text/40">
+          Žádné položky odpovídající filtru
+        </div>
+      )}
     </div>
   );
 };
 
 export default QuestionGrid;
-

@@ -4,35 +4,22 @@ import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
 
-const BookList = ({ filter, sort }) => {
+const BookList = ({ filter }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     let filtered = [...cjBooksData.books];
 
-    // Apply filter
-    if (filter !== 'all') {
-      filtered = filtered.filter(b => b.period === filter);
-    }
-
-    // Apply sort
-    if (sort === 'author') {
-      filtered.sort((a, b) => a.author.localeCompare(b.author));
-    } else if (sort === 'period') {
-      const periodOrder = cjBooksData.periods;
-      filtered.sort((a, b) => {
-        const aIndex = periodOrder.indexOf(a.period);
-        const bIndex = periodOrder.indexOf(b.period);
-        if (aIndex === bIndex) return a.id - b.id;
-        return aIndex - bIndex;
-      });
-    } else if (sort === 'alphabetical') {
-      filtered.sort((a, b) => a.title.localeCompare(b.title));
+    // Apply filter based on known status
+    if (filter === 'known') {
+      filtered = filtered.filter(b => progress.cjBooks?.[b.id]?.known === true);
+    } else if (filter === 'unknown') {
+      filtered = filtered.filter(b => !progress.cjBooks?.[b.id]?.known);
     }
 
     setBooks(filtered);
-  }, [filter, sort]);
+  }, [filter, progress]);
 
   const updateKnowledge = (bookId, known) => {
     setProgress(prev => ({

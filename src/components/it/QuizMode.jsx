@@ -1,201 +1,244 @@
-import { useState, useEffect } from 'react';
-import { FaCheck, FaTimes, FaRedo } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { FaCheck, FaTimes, FaRedo, FaChevronDown, FaRandom, FaMinus, FaPlus } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
 
 const QuizMode = ({ filter }) => {
-  const [questions, setQuestions] = useState([]);
+  const [allQuestions, setAllQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [userAnswer, setUserAnswer] = useState('');
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [questionCount, setQuestionCount] = useState(5);
+  const [quizQuestions, setQuizQuestions] = useState([]);
+  const [revealedQuestions, setRevealedQuestions] = useState(new Set());
+  const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
+  const [score, setScore] = useState({ correct: 0, wrong: 0 });
+  const questionRefs = useRef({});
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
 
-    if (filter === 'IKT1' || filter === 'IKT2') {
-      filtered = filtered.filter(q => q.exam === filter);
-    } else if (filter !== 'all') {
-      filtered = filtered.filter(q => q.category === filter);
+    // Get progress from localStorage
+    const progressData = JSON.parse(localStorage.getItem('maturita-progress') || '{}');
+
+    // Filter by known/unknown status
+    if (filter === 'known') {
+      filtered = filtered.filter(q => progressData.itQuestions?.[q.id]?.known === true);
+    } else if (filter === 'unknown') {
+      filtered = filtered.filter(q => !progressData.itQuestions?.[q.id]?.known);
     }
 
-    // Shuffle questions
+    // Shuffle
     const shuffled = filtered.sort(() => Math.random() - 0.5);
-    setQuestions(shuffled);
-    setCurrentIndex(0);
-    setShowAnswer(false);
-    setScore({ correct: 0, total: 0 });
+    setAllQuestions(shuffled);
+    resetQuiz(shuffled, questionCount);
   }, [filter]);
 
-  const currentQuestion = questions[currentIndex];
-
-  const handleSubmit = () => {
-    setShowAnswer(true);
-  };
-
-  const handleNext = (wasCorrect) => {
-    setScore(prev => ({
-      correct: prev.correct + (wasCorrect ? 1 : 0),
-      total: prev.total + 1
-    }));
-    
-    if (currentIndex + 1 < questions.length) {
-      setCurrentIndex(prev => prev + 1);
-      setUserAnswer('');
-      setShowAnswer(false);
-    }
-  };
-
-  const handleRestart = () => {
-    const shuffled = [...questions].sort(() => Math.random() - 0.5);
-    setQuestions(shuffled);
+  const resetQuiz = (questions, count) => {
+    setQuizQuestions(questions.slice(0, count));
     setCurrentIndex(0);
-    setUserAnswer('');
-    setShowAnswer(false);
-    setScore({ correct: 0, total: 0 });
+    setRevealedQuestions(new Set());
+    setAnsweredQuestions(new Set());
+    setScore({ correct: 0, wrong: 0 });
   };
 
-  if (!currentQuestion) {
+  const handleQuestionCountChange = (delta) => {
+    const newCount = Math.max(1, Math.min(20, questionCount + delta));
+    setQuestionCount(newCount);
+    resetQuiz(allQuestions, newCount);
+  };
+
+  const handleShuffle = () => {
+    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+    setAllQuestions(shuffled);
+    resetQuiz(shuffled, questionCount);
+  };
+
+  const handleReveal = (questionId) => {
+    setRevealedQuestions(prev => new Set([...prev, questionId]));
+  };
+
+  const handleAnswer = (questionId, isCorrect) => {
+    setAnsweredQuestions(prev => new Set([...prev, questionId]));
+    setScore(prev => ({
+      ...prev,
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      wrong: prev.wrong + (isCorrect ? 0 : 1)
+    }));
+
+    // Scroll to next question
+    setTimeout(() => {
+      const nextIndex = answeredQuestions.size + 1;
+      if (nextIndex < quizQuestions.length) {
+        const nextQuestion = quizQuestions[nextIndex];
+        if (nextQuestion && questionRefs.current[nextQuestion.id]) {
+          questionRefs.current[nextQuestion.id].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }
+    }, 100);
+  };
+
+  const isQuizComplete = answeredQuestions.size === quizQuestions.length && quizQuestions.length > 0;
+  const currentQuestionIndex = answeredQuestions.size;
+
+  if (allQuestions.length === 0) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-12 text-center">
-        <p className="text-gray-600 dark:text-gray-400">Žádné otázky k zobrazení</p>
+      <div className="terminal-card text-center">
+        <p className="text-terminal-text/60 mb-2">
+          ŽÁDNÉ OTÁZKY PRO TENTO FILTR
+        </p>
+        <p className="text-xs text-terminal-text/40">
+          Vyber jiný filtr
+        </p>
       </div>
     );
   }
 
-  const isFinished = currentIndex >= questions.length - 1 && showAnswer;
-
   return (
-    <div className="max-w-3xl mx-auto">
-      {/* Progress Bar */}
-      <div className="mb-6">
-        <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
-          <span>Otázka {currentIndex + 1} z {questions.length}</span>
-          <span>
-            Skóre: {score.correct} / {score.total} 
-            {score.total > 0 && ` (${Math.round((score.correct / score.total) * 100)}%)`}
-          </span>
+    <div className="max-w-3xl mx-auto space-y-4">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="text-xs text-terminal-text/60">
+          {quizQuestions.length} otázek
         </div>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-          <div 
-            className="bg-blue-500 dark:bg-blue-400 h-2 rounded-full transition-all"
-            style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
-          ></div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <button onClick={() => handleQuestionCountChange(-1)} className="icon-btn p-1">
+              <FaMinus className="text-xs" />
+            </button>
+            <span className="text-xs text-terminal-text/60 w-4 text-center">{questionCount}</span>
+            <button onClick={() => handleQuestionCountChange(1)} className="icon-btn p-1">
+              <FaPlus className="text-xs" />
+            </button>
+          </div>
+          <button onClick={handleShuffle} className="icon-btn" title="Zamíchat">
+            <FaRandom />
+          </button>
         </div>
       </div>
 
-      {!isFinished ? (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
-          <div className="mb-6">
-            <div className="flex gap-2 mb-4">
-              <span className="px-3 py-1 text-sm font-medium rounded bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
-                {currentQuestion.category}
-              </span>
-              <span className="px-3 py-1 text-sm font-medium rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                {currentQuestion.exam}
-              </span>
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              {currentQuestion.question}
-            </h2>
+      {/* Quiz Card */}
+      <div className="terminal-card">
+        {/* Header */}
+        <div className="p-4 border-b border-terminal-border/30 text-center">
+          <div className="text-xs text-terminal-accent/60 tracking-wider">
+            &gt; KVÍZ
           </div>
+        </div>
 
-          {!showAnswer ? (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Tvoje odpověď:
-              </label>
-              <textarea
-                value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}
-                placeholder="Napiš, co víš o této otázce..."
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                rows="6"
-              />
-              <button
-                onClick={handleSubmit}
-                className="mt-4 w-full px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors font-medium"
+        {/* Questions */}
+        <div>
+          {quizQuestions.map((q, index) => {
+            const isRevealed = revealedQuestions.has(q.id);
+            const isAnswered = answeredQuestions.has(q.id);
+            const isActive = index === currentQuestionIndex;
+            const isFuture = index > currentQuestionIndex;
+
+            if (isFuture) return null;
+
+            return (
+              <div
+                key={q.id}
+                ref={el => questionRefs.current[q.id] = el}
+                className={`border-b border-terminal-border/20 last:border-b-0 transition-all duration-300 ${isActive ? '' : 'opacity-60'
+                  }`}
               >
-                Zobrazit správnou odpověď
-              </button>
-            </div>
-          ) : (
-            <div>
-              {userAnswer && (
-                <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Tvoje odpověď:</h3>
-                  <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{userAnswer}</p>
+                {/* Question */}
+                <div
+                  className={`p-4 ${!isRevealed && isActive ? 'cursor-pointer hover:bg-terminal-accent/5' : ''}`}
+                  onClick={() => !isRevealed && isActive && handleReveal(q.id)}
+                >
+                  <div className="flex items-center justify-center gap-3">
+                    <span className="text-xs text-terminal-accent/60">
+                      {index + 1}.
+                    </span>
+                    <span className="text-terminal-text text-center">
+                      {q.question}
+                    </span>
+                    {!isRevealed && isActive && (
+                      <FaChevronDown className="text-terminal-text/40" />
+                    )}
+                    {isAnswered && (
+                      <span className="text-xs text-terminal-accent">✓</span>
+                    )}
+                  </div>
+                  <div className="flex justify-center gap-2 mt-2">
+                    <span className="text-xs px-1 border border-terminal-text/20 text-terminal-text/40">
+                      {q.category}
+                    </span>
+                    <span className="text-xs text-terminal-text/30">{q.exam}</span>
+                  </div>
                 </div>
-              )}
-              
-              <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg mb-6">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Správná odpověď:</h3>
-                <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{currentQuestion.answer}</p>
-              </div>
 
-              <div className="border-t dark:border-gray-700 pt-6">
-                <p className="text-center text-gray-700 dark:text-gray-300 mb-4 font-medium">
-                  Odpověděl/a jsi správně?
-                </p>
-                <div className="flex gap-4">
-                  <button
-                    onClick={() => handleNext(false)}
-                    className="flex-1 flex items-center justify-center px-6 py-3 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/70 transition-colors font-medium"
-                  >
-                    <FaTimes className="mr-2" />
-                    Ne, neznám
-                  </button>
-                  <button
-                    onClick={() => handleNext(true)}
-                    className="flex-1 flex items-center justify-center px-6 py-3 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/70 transition-colors font-medium"
-                  >
-                    <FaCheck className="mr-2" />
-                    Ano, znám
-                  </button>
+                {/* Answer */}
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-out ${isRevealed ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                >
+                  <div className="px-4 pb-4 text-center">
+                    <div className="bg-terminal-bg/50 p-4 border border-terminal-border/30">
+                      <div className="text-xs text-terminal-accent/60 mb-2">
+                        &gt; ODPOVĚĎ
+                      </div>
+                      <p className="text-terminal-text/90 whitespace-pre-line text-sm text-left">
+                        {q.answer}
+                      </p>
+
+                      {!isAnswered && (
+                        <div className="flex justify-center gap-4 mt-4">
+                          <button
+                            onClick={(e) => { e.stopPropagation(); handleAnswer(q.id, true); }}
+                            className="p-3 bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500/20 transition-colors"
+                            title="Umím"
+                          >
+                            <FaCheck />
+                          </button>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); handleAnswer(q.id, false); }}
+                            className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors"
+                            title="Neumím"
+                          >
+                            <FaTimes />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            );
+          })}
         </div>
-      ) : (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-12 text-center">
-          <div className="mb-6">
-            <div className="text-6xl mb-4">
-              {score.correct / score.total >= 0.8 ? '🎉' : score.correct / score.total >= 0.5 ? '👍' : '📚'}
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Kvíz dokončen!
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Tvoje skóre: {score.correct} z {score.total} ({Math.round((score.correct / score.total) * 100)}%)
-            </p>
-          </div>
 
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-lg">
-              <div className="text-2xl font-bold text-green-700 dark:text-green-400">{score.correct}</div>
-              <div className="text-sm text-green-600 dark:text-green-500">Správně</div>
+        {/* Quiz Complete Summary */}
+        {isQuizComplete && (
+          <div className="p-6 text-center border-t border-terminal-accent/30 bg-terminal-accent/5">
+            <div className="text-xs text-terminal-accent mb-4 tracking-wider">
+              &gt; VÝSLEDEK
             </div>
-            <div className="p-4 bg-red-50 dark:bg-red-900/30 rounded-lg">
-              <div className="text-2xl font-bold text-red-700 dark:text-red-400">{score.total - score.correct}</div>
-              <div className="text-sm text-red-600 dark:text-red-500">Špatně</div>
-            </div>
-            <div className="p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-              <div className="text-2xl font-bold text-blue-700 dark:text-blue-400">
-                {Math.round((score.correct / score.total) * 100)}%
+            <div className="flex justify-center gap-8 mb-4">
+              <div>
+                <div className="text-3xl font-bold text-green-400">{score.correct}</div>
+                <div className="text-xs text-terminal-text/50">Správně</div>
               </div>
-              <div className="text-sm text-blue-600 dark:text-blue-500">Úspěšnost</div>
+              <div>
+                <div className="text-3xl font-bold text-red-400">{score.wrong}</div>
+                <div className="text-xs text-terminal-text/50">Špatně</div>
+              </div>
             </div>
+            <div className="text-lg text-terminal-accent mb-4">
+              {Math.round((score.correct / quizQuestions.length) * 100)}%
+            </div>
+            <button
+              onClick={() => resetQuiz(allQuestions, questionCount)}
+              className="flex items-center justify-center gap-2 mx-auto px-4 py-2 border border-terminal-accent/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors"
+            >
+              <FaRedo />
+              <span className="text-sm">Zkusit znovu</span>
+            </button>
           </div>
-
-          <button
-            onClick={handleRestart}
-            className="flex items-center justify-center mx-auto px-8 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors font-medium"
-          >
-            <FaRedo className="mr-2" />
-            Zkusit znovu
-          </button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
