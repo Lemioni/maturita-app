@@ -10,8 +10,8 @@ const CJPage = () => {
 
   const modes = [
     { id: 'list', icon: FaList, label: 'Seznam' },
-    { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcards' },
     { id: 'quiz', icon: FaQuestion, label: 'Kvíz' },
+    { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcards' },
   ];
 
   const filters = [

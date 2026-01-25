@@ -241,18 +241,20 @@ const BookDetailPage = () => {
                                 <span className="text-sm">🌍</span>
                                 <span>Časoprostor</span>
                             </h3>
-                            <div className="pl-4 border-l-2 border-terminal-border/20 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <span className="text-xs text-terminal-text/50 flex items-center gap-1">
-                                        <FaMapMarkerAlt /> MÍSTO:
-                                    </span>
-                                    <p className="text-terminal-text/90">{analysis.setting.place}</p>
-                                </div>
-                                <div>
-                                    <span className="text-xs text-terminal-text/50 flex items-center gap-1">
-                                        <FaClock /> ČAS:
-                                    </span>
-                                    <p className="text-terminal-text/90">{analysis.setting.time}</p>
+                            <div className="p-4 border border-terminal-border/20">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50 flex items-center gap-1">
+                                            <FaMapMarkerAlt /> MÍSTO:
+                                        </span>
+                                        <p className="text-terminal-text/90">{analysis.setting.place}</p>
+                                    </div>
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50 flex items-center gap-1">
+                                            <FaClock /> ČAS:
+                                        </span>
+                                        <p className="text-terminal-text/90">{analysis.setting.time}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -264,14 +266,22 @@ const BookDetailPage = () => {
                                     <span className="text-sm">🏗️</span>
                                     <span>Kompozice</span>
                                 </h3>
-                                <div className="pl-4 border-l-2 border-terminal-border/20 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div>
-                                        <span className="text-xs text-terminal-text/50">STRUKTURA:</span>
-                                        <p className="text-terminal-text/90">{analysis.composition.structure}</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs text-terminal-text/50">ČASOVÁ LINIE:</span>
-                                        <p className="text-terminal-text/90">{analysis.composition.timeline}</p>
+                                <div className="p-4 border border-terminal-border/20">
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div>
+                                            <span className="text-xs text-terminal-text/50">STRUKTURA:</span>
+                                            <p className="text-terminal-text/90">{analysis.composition.structure}</p>
+                                        </div>
+                                        <div>
+                                            <span className="text-xs text-terminal-text/50">ČASOVÁ LINIE:</span>
+                                            <p className="text-terminal-text/90">{analysis.composition.timeline}</p>
+                                        </div>
+                                        {analysis.composition.rhyme && (
+                                            <div>
+                                                <span className="text-xs text-terminal-text/50">RÝM:</span>
+                                                <p className="text-terminal-text/90">{analysis.composition.rhyme}</p>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -283,14 +293,16 @@ const BookDetailPage = () => {
                                 <span className="text-sm">📚</span>
                                 <span>Literární druh a žánr</span>
                             </h3>
-                            <div className="pl-4 border-l-2 border-terminal-border/20 grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <span className="text-xs text-terminal-text/50">DRUH:</span>
-                                    <p className="text-terminal-text/90">{book.literaryForm}</p>
-                                </div>
-                                <div>
-                                    <span className="text-xs text-terminal-text/50">ŽÁNR:</span>
-                                    <p className="text-terminal-text/90">{book.genre}</p>
+                            <div className="p-4 border border-terminal-border/20">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">DRUH:</span>
+                                        <p className="text-terminal-text/90">{book.literaryForm}</p>
+                                    </div>
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">ŽÁNR:</span>
+                                        <p className="text-terminal-text/90">{book.genre}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -324,28 +336,47 @@ const BookDetailPage = () => {
                                 <span>Postavy</span>
                             </h3>
                             {isShortVersion ? (
-                                <div className="space-y-2">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                     {analysis.characters.map((char, i) => (
                                         <div
                                             key={i}
-                                            className={`pl-4 border-l-2 ${char.isMain ? 'border-terminal-accent' : 'border-terminal-border/20'}`}
+                                            className={`p-3 border ${char.isMain
+                                                ? 'border-terminal-accent/50 bg-terminal-accent/5'
+                                                : 'border-terminal-border/30 bg-terminal-bg/50'
+                                                }`}
                                         >
-                                            <span className={`font-bold text-sm ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>
-                                                {char.name}
-                                            </span>
-                                            {char.isMain && <span className="text-terminal-accent text-xs ml-1">★</span>}
-                                            <span className="text-terminal-text/60 text-xs"> – {char.description}</span>
+                                            <div className="flex items-center gap-1 mb-2">
+                                                <span className={`font-bold text-sm ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>
+                                                    {char.name}
+                                                </span>
+                                                {char.isMain && <span className="text-terminal-accent text-xs">★</span>}
+                                            </div>
+                                            {char.traits ? (
+                                                <div className="space-y-0.5">
+                                                    {Object.entries(char.traits).map(([key, value], j) => (
+                                                        <div key={j} className="text-xs">
+                                                            <span className="text-terminal-accent/70 font-medium">{key}:</span>
+                                                            <span className="text-terminal-text/70 ml-1">{value}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-terminal-text/70 text-xs">{char.description}</p>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
                             ) : (
-                                <div className="space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {analysis.characters.map((char, i) => (
                                         <div
                                             key={i}
-                                            className={`pl-4 border-l-2 ${char.isMain ? 'border-terminal-accent' : 'border-terminal-border/20'}`}
+                                            className={`p-4 border ${char.isMain
+                                                ? 'border-terminal-accent/50 bg-terminal-accent/5'
+                                                : 'border-terminal-border/30 bg-terminal-bg/50'
+                                                }`}
                                         >
-                                            <div className="flex items-center gap-2 mb-1">
+                                            <div className="flex items-center gap-2 mb-3">
                                                 <span className={`font-bold ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>
                                                     {char.name}
                                                 </span>
@@ -355,7 +386,20 @@ const BookDetailPage = () => {
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-terminal-text/80 text-sm">{char.description}</p>
+                                            {/* New structured traits format */}
+                                            {char.traits ? (
+                                                <div className="space-y-1.5">
+                                                    {Object.entries(char.traits).map(([key, value], j) => (
+                                                        <div key={j} className="text-sm">
+                                                            <span className="text-terminal-accent/70 font-medium">{key}:</span>
+                                                            <span className="text-terminal-text/80 ml-1">{value}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                /* Fallback to old description format */
+                                                <p className="text-terminal-text/80 text-sm">{char.description}</p>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -371,7 +415,7 @@ const BookDetailPage = () => {
                                 </h3>
                                 <div className="pl-4 border-l-2 border-terminal-accent/50 space-y-4">
                                     <div className="bg-terminal-bg/50 p-4 border border-terminal-border/30 font-mono text-sm whitespace-pre-line">
-                                        {analysis.excerpt.text}
+                                        {analysis.excerpt.text.split('\\n').join('\n')}
                                     </div>
                                     <div>
                                         <span className="text-xs text-terminal-text/50">KONTEXT:</span>
@@ -459,17 +503,31 @@ const BookDetailPage = () => {
                                 <span>Kontext autorovy tvorby</span>
                             </h3>
                             <div className="pl-4 border-l-2 border-terminal-border/20 space-y-4">
-                                <p className="text-terminal-text/90">{analysis.authorContext.bio}</p>
+                                {/* Short version - use shortBio if available */}
+                                {isShortVersion && analysis.authorContext.shortBio ? (
+                                    <div className="space-y-2">
+                                        <p className="text-terminal-accent font-bold">{analysis.authorContext.shortBio.name}</p>
+                                        <ul className="space-y-0.5">
+                                            {analysis.authorContext.shortBio.info.map((item, i) => (
+                                                <li key={i} className="text-terminal-text/80 text-sm">• {item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                ) : (
+                                    <>
+                                        <p className="text-terminal-text/90">{analysis.authorContext.bio}</p>
 
-                                {/* ŽIVOT - always show, just more compact in short version */}
-                                <div>
-                                    <span className="text-xs text-terminal-text/50">ŽIVOT:</span>
-                                    <ul className="mt-2 space-y-1">
-                                        {analysis.authorContext.life.map((item, i) => (
-                                            <li key={i} className="text-terminal-text/80 text-sm">• {item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                        {/* ŽIVOT - only in full version */}
+                                        <div>
+                                            <span className="text-xs text-terminal-text/50">ŽIVOT:</span>
+                                            <ul className="mt-2 space-y-1">
+                                                {analysis.authorContext.life.map((item, i) => (
+                                                    <li key={i} className="text-terminal-text/80 text-sm">• {item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </>
+                                )}
 
                                 {/* Období tvorby - only in full version */}
                                 {!isShortVersion && analysis.authorContext.creationPeriods && (
@@ -526,40 +584,23 @@ const BookDetailPage = () => {
                                 <span>Literární a kulturní kontext</span>
                             </h3>
                             <div className="pl-4 border-l-2 border-terminal-border/20 space-y-4">
-                                {isShortVersion ? (
-                                    <>
-                                        <div>
-                                            <span className="text-lg text-terminal-accent">{analysis.literaryContext.movement}</span>
-                                            <span className="text-terminal-text/50"> ({analysis.literaryContext.period})</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-xs text-terminal-text/50">CHARAKTERISTIKA:</span>
-                                            <div className="flex flex-wrap gap-2 mt-1">
-                                                {analysis.literaryContext.characteristics.map((char, i) => (
-                                                    <span key={i} className="px-2 py-0.5 text-xs border border-terminal-border/30 text-terminal-text/70">
-                                                        {char}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <div>
-                                            <span className="text-lg text-terminal-accent">{analysis.literaryContext.movement}</span>
-                                            <span className="text-terminal-text/50"> ({analysis.literaryContext.period})</span>
-                                            <p className="text-terminal-text/80 mt-1">{analysis.literaryContext.description}</p>
-                                        </div>
+                                <>
+                                    <div>
+                                        <span className="text-lg text-terminal-accent">{analysis.literaryContext.movement}</span>
+                                        <span className="text-terminal-text/50"> ({analysis.literaryContext.period})</span>
+                                        <p className="text-terminal-text/80 mt-1">{analysis.literaryContext.description}</p>
+                                    </div>
 
-                                        <div>
-                                            <span className="text-xs text-terminal-text/50">CHARAKTERISTIKA:</span>
-                                            <ul className="mt-2 space-y-1">
-                                                {analysis.literaryContext.characteristics.map((char, i) => (
-                                                    <li key={i} className="text-terminal-text/80 text-sm">• {char}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                    <div>
+                                        <span className="text-xs text-terminal-text/50">CHARAKTERISTIKA:</span>
+                                        <ul className="mt-2 space-y-1">
+                                            {analysis.literaryContext.characteristics.map((char, i) => (
+                                                <li key={i} className="text-terminal-text/80 text-sm">• {char}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
 
+                                    {analysis.literaryContext.otherAuthors && (
                                         <div>
                                             <span className="text-xs text-terminal-text/50">DALŠÍ AUTOŘI SMĚRU:</span>
                                             <div className="mt-2 space-y-3">
@@ -581,8 +622,8 @@ const BookDetailPage = () => {
                                                 ))}
                                             </div>
                                         </div>
-                                    </>
-                                )}
+                                    )}
+                                </>
                             </div>
                         </div>
                     </div>

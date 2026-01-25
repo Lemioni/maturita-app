@@ -21,9 +21,10 @@
         "satira"
       ],
       "analysis": {
+        "titleAnalysis": "Lakomec = hlavní postava Harpagon, ztělesnění chorobné lakoty.",
         "plot": "Harpagon je bohatý pařížský vdovec, který žije se svými dvěma dětmi – synem Kleantem a dcerou Eliškou. Je nesmírně lakomý a své bohatství střeží jako oko v hlavě. Svou truhlici s deseti tisíci zlatých dukátů ukrývá na zahradě.\n\nKleantes je zamilován do chudé dívky Mariany, která žije se svou nemocnou matkou. Když se Harpagon rozhodne, že si Marianu vezme sám za ženu, dojde mezi otcem a synem k ostrému konfliktu. Eliška je zase zamilována do Valéra, který se dostal do domu jako správce pod falešnou identitou.\n\nHarpagon plánuje provdat Elišku za starého bohatého pána Anselma bez věna a oženit Kleanta s bohatou vdovou. Děti jsou zoufalé z otcových sobeckých plánů.\n\nSituace se vyhrotí, když Čipera (Harpagonův sluha, kterého si najal Kleantes) ukradne Harpagonovu truhlici s penězi. Harpagon zuří a obviňuje všechny kolem sebe. Podezírá Valéra, který se přizná k \"únosu\", ale myslí tím Elišku, nikoli peníze.\n\nV závěrečném rozuzlení se zjistí, že Valér a Mariana jsou ve skutečnosti ztracené děti bohatého Anselma, které ztratil při ztroskotání lodi před šestnácti lety. Anselmo je šťasten, že našel své děti.\n\nPříběh končí šťastně – Kleantes dostane Marianu, Eliška Valéra, a Harpagon svou truhlici zpět. Anselmo zaplatí obě svatby, čímž se Harpagon vyhne jakýmkoli výdajům.",
         "themes": {
-          "main": "Kritika lakomství jako zhoubné lidské vlastnosti, která ničí mezilidské vztahy a rodinné pouto",
+          "main": "Kritika chorobného lakomství a jeho dopadu na vztahy",
           "motifs": [
             "lakomství",
             "touha po penězích",
@@ -41,38 +42,78 @@
         "characters": [
           {
             "name": "Harpagon",
-            "description": "Hlavní postava – bohatý lakomý vdovec, posedlý penězi. Jeho jméno je odvozeno od latinského \"harpago\" (dravec). Představuje ztělesnění lakoty – peníze jsou pro něj důležitější než vlastní děti. Komická postava, jejíž chorobná lakota je terčem satiry.",
+            "traits": {
+              "Role": "Vdovec, otec Kleanta a Elišky",
+              "Povaha": "Chorobný lakomec, podezřívavý",
+              "Priorita": "Peníze > děti",
+              "Symbol": "Ztělesnění lakoty",
+              "Cíl": "Provdat děti bez věna + vzít si Marianu"
+            },
             "isMain": true
           },
           {
+            "name": "Anselmo",
+            "traits": {
+              "Role": "Bohatý šlechtic z Neapole",
+              "Tajemství": "Otec Valéra a Mariany (přežil ztroskotání lodi)",
+              "Povaha": "Štědrý, laskavý",
+              "Rozuzlení": "Zaplatí svatby a vše vyřeší"
+            },
+            "isMain": false
+          },
+          {
             "name": "Kleantes",
-            "description": "Harpagonův syn, zamilovaný do Mariany. Reprezentuje mladou generaci v konfliktu s konzervativním otcem. Je ochoten jít proti otci, aby dosáhl své lásky.",
-            "isMain": false
-          },
-          {
-            "name": "Eliška",
-            "description": "Harpagonova dcera, miluje Valéra. Oddaná svému milému, ale bojí se otcova hněvu. Pasivnější než její bratr.",
-            "isMain": false
-          },
-          {
-            "name": "Valér",
-            "description": "Správce v Harpagonově domě, ve skutečnosti šlechtic – syn Anselma. Přijal službu, aby mohl být blízko Elišce. Diplomatický, snaží se vyjít s Harpagonem.",
+            "traits": {
+              "Role": "Harpagonův syn",
+              "Láska": "Mariana (rival svého otce)",
+              "Povaha": "Odhodlaný, rebel",
+              "Cíl": "Získat lásku (i přes odpor otce)"
+            },
             "isMain": false
           },
           {
             "name": "Mariana",
-            "description": "Chudá, ctnostná dívka, do které se zamiluje Harpagon i Kleantes. Je dcerou Anselma. Ztělesňuje čistotu a mravnost.",
+            "traits": {
+              "Role": "Chudá, laskavá dívka",
+              "Vztah": "Miluje Kleanta, ale chce ji Harpagon",
+              "Původ": "Dcera Anselma",
+              "Cíl": "Být s Kleantem (nechce starého lakomce)"
+            },
             "isMain": false
           },
           {
-            "name": "Anselmo",
-            "description": "Starý bohatý šlechtic z Neapole. Otec Valéra a Mariany, které ztratil při ztroskotání lodi. Velikodušný, platí za svatby.",
+            "name": "Eliška",
+            "traits": {
+              "Role": "Harpagonova dcera",
+              "Láska": "Valér (tajné zásnuby)",
+              "Povaha": "Oddaná, upřímná a bojácná",
+              "Problém": "Strach z otce (pasivnější než bratr)",
+              "Cíl": "Svatba s Valérem"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Valér",
+            "traits": {
+              "Role": "Správce domu (ve skutečnosti šlechtic)",
+              "Původ": "Ztracený syn Anselma",
+              "Taktika": "Podlézání Harpagonovi",
+              "Cíl": "Být nablízku a získat Elišku"
+            },
             "isMain": false
           }
         ],
         "narration": {
           "narrator": "Drama – bez vypravěče, přímá řeč postav",
-          "style": "Dialogická forma typická pro divadelní hru"
+          "style": "Dialogická forma"
+        },
+        "excerpt": {
+          "text": "KLEANT: A co to je?\\nČIPERA: Pokladna vašeho otce. Vypálil jsem mu ji.\\nKLEANT: Jak jsi to provedl?\\nČIPERA: Všechno vám povím. Ale teď se spasme! Slyším ho křičet.\\nVýstup sedmý\\nsám Harpagon\\nHARPAGON: (vbíhaje bez klobouku, křičí už ze zahrady) Zloděj! Vrah! Loupežník! Chyťte ho! Chyťte\\nho! Ó spravedlnosti! Spravedlivé nebe! Jsem ztracen! Jsem zničen! Zabili mě! Ukradli\\nmi peníze! Kdo to může být? Kam se poděl? Kde vězí? Kde se schoval? Co\\npodniknout, abych ho dopadl? Kam se rozběhnout? Není snad tam? Nebo tady? Kdo\\nje to? Stůj! (Chytaje sám sebe za ruku.) Vrať mi mé peníze, taškáři... Ach, to jsem já.\\nUž se mi z toho plete rozum, a já nevím, kdo jsem, kde jsem a co dělám. Achich! Mé\\nmilé peníze! Mé chudinky penízky! Oloupili mě o vás, vy moji hodní přátelé...",
+          "context": "Úryvek je ze závěru hry – Harpagon pátrá po ztracené pokladnici s penězi."
+        },
+        "composition": {
+          "structure": "5 dějství",
+          "timeline": "Chronologická kompozice, dodržení jednoty místa, času a děje"
         },
         "languageDevices": [
           "Próza – na rozdíl od většiny Molièrových her není psána ve verších",
@@ -105,6 +146,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Jean-Baptiste Poquelin (17. st.)",
+            "info": [
+              "Pseudonym Molière – herectví bylo nečestné",
+              "Francouzský dramatik, herec a divadelní ředitel",
+              "Pocházel z bohaté měšťanské rodiny, studoval práva",
+              "Působil v Paříži, zemřel při hře Zdravý nemocný"
+            ]
+          },
           "bio": "Jean-Baptiste Poquelin (1622–1673), známý pod pseudonymem Molière, byl francouzský dramatik, herec a divadelní ředitel. Je považován za největšího francouzského komediografa.",
           "life": [
             "Narodil se 15. ledna 1622 v Paříži v rodině královského čalouníka a dekoratéra",
@@ -199,10 +249,10 @@
         "tragédie"
       ],
       "analysis": {
-        "titleAnalysis": "Název Romeo a Julie zdůrazňuje ústřední postavy a jejich osudovou lásku. Pojmenování podle dvou milenců symbolizuje sílu citu překonávající nenávist i tragické následky rodových sporů.",
+        "titleAnalysis": "Název Romeo a Julie - hlavní postavy.",
         "plot": "Ve Veroně zuří dlouholetá krvavá rozepře mezi dvěma významnými rody – Monteky a Kapulety. Na ulicích dochází k neustálým potyčkám mezi služebníky obou rodin.\n\nRomeo Montek se tajně vydává na maškarní ples do domu Kapuletů, aby spatřil svou lásku Rosalinu. Místo ní však zahlédne Julii Kapuletovou a oba se do sebe okamžitě zamilují. Při slavné balkónové scéně si vyznávají lásku a rozhodnou se k tajnému sňatku.\n\nMnich otec Vavřinec je tajně oddá v naději, že jejich svazek ukončí nenávist mezi rody. Juliin bratranec Tybalt však vyzve Romea na souboj. Romeo odmítá (je nyní Tybaltův příbuzný), ale jeho přítel Merkucio za něj bojuje a je Tybaltem zabit. Romeo v návalu hněvu zabije Tybalta a je odsouzen k vyhnanství z Verony.\n\nRodiče Kapuletovi mezitím naplánují svatbu Julie s hrabětem Parisem. Zoufalá Julie požádá o pomoc otce Vavřince. Ten jí dá lektvar, který ji uvede do stavu zdánlivé smrti na 42 hodin. Zpráva o tomto plánu se však k Romeovi nedostane včas.\n\nRomeo se dozví pouze o Julině 'smrti'. Koupí jed a vydá se k její hrobce. Tam se střetne s Parisem a zabije ho. Nad Juliiným tělem vypije jed a umírá. Julie se probouzí, vidí mrtvého Romea a probodne se jeho dýkou.\n\nNad mrtvými těly svých dětí se oba rody konečně usmíří a slibují postavit zlaté sochy na jejich památku.",
         "themes": {
-          "main": "Tragická láska dvou mladých lidí z nepřátelských rodin, která je zničena nenávistí a předsudky jejich okolí",
+          "main": "Tragická láska zničená nenávistí znepřátelených rodů.",
           "motifs": [
             "láska na první pohled",
             "nenávist rodů",
@@ -215,7 +265,7 @@
           ]
         },
         "setting": {
-          "place": "Verona (Itálie) – dům Kapuletů, balkón, klášter, hrobka; krátce Mantova",
+          "place": "Verona (Itálie); krátce Mantova",
           "time": "Renesanční Itálie (16. století), děj trvá přibližně 5 dní"
         },
         "composition": {
@@ -225,53 +275,96 @@
         "characters": [
           {
             "name": "Romeo Montek",
-            "description": "Mladý Montek, citlivý a vášnivý. Zpočátku melancholický, zamilovaný do představy lásky (Rosalina). Po setkání s Julií nachází pravý cit. Impulzivní – zabije Tybalta v afektu, rychle se rozhodne pro sebevraždu. Symbol romantické, absolutní lásky.",
+            "traits": {
+              "Role": "Mladý Montek, hlavní hrdina",
+              "Povaha": "Citlivý, vášnivý, impulzivní",
+              "Láska": "Zprvu Rosalina, pak Julie",
+              "Osud": "Zabije Tybalta → vyhnanství → sebevražda",
+              "Symbol": "Romantická, absolutní láska"
+            },
             "isMain": true
           },
           {
             "name": "Julie Kapuletová",
-            "description": "Třináctiletá dcera Kapuletů. Zpočátku poslušná dívka, později silná a odhodlaná žena. Postupně dozrává od poslušné dívky k ženě, která se vzepře rodině. Statečná, rozhodná, ochotná zemřít pro lásku.",
+            "traits": {
+              "Role": "13letá dcera Kapuletů",
+              "Vývoj": "Od poslušné dívky k odhodlané ženě",
+              "Povaha": "Statečná, rozhodná",
+              "Láska": "Romeo (tajný sňatek)",
+              "Osud": "Falešná smrt → probuzení → sebevražda"
+            },
             "isMain": true
           },
           {
             "name": "Merkucio",
-            "description": "Romeův nejlepší přítel, vtipný a sarkastický. Pronáší slavný monolog o královně Mab. Jeho smrt je zlomovým bodem tragédie – spustí tragickou část děje. Představuje hravost a životní energii.",
+            "traits": {
+              "Role": "Romeův nejlepší přítel",
+              "Povaha": "Vtipný, sarkastický, hravý",
+              "Slavný výstup": "Monolog o královně Mab",
+              "Osud": "Zabit Tybaltem → zlomový bod tragédie"
+            },
             "isMain": false
           },
           {
             "name": "Tybalt",
-            "description": "Juliin bratranec, horkokrevný a agresivní. Zosobňuje nenávist mezi rody. Zabije Merkucia a je zabit Romeem. Vznětlivý, provokuje, což se mu stane osudným.",
+            "traits": {
+              "Role": "Juliin bratranec",
+              "Povaha": "Horkokrevný, agresivní, provokativní",
+              "Symbol": "Zosobňuje nenávist mezi rody",
+              "Osud": "Zabije Merkucia, zabit Romeem"
+            },
             "isMain": false
           },
           {
             "name": "Otec Vavřinec",
-            "description": "Františkánský mnich, Romeův duchovní rádce. Oddá milence v naději na smíření rodů. Jeho plán s uspávacím lektvarem selže. Moudrý, ale jeho dobré úmysly vedou ke katastrofě.",
+            "traits": {
+              "Role": "Františkánský mnich, Romeův rádce",
+              "Plán": "Tajně oddá milence, dá Julii uspávací lektvar",
+              "Povaha": "Moudrý, dobrý úmysl",
+              "Tragédie": "Jeho plán selže kvůli nedoručené zprávě"
+            },
             "isMain": false
           },
           {
             "name": "Paris",
-            "description": "Hrabě, nápadník Julie. Vznešený, ale nechápe Juliiny city. Juliin budoucí manžel – ona si ho odmítá vzít. Zabit Romeem u hrobky.",
+            "traits": {
+              "Role": "Hrabě, nápadník Julie",
+              "Povaha": "Vznešený, nechápe Juliiny city",
+              "Problém": "Julie si ho odmítá vzít",
+              "Osud": "Zabit Romeem u hrobky"
+            },
             "isMain": false
           },
           {
             "name": "Chůva",
-            "description": "Juliina kojná a důvěrnice. Komická postava, prostořeká. Zpočátku pomáhá milencům, později zradí Julii tím, že jí radí vzít si Parise.",
+            "traits": {
+              "Role": "Juliina kojná a důvěrnice",
+              "Povaha": "Komická, prostořeká",
+              "Vývoj": "Zpočátku pomáhá, pak zradí – radí vzít si Parise"
+            },
             "isMain": false
           },
           {
             "name": "Benvolio",
-            "description": "Romeův přítel, mírný a rozumný. Jeho jméno je odvozeno z latinského 'benevolens' – laskavý.",
+            "traits": {
+              "Role": "Romeův přítel",
+              "Povaha": "Mírný, rozumný",
+              "Jméno": "Z latinského 'benevolens' = laskavý"
+            },
             "isMain": false
           },
           {
             "name": "Kníže Eskalus",
-            "description": "Vládce Verony, symbol řádu.",
+            "traits": {
+              "Role": "Vládce Verony",
+              "Symbol": "Řád a autorita"
+            },
             "isMain": false
           }
         ],
         "narration": {
-          "narrator": "Drama – bez klasického vypravěče. Děj posouvají repliky postav. Vypravěč se projevuje pouze prostřednictvím scénických poznámek.",
-          "style": "Zvláštní postavou je Chór v prologu – uvede děj a předznamená tragický osud milenců. Dále už děj tvoří dialogy a monology postav."
+          "narrator": "Drama = bez vypravěče, přímá řeč postav. Scénické poznámky: autor.",
+          "style": "Chór - Postava v prologu, která předpoví tragický konec milenců"
         },
         "languageDevices": [
           "Blankvers – nerýmovaný pětistopý jamb, typický pro Shakespeara, dodává důstojnost a rytmus",
@@ -326,7 +419,18 @@
           "context": "Úryvek je ze závěru knihy, je klíčový v kontextu celé knihy. Dříve dal Vavřinec Julii nápoj, který ji uspal na 2×21 hodin. Když ji uviděl nic netušící Romeo, vypil jed a lehl si na tělo Julie. Poté se Julie probouzí a vidí mrtvého Romea."
         },
         "authorContext": {
-          "bio": "William Shakespeare (1564–1616) – anglický dramatik a básník, považovaný za největšího spisovatele anglického jazyka a nejvlivnějšího dramatika světové literatury.",
+          "shortBio": {
+            "name": "William Shakespeare (1564–1616)",
+            "info": [
+              "Nejvlivnější anglický dramatik a básník",
+              "Žil ve Stratfordu, působil v Londýně (Globe Theatre)",
+              "Tvorba – 3 období:",
+              "   • Optimistické: Komedie a historické hry",
+              "   • Pesimistické: Velké tragédie a sonety",
+              "   • Usmíření: Pohádkové hry a romance"
+            ]
+          },
+          "bio": "William Shakespeare (1564–1616) – nejvlivnější anglický dramatik a básník.",
           "life": [
             "Narodil se 23. dubna 1564 ve Stratfordu nad Avonou (Stratford-upon-Avon), Anglie",
             "Jeho otec John Shakespeare byl úspěšný rukavičkář a městský radní",
@@ -391,7 +495,7 @@
               "note": "pozdně renesanční poetické drama, vztahy mýtu a umění"
             }
           ],
-          "workPosition": "Romeo a Julie patří mezi rané tragédie Shakespeara. Je to poslední hra napsaná v optimistickém období – jakýsi předvoj pro pesimistické období. Důraz na vášeň, konflikt rozumu a citu, osudovost, krásu jazyka."
+          "workPosition": "Raná tragédie z konce optimistického období. - Velký úspěch"
         },
         "literaryContext": {
           "movement": "Renesance a humanismus",
@@ -409,11 +513,11 @@
           ],
           "otherAuthors": [
             {
-              "name": "Francesco Petrarca",
-              "years": "1304–1374",
-              "note": "Italský básník, 'otec humanismu'",
+              "name": "Dante Alighieri",
+              "years": "1265–1321",
+              "note": "Italský básník, zakladatel italské literatury",
               "works": [
-                "Sonety Lauře (Zpěvník)"
+                "Božská komedie"
               ]
             },
             {
@@ -421,7 +525,7 @@
               "years": "1313–1375",
               "note": "Italský prozaik",
               "works": [
-                "Dekameron – sbírka 100 novel"
+                "Dekameron"
               ]
             },
             {
@@ -433,37 +537,12 @@
               ]
             },
             {
-              "name": "Christopher Marlowe",
-              "years": "1564–1593",
-              "note": "Anglický dramatik, Shakespearův současník",
-              "works": [
-                "Doktor Faustus",
-                "Tamburlaine Veliký"
-              ]
-            },
-            {
-              "name": "Geoffrey Chaucer",
-              "years": "1340–1400",
-              "note": "První velký anglický básník",
-              "works": [
-                "Canterburské povídky"
-              ]
-            },
-            {
               "name": "Francois Villon",
               "years": "1431–1463",
               "note": "Francouzský básník, první prokletý básník",
               "works": [
                 "Odkaz (Malý testament)",
                 "Závěť (Velký testament)"
-              ]
-            },
-            {
-              "name": "Lope de Vega",
-              "years": "1562–1635",
-              "note": "Španělský dramatik, napsal přes 1800 her",
-              "works": [
-                "Fuente Ovejuna (Ovčí pramen)"
               ]
             }
           ]
@@ -504,10 +583,10 @@
         "politika"
       ],
       "analysis": {
-        "titleAnalysis": "Snaha o vtipnou zveršovanou pohádku, zesměšnění vrchnosti. Král Lávra = hlavní hrdina příběhu.",
+        "titleAnalysis": "Král Lávra = hlavní hrdina příběhu.",
         "plot": "Vypravěč povídá píseň o starém, irském králi Lávrovi. Lid má krále rád, protože dobře vládne, jen jednu slabost má, a to, že po oholení holiče na šibenici posílá. Ale i na to si lidé zvykli, až na holiče, ti si zvyknout nemohli.\n\nLetos padl los na holiče Kukulína, staré vdovy syna. Potom co krále ostříhal a táhli ho na šibenici, jeho matka ho od krále nakonec vyprosila. Lávra si tedy pozval Kukulína a ten mu slíbil, že bude mlčet a stane se jeho dvorním holičem.\n\nBohatý dvorní holič však trápení měl, že tajemství nikomu prozradit nesměl. Jeho maminka ho tedy poslala do lesa pro radu k poustevníkovi. Poustevník mu řekl jediný lék, pošeptat vrbě svůj zármutek.\n\nPo krátké době objednal si král české karlovarské hudebníky na svůj bál. Basista Červíček ztratil z basy kolíček a u Vinkovského brodu udělal si nový ze staré vrby. Když na bále smyčcem spustil, basa začala řvát: 'Král Lávra má dlouhé oslí uši, král je ušatec!'\n\nCo nyní celý svět věděl od basy, nebylo nic platno skrývat pod vlasy. Po krátké době si lid zvykl, že dlouhé uši koruně docela sluší. Kukulín krále stříhal dál, protože nikdy nevyšlo, jak tajemství na svět z basy přišlo. A tak, když tě něco na jazyku svrbí, zašeptej to do staré vrby.",
         "themes": {
-          "main": "Královo tajemství a jeho odhalení – satira na vrchnost a tyranii moci",
+          "main": "Královo tajemství a jeho odhalení – má oslí uši",
           "motifs": [
             "tajemství",
             "oslí uši",
@@ -527,36 +606,60 @@
           "timeline": "Děj se odvíjí chronologicky",
           "rhyme": "1. a 3. verš se nerýmuje, rýmové schéma – ABCBDDB"
         },
+        "narration": {
+          "narrator": "Er-forma, subjektivní vypravěč (promlouvá k čtenáři)",
+          "style": "Lidový jazyk, humor, ironie"
+        },
         "characters": [
           {
             "name": "Král Lávra",
-            "description": "Dobrý panovník, nechce, aby nikdo věděl jeho tajemství – stydí se za svoje oslí uši. Nechává popravit každého holiče, který jeho tajemství pozná.",
+            "traits": {
+              "Role": "Irský král",
+              "Povaha": "Dobrý panovník, ale stydí se za tajemství",
+              "Tajemství": "Má oslí uši",
+              "Řešení": "Popravuje holiče, kteří to zjistí"
+            },
             "isMain": true
           },
           {
             "name": "Kukulín",
-            "description": "Holič, čestný, spravedlivý, bojácný, smířený s osudem, utrápený potřebou se svěřit. Syn staré vdovy.",
+            "traits": {
+              "Role": "Holič, syn staré vdovy",
+              "Povaha": "Čestný, spravedlivý, bojácný",
+              "Problém": "Trápí ho, že nemůže prozradit tajemství",
+              "Řešení": "Pošeptá tajemství vrbě"
+            },
             "isMain": true
           },
           {
             "name": "Kukulínova matka",
-            "description": "Vdova, milující matka, která zachránila syna před šibenicí – vyprosila ho u krále.",
+            "traits": {
+              "Role": "Stará vdova",
+              "Povaha": "Milující matka",
+              "Zásluha": "Zachránila syna před šibenicí – vyprosila ho u krále"
+            },
             "isMain": false
           },
           {
             "name": "Muzikant Červíček",
-            "description": "Basista z karlovarské kapely, který si vyrobil kolíček z vrby a nevědomky prozradil královo tajemství.",
+            "traits": {
+              "Role": "Basista z karlovarské kapely",
+              "Osud": "Vyrobí kolíček z vrby → basa prozradí tajemství"
+            },
             "isMain": false
           },
           {
             "name": "Poustevník",
-            "description": "Moudrý rádce v lese, poradil Kukulínovi, aby tajemství pošeptal vrbě.",
+            "traits": {
+              "Role": "Moudrý rádce v lese",
+              "Rada": "Poradí Kukulínovi pošeptat tajemství vrbě"
+            },
             "isMain": false
           }
         ],
         "narration": {
-          "narrator": "Er-forma (vševědoucí vypravěč)",
-          "style": "Písňová forma, pásmo vypravěče s přímou řečí postav"
+          "narrator": "Er-forma",
+          "style": "Písňová forma, vypravěč s přímou řečí postav"
         },
         "excerpt": {
           "text": "Všem se kázal vzdálit,\njen sám Kukulín,\npovolán ku králi,\nbledý jako stín;\nKrál tu sedí, na klíně korunu:\n'Přistup, synu, blíže sem ke trůnu\ni pod baldachýn.\n\nPřísahej, že smlčíš\nNa věčné časy,\nco jsi na mé hlavě\nviděl pod vlasy,\npak se tobě neublíží v ničem\na ty budeš mým dvorním holičem\npo všechny časy.'",
@@ -588,6 +691,17 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Karel Havlíček Borovský (1821–1856)",
+            "info": [
+              "Zakladatel české žurnalistiky, satiry a literární kritiky",
+              "Stál na pomezí romantismu a realismu (průkopník realismu)",
+              "Působil v Rusku → ztratil iluze o panslavismu",
+              "Vyhnanství v Brixenu (1851–1855) – zde napsal:",
+              "   • Tyrolské elegie, Král Lávra, Křest sv. Vladimíra",
+              "Zemřel na tuberkulózu, pohřeb = tichá demonstrace"
+            ]
+          },
           "bio": "Karel Havlíček Borovský (1821–1856) – český básník, novinář, ekonom, překladatel a politik. Považován za zakladatele české žurnalistiky, satiry a literární kritiky. Literárně řazen do realismu, politicky patří do tzv. generace národních buditelů.",
           "life": [
             "Přídomek 'Borovský' je odvozen od místa narození – Borová u Přibyslavi",
@@ -625,7 +739,7 @@
               "note": "cestopisné reportáže z Ruska"
             }
           ],
-          "workPosition": "Král Lávra patří mezi tři vrcholné satirické skladby, které Havlíček napsal v Brixenu. Je to politická satira – vrchol jeho tvorby."
+          "workPosition": "Patří mezi tři vrcholné satirické skladby, napsal v Brixenu."
         },
         "literaryContext": {
           "movement": "Národní obrození, počátky realismu",
@@ -727,7 +841,7 @@
         "Brixen"
       ],
       "analysis": {
-        "titleAnalysis": "Tyrolské elegie – město Brixen v Tyrolsku (místo, kde byl K. H. B. vězněn), elegie = žalozpěv. Název odkazuje na místo vyhnanství a žánr lyrické poezie.",
+        "titleAnalysis": "Tyrolské elegie – město Brixen v Tyrolsku (místo, kde byl K. H. B. vězněn), elegie = žalozpěv.",
         "plot": "Borovského dílo popisuje jeho cestu do rakouského Brixenu v devíti zpěvech.\n\nV prvním zpěvu Borovský promlouvá k měsíci v Brixenu. Druhý zpěv vypráví o 'návštěvě' policajtů – dvě hodiny po půlnoci přicházejí s dopisem z Vídně od pana Bacha.\n\nVe třetím zpěvu čte dopis a dozvídá se, že prý kvůli jeho zdraví musí odjet do Brixenu. Čtvrtý zpěv – policajti mají naspěch a radí mu, aby si nebral žádné zbraně, ochraňovat ho budou oni.\n\nV pátém zpěvu mluví o loučení s rodinou: 'Matka, žena, sestra, dcerka, malá Zdenička, stály okolo mne v tichém pláči – hořká chvilinka.'\n\nŠestý zpěv – za dohledu četníků vyráží na cestu. Sedmý zpěv vypráví o cestě a městech, hradech, které potkal. Zároveň si utahuje ze svých 'strážců'.\n\nV osmém, nejdelším zpěvu vypráví o tom, jak se splašili koně a policajti vyskákali z kočáru. Do Brixenu přijíždí sám, policajti za ním pěšky: 'Ach, ty vládo, převrácená vládo! Národy na šnůrce vodit chceš, ale čtyřmi koňmi bez opratí vládnout nemůžeš.'\n\nDevátý zpěv – Borovský přijel do Brixenu, je vězněn: 'Místo mne ten kus papíru vrátili do Čech, mne zde černý dvojhlavý orel drží v klepetech.'",
         "themes": {
           "main": "Cesta do vyhnanství v Brixenu – satirický výsměch rakouské vládě a policejnímu státu",
@@ -746,8 +860,8 @@
           "time": "Cesta započala 16. prosince 1851"
         },
         "composition": {
-          "structure": "Báseň má 9 zpěvů, každá sloka má 4 verše",
-          "timeline": "Děj je vyprávěn chronologicky",
+          "structure": "Má 9 zpěvů, každá sloka má 4 verše",
+          "timeline": "Vyprávěn chronologicky",
           "rhyme": "Rým je přerývaný (ABCB)"
         },
         "characters": [
@@ -813,6 +927,17 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Karel Havlíček Borovský (1821–1856)",
+            "info": [
+              "Zakladatel české žurnalistiky, satiry a literární kritiky",
+              "Stál na pomezí romantismu a realismu (průkopník realismu)",
+              "Působil v Rusku → ztratil iluze o panslavismu",
+              "Vyhnanství v Brixenu (1851–1855) – zde napsal:",
+              "   • Tyrolské elegie, Král Lávra, Křest sv. Vladimíra",
+              "Zemřel na tuberkulózu, pohřeb = tichá demonstrace"
+            ]
+          },
           "bio": "Karel Havlíček Borovský (1821–1856) – český básník, novinář, ekonom, překladatel a politik. Považován za zakladatele české žurnalistiky, satiry a literární kritiky.",
           "life": [
             "Přídomek 'Borovský' je odvozen od místa narození – Borová u Přibyslavi",
@@ -849,7 +974,7 @@
               "note": "cestopisné reportáže z Ruska"
             }
           ],
-          "workPosition": "Tyrolské elegie patří mezi tři vrcholné skladby, které vznikly v Brixenu v letech 1851–1855. Je to politická satira – vrchol tvorby."
+          "workPosition": "Patří mezi tři vrcholné satirické skladby, napsal v Brixenu."
         },
         "literaryContext": {
           "movement": "Národní obrození, počátky realismu",
@@ -930,7 +1055,7 @@
         "titleAnalysis": "Většina příběhu se odehrává na moři, kde stařec Santiago rybaří a zápasí s rybou. Název odkazuje na hlavního hrdinu a místo děje.",
         "plot": "Kniha vypráví o starém rybáři Santiagovi, pro kterého je rybaření jedinou obživou. Starci se ovšem dlouho nedaří chytit větší rybu, a proto je ostatním rybářům k smíchu. Aby toho nebylo málo, tak s ním na moře, kvůli zákazu svého otce, přestane jezdit velký pomocník, chlapec Manolin.\n\nStařec má ovšem svoji hrdost a rozhodne se všem dokázat, že stále dokáže chytit velkou rybu. Druhý den ráno se proto na moři vydá dál, než kdy byl. Kvůli svým zkušenostem ví, že pokud chce chytit velkou rybu, musí udice spustit do velkých hloubek.\n\nZa nějakou dobu zabere opravdu velká ryba. Jenomže má spoustu sil, a stařec ji proto nemůže ulovit. Zápasí s ní dva dny bez spaní a způsobí si drobná zranění. Rybář je ovšem rozhodnut, že nepovolí a rybu zabije, nebo že zabije ryba jeho. Po dvou probdělých nocích ryba ztrácí sílu a Santiago ji uloví. Zjistí, že je to mečoun a je několikrát větší než loďka.\n\nStařec ulovenou rybu přiváže k loďce a vydá se domů. Jenže krvácející ryba přivábí několik žraloků. Rybář se s nimi snaží bojovat, ale nemá šanci a žraloci mu rybu do posledního drobečku sežerou. Zůstane jenom kostra, se kterou se v noci vrátí do přístavu a vyčerpán odejde do svého domu. Ráno ho v posteli objeví chlapec, počká, až se probudí, a potom mu povídá, kolik lidí se shromáždilo kolem obří kostry. Lidé kostru ryby obdivují a on na sebe může být hrdý.",
         "themes": {
-          "main": "Lov ryby jako symbol neustálého boje člověka s přírodou",
+          "main": "Zápas člověka s přírodou, hrdost a nezlomnost",
           "motifs": [
             "žralok",
             "maso",
@@ -953,12 +1078,21 @@
         "characters": [
           {
             "name": "Stařec Santiago",
-            "description": "Kubánský rybář velice pevné vůle a skromné povahy, který musí tvrdě pracovat, aby se uživil. Hrdý, vytrvalý, odhodlaný.",
+            "traits": {
+              "Role": "Kubánský rybář",
+              "Povaha": "Pevná vůle, hrdý, vytrvalý",
+              "Symbol": "Zápas člověka s přírodou",
+              "Motto": "„Člověka je možno zničit, ale ne porazit.“"
+            },
             "isMain": true
           },
           {
             "name": "Chlapec Manolin",
-            "description": "Velmi obětavý, laskavý, pomocník při rybolovu, který má rád starce. Kvůli zákazu otce s ním přestane jezdit na moře.",
+            "traits": {
+              "Role": "Pomocník a učedník starce",
+              "Vztah": "Oddaný přítel, starce obdivuje",
+              "Povaha": "Laskavý, obětavý, věrný"
+            },
             "isMain": false
           }
         ],
@@ -993,6 +1127,17 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Ernest Hemingway (1899–1961)",
+            "info": [
+              "Americký spisovatel, novinář a dobrodruh",
+              "Čelní představitel Ztracené generace",
+              "Tvorba: psal o válce, lovu a mezních situacích",
+              "Nositel Nobelovy ceny (1954)",
+              "Styl: 'Metoda ledovce' (důležité je skryto)",
+              "Spáchal sebevraždu"
+            ]
+          },
           "bio": "Ernest Hemingway (21. 7. 1899, USA – 2. 7. 1961, USA) – americký spisovatel, novinář, povídkář, dramatik. Miloval přírodu, lov a dobrodružství. Čelní představitel Ztracené generace.",
           "life": [
             "Po absolvování základní školy se stal reportérem kansaského listu Star",
@@ -1025,7 +1170,7 @@
             }
           ],
           "style": "Metoda ledovce – podstatné je to 'pod vodou' (cílem si to domyslet). Jeho postavami jsou muži – stateční, cílevědomí, ctižádostiví, staví je do kritické mezní situace.",
-          "workPosition": "Poslední kniha, kterou napsal (1952), získal za ni Nobelovu cenu."
+          "workPosition": "Vrcholné dílo autora, za které získal Nobelovu cenu."
         },
         "literaryContext": {
           "movement": "Ztracená generace",
@@ -1120,7 +1265,7 @@
         "titleAnalysis": "Hlavním hrdinou díla je malý princ – záhadná bytost z jiné planety.",
         "plot": "Kniha začíná příběhem malého chlapce, který se snaží zaujmout dospělé svými kresbami, ale nedaří se mu to. Dospělí pro něho nemají pochopení. Chlapec se rozhodne, že se nikdy nebude chovat jako dospělí.\n\nDalší děj se odehrává o několik let později, když chlapec vyroste v pilota a ztroskotá na Saharské poušti. Setká se tam s malým princem, který chce nakreslit beránka. Malý princ se s pilotem spřátelí a vypráví mu o své planetě a o svém cestování.\n\nNejprve popisuje svou planetu B612, na které má tři sopky, spoustu rostlin − baobabů a jednu květinu, která byla kvůli své kráse a pocitu, že je na světě jediná, velmi pyšná. Dále vyprávěl o svých cestách po okolních planetách. Na každé planetě byla pouze jedna osoba − král, domýšlivec, pijan, byznysmen, lampář a spisovatel (zeměpisec) − a každá zastupovala určitou vlastnost.\n\nJako poslední planetu navštívil Zemi, kde se seznámil s hadem a liškou, která mu vysvětlila důležitost přátelství. Objevil ozvěnu a květinovou zahradu. Seznámil se s výhybkářem a obchodníkem.\n\nNa závěr příběhu se nechá malý princ uštknout hadem, aby se vrátil na svoji planetku. Když to zjistí pilot, je smutný, protože ztratil svého přítele.",
         "themes": {
-          "main": "Důležitost přátelství a kritika špatných lidských vlastností",
+          "main": "Konfrontace dětského světa s dospělým, hodnota přátelství",
           "motifs": [
             "planeta",
             "létání",
@@ -1143,22 +1288,40 @@
         "characters": [
           {
             "name": "Malý princ",
-            "description": "Zvědavý malý chlapec s blonďatými vlasy, přátelský. Pochází z planety B612.",
+            "traits": {
+              "Role": "Záhadná postava z planetky B612",
+              "Povaha": "Čistá duše, dětský pohled na svět",
+              "Cíl": "Poznání smyslu života, lásky a přátelství",
+              "Odchod": "Nechal se uštknout hadem pro návrat domů"
+            },
             "isMain": true
           },
           {
-            "name": "Letec (pilot)",
-            "description": "Vypravěč, rozumný muž, přátelský. Reprezentuje samotného autora – Saint-Exupéryho.",
+            "name": "Letec (vypravěč)",
+            "traits": {
+              "Role": "Pilot, který ztroskotal na Sahaře",
+              "Symbol": "Dospělý, který si zachoval dětskou duši",
+              "Vztah": "Přítel a důvěrník Malého prince",
+              "Autoportrét": "Postava reprezentuje samotného autora"
+            },
             "isMain": true
           },
           {
-            "name": "Květina (růže)",
-            "description": "Pyšná růže, nedávající najevo své city. Důvod, proč malý princ opustil svou planetu.",
+            "name": "Růže",
+            "traits": {
+              "Role": "Jediná květina na planetce B612",
+              "Povaha": "Pyšná, marnivá, ale v jádru zranitelná",
+              "Význam": "Symbol jedinečné lásky a zodpovědnosti"
+            },
             "isMain": false
           },
           {
             "name": "Liška",
-            "description": "Moudrá, přátelská, radila princovi. Vysvětlila mu důležitost přátelství a zkrocení.",
+            "traits": {
+              "Role": "Moudrá průvodkyně na Zemi",
+              "Cíl": "Nechat se ochočit (vytvořit pouto)",
+              "Motto": "„Správně vidíme jen srdcem. Co je důležité, je očím neviditelné.“"
+            },
             "isMain": false
           }
         ],
@@ -1196,6 +1359,16 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Antoine de Saint-Exupéry (1900–1944)",
+            "info": [
+              "Francouzský spisovatel, letec a filozof",
+              "Šlechtický původ (hrabě)",
+              "Zahynul za 2. světové války při průzkumném letu",
+              "Dílo: humanismus, odpovědnost, přátelství",
+              "Většina děl čerpá z leteckých zkušeností"
+            ]
+          },
           "bio": "Antoine de Saint-Exupéry (1900, Lyon, Francie – 1944) – francouzský spisovatel, letec, filozof, humanista. Syn hraběte, říkali mu Král Sluníčko pro jeho modré oči a blonďaté vlasy.",
           "life": [
             "Psal prózu pro dospělé",
@@ -1294,7 +1467,7 @@
         "titleAnalysis": "Petr a Lucie – jména hlavních hrdinů, jejichž tragická láska stojí v centru příběhu.",
         "plot": "Osmnáctiletý Petr Aubier vyrůstá v měšťanské rodině. Jeho otec je soudce a jeho starší bratr se před několika lety dobrovolně přihlásil do války. Petr musí za půl roku nastoupit do války, kterou nedokáže pochopit a smířit se s tím. A tak celé dny bloumá po Paříži a přemýšlí nad nesmyslností války a nad smyslem života.\n\nPři náletu na Paříž 30. ledna 1918 se Petr stejně jako spousta lidí jde rychle ukrýt do podzemní dráhy. Tam se poprvé střetne s Lucií a zahoří k ní velkou láskou. Ze strachu se i chytnou za ruce, na další zastávce však dívka vystoupí, aniž by si všimla mladíka po svém boku. Petr od té doby nemyslel na nic jiného než na Lucii. Dál se toulá Paříží a doufá, že dívku někde potká. Když se tak náhodou stane, není schopen vůbec promluvit.\n\nPři dalším setkáním se Petr osmělí a dá se s dívkou do řeči. Tak se seznamují. Petr se dozvídá dívčino jméno a něco o jejím životě. Dále se dozvídá o dívčině práci. Lucie se živí jako malířka, která překresluje známé obrazy a fotografie. Žije s maminkou, která ovšem kvůli práci v továrně nebývá moc doma a s Lucií se odcizila. Kvůli válce a smrti svého tatínka Lucie nedostudovala malířství.\n\nOba se do sebe zamilují spojeni poutem vzájemné úcty a porozumění. Ve světě beznaděje a utrpení si vytvoří vlastní svět. Svět, kde naděje vítězí nad válkou. Oba si uvědomují, že Petrovi se čas do narukování krátí, ale i tak sní o radostné budoucnosti. Avšak ani oni dva neuniknou vnějšímu světu plného nenávisti a smrti. O Velkém pátku, když se rozhodli přislíbit si lásku v chrámu svatého Gervasia, byl chrám zbombardován a oba milence pohřbil pod velkým padajícím pilířem.",
         "themes": {
-          "main": "Zoufalý protest proti válce, utrpení, smrti; shakespearovský motiv – láska je silnější než smrt",
+          "main": "Protest proti válce, láska silnější než smrt",
           "motifs": [
             "pohled",
             "rusovláska",
@@ -1317,22 +1490,35 @@
         "characters": [
           {
             "name": "Petr",
-            "description": "Mladý, upřímný, uzavřený, milý, snílek, často se rozčiluje nad světem. Osmnáctiletý student, který musí za půl roku nastoupit do války.",
+            "traits": {
+              "Role": "Student (18 let), syn soudce",
+              "Povaha": "Citlivý, uzavřený snílek, pacifista",
+              "Osud": "Umírá v troskách kostela",
+              "Vztah": "Hluboce miluje Lucii"
+            },
             "isMain": true
           },
           {
             "name": "Lucie",
-            "description": "Mladá, svěží, klidná, veselá, něžná, citlivá, prostá a optimistická dívka, která přes svoji chudobu a válku dokáže vnímat krásy světa. Žije přítomností. Živí se jako malířka.",
+            "traits": {
+              "Role": "Amatérská malířka, dcera dělnice",
+              "Povaha": "Optimistická, něžná, žijící přítomností",
+              "Vztah": "Petrova láska a opora"
+            },
             "isMain": true
           },
           {
             "name": "Filip",
-            "description": "Petrův starší bratr, který se dobrovolně přihlásil do války. Během ní ale přichází o veškeré iluze, a když vidí iluze ve svém bratrovi, je vůči němu odtažitý. Rád vidí Petra šťastného a zamilovaného.",
+            "traits": {
+              "Role": "Petrův starší bratr, voják",
+              "Povaha": "Realistický, válkou zbaven iluzí",
+              "Vztah": "Chce pro bratra štěstí"
+            },
             "isMain": false
           }
         ],
         "narration": {
-          "narrator": "Er-forma – vševědoucí vypravěč",
+          "narrator": "Er-forma",
           "style": "Vypravěčův monolog, pouze pásmo vypravěče v er-formě"
         },
         "excerpt": {
@@ -1366,6 +1552,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Romain Rolland (1866–1944)",
+            "info": [
+              "Francouzský prozaik, dramatik a hudební historik",
+              "Nositel Nobelovy ceny za literaturu (1915)",
+              "Humanista a pacifista (odpor k válce)",
+              "Usiloval o sjednocení Evropy proti fašismu"
+            ]
+          },
           "bio": "Romain Rolland (1866–1944) – francouzský dramatik, prozaik, literární kritik a hudební historik. Narodil se v burgundském městečku Clamecy jako syn notáře.",
           "life": [
             "V roce 1880 se rodina na nátlak matky přestěhovala do Paříže, aby zde jejich syn mohl získat nejlepší vzdělání",
@@ -1488,7 +1683,7 @@
         "titleAnalysis": "Na západní frontě klid  protože se na západní frontě bojovalo a v den, kdy hlavní hrdina umřel, noviny psaly, že se již nebojuje. V originále Im Westen nichts Neues.",
         "plot": "Kniha vypráví příběh Paula Bäumera, který je spolu se svými kamarády Müllerem, Kroppem, Kemmerichem a Leerem po maturitě donucen profesorem Kantorkem jít do armády jako dobrovolník.\\n\\nNejprve prošli tvrdým 10denním výcvikem plným šikany od desátníka Himmelstosse. Po výcviku nastupují všichni rovnou na frontu a hned při prvním boji je raněn jejich kamarád Kemmerich, který dostal kulku do stehna. Nohu mu musí amputovat.\\n\\nPo tomto boji utrpěla jejich rota velké ztráty a byla doplněna o rekruty. Vojáci přežívají v zákopech díky neuvěřitelnému množství drobných náhod. Pavlovi kamarádi jeden po druhém umírají.\\n\\nPavel dostane dovolenou a jede za rodinou. Dozvídá se, že jeho maminka umírá na rakovinu. Pavel zatajuje před rodiči všechny hrůzy, které zažil a viděl. Navštěvuje matku zesnulého Kemmericha a oznamuje jí, že její syn zemřel.\\n\\nPo dovolené je vyslán na průzkum terénu. Zabíjí tam Francouze, protože když ho nezabije, zabije Francouz jeho. Pak svého činu velmi lituje. Pavel a Kropp jsou zraněni a pobývají v katolické nemocnici. Kroppovi amputují nohu.\\n\\nKdyž se Pavel uzdraví, vrací se na frontu, kde zjistí, že Leer a Müller jsou mrtví. Pavlův nejlepší přítel Katczinski je zraněn a umírá. Pavel zůstává na frontě sám, bez svých kamarádů. Na konci války umírá i Pavel právě v den, který byl tak tichý, že vrchní velitelství napsalo do zprávy: Na západní frontě klid.",
         "themes": {
-          "main": "Návštěva ve vojenské nemocnici, zobrazení válečných hrůz a varování před nimi",
+          "main": "Hrůzy války, ztracená generace, nesmyslnost konfliktu",
           "motifs": [
             "karbol",
             "úsměv",
@@ -1511,37 +1706,63 @@
         "characters": [
           {
             "name": "Pavel Bäumer",
-            "description": "Vypravěč, chytrý, citlivý, přátelský mladý voják",
+            "traits": {
+              "Role": "Vypravěč, hlavní hrdina",
+              "Povaha": "Citlivý, přátelský, předčasně dospělý",
+              "Osud": "Umírá v den, kdy byl na frontě klid"
+            },
             "isMain": true
           },
           {
-            "name": "František Kemmerich",
-            "description": "Citlivý, přišel o nohu, první z kamarádů, kdo umírá",
+            "name": "Stanislav Katczinský",
+            "traits": {
+              "Role": "Pavlův nejlepší přítel, starší voják",
+              "Povaha": "Šikovný (\"táta roty\"), obětavý, zkušený",
+              "Osud": "Umírá při záchraně Pavlem"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Albert Kropp",
+            "traits": {
+              "Role": "Spolužák, přítel",
+              "Povaha": "Vzpurný, kritický k válce",
+              "Osud": "Přijde o nohu, přežije"
+            },
             "isMain": false
           },
           {
             "name": "Müller",
-            "description": "Je nemotora, tvrdohlavec",
+            "traits": {
+              "Role": "Spolužák, přítel",
+              "Povaha": "Pragmatický, nosí s sebou učebnice",
+              "Osud": "Umírá na zásah světlicí"
+            },
             "isMain": false
           },
           {
-            "name": "Kropp",
-            "description": "Starostlivý kamarád Pavla",
-            "isMain": false
-          },
-          {
-            "name": "Stanislav Katczinský",
-            "description": "Nejlepší přítel Pavla, původním povoláním švec, přímý, statečný",
+            "name": "František Kemmerich",
+            "traits": {
+              "Role": "Spolužák",
+              "Osud": "Umírá jako první po amputaci nohy"
+            },
             "isMain": false
           },
           {
             "name": "Kantorek",
-            "description": "Třídní profesor, podporoval své studenty v tom, aby šli do války",
+            "traits": {
+              "Role": "Třídní profesor",
+              "Povaha": "Fanatický vlastenec",
+              "Čin": "Donutil studenty narukovat"
+            },
             "isMain": false
           },
           {
             "name": "Himmelstoss",
-            "description": "Velitel výcviku, tvrdý, drsný, bezcitný",
+            "traits": {
+              "Role": "Velitel výcviku",
+              "Povaha": "Sadistický, šikanující, zbabělý na frontě"
+            },
             "isMain": false
           }
         ],
@@ -1576,6 +1797,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Erich Maria Remarque (1898–1970)",
+            "info": [
+              "Německý spisovatel, veterán 1. světové války",
+              "Představitel Ztracené generace",
+              "Antimilitarista, pacifista",
+              "Jeho knihy byly nacisty páleny, emigroval do USA"
+            ]
+          },
           "bio": "Erich Maria Remarque (18981970)  vlastním jménem Erich Paul Remark, německý spisovatel.",
           "life": [
             "Narodil se 22. června 1898 v Osnabrücku do rodiny knihvazače",
@@ -1696,7 +1926,7 @@
         "titleAnalysis": "Velký Gatsby  přezdívka hlavního hrdiny Jay Gatze, který je velmi zámožný.",
         "plot": "Nick Carraway se po první světové válce přestěhoval do New Yorku. Pracuje zde jako makléř. Jeho novým sousedem na Long Islandu, tzv. Západním vejci, je Jay Gatz řečený Velký Gatsby. Ten pořádá nákladné večírky a je oblíbený široko daleko.\\n\\nNa Západním vejci bydlí také Nickova vzdálená sestřenice Daisy, její manžel Tom Buchanan a malá dcerka. Tom je Daisy nevěrný s Myrtle Wilsonovou, manželkou automechanika.\\n\\nNick na večírku poznal Daisyinu přítelkyni, hráčku golfu Jordan. Gatsby se původně jmenoval Gatz a byl z chudých poměrů. Utekl z domova a postupně si vydělal dost peněz. Potom poznal Daisy a bezhlavě se do ní zamiloval.\\n\\nGatsby Nicka poprosí, jestli by se s Daisy nemohl setkat v jeho domě. Znovu se stávají milenci. Gatsby Tomovi řekne, že ho jeho žena nemiluje. Po nastalé hádce Daisy a Gatsby odjíždějí Gatsbyho autem, řídí Daisy a v rozrušení přejede a zabije ženu, která proti autu vyběhla. Touto ženou je Myrtle, milenka Toma.\\n\\nManžel zabité ženy Wilson se dozví, že auto patří Gatsbymu. Rozhodne se pomstít a zastřelí Gatsbyho v jeho domě. Následně se sám střelí. Nick zdrceně sleduje, že na Gatsbyho pohřeb nikdo nepřišel.",
         "themes": {
-          "main": "Kritika amerického snu a povrchnosti vyšší společnosti",
+          "main": "Kritika amerického snu, povrchnost bohatství, nenaplněná láska",
           "motifs": [
             "Západní vejce",
             "sousedství",
@@ -1717,33 +1947,56 @@
         },
         "characters": [
           {
-            "name": "Nick Carraway",
-            "description": "Makléř, vypravěč, který stojí v pozadí příběhu, z chudých poměrů, nezkažený, upřímný",
+            "name": "Jay Gatsby",
+            "traits": {
+              "Role": "Záhadný milionář, hostitel večírků",
+              "Povaha": "Ctižádostivý, idealista, sentimentální",
+              "Cíl": "Získat zpět svou lásku Daisy (minulost)",
+              "Osud": "Zastřelen Wilsonem"
+            },
             "isMain": true
           },
           {
-            "name": "Jay Gatsby",
-            "description": "Vypracoval se sám, žije osaměle, až nekriticky miluje Daisy, pořádá večírky, ale nemá opravdové přátele",
+            "name": "Nick Carraway",
+            "traits": {
+              "Role": "Vypravěč, Gatsbyho soused, makléř",
+              "Povaha": "Pozorovatel, čestný, tolerantní",
+              "Vztah": "Daisyin bratranec, Gatsbyho jediný přítel"
+            },
             "isMain": true
           },
           {
             "name": "Daisy Buchananová",
-            "description": "Zkažená zbohatlá panička, krásná, ale jen navenek",
-            "isMain": false
-          },
-          {
-            "name": "Jordan Bakerová",
-            "description": "Sportovní typ, přítelkyně Nicka, hráčka golfu",
+            "traits": {
+              "Role": "Gatsbyho celoživotní láska",
+              "Povaha": "Krásná, ale povrchní, sobecká, přelétavá",
+              "Symbol": "Nedosažitelný sen, iluze"
+            },
             "isMain": false
           },
           {
             "name": "Tom Buchanan",
-            "description": "Nevěrný Daisyin manžel, zbohatlík",
+            "traits": {
+              "Role": "Daisyin manžel, milionář",
+              "Povaha": "Arogantní, rasistický, nevěrný, hrubý",
+              "Vztah": "Má poměr s Myrtle"
+            },
             "isMain": false
           },
           {
-            "name": "Myrtle",
-            "description": "Tomova milenka, důvěřivá",
+            "name": "Jordan Bakerová",
+            "traits": {
+              "Role": "Daisyina přítelkyně, golfistka",
+              "Povaha": "Cynická, nepoctivá"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Myrtle Wilsonová",
+            "traits": {
+              "Role": "Tomova milenka",
+              "Osud": "Sražena Gatsbyho autem (řídila Daisy)"
+            },
             "isMain": false
           }
         ],
@@ -1779,6 +2032,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Francis Scott Fitzgerald (1896–1940)",
+            "info": [
+              "Americký spisovatel a scenárista",
+              "Mluvčí 'Ztracené generace' a 'Jazzového věku'",
+              "Psal o bohatství, lásce a americkém snu",
+              "Bouřlivý život s manželkou Zeldou"
+            ]
+          },
           "bio": "Francis Scott Key Fitzgerald (18961940)  Američan, spisovatel a scenárista, považován za jednoho z nejlepších amerických spisovatelů. Autor jazzového věku.",
           "life": [
             "Narozen v Minnesotě, z rodiny irských přistěhovalců",
@@ -1900,7 +2162,7 @@
         "titleAnalysis": "Děj knihy se odehrává na zvířecí farmě.",
         "plot": "Příběh se odehrává na zvířecí farmě zvané Panská farma. Starý inteligentní kanec Mojžíš (Major) naučil ostatní prasata píseň Zvířata Anglie, čímž vznikl tzv. animalismus. Mojžíš nabádal ostatní k revoluci, která byla po jeho smrti uskutečněna a při které prasata převzala moc a vyhnala z farmy jejího majitele pana Jonese.\\n\\nFarmě dávají název Zvířecí farma a je sepsáno 7 pravidel, která všechna zvířata musí dodržovat. Zvířatům vládnou kanec Napoleon a kanec Kuliš, kteří se neustále dohadují. Napoleon všechny poštve proti Kulišovi a sám sebe učiní Velkým vůdcem.\\n\\nZvířata na farmě pracují mnohem více než dřív, ale jejich životní podmínky se nezměnily. Sedmero je upravováno v prasečí prospěch, a jakmile ostatní zvířata protestují, prasata je umlčí svými argumenty.\\n\\nPo roce je produkce farmy stále nižší, což se svádí na vyhnaného Kuliše. Zvířata odhalují jeho pomocníky a popravují je. I přikázání byla pozměněna, ale zvířata si myslí, že už si je správně nepamatují.\\n\\nZvířata se přestěhovala do domu, začala nosit šaty, spát v posteli, pít alkohol a obchodovat s lidmi. Postupně také začínají chodit po dvou. Napoleon farmě vrátil označení Panská. V závěru hrají všichni poker a není možné rozeznat, kdo je člověk a kdo prase. Na vratech už visí jen jediné pravidlo: Všechna zvířata jsou si rovna, ale některá jsou si rovnější.",
         "themes": {
-          "main": "Varování před stalinskou hrůzovládou, varování před jakoukoli totalitní mocí",
+          "main": "Alegorie na stalinismus, varování před zneužitím moci",
           "motifs": [
             "kanec",
             "sen",
@@ -1922,38 +2184,57 @@
         },
         "characters": [
           {
-            "name": "Major",
-            "description": "Inteligentní prase, dvanáctiletý (starý), středně bílý, má představovat Lenina",
-            "isMain": false
-          },
-          {
             "name": "Napoleon",
-            "description": "Rvavé prase toužící po moci, zbaví se Kuliše, má představovat Stalina",
+            "traits": {
+              "Role": "Prase, diktátor farmy",
+              "Povaha": "Krutý, podlý, touží po moci",
+              "Alegorie": "Stalin"
+            },
             "isMain": true
           },
           {
             "name": "Kuliš",
-            "description": "Prase vládnoucí nejprve spolu s Napoleonem, má představovat Trockého",
+            "traits": {
+              "Role": "Prase, soupeř Napoleona",
+              "Povaha": "Chytrý, s dobrými úmysly, vyhnán",
+              "Alegorie": "Trockij"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Major",
+            "traits": {
+              "Role": "Starý kanec, duchovní otec revoluce",
+              "Myšlenka": "Animalismus (rovnost všech zvířat)",
+              "Alegorie": "Lenin / Marx"
+            },
             "isMain": false
           },
           {
             "name": "Boxer",
-            "description": "Silný hřebec s bílým pruhem na nose, představuje pracující lid",
-            "isMain": false
-          },
-          {
-            "name": "Lupina",
-            "description": "Statná klisna středního věku, dobračka",
+            "traits": {
+              "Role": "Silný kůň, dříč",
+              "Motto": "„Budu pracovat lépe a radostněji.“",
+              "Alegorie": "Důvěřivý, pracující lid (stachanovec)"
+            },
             "isMain": false
           },
           {
             "name": "Benjamin",
-            "description": "Osel intelektuál, pasivní, ačkoli si uvědomuje reálný stav věcí",
+            "traits": {
+              "Role": "Starý osel",
+              "Povaha": "Skeptický, pasivní, ale chápe pravdu",
+              "Alegorie": "Pasivní intelektuál"
+            },
             "isMain": false
           },
           {
-            "name": "pan Jones",
-            "description": "Majitel farmy, rád se napil a zapomněl nakrmit zvířata",
+            "name": "Pištík",
+            "traits": {
+              "Role": "Prase, mluvčí Napoleona",
+              "Schopnost": "Propaganda, demagogie, lhaní",
+              "Alegorie": "Propaganda"
+            },
             "isMain": false
           }
         ],
@@ -1986,6 +2267,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "George Orwell (1903–1950)",
+            "info": [
+              "Britský novinář, esejista a spisovatel",
+              "Kritik totalitních režimů (komunismus, fašismus)",
+              "Psal antiutopické romány a alegorie",
+              "Zemřel na tuberkulózu"
+            ]
+          },
           "bio": "George Orwell (19031950)  vlastním jménem Eric Arthur Blair, britský novinář, esejista a spisovatel.",
           "life": [
             "Narodil se 25. června 1903 v Motihari v Indii",
@@ -2105,7 +2395,7 @@
         "titleAnalysis": "Vražda v Orient expresu – zločin se odehrál ve vlaku s názvem Orient expres.",
         "plot": "Detektiv Hercule Poirot se vrací domů ze Sýrie, kde řešil případ. Ve vlaku do Cařihradu si všimne dvojice, Angličanky a jistého plukovníka, ale není si jist jejich vztahem. Do Cařihradu přijde Poirotovi telegram a on musí změnit trasu, aby se dostal do Londýna. Měl jet Orient expresem na trase Istanbul–Calais. S ním cestuje také Belgičan Bouc, ředitel železniční společnosti. Kupodivu je vlak zcela obsazený, ale nakonec se jedno místo uvolnilo. Celkem je zde 13 cestujících a mezi nimi i dvojice, kterou již Poirot potkal cestou.\n\nJeden z cestujících, velmi nepříjemný Američan Ratchett, se Poirotovi svěřil, že se bojí, že bude zavražděn, chodily mu totiž výhružné dopisy. Poirot mu ale odmítl pomoct. Během noci vjel vlak do závěje a zastavil se. Ráno byl Ratchett nalezen mrtvý – někdo ho ubodal. Zajímavé bylo, že některé z 12 bodných ran byly velmi slabé a některé zase velmi razantní. Hodinky se Ratchettovi zastavily v 01:15, což byl předpokládaný čas smrti. Další stopou byl dámský kapesník, čistič na dýmku a kousek výhružného dopisu. Poirot rozluštil zmínku o malé Daisy Armstrongové, což byla nedávno zavražděná dívenka, o jejímž případu se všude psalo. Přišel s odhalením, že Ratchett je onen vrah pod novou identitou.\n\nHercule Poirot postupně vyslechl všechny cestující, dělal si poznámky a načrtnul plánek vlaku. Zjistil, že jedna z podezřelých znala rodinu malé Daisy. Několik cestujících v noci vidělo projít kupé ženu v červeném županu, další viděli průvodčího na jeho židli na konci kupé a další zaslechli výkřik. Poirot provedl prohlídku kufrů, v jednom našel uniformu falešného průvodčího a v tom svém červené kimono.\n\nHercule si povšiml několika poznámek, zamyslel se a zjistil, že úplně všichni cestující měli něco do činění s rodinou Armstrongových. Došlo mu také, že se tu všichni sešli záměrně, a proto byl vlak plně obsazen i v zimě. Vydedukoval, že se všichni chtěli Ratchettovi pomstít, a z toho důvodu naplánovali zločin společně. Věděl dokonce přesně, jak to bylo a kdo hrál při vraždě jakou roli. Ratchett byl zavražděn 12 ranami, každou zasadil jiný cestující. Chápal, proč se Ratchettovi mstili, a tak vymyslel ještě jedno – náhradní – řešení. Když stál vlak v závěji, vlezl do vlaku vrah v uniformě průvodčího, zavraždil Ratchetta a zase uprchnul. Lékař i Poirotův přítel Bouc se shodli, že policii předloží tuto variantu, 12 skutečných vrahů tedy zůstalo nepotrestáno.",
         "themes": {
-          "main": "Vyšetřování vraždy",
+          "main": "Spravedlnost vs. zákon, kolektivní pomsta",
           "motifs": [
             "kapesníček",
             "čistič na lulku",
@@ -2123,22 +2413,47 @@
         "characters": [
           {
             "name": "Hercule Poirot",
-            "description": "Belgičan, detektiv, je neskutečně všímavý, pozorný, až geniální, zároveň výborný psycholog. Vystupuje mírně výstředně a ne každému je sympatický. Je popisován jako menší tmavovlasý muž s knírkem. O jeho soukromí nic nevíme.",
+            "traits": {
+              "Role": "Slavný belgický detektiv",
+              "Povaha": "Geniální, všímavý, výstřední, metodický",
+              "Metoda": "Používá \"šedé buňky mozkové\"",
+              "Čin": "Odhalí vraha, ale nechá ho jít (morální spravedlnost)"
+            },
             "isMain": true
           },
           {
             "name": "Monsieur Bouc",
-            "description": "Ředitel drah, snaží se být při vyšetřování nápomocný, ale sám by na nic nepřišel.",
+            "traits": {
+              "Role": "Ředitel železniční společnosti",
+              "Vztah": "Přítel Poirota",
+              "Funkce": "Zastupuje laický pohled (Watsonovský typ)"
+            },
             "isMain": false
           },
           {
-            "name": "Lékař",
-            "description": "Odborník ve svém oboru, přesně určil čas smrti a příčinu smrti.",
+            "name": "Ratchett (Cassetti)",
+            "traits": {
+              "Role": "Oběť vraždy, bohatý Američan",
+              "Minulost": "Dětský vrah a únosce (únos Daisy)",
+              "Povaha": "Krutý, bezcitný, všemi nenáviděný"
+            },
             "isMain": false
           },
           {
-            "name": "Ratchett",
-            "description": "Ve skutečnosti Casetti, vrah malé Daisy, chladnokrevný, zlý, krutý, všemi nenáviděný podvodník.",
+            "name": "Lékař Constantine",
+            "traits": {
+              "Role": "Lékař ve vlaku",
+              "Funkce": "Odborná pomoc při ohledání těla"
+            },
+            "isMain": false
+          },
+          {
+            "name": "12 cestujících",
+            "traits": {
+              "Role": "Podezřelí (porota)",
+              "Tajemství": "Všichni měli vazbu na rodinu Armstrongových",
+              "Čin": "Každý zasadil jednu ránu (kolektivní pomsta)"
+            },
             "isMain": false
           }
         ],
@@ -2171,6 +2486,15 @@
           }
         ],
         "authorContext": {
+          "shortBio": {
+            "name": "Agatha Christie (1890–1976)",
+            "info": [
+              "Britská spisovatelka, 'královna detektivek'",
+              "Nejprodávanější autorka všech dob (po Shakespearovi)",
+              "Stvořila Hercula Poirota a slečnu Marplovou",
+              "Mistryně zápletky a nečekaných rozuzlení"
+            ]
+          },
           "bio": "Agatha Mary Clarissa Christie (1890–1976) – druhá nejprodávanější spisovatelka všech dob (první je W. Shakespeare), nejznámější spisovatelka všech dob.",
           "life": [
             "Z viktoriánské anglické rodiny, narozená jako Millerová",
@@ -2309,7 +2633,142 @@
         "válka",
         "povstání"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Název je podle barikády, která skutečně existovala.",
+        "plot": "Kniha obsahuje 11 povídek s válečnou tematikou.\n\nZÁKEŘNÍK: Když si šly děti hrát, odstřelil je zákeřník. Seběhli se místní muži a začali přemýšlet, odkud se střílelo. Pan Martínek prohledal dům a našel Němce Waltera − zákeřníka. Stařena, zákeřníkova matka, se snažila syna ochránit. Zákeřníka předali partyzánům.\n\nVYŠŠÍ PRINCIP: Třídní učitel septimy, profesor latiny, je přezdíván 'Vyšší princip'. Po atentátu na Heydricha jsou tři žáci udáni gestapu a usmrceni. Profesor souhlasí s atentátem na tyrana, který dle něj z vyššího mravního principu není zločinem.",
+        "themes": {
+          "main": "Hrdinství obyčejných lidí během Pražského povstání",
+          "motifs": [
+            "děti",
+            "krev",
+            "hrůza",
+            "smrt",
+            "válka"
+          ]
+        },
+        "setting": {
+          "place": "Protektorát Čechy a Morava",
+          "time": "Poslední dny 2. světové války (Květnové povstání)"
+        },
+        "composition": {
+          "structure": "11 povídek",
+          "timeline": "Děj povídek se odvíjí chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Zákeřník (Walter)",
+            "traits": {
+              "Role": "Němec, odstřelovač",
+              "Povaha": "Chladnokrevný, ledový pohled"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Pan Martínek",
+            "traits": {
+              "Role": "Kovář, mstitel",
+              "Povaha": "Statečný, nebojácný"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Helenka",
+            "traits": {
+              "Role": "Malé děvčátko",
+              "Osud": "Zastřelena zákeřníkem při hře"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Er-forma (vševědoucí vypravěč)",
+          "style": "Pásmo vypravěče"
+        },
+        "excerpt": {
+          "text": "Vlhká a tvárná je zem, z níž byly vyrvány dlažební kostky. Nelze udržet děti doma. Vyběhnou před dům s lopatkou a kbelíčkem. A pak najednou ratatata. Děti zavyjí hrůzou, rozstříknou se jako kuřata. Helenka už neběží.",
+          "context": "Úryvek je z povídky Zákeřník."
+        },
+        "languageDevices": [
+          "Citoslovce – 'ratatata'",
+          "Zdrobněliny – 's lopatkou a kbelíčkem'",
+          "Hypokoristikon – 'Helenka'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Nadsázka",
+            "example": "'déšť zalézal až do morku kostí'"
+          },
+          {
+            "name": "Přirovnání",
+            "example": "'rozstříknou se jako kuřata'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Jan Drda (1915–1970)",
+            "info": [
+              "Český prozaik a dramatik",
+              "Komunistický novinář a politik",
+              "Dílo: oslava českého člověka, lidovost, pohádkové motivy"
+            ]
+          },
+          "bio": "Jan Drda (1915–1970) – spisovatel, scenárista, dramatik, prozaik, novinář.",
+          "life": [
+            "Narodil se v Příbrami",
+            "Studoval filologii na pražské univerzitě",
+            "Zemřel osamělý na zámku v Dobříši"
+          ],
+          "otherWorks": [
+            {
+              "title": "České pohádky",
+              "year": "",
+              "note": "Soubor 12 pohádek"
+            },
+            {
+              "title": "Hrátky s čertem",
+              "year": "",
+              "note": "Divadelní hra"
+            }
+          ],
+          "workPosition": "Povídky vznikaly jako bezprostřední reakce na válečné události."
+        },
+        "literaryContext": {
+          "movement": "Česká literatura 2. poloviny 20. století",
+          "period": "Po 2. světové válce",
+          "description": "Reakce na válku a radost ze získané svobody.",
+          "characteristics": [
+            "Reakce na válku",
+            "Radost ze získané svobody"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Jiří Weil",
+              "years": "1900–1959",
+              "note": "Člen Devětsilu, novinář, prozaik",
+              "works": [
+                "Život s hvězdou"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo již aktuální není, je z doby po válce.",
+          "audience": "Dospělý člověk snažící se pochopit atmosféru druhé světové války.",
+          "purpose": "Bezprostřední reakce na válečné události.",
+          "similarWorks": [
+            {
+              "title": "Romeo, Julie a tma",
+              "author": "Jan Otčenášek",
+              "year": "",
+              "note": "Dílo s válečnou tematikou"
+            }
+          ],
+          "adaptations": [
+            "Filmová verze povídky Vyšší princip (1960)"
+          ]
+        }
+      }
     },
     {
       "id": 14,
@@ -2324,7 +2783,140 @@
         "sociální román",
         "přátelství"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Lennie si na začátku knihy hladí hebkou myší srst. Odkazuje na báseň Roberta Burnse 'Polní myšce'.",
+        "plot": "Hlavními postavami jsou Lennie Small a George Milton. Lennie není z nejchytřejších. Po smrti tety Kláry se ho ujal kamarád George. Dostali práci na ranči v Soledadu. Oba sní o vlastním hospodářství s králíky.\n\nCurleyova žena navštívila Lennieho, kterému se líbily její vlasy. Lennie je hladil tak silně, že jí nechtěně zlomil vaz. George ho našel dřív než Curley a zastřelil ho, aby ho ochránil před krutým zacházením.",
+        "themes": {
+          "main": "Síla přátelství, osamělost a zhroucení amerického snu",
+          "motifs": [
+            "vlasy",
+            "králíci",
+            "ruce",
+            "sen",
+            "zbraň"
+          ]
+        },
+        "setting": {
+          "place": "USA, Kalifornie, ranč v Soledadu",
+          "time": "30. léta 20. století (hospodářská krize)"
+        },
+        "composition": {
+          "structure": "Novela o 6 kapitolách",
+          "timeline": "Děj je vyprávěný chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Lennie Small",
+            "traits": {
+              "Role": "Mentálně zaostalý silák",
+              "Povaha": "Dobrosrdečný, dětský, oddaný",
+              "Obsese": "Hladit hebké věci",
+              "Sen": "Starat se o králíky"
+            },
+            "isMain": true
+          },
+          {
+            "name": "George Milton",
+            "traits": {
+              "Role": "Lennieho průvodce a ochránce",
+              "Povaha": "Racionální, obětavý, touží po nezávislosti",
+              "Čin": "Zastřelí Lennieho z milosti"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Curleyova žena",
+            "traits": {
+              "Role": "Jediná žena na ranči",
+              "Povaha": "Osamělá, koketní, sní o Hollywoodu",
+              "Osud": "Neúmyslně zabita Lenniem"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Er-forma, objektivní vypravěč",
+          "style": "Strohé líčení, prvky dialektu v přímé řeči"
+        },
+        "excerpt": {
+          "text": "Lennieho ohromné prsty ji začaly hladit po vlasech. 'Jé, to je hezký,' liboval si. Uškubla hlavou, a Lennieho prsty se jí na vlasech sevřely. 'Pusťte!' Lennie se vyděsil.",
+          "context": "Těsně před tím, než Lennie ženu zabije."
+        },
+        "languageDevices": [
+          "Citoslovce – 'jé'",
+          "Věta rozkazovací – 'Pusťte!'",
+          "Slang a hovorový jazyk farmářů"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Personifikace",
+            "example": "'prsty se sevřely a nechtěly pustit'"
+          },
+          {
+            "name": "Gradace",
+            "example": "'Dejte pozor...' A pak rozzlobeně: 'Nechte toho!'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "John Steinbeck (1902–1968)",
+            "info": [
+              "Americký spisovatel, Nobelova cena (1962)",
+              "Představitel realismu a sociálně-kritické prózy",
+              "Témata: hospodářská krize, život chudých, vykořisťování"
+            ]
+          },
+          "bio": "John Steinbeck (1902–1968) – americký spisovatel, držitel Nobelovy ceny z roku 1962.",
+          "life": [
+            "Jako školák vypomáhal na farmách",
+            "Odešel do New Yorku jako reportér",
+            "Zemřel v New Yorku"
+          ],
+          "otherWorks": [
+            {
+              "title": "Hrozny hněvu",
+              "year": "",
+              "note": "Osudy rodiny chudých zemědělců"
+            },
+            {
+              "title": "Na východ od ráje",
+              "year": "1952",
+              "note": "Románová kronika"
+            }
+          ],
+          "workPosition": "Americký realismus, období hospodářské krize."
+        },
+        "literaryContext": {
+          "movement": "Americký realismus, Lost generation",
+          "period": "1. polovina 20. století",
+          "description": "Generace amerických autorů poznamenáni 1. sv. válkou, vystřízlivěli z amerického snu.",
+          "characteristics": [
+            "Pocity zklamání a skepse",
+            "Rozklad hodnot"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Ernest Hemingway",
+              "years": "1899–1961",
+              "note": "Metoda ledovce",
+              "works": [
+                "Stařec a moře",
+                "Sbohem, armádo"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Kritika rasismu a vykořisťování stále aktuální.",
+          "audience": "Milovníci americké literatury.",
+          "purpose": "Ukázka společenských poměrů v tehdejší Americe.",
+          "similarWorks": [],
+          "adaptations": [
+            "Film z roku 1992, režie Gary Sinise, ČSFD 86 %"
+          ]
+        }
+      }
     },
     {
       "id": 15,
@@ -2340,7 +2932,150 @@
         "válka",
         "rodina"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Smrt krásných srnců – název podle jedné z povídek (smrt srnců pro přežití bratrů).",
+        "plot": "Kniha se skládá ze sedmi povídek. Ústřední postavou je Otův tatínek Leo Popper, snílek a dobrodruh.\n\nVE SLUŽBÁCH ŠVÉDSKA: Tatínek byl ve firmě Elektrolux nejlepším prodejcem. Na večeři se znemožnil, když jedl kuře rukama.\n\nSMRT KRÁSNÝCH SRNCŮ: Když byli Otovi bratři povoláni do transportu, tatínek obstaral srnčí maso, aby lépe přečkali koncentrační tábor.\n\nKAPŘI PRO WEHRMACHT: Tatínek musel odevzdat rybník Němcům. Noc před transportem vylovil s Otou kapry a Němcům 'vypálil rybník'.",
+        "themes": {
+          "main": "Vzpomínky na dětství, krásné vztahy v rodině, vliv války",
+          "motifs": [
+            "ryby",
+            "příroda",
+            "tatínek",
+            "odvaha",
+            "smutek"
+          ]
+        },
+        "setting": {
+          "place": "Čechy (Buštěhrad, Křivoklátsko, Praha)",
+          "time": "30. léta 20. století a období protektorátu"
+        },
+        "composition": {
+          "structure": "Soubor 7 povídek",
+          "timeline": "Chronologické řazení s retrospektivními prvky"
+        },
+        "characters": [
+          {
+            "name": "Tatínek (Leo Popper)",
+            "traits": {
+              "Role": "Obchodník, rybář",
+              "Povaha": "Velký snílek, optimista, dobrodruh",
+              "Původ": "Židovský (přesto vtipkuje a nevzdává se)"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Ota (vypravěč)",
+            "traits": {
+              "Role": "Nejmladší syn",
+              "Povaha": "Citlivý, vnímavý, obdivuje tatínka"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Maminka (Hermína)",
+            "traits": {
+              "Role": "Opora rodiny",
+              "Povaha": "Trpělivá, realistická, milující"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma (autobiografický vypravěč Ota)",
+          "style": "Hovorový jazyk, laskavý humor, lyrika"
+        },
+        "excerpt": {
+          "text": "V hotelu Alcron ho korunovali na mistra světa. Na banketu přinesli pečené kuře. Tatínek vzal vidličku, zaklepal na skleničku a pronesl: 'A teď vám ukážu, jak se jí u nás v Buštěhradě.' Vzal kuře do rukou a všichni ho následovali.",
+          "context": "Úryvek je z povídky Ve službách Švédska."
+        },
+        "languageDevices": [
+          "Zdrobnělina – 'tatínek', 'maminka'",
+          "Hovorové slovo – 'cesťák'",
+          "Expresivní slovo – 'chlap'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Personifikace",
+            "example": "'v čele tabule zavládlo mrazivé ticho'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Ota Pavel (1930–1973)",
+            "info": [
+              "Vlastním jménem Otto Popper",
+              "Navštívit židovskou rodinu, otec a bratři prošli koncentráky",
+              "Sportovní redaktor, trpěl duševní chorobou",
+              "Psal laskavé vzpomínkové prózy a sportovní reportáže"
+            ]
+          },
+          "bio": "Ota Pavel (1930–1973) – vlastním jménem Otto Popper, prozaik, sportovní reportér.",
+          "life": [
+            "Narodil se v Praze, nejmladší ze tří bratrů",
+            "Otec byl židovského původu",
+            "Od r. 1964 trpěl duševní chorobou",
+            "Zemřel v necelých 43 letech"
+          ],
+          "otherWorks": [
+            {
+              "title": "Jak jsem potkal ryby",
+              "year": "",
+              "note": "Autobiografické vzpomínkové prózy"
+            },
+            {
+              "title": "Dukla mezi mrakodrapy",
+              "year": "",
+              "note": "Sportovní tematika"
+            }
+          ],
+          "workPosition": "Povídky vznikaly v době duševní choroby, psaní mu bylo útěchou."
+        },
+        "literaryContext": {
+          "movement": "Česká literatura po roce 1945",
+          "period": "2. polovina 20. století",
+          "description": "Literatura se židovskou tematikou, autobiografické vzpomínkové prózy.",
+          "characteristics": [
+            "Humorně laděné povídky",
+            "Lidový jazyk",
+            "Vzpomínky na dětství"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Bohumil Hrabal",
+              "years": "1914–1997",
+              "note": "'Pábení' – zvláštní druh vyprávění",
+              "works": [
+                "Ostře sledované vlaky"
+              ]
+            },
+            {
+              "name": "Arnošt Lustig",
+              "years": "1926–2011",
+              "note": "Židovská tématika",
+              "works": [
+                "Modlitba pro Kateřinu Horovitzovou"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Stále aktuální je láska k přírodě a krásné vztahy v rodině.",
+          "audience": "Čtenář, který vzpomíná na válečná léta.",
+          "purpose": "Vzpomínky na dětství s láskou.",
+          "similarWorks": [
+            {
+              "title": "Jak jsem potkal ryby",
+              "author": "Ota Pavel",
+              "year": "",
+              "note": "Vzpomínky na dětství"
+            }
+          ],
+          "adaptations": [
+            "Film Smrt krásných srnců (1986), Karel Kachyňa, ČSFD 87 %"
+          ]
+        }
+      }
     },
     {
       "id": 16,
@@ -2356,7 +3091,161 @@
         "film",
         "postmoderna"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Podle ostře sledovaného transportu, který Miloš odstřelí.",
+        "plot": "Příběh se odehrává v zimě roku 1945 na železniční stanici. Miloš Hrma, dvaadvacetiletý výpravčí, se vrací do služby po psychiatrii – podřezal si žíly kvůli Máše.\n\nVýpravčí Hubička mu sdělí, že jejich stanicí projede transport zbraní, který chtějí zničit. Miloš se k nim přidá. Vyleze na návěstidlo a vhodí bombu do vlaku. Německý voják ho zpozoruje, vzájemně se zastřelí a oba umírají.",
+        "themes": {
+          "main": "Dospívání a hledání sebe sama na pozadí války, hrdinství",
+          "motifs": [
+            "vlak",
+            "razítka",
+            "panictví",
+            "smrt",
+            "hrdinství"
+          ]
+        },
+        "setting": {
+          "place": "Železniční stanice Kostomlaty (Střední Čechy)",
+          "time": "Zima 1945 (konec 2. světové války)"
+        },
+        "composition": {
+          "structure": "Novela o 6 kapitolách",
+          "timeline": "Chronologicky s retrospektivou"
+        },
+        "characters": [
+          {
+            "name": "Miloš Hrma",
+            "traits": {
+              "Role": "Výpravčí elév (22 let)",
+              "Povaha": "Citlivý, nezkušený, trpí komplexy",
+              "Hrdinství": "Obětuje život pro zničení německého vlaku"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Ladislav Hubička",
+            "traits": {
+              "Role": "Výpravčí",
+              "Povaha": "Bohém, svůdník, provokatér",
+              "Čin": "Orazítkoval pozadí telegrafistky"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Viktoria Freie",
+            "traits": {
+              "Role": "Rakušanka, spojka odboje",
+              "Čin": "Přinesla bombu a zbavila Miloše panictví"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma (Miloš Hrma)",
+          "style": "Pábení, dlouhá souvětí, hovorová řeč"
+        },
+        "excerpt": {
+          "text": "Výpravčí Hubička rozsvítil cloněnou lampu na telegrafním stole. 'Miloši,' řekl šeptem, 'nejlepší bude stát na perónu a hodit to na prostřední vagón. Hodíme tomu vlaku na stůj a v poslední chvíli mu dáme na zelenou...'",
+          "context": "Domluva na zničení německého transportu."
+        },
+        "languageDevices": [
+          "Profesní mluva – 'výpravčí', 'perón', 'vagón'",
+          "Dlouhá přetížená souvětí",
+          "Hovorová mluva – 'jinačího'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Přirovnání",
+            "example": "'čárala po papíře jako kardiograf'"
+          },
+          {
+            "name": "Metafora",
+            "example": "'rychlíková raketa'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Bohumil Hrabal (1914–1997)",
+            "info": [
+              "Významný český prozaik 20. století",
+              "Styl 'pábení' (plynulý tok řeči, hovorový jazyk)",
+              "Vystřídal mnoho profesí (výpravčí, balič papíru)",
+              "Část díla vycházela v samizdatu"
+            ]
+          },
+          "bio": "Bohumil Hrabal (1914–1997) – nejvýznamnější český prozaik.",
+          "life": [
+            "Dětství trávil v Nymburce",
+            "Vystřídal řadu povolání: výpravčí, skladník, dělník",
+            "Po roce 1968 dočasně zakázáno publikovat",
+            "Zemřel pádem z okna při krmení holubů"
+          ],
+          "otherWorks": [
+            {
+              "title": "Perlička na dně",
+              "year": "",
+              "note": "Soubor povídek"
+            },
+            {
+              "title": "Příliš hlučná samota",
+              "year": "",
+              "note": "Monolog baliče papíru Haňti"
+            },
+            {
+              "title": "Obsluhoval jsem anglického krále",
+              "year": "",
+              "note": "Hlavní hrdina Jan Dítě"
+            }
+          ],
+          "workPosition": "Jedno z jeho nejznámějších děl. 'Pábení' – zvláštní druh vyprávění."
+        },
+        "literaryContext": {
+          "movement": "Česká próza 2. poloviny 20. století",
+          "period": "2. polovina 20. století",
+          "description": "Oficiálně vydávaná i zakázaná literatura.",
+          "characteristics": [
+            "Pábení",
+            "Hovorový jazyk",
+            "Erotické motivy",
+            "Černý humor"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Ota Pavel",
+              "years": "1930–1973",
+              "note": "Autobiografické povídky",
+              "works": [
+                "Smrt krásných srnců"
+              ]
+            },
+            {
+              "name": "Milan Kundera",
+              "years": "*1929",
+              "note": "Světově nejpřekládanější autor",
+              "works": [
+                "Nesnesitelná lehkost bytí"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Aktuální je nesmělost mladého hrdiny.",
+          "audience": "Odpůrci války a milovníci Hrabalova stylu.",
+          "purpose": "Reakce na válku.",
+          "similarWorks": [
+            {
+              "title": "Hlídač č. 47",
+              "author": "Josef Kopta",
+              "year": "",
+              "note": "Tematicky podobné dílo"
+            }
+          ],
+          "adaptations": [
+            "Film režíroval Jiří Menzel (1966), Oskar 1967"
+          ]
+        }
+      }
     },
     {
       "id": 17,
@@ -2372,7 +3261,176 @@
         "humor",
         "dětství"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Podle partičky pěti chlapců, kteří spolu prožívali dobrodružství.",
+        "plot": "Petr Bajza nás seznámí s městečkem a lidmi. Se čtyřmi kamarády zažívají dobrodružství – chodí do kina zadem zadarmo, perou se s Ješiňáky a Habrováky.\n\nKdyž přijede cirkus, Petr se snaží být hodný, aby mohl jít. Pak chytne spálu a zdají se mu sny o Indii a slonovi Jumbovi. Petr se vyléčí a došlo mu, že si příběh vysnil.",
+        "themes": {
+          "main": "Svět viděný dětskýma očima, klukovská dobrodružství",
+          "motifs": [
+            "cirkus",
+            "klukovská parta",
+            "maloměsto",
+            "obchod",
+            "nemoc"
+          ]
+        },
+        "setting": {
+          "place": "Rychnov nad Kněžnou (maloměsto)",
+          "time": "Přelom 19. a 20. století (První republika)"
+        },
+        "composition": {
+          "structure": "Kapitoly, epizodické příhody",
+          "timeline": "Chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Petr Bajza",
+            "traits": {
+              "Role": "Vypravěč, syn obchodníka",
+              "Povaha": "Rošťák s bujnou fantazií",
+              "Mluva": "Mísí spisovnou (knižní) a nespisovnou češtinu"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Zilvar z chudobince",
+            "traits": {
+              "Role": "Člen party",
+              "Povaha": "Chudý, ale svobodný a odvážný",
+              "Původ": "Z chudobince (otec žebrák)"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Čeněk Jirsák",
+            "traits": {
+              "Role": "Člen party",
+              "Povaha": "Zbožný, sbírá hříchy ke zpovědi",
+              "Koníček": "Ministrant"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Eduard Kemlink",
+            "traits": {
+              "Role": "Člen party",
+              "Povaha": "Syn úředníka, má psa Pajdu"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Antonín Bejval",
+            "traits": {
+              "Role": "Člen party",
+              "Povaha": "Vynálezce, lakomec"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Pan Fajst",
+            "traits": {
+              "Role": "Místní občan",
+              "Povaha": "Mravokárce, terč vtípků kluků"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma (Petr Bajza)",
+          "style": "Specifický jazyk (mísení vrstev), dětská perspektiva"
+        },
+        "excerpt": {
+          "text": "My jsme se divili a pravili jsme: 'Nehoupej nás,' ale Éda se dušoval, že je to prauda. Pan Kemlink pravil: 'To není prauda, pane Fajst, náš Pajda není takový, aby kradl.'",
+          "context": "Jedna z příhod kluků, hádka o psa Pajdu."
+        },
+        "languageDevices": [
+          "Slovo knižní – 'pravili jsme', 'pročež', 'jelikož'",
+          "Nářečí – 'prauda', 'porád'",
+          "Nespisovný výraz – 'jináč', 'brejle'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Polysyndeton",
+            "example": "'a skákal a silně štěkal a točil se dokola'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Karel Poláček (1892–1945)",
+            "info": [
+              "Český spisovatel, humorista a novinář",
+              "Židovský původ, zahynul v Osvětimi",
+              "Dílo: laskavý humor, obraz maloměsta, kritika maloměšťáctví"
+            ]
+          },
+          "bio": "Karel Poláček (1892–1945) – český spisovatel, novinář, humorista.",
+          "life": [
+            "Narozen v Rychnově nad Kněžnou",
+            "Otec byl židovský obchodník",
+            "Soudničkář v Lidových novinách",
+            "1943 deportován do Terezína",
+            "Popraven v Gleiwitz"
+          ],
+          "otherWorks": [
+            {
+              "title": "Muži v ofsajdu",
+              "year": "",
+              "note": "Osudy fotbalových fanoušků"
+            },
+            {
+              "title": "Edudant a Francimor",
+              "year": "",
+              "note": "Tvorba pro děti"
+            }
+          ],
+          "workPosition": "Kniha vyšla až po autorově smrti."
+        },
+        "literaryContext": {
+          "movement": "Humanistická demokratická literatura",
+          "period": "1. polovina 20. století",
+          "description": "Demokratický proud meziválečné české prózy. Inteligentní humor.",
+          "characteristics": [
+            "Komika – mísí slova ze všech rovin",
+            "Tvůrce sloupku"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Eduard Bass",
+              "years": "1888–1946",
+              "note": "Novinář, herec",
+              "works": [
+                "Cirkus Humberto"
+              ]
+            },
+            {
+              "name": "Karel Čapek",
+              "years": "1890–1938",
+              "note": "Prozaik, dramatik",
+              "works": [
+                "R. U. R.",
+                "Bílá nemoc"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo aktuální není, ale zavzpomínáte na dětství.",
+          "audience": "Všechny generace.",
+          "purpose": "Ukázat dětskou nevinnost a představivost.",
+          "similarWorks": [
+            {
+              "title": "Dobrodružství Toma Sawyera",
+              "author": "Mark Twain",
+              "year": "",
+              "note": "Příhody kluků"
+            }
+          ],
+          "adaptations": [
+            "Seriál z roku 1994, ČSFD 86 %"
+          ]
+        }
+      }
     },
     {
       "id": 18,
@@ -2388,7 +3446,173 @@
         "antifašismus",
         "humanismus"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Bílá nemoc – alegorie na úpadek společnosti a fašismus (nakažlivá a nevyléčitelná). Lékem je mír.",
+        "plot": "Svět čelí pandemii 'Bílé nemoci'. Doktor Galén objeví lék, ale odmítá léčit bohaté a mocné (včetně Maršála), dokud nezastaví válku. Maršál, diktátor chystající válku, onemocní. Nakonec pod tlakem dcery a mladého Krüga souhlasí s mírem, aby dostal lék. Galén spěchá s lékem k Maršálovi, ale je ušlapán zfanatizovaným davem, který volá po válce. Lék je zničen.",
+        "themes": {
+          "main": "Konflikt humanismu s totalitou, morální odpovědnost vědce",
+          "motifs": [
+            "nemoc",
+            "lék",
+            "válka",
+            "diktátor",
+            "dav"
+          ]
+        },
+        "setting": {
+          "place": "Neurčený stát (alegorie nacistického Německa)",
+          "time": "Neurčený, předvečer války"
+        },
+        "composition": {
+          "structure": "Drama o 3 aktech",
+          "timeline": "Chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Dr. Galén",
+            "traits": {
+              "Role": "Lékař, vynálezce léku",
+              "Povaha": "Humanista, statečný, neústupný",
+              "Cíl": "Dosáhnout světového míru"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Maršál",
+            "traits": {
+              "Role": "Diktátor, vojevůdce",
+              "Povaha": "Krutý, touží po moci a válce",
+              "Osud": "Onemocní a slíbí mír"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Baron Krüg",
+            "traits": {
+              "Role": "Majitel zbrojovky",
+              "Povaha": "Podporuje válku, ale nemoc ho zlomí",
+              "Osud": "Spáchá sebevraždu"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Dvorní rada Sigelius",
+            "traits": {
+              "Role": "Ředitel kliniky",
+              "Povaha": "Prospěchář, slouží režimu"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Drama (žádný vypravěč)",
+          "style": "Dialogy, argumentace"
+        },
+        "excerpt": {
+          "text": "Maršál: Doktore, jsou prostředky, kterými lze lidi přinutit... aby splnili rozkazy.\nDr. Galén: Podívejte se, vy mě můžete dát zavřít, že ano, ale –\nMaršál: Dobře. (Sahá po zvonku.)\nDr. Galén: Poslyšte, pane, nedělejte to! Já mám tolik pacientů – Zabijete je, když mne dáte zavřít!\nMaršál (pouští zvonek): Nebyli by to první mrtví na mé cestě. (Vstane a jde k němu.) Člověče, jste blázen – nebo takový hrdina?",
+          "context": "Konec druhého jednání. Maršál vyhrožuje doktoru Galénovi."
+        },
+        "languageDevices": [
+          "Nedořečenost – 'kterými lze lidi přinutit...'",
+          "Řečnická otázka – 'Člověče, jste blázen – nebo takový hrdina?'"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Metafora",
+            "example": "'mrtví na mé cestě'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Karel Čapek (1890–1938)",
+            "info": [
+              "Český spisovatel, novinář a dramatik",
+              "Mluvčí demokratických ideálů (přítel TGM)",
+              "Varoval před fašismem a nacismem",
+              "Zemřel na zápal plic před zatčením gestapem"
+            ]
+          },
+          "bio": "Karel Čapek (1890–1938) – žurnalista, prozaik, dramatik, překladatel, kritik, esejista, cestovatel, psal knihy pro děti.",
+          "life": [
+            "Narodil se 9. ledna 1890 v Malých Svatoňovicích",
+            "Znal se s Masarykem (Hovory s TGM), oficiální autor; mluvčí Hradu",
+            "Zvolen prvním předsedou československého PEN klubu",
+            "V r. 1935 se oženil se spisovatelkou Olgou Scheinpflugovou",
+            "Zemřel 25. 12. 1938"
+          ],
+          "otherWorks": [
+            {
+              "title": "R. U. R.",
+              "year": "1920",
+              "note": "Utopické drama o vzpouře robotů"
+            },
+            {
+              "title": "Válka s mloky",
+              "year": "",
+              "note": "Satirický román"
+            },
+            {
+              "title": "Matka",
+              "year": "",
+              "note": "Drama, reakce na válku ve Španělsku"
+            },
+            {
+              "title": "Krakatit",
+              "year": "",
+              "note": "Román o zneužití vynálezu"
+            }
+          ],
+          "workPosition": "Hra byla uvedena r. 1937 – krátce před Čapkovou smrtí. Čapek proti fašismu vystupoval jasně a ostře."
+        },
+        "literaryContext": {
+          "movement": "Humanistická demokratická literatura, demokratický proud",
+          "period": "1. polovina 20. století – meziválečná doba",
+          "description": "Na jeho tvorbu mělo velký vliv jeho filosofické a estetické vzdělání, především pragmatismus a expresionismus. V mnoha dílech vyjadřoval obavu, že jednou technika získá moc nad člověkem.",
+          "characteristics": [
+            "Utopická díla – převratný vynález má špatné účinky na lidstvo",
+            "Katastrofy jsou varování",
+            "Čapek nevěřil technice, vždy je v kontrastu s přírodou"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Josef Čapek",
+              "years": "1887–1945",
+              "note": "Malíř (kubismus), básník, prozaik, dramatik",
+              "works": [
+                "Ze života hmyzu",
+                "Povídání o pejskovi a kočičce",
+                "Stín kapradiny"
+              ]
+            },
+            {
+              "name": "Karel Poláček",
+              "years": "1892–1944",
+              "note": "Soudničkář a fejetonista v Lidových novinách, židovský původ",
+              "works": [
+                "Bylo nás pět",
+                "Muži v ofsajdu"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dílo je stále aktuální. Lidé toužící po válce a moci se nezastaví před ničím.",
+          "audience": "Kdokoli. Každý by se měl řídit zdravým rozumem.",
+          "purpose": "Sebeušlechtilejší člověk nezmůže nic proti zlu a proti rozvášněnému davu.",
+          "similarWorks": [
+            {
+              "title": "R. U. R.",
+              "author": "Karel Čapek",
+              "year": "1920",
+              "note": "Varování před moderním světem plným zloby"
+            }
+          ],
+          "adaptations": [
+            "Film Bílá nemoc z r. 1937 – režie Hugo Haas, v hlavní roli Hugo Haas, hodnocen 84 %"
+          ]
+        }
+      }
     },
     {
       "id": 19,
@@ -2404,7 +3628,167 @@
         "sci-fi",
         "robot"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Zkratka z názvu továrny Rossumovi univerzální roboti (Rossum's Universal Robots).",
+        "plot": "Helena Gloryová přichází do továrny na roboty, aby bojovala za jejich práva. Provdá se za ředitele Domina. Po 10 letech se roboti vzbouří proti lidstvu, protože získali cit (duši). Zabijí všechny lidi kromě stavitele Alquista, protože pracuje rukama. Roboti však neumí vyrábět sami sebe a vymírají. Alquist má najít recept na výrobu, ale nedaří se mu to. Nakonec objeví dva roboty, Prima a Helenu, kteří se milují a jsou ochotni obětovat se jeden pro druhého. Alquist v nich poznává nový počátek lidstva (lásku).",
+        "themes": {
+          "main": "Vzpoura umělé inteligence, zánik lidstva, láska jako spása",
+          "motifs": [
+            "robot",
+            "práce",
+            "duše",
+            "vzpoura",
+            "láska"
+          ]
+        },
+        "setting": {
+          "place": "Ostrov s továrnou R.U.R.",
+          "time": "Neurčená budoucnost"
+        },
+        "composition": {
+          "structure": "Předehra a 3 dějství",
+          "timeline": "Chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Harry Domin",
+            "traits": {
+              "Role": "Ředitel továrny",
+              "Povaha": "Technokrat, věří v pokrok skrze osvobození člověka od práce"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Helena Gloryová",
+            "traits": {
+              "Role": "Manželka Domina",
+              "Povaha": "Citlivá, laskavá, ztělesňuje lidskost",
+              "Čin": "Přiměla dr. Galla dát robotům duši, spálila recept na výrobu"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Stavitel Alquist",
+            "traits": {
+              "Role": "Stavitel, jediný přeživší člověk",
+              "Povaha": "Věří v hodnotu lidské práce a rukou",
+              "Funkce": "Rozravěč, svědek zkázy a naděje"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Primus a Helena",
+            "traits": {
+              "Role": "Roboti nové generace",
+              "Vlastnost": "Schopnost milovat a obětovat se",
+              "Symbol": "Nový Adam a Eva"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Drama",
+          "style": "Dialogy, filozofické úvahy"
+        },
+        "excerpt": {
+          "text": "Fabry: Doktore Galle, vy jste změnil výrobu Robotů?\nDr. Gall: Ano.\nFabry: Byl jste si vědom, co může být následkem vašeho... vašeho pokusu?\nDr. Gall: Byl. Jsem povinen počítat s takovou možností.\n(Ve dveřích zleva Helena. Všichni vstanou.)\nHelena: On lže! To je ohavné! Oh, Galle, jak můžete tak lhát?\nDomin: Heleno, ty? Ukaž se! Ty žiješ? (Bere ji do rukou.) Kdybys věděla, co se mně zdálo!\nHelena: Pusť, Harry! Gall není vinen, není, není vinen!",
+          "context": "Úryvek je ze druhého dějství, kdy se zjišťuje, kdo dal robotům city."
+        },
+        "languageDevices": [
+          "Neologismus – 'Robot' (vytvořil Josef Čapek)",
+          "Apoziopeze – 'co může být následkem vašeho...'",
+          "Řečnická otázka"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Epizeuxis",
+            "example": "'Gall není vinen, není, není vinen!'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Karel Čapek (1890–1938)",
+            "info": [
+              "Český spisovatel, dramatik a novinář",
+              "Autor slova 'Robot' (vymyslel ho bratr Josef)",
+              "Psal utopická a sci-fi díla",
+              "Humanista, varoval před zneužitím techniky"
+            ]
+          },
+          "bio": "Karel Čapek (1890–1938) – žurnalista, prozaik, dramatik, překladatel, kritik, esejista, cestovatel, psal knihy pro děti.",
+          "life": [
+            "Narodil se 9. ledna 1890 v Malých Svatoňovicích",
+            "Znal se s Masarykem (Hovory s TGM), oficiální autor; mluvčí Hradu",
+            "Zvolen prvním předsedou československého PEN klubu",
+            "Zemřel 25. 12. 1938"
+          ],
+          "otherWorks": [
+            {
+              "title": "Bílá nemoc",
+              "year": "1937",
+              "note": "Drama, konflikt mezi doktorem Galénem a diktátorem"
+            },
+            {
+              "title": "Válka s mloky",
+              "year": "",
+              "note": "Satirický román"
+            },
+            {
+              "title": "Krakatit",
+              "year": "",
+              "note": "Román o zneužití vynálezu třaskaviny"
+            }
+          ],
+          "workPosition": "1920 – jedno z jeho prvních děl. Čapek se zabýval pragmatismem."
+        },
+        "literaryContext": {
+          "movement": "Humanistická demokratická literatura, demokratický proud",
+          "period": "1. polovina 20. století – meziválečná doba",
+          "description": "Na jeho tvorbu mělo vliv filosofické vzdělání, především pragmatismus a expresionismus. Vyjadřoval obavu, že jednou technika získá moc nad člověkem.",
+          "characteristics": [
+            "Utopická díla – převratný vynález má špatné účinky na lidstvo",
+            "Katastrofy jsou varování",
+            "Čapek nevěřil technice"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Josef Čapek",
+              "years": "1887–1945",
+              "note": "Malíř, básník, prozaik, dramatik",
+              "works": [
+                "Stín kapradiny",
+                "Povídání o pejskovi a kočičce"
+              ]
+            },
+            {
+              "name": "Karel Poláček",
+              "years": "1892–1944",
+              "note": "Soudničkář v Lidových novinách",
+              "works": [
+                "Bylo nás pět",
+                "Muži v ofsajdu"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Dnes možná ještě aktuálnější než v době vzniku (AI, robotika).",
+          "audience": "Široká veřejnost.",
+          "purpose": "Čapek se snaží varovat před přílišným zneužíváním technologií a před ztrátou lidskosti.",
+          "similarWorks": [
+            {
+              "title": "Já, robot",
+              "author": "Isaac Asimov",
+              "year": "",
+              "note": "Povídky o zákonech robotiky"
+            }
+          ],
+          "adaptations": [
+            "R.U.R. (2014) – režie: James Kerwin"
+          ]
+        }
+      }
     },
     {
       "id": 20,
@@ -2419,7 +3803,182 @@
         "humor",
         "sluha"
       ],
-      "analysis": null
+      "analysis": {
+        "titleAnalysis": "Podle jména sluhy Saturnina, který je hybatelem děje.",
+        "plot": "Vypravěč (mladý gentleman) si najme sluhu Saturnina. Ten je nevypočitatelný a plný bláznivých nápadů. Přestěhuje pána na loď, vymýšlí si o něm dobrodružné historky a dostává ho do prekérních situací. Společně s tetičkou Kateřinou, jejím synem Miloušem a slečnou Barborou tráví dovolenou u dědečka. Když voda strhne most, jsou odříznuti od světa. Saturnin organizuje život, vypíná proud a tropí si žerty hlavně z tetičky Kateřiny (nutí ji skákat, je 'zachraňována'). Nakonec se všichni vrací do civilizace.",
+        "themes": {
+          "main": "Anglický humor, parodie na dobrodružné romány, 'kdo je tady pánem'",
+          "motifs": [
+            "přísloví",
+            "koblihy",
+            "červy",
+            "hausbót",
+            "sluha"
+          ]
+        },
+        "setting": {
+          "place": "Praha, hausbót, dědečkova vila na venkově",
+          "time": "20.–30. léta 20. století"
+        },
+        "composition": {
+          "structure": "Román v kapitolách, na začátku stručný obsah kapitoly",
+          "timeline": "Chronologicky"
+        },
+        "characters": [
+          {
+            "name": "Saturnin",
+            "traits": {
+              "Role": "Sluha",
+              "Povaha": "Inteligentní, vynalézavý, nevypočitatelný",
+              "Funkce": "Hybatel děje, mistr v manipulaci"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Vypravěč (Jiří)",
+            "traits": {
+              "Role": "Pán Saturnina",
+              "Povaha": "Suchar, gentleman, pasivní",
+              "Vztah": "Zamilovaný do Barbory"
+            },
+            "isMain": true
+          },
+          {
+            "name": "Teta Kateřina",
+            "traits": {
+              "Role": "Otravná příbuzná",
+              "Povaha": "Hamižná, podlézavá, afektovaná",
+              "Zvyk": "Mluví v příslovích"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Milouš",
+            "traits": {
+              "Role": "Syn tety Kateřiny",
+              "Povaha": "Hloupý, sebestředný budižkničemu",
+              "Vztah": "Sok v lásce"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Dědeček",
+            "traits": {
+              "Role": "Hlava rodiny, bohatý",
+              "Povaha": "Starý, ale čiperný, rád si dělá z příbuzných legraci",
+              "Záliba": "Bojová umění, elektřina"
+            },
+            "isMain": false
+          },
+          {
+            "name": "Dr. Vlach",
+            "traits": {
+              "Role": "Rodinný přítel",
+              "Povaha": "Sarkastický glosátor, má teorie o lidech"
+            },
+            "isMain": false
+          }
+        ],
+        "narration": {
+          "narrator": "Ich-forma (vypravěč Jiří)",
+          "style": "Inteligentní humor, parodie, jazyková komika"
+        },
+        "excerpt": {
+          "text": "Myslím, že jsem se už zmínil, že mám tetu jménem Kateřina. Neštěstí nechodí po horách, ale po lidech. Teta Kateřina má syna. Je mu 18 let a jmenuje se Milouš. Neštěstí nechodí nikdy samo. Teta je vdova a Milouš je sirotek, protože strýc František před deseti lety zemřel. Jistě nelituje, že to udělal. Poslouchat celý život přísloví, pořekadla a zrnka moudrosti není maličkost.",
+          "context": "Úryvek je v první čtvrtině knihy, charakteristika tety Kateřiny."
+        },
+        "languageDevices": [
+          "Přísloví (nadměrné užívání tetou)",
+          "Knižní vyjadřování (Dr. Vlach)",
+          "Anglický suchý humor"
+        ],
+        "literaryDevices": [
+          {
+            "name": "Hyperbola",
+            "example": "'překrásně bruslí'"
+          },
+          {
+            "name": "Ironie",
+            "example": "'Jistě nelituje, že to udělal.'"
+          }
+        ],
+        "authorContext": {
+          "shortBio": {
+            "name": "Zdeněk Jirotka (1911–2003)",
+            "info": [
+              "Český spisovatel a fejetonista",
+              "Autor humoristických románů",
+              "Inspirace britským humorem (P. G. Wodehouse)",
+              "Saturnin je jeho životní dílo"
+            ]
+          },
+          "bio": "Zdeněk Jirotka (1911–2003) – spisovatel a fejetonista, autor humoristické literatury a rozhlasových her.",
+          "life": [
+            "Narozen v Ostravě, vyučil se zedníkem",
+            "Vstoupil do armády, sloužil v řadě měst",
+            "Od roku 1940 pracoval v Lidových novinách",
+            "Od roku 1942, po úspěchu Saturnina, spisovatelem z povolání"
+          ],
+          "otherWorks": [
+            {
+              "title": "Muž se psem",
+              "year": "1944",
+              "note": "Humorná parodie na detektivní román"
+            },
+            {
+              "title": "Profesor biologie na žebříku",
+              "year": "1956",
+              "note": "Sbírka anekdot a kratších povídek"
+            }
+          ],
+          "workPosition": "Bylo to jeho první dílo. Ve své další tvorbě tento román už nepřekonal."
+        },
+        "literaryContext": {
+          "movement": "Humoristická literatura",
+          "period": "1. a 2. polovina 20. století",
+          "description": "Důraz je kladen na zesměšnění, kritiku, na záporné lidské vlastnosti. Využití typického anglického humoru.",
+          "characteristics": [
+            "Anglický humor",
+            "Vtipnost spočívá v domýšlení situací",
+            "Zesměšnění módních literárních forem"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Vladislav Vančura",
+              "years": "1891–1942",
+              "note": "Český spisovatel, dramatik, filmový režisér",
+              "works": [
+                "Rozmarné léto"
+              ]
+            },
+            {
+              "name": "Jaroslav Žák",
+              "years": "1906–1960",
+              "note": "Autor humoristických próz",
+              "works": [
+                "Študáci a kantoři"
+              ]
+            }
+          ]
+        },
+        "additionalInfo": {
+          "dominantStyle": "Vyprávěcí slohový postup",
+          "relevance": "Autor se vysmívá tvůrcům otřepaných románů a některým lidským vlastnostem.",
+          "audience": "Kniha je určena pro jakéhokoli čtenáře, který se rád pobaví a zasměje.",
+          "purpose": "Autorova hlavní myšlenka byla napsat zajímavý humoristický román.",
+          "similarWorks": [
+            {
+              "title": "Limonádový Joe",
+              "author": "Jiří Brdečka",
+              "year": "",
+              "note": "Parodie"
+            }
+          ],
+          "adaptations": [
+            "Komedii Saturnin natočil roku 1994 režisér Jiří Věrčák. Hlavní roli ztvárnil Oldřich Vízner."
+          ]
+        }
+      }
     }
   ]
 }
