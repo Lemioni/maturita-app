@@ -4,12 +4,17 @@ import itQuestionsData from '../../data/it-questions.json';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
 
-const QuestionList = ({ filter }) => {
+const QuestionList = ({ filter, subjectFilter }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
+
+    // Apply subject filter
+    if (subjectFilter && subjectFilter !== 'all') {
+      filtered = filtered.filter(q => q.category === subjectFilter);
+    }
 
     // Apply filter based on known status
     if (filter === 'known') {
@@ -19,7 +24,7 @@ const QuestionList = ({ filter }) => {
     }
 
     setQuestions(filtered);
-  }, [filter, progress]);
+  }, [filter, subjectFilter, progress]);
 
   const updateKnowledge = (questionId, known) => {
     setProgress(prev => ({

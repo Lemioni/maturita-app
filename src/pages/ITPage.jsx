@@ -3,10 +3,12 @@ import { FaList, FaLayerGroup, FaQuestion, FaCheck, FaTimes, FaLaptop } from 're
 import QuestionList from '../components/it/QuestionList';
 import FlashcardMode from '../components/it/FlashcardMode';
 import QuizMode from '../components/it/QuizMode';
+import itQuestionsData from '../data/it-questions.json';
 
 const ITPage = () => {
   const [mode, setMode] = useState('list');
   const [filter, setFilter] = useState('all');
+  const [subjectFilter, setSubjectFilter] = useState('all');
 
   const modes = [
     { id: 'list', icon: FaList, label: 'Seznam' },
@@ -20,6 +22,8 @@ const ITPage = () => {
     { id: 'unknown', icon: FaTimes, label: 'NEUMÍM' },
   ];
 
+  const subjects = ['all', ...itQuestionsData.categories];
+
   return (
     <div className="max-w-7xl mx-auto space-y-4">
       {/* Header */}
@@ -30,7 +34,7 @@ const ITPage = () => {
       </div>
 
       {/* Controls Bar */}
-      <div className="terminal-card">
+      <div className="terminal-card space-y-3">
         <div className="flex flex-wrap items-center gap-3">
           {/* Mode Selection */}
           <div className="flex gap-1 border-r border-terminal-border/20 pr-3">
@@ -60,13 +64,29 @@ const ITPage = () => {
             ))}
           </div>
         </div>
+
+        {/* Subject Filter */}
+        <div className="flex flex-wrap gap-2 pt-2 border-t border-terminal-border/20">
+          {subjects.map((s) => (
+            <button
+              key={s}
+              onClick={() => setSubjectFilter(s)}
+              className={`px-3 py-1 text-xs border transition-colors ${subjectFilter === s
+                ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent'
+                : 'border-terminal-border/30 text-terminal-text/60 hover:border-terminal-text/30'
+                }`}
+            >
+              {s === 'all' ? 'Všechny předměty' : s}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Content */}
       <div>
-        {mode === 'list' && <QuestionList filter={filter} />}
-        {mode === 'flashcard' && <FlashcardMode filter={filter} />}
-        {mode === 'quiz' && <QuizMode filter={filter} />}
+        {mode === 'list' && <QuestionList filter={filter} subjectFilter={subjectFilter} />}
+        {mode === 'flashcard' && <FlashcardMode filter={filter} subjectFilter={subjectFilter} />}
+        {mode === 'quiz' && <QuizMode filter={filter} subjectFilter={subjectFilter} />}
       </div>
     </div>
   );

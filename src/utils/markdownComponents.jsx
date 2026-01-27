@@ -12,7 +12,7 @@ const generateSectionId = (text) => {
 // Parse alert type from blockquote content
 const parseAlertType = (children) => {
   if (!children || !children[0]) return null;
-  
+
   const firstChild = children[0];
   if (typeof firstChild === 'string') {
     const match = firstChild.match(/^\[!(TIP|IMPORTANT|WARNING|NOTE|CAUTION)\]/i);
@@ -23,13 +23,13 @@ const parseAlertType = (children) => {
       };
     }
   }
-  
+
   // Check if it's a React element with children
   if (firstChild?.props?.children) {
-    const text = Array.isArray(firstChild.props.children) 
-      ? firstChild.props.children[0] 
+    const text = Array.isArray(firstChild.props.children)
+      ? firstChild.props.children[0]
       : firstChild.props.children;
-    
+
     if (typeof text === 'string') {
       const match = text.match(/^\[!(TIP|IMPORTANT|WARNING|NOTE|CAUTION)\]/i);
       if (match) {
@@ -40,7 +40,7 @@ const parseAlertType = (children) => {
       }
     }
   }
-  
+
   return null;
 };
 
@@ -99,10 +99,10 @@ export const createMarkdownComponents = (keywords = []) => {
   // Helper to highlight keywords in text
   const highlightKeywords = (text) => {
     if (!keywordRegex || typeof text !== 'string') return text;
-    
+
     const parts = text.split(keywordRegex);
     if (parts.length === 1) return text;
-    
+
     return parts.map((part, i) => {
       if (keywordRegex.test(part)) {
         return <mark key={i} className="keyword-highlight">{part}</mark>;
@@ -114,8 +114,8 @@ export const createMarkdownComponents = (keywords = []) => {
   return {
     // Headings with IDs for TOC navigation
     h1: ({ children }) => {
-      const text = typeof children === 'string' ? children : 
-                   Array.isArray(children) ? children.join('') : '';
+      const text = typeof children === 'string' ? children :
+        Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
         <h1 id={id} className="text-2xl font-bold mt-8 mb-4 text-terminal-accent scroll-mt-20 border-b border-terminal-border/30 pb-2">
@@ -124,8 +124,8 @@ export const createMarkdownComponents = (keywords = []) => {
       );
     },
     h2: ({ children }) => {
-      const text = typeof children === 'string' ? children : 
-                   Array.isArray(children) ? children.join('') : '';
+      const text = typeof children === 'string' ? children :
+        Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
         <h2 id={id} className="text-xl font-bold mt-6 mb-3 text-terminal-accent scroll-mt-20">
@@ -134,8 +134,8 @@ export const createMarkdownComponents = (keywords = []) => {
       );
     },
     h3: ({ children }) => {
-      const text = typeof children === 'string' ? children : 
-                   Array.isArray(children) ? children.join('') : '';
+      const text = typeof children === 'string' ? children :
+        Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
         <h3 id={id} className="text-lg font-semibold mt-5 mb-2 text-terminal-text scroll-mt-20">
@@ -151,8 +151,8 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Paragraphs
     p: ({ children }) => (
-      <p className="mb-3 text-terminal-text/90 leading-relaxed">
-        {Array.isArray(children) ? children.map((child, i) => 
+      <p className="mb-3 text-terminal-text leading-relaxed">
+        {Array.isArray(children) ? children.map((child, i) =>
           typeof child === 'string' ? highlightKeywords(child) : child
         ) : highlightKeywords(children)}
       </p>
@@ -160,17 +160,17 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Lists
     ul: ({ children }) => (
-      <ul className="list-disc ml-6 mb-4 space-y-1.5 text-terminal-text/90">
+      <ul className="list-disc ml-6 mb-4 space-y-1.5 text-terminal-text">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="list-decimal ml-6 mb-4 space-y-1.5 text-terminal-text/90">
+      <ol className="list-decimal ml-6 mb-4 space-y-1.5 text-terminal-text">
         {children}
       </ol>
     ),
     li: ({ children }) => (
-      <li className="leading-relaxed">
+      <li className="leading-relaxed text-terminal-text">
         {children}
       </li>
     ),
@@ -218,7 +218,7 @@ export const createMarkdownComponents = (keywords = []) => {
     blockquote: ({ children }) => {
       // Check for alert syntax
       const alertInfo = parseAlertType(children?.props?.children || children);
-      
+
       if (alertInfo) {
         return (
           <AlertBox type={alertInfo.type}>
@@ -228,7 +228,7 @@ export const createMarkdownComponents = (keywords = []) => {
       }
 
       return (
-        <blockquote className="border-l-4 border-terminal-border/50 pl-4 my-4 text-terminal-text/70 italic">
+        <blockquote className="border-l-4 border-terminal-border pl-4 my-4 text-terminal-text/80 italic">
           {children}
         </blockquote>
       );
@@ -263,15 +263,15 @@ export const createMarkdownComponents = (keywords = []) => {
       </th>
     ),
     td: ({ children }) => (
-      <td className="border border-terminal-border/30 px-4 py-2 text-terminal-text/90">
+      <td className="border border-terminal-border/30 px-4 py-2 text-terminal-text">
         {children}
       </td>
     ),
 
     // Links
     a: ({ href, children }) => (
-      <a 
-        href={href} 
+      <a
+        href={href}
         className="text-terminal-accent underline hover:text-terminal-glow transition-colors"
         target="_blank"
         rel="noopener noreferrer"
@@ -290,10 +290,10 @@ export const createMarkdownComponents = (keywords = []) => {
 // Extract headings for Table of Contents
 export const extractHeadings = (markdown) => {
   if (!markdown) return [];
-  
+
   const headings = [];
   const lines = markdown.split('\n');
-  
+
   for (const line of lines) {
     // Match ## or ### headings
     const match = line.match(/^(#{1,3})\s+(.+)/);
@@ -301,7 +301,7 @@ export const extractHeadings = (markdown) => {
       const level = match[1].length;
       const title = match[2].trim();
       const id = generateSectionId(title);
-      
+
       headings.push({
         level,
         title,
@@ -311,7 +311,7 @@ export const extractHeadings = (markdown) => {
       });
     }
   }
-  
+
   return headings;
 };
 

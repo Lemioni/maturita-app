@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaCheck, FaTimes, FaRedo, FaChevronDown, FaRandom, FaMinus, FaPlus } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
 
-const QuizMode = ({ filter }) => {
+const QuizMode = ({ filter, subjectFilter }) => {
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [questionCount, setQuestionCount] = useState(5);
@@ -14,6 +14,11 @@ const QuizMode = ({ filter }) => {
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
+
+    // Apply subject filter
+    if (subjectFilter && subjectFilter !== 'all') {
+      filtered = filtered.filter(q => q.category === subjectFilter);
+    }
 
     // Get progress from localStorage
     const progressData = JSON.parse(localStorage.getItem('maturita-progress') || '{}');
@@ -29,7 +34,7 @@ const QuizMode = ({ filter }) => {
     const shuffled = filtered.sort(() => Math.random() - 0.5);
     setAllQuestions(shuffled);
     resetQuiz(shuffled, questionCount);
-  }, [filter]);
+  }, [filter, subjectFilter]);
 
   const resetQuiz = (questions, count) => {
     setQuizQuestions(questions.slice(0, count));

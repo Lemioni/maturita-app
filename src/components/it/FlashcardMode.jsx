@@ -4,13 +4,21 @@ import { Link } from 'react-router-dom';
 import flashcardsData from '../../data/flashcards-data.json';
 import itQuestionsData from '../../data/it-questions.json';
 
-const FlashcardMode = ({ filter }) => {
+const FlashcardMode = ({ filter, subjectFilter }) => {
   const [flashcards, setFlashcards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     let filtered = [...flashcardsData.flashcards];
+
+    // Apply subject filter
+    if (subjectFilter && subjectFilter !== 'all') {
+      filtered = filtered.filter(card => {
+        const question = itQuestionsData.questions.find(q => q.id === card.questionId);
+        return question && question.category === subjectFilter;
+      });
+    }
 
     // Get progress from localStorage
     const progressData = JSON.parse(localStorage.getItem('maturita-progress') || '{}');
@@ -31,7 +39,7 @@ const FlashcardMode = ({ filter }) => {
     setFlashcards(filtered);
     setCurrentIndex(0);
     setIsFlipped(false);
-  }, [filter]);
+  }, [filter, subjectFilter]);
 
   const currentFlashcard = flashcards[currentIndex];
   const parentQuestion = currentFlashcard

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { FaList, FaLayerGroup, FaQuestion, FaCheck, FaTimes, FaBook } from 'react-icons/fa';
+import { FaList, FaLayerGroup, FaQuestion, FaCheck, FaTimes, FaBook, FaGraduationCap, FaStream } from 'react-icons/fa';
 import BookList from '../components/cj/BookList';
-import FlashcardMode from '../components/cj/FlashcardMode';
 import QuizMode from '../components/cj/QuizMode';
+import MockExamMode from '../components/cj/MockExamMode';
+import TimelineMode from '../components/cj/TimelineMode';
 
 const CJPage = () => {
   const [mode, setMode] = useState('list');
@@ -11,7 +12,9 @@ const CJPage = () => {
   const modes = [
     { id: 'list', icon: FaList, label: 'Seznam' },
     { id: 'quiz', icon: FaQuestion, label: 'Kvíz' },
-    { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcards' },
+    // { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcards' },
+    { id: 'mock', icon: FaGraduationCap, label: 'Potítko' },
+    { id: 'timeline', icon: FaStream, label: 'Časová osa' },
   ];
 
   const filters = [
@@ -65,8 +68,10 @@ const CJPage = () => {
       {/* Content */}
       <div>
         {mode === 'list' && <BookList filter={filter} />}
-        {mode === 'flashcard' && <FlashcardMode filter={filter} />}
+        {/* {mode === 'flashcard' && <FlashcardMode filter={filter} />} */}
         {mode === 'quiz' && <QuizMode filter={filter} />}
+        {mode === 'mock' && <MockExamMode filter={filter} />}
+        {mode === 'timeline' && <TimelineMode filter={filter} />}
       </div>
     </div>
   );

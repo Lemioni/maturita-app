@@ -203,11 +203,11 @@ const QuizMode = ({ filter }) => {
     if (stage === 'selection') {
         return (
             <div className="max-w-4xl mx-auto space-y-8 p-4">
-                <div className="grid md:grid-cols-2 gap-8 h-[400px]">
+                <div className="grid md:grid-cols-2 gap-8 md:h-[400px]">
                     {/* All Books Option */}
                     <button
                         onClick={() => handleSelectBook('all')}
-                        className="group relative flex flex-col items-center justify-center border border-terminal-border/30 hover:border-terminal-accent/50 bg-terminal-bg hover:bg-terminal-accent/5 transition-all duration-500 h-full"
+                        className="group relative flex flex-col items-center justify-center border border-terminal-border/30 hover:border-terminal-accent/50 bg-terminal-bg hover:bg-terminal-accent/5 transition-all duration-500 h-64 md:h-full w-full"
                     >
                         <div className="w-32 h-32 rounded-full border-2 border-terminal-accent/20 flex items-center justify-center group-hover:scale-110 group-hover:border-terminal-accent transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.2)] group-hover:shadow-[0_0_50px_rgba(0,255,150,0.1)]">
                             <FaGlobe className="text-5xl text-terminal-accent/80 group-hover:text-terminal-highlight transition-colors" />
@@ -215,7 +215,7 @@ const QuizMode = ({ filter }) => {
                     </button>
 
                     {/* Specific Book Option */}
-                    <div className="flex flex-col border border-terminal-border/30 bg-terminal-bg/30 h-full overflow-hidden">
+                    <div className="flex flex-col border border-terminal-border/30 bg-terminal-bg/30 h-96 md:h-full overflow-hidden w-full">
                         <div className="p-6 border-b border-terminal-border/20 bg-terminal-bg flex justify-center">
                             <div className="w-16 h-16 rounded-full border border-terminal-border/30 flex items-center justify-center">
                                 <FaBook className="text-2xl text-terminal-text/60" />

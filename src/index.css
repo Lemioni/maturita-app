@@ -32,7 +32,7 @@
   
   /* Markdown content styling */
   .markdown-body {
-    @apply text-terminal-text/90 leading-relaxed;
+    @apply text-terminal-text leading-relaxed;
   }
   
   .markdown-body > *:first-child {
