@@ -1,6 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaEye } from 'react-icons/fa';
-import { useEffect, useMemo, useState } from 'react';
+import { FaArrowLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useEffect, useMemo } from 'react';
 import itQuestionsData from '../data/it-questions.json';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { extractHeadings } from '../utils/markdownComponents';
@@ -8,13 +8,11 @@ import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
 import StructuredContent from '../components/common/StructuredContent';
-import FilePreviewModal from '../components/FilePreviewModal';
 
 const QuestionDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
-  const [showPreview, setShowPreview] = useState(false);
 
   // Scroll to top when component mounts or ID changes
   useEffect(() => {
@@ -117,18 +115,7 @@ const QuestionDetailPage = () => {
             </div>
             <h1 className="text-3xl font-bold text-terminal-accent mt-2">{question.question}</h1>
           </div>
-          {question.sourceFile && (
-            <div className="flex gap-2">
-              <button
-                onClick={() => setShowPreview(true)}
-                className="flex items-center gap-2 bg-terminal-button hover:bg-terminal-button-hover text-terminal-text px-4 py-2 rounded-lg transition-colors border border-terminal-border"
-                title="Zobrazit náhled"
-              >
-                <FaEye className="w-5 h-5" />
-                <span className="hidden sm:inline">Nahlédnout</span>
-              </button>
-            </div>
-          )}
+
         </div>
 
         {/* Checkbox */}
@@ -211,14 +198,7 @@ const QuestionDetailPage = () => {
         )}
       </div>
 
-      {/* Modal */}
-      {showPreview && question.sourceFile && (
-        <FilePreviewModal
-          fileUrl={question.sourceFile}
-          fileName={`Otázka ${question.id} - ${question.question}`}
-          onClose={() => setShowPreview(false)}
-        />
-      )}
+
     </div>
   );
 };
