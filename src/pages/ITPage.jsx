@@ -4,11 +4,12 @@ import QuestionList from '../components/it/QuestionList';
 
 import QuizMode from '../components/it/QuizMode';
 import itQuestionsData from '../data/it-questions.json';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const ITPage = () => {
   const [mode, setMode] = useState('list');
   const [filter, setFilter] = useState('all');
-  const [subjectFilter, setSubjectFilter] = useState('all');
+  const [subjectFilter, setSubjectFilter] = useLocalStorage('it-subject-filter', 'all');
 
   const modes = [
     { id: 'list', icon: FaList, label: 'Seznam' },

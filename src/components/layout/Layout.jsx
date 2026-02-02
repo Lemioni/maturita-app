@@ -1,4 +1,5 @@
 import Header from './Header';
+import ExperimentalMenu from '../experimental/ExperimentalMenu';
 
 const Layout = ({ children }) => {
   return (
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
           <p>&gt; MATURITA.APP © 2026</p>
         </div>
       </footer>
+      <ExperimentalMenu />
     </div>
   );
 };

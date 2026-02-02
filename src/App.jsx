@@ -8,21 +8,25 @@ import SearchPage from './pages/SearchPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
 import BookDetailPage from './pages/BookDetailPage';
 
+import { ExperimentalProvider } from './context/ExperimentalContext';
+
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/it" element={<ITPage />} />
-          <Route path="/it/question/:id" element={<QuestionDetailPage />} />
-          <Route path="/cj" element={<CJPage />} />
-          <Route path="/cj/book/:id" element={<BookDetailPage />} />
-          <Route path="/progress" element={<ProgressPage />} />
-          <Route path="/search" element={<SearchPage />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <ExperimentalProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/it" element={<ITPage />} />
+            <Route path="/it/question/:id" element={<QuestionDetailPage />} />
+            <Route path="/cj" element={<CJPage />} />
+            <Route path="/cj/book/:id" element={<BookDetailPage />} />
+            <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/search" element={<SearchPage />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ExperimentalProvider>
   );
 }
 

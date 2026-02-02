@@ -76,3 +76,14 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Experimental Highlighter */
+.experimental-highlighter-active strong,
+.experimental-highlighter-active b {
+  color: #fbbf24;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+  transition: all 0.3s ease;
+  padding: 0 2px;
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 2px;
+}

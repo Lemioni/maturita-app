@@ -774,14 +774,113 @@
         "směrování"
       ],
       "difficulty": "těžké",
-      "sourceFile": "/materialy/ICT1/PSI/Zkrácené/15. Adresace a směrování v síti.docx"
+      "sourceFile": "/materialy/ICT1/PSI/Zkrácené/15. Adresace a směrování v síti.docx",
+      "compactContent": {
+        "sections": [
+          {
+            "title": "Adresace a směrování v sítích",
+            "text": "Adresace a směrování jsou základní mechanismy, které umožňují datům najít cestu od odesílatele k příjemci napříč různými sítěmi."
+          },
+          {
+            "title": "1. Klíčové prvky v síti",
+            "items": [
+              {
+                "term": "PC (Hostitel)",
+                "definition": "Koncové zařízení s unikátní IP adresou. Generuje a přijímá data."
+              },
+              {
+                "term": "Switch (L2)",
+                "definition": "Spojuje zařízení v rámci LAN. Přepíná data podle MAC adres. Nepřiděluje IP adresy, jen doručuje rámce v lokálním segmentu."
+              },
+              {
+                "term": "Router (L3)",
+                "definition": "Propojuje různé sítě. Rozhoduje o cestě paketu na základě IP adres."
+              }
+            ]
+          },
+          {
+            "title": "2. Pokročilá adresace (Subnetting, CIDR, VLSM)",
+            "text": "Místo starého dělení na třídy (A, B, C) dnes používáme flexibilní metody:",
+            "items": [
+              {
+                "term": "CIDR (Classless Inter-Domain Routing)",
+                "definition": "Zápis adresy s prefixem (např. /24), který nahrazuje pevnou masku. Umožňuje spojovat sítě (supernetting) nebo je dělit."
+              },
+              {
+                "term": "Subnetting",
+                "definition": "Rozdělení jedné velké sítě na menší podsítě pro lepší správu a bezpečnost."
+              },
+              {
+                "term": "VLSM (Variable Length Subnet Masking)",
+                "definition": "\"Maska s proměnnou délkou\". Umožňuje v jedné síti použít různé masky (např. /30 pro spoj mezi routery a /26 pro kancelář). Šetří adresní prostor."
+              },
+              {
+                "term": "Základní výpočty",
+                "definition": "Počet hostitelů: 2^(32 - prefix) - 2 (odečítáme adresu sítě a broadcast). Maska: Převod prefixu na dekadický tvar (např. /26 = 255.255.255.192)."
+              }
+            ]
+          },
+          {
+            "title": "3. Směrování (Routing)",
+            "text": "Proces hledání cesty v směrovací tabulce. Ta obsahuje: Cílovou síť a masku. Next Hop: IP adresu sousedního routeru, kam se má paket poslat. Metriku: \"Cena\" cesty. Čím nižší, tím lepší.",
+            "items": [
+              {
+                "term": "Typy směrování",
+                "definition": "Statické: Cesty zadává správce ručně. Bezpečné a nenáročné na výkon, ale nepružné (při výpadku linky se nic nezmění). Dynamické: Routery si vyměňují informace o topologii pomocí protokolů a automaticky reagují na změny."
+              }
+            ]
+          },
+          {
+            "title": "4. Směrovací protokoly",
+            "items": [
+              {
+                "term": "RIP",
+                "definition": "Distance-Vector | Počet skoků (Hopy) | Max. 15 skoků (16 je nekonečno). Jednoduchý, ale pomalý."
+              },
+              {
+                "term": "OSPF",
+                "definition": "Link-State | Cena (šířka pásma) | Rychlá konvergence, počítá nejkratší cestu (algoritmus SPF)."
+              },
+              {
+                "term": "EIGRP",
+                "definition": "Hybridní (Cisco) | Šířka pásma + zpoždění | Velmi rychlý, ale proprietární (primárně pro Cisco zařízení)."
+              },
+              {
+                "term": "BGP",
+                "definition": "Path-Vector | Politiky / Autonomní systémy | Protokol celého Internetu. Směruje data mezi velkými sítěmi (ISP)."
+              }
+            ]
+          },
+          {
+            "title": "5. Směrovací metody (Přenosy)",
+            "items": [
+              {
+                "term": "Unicast",
+                "definition": "1 ↔ 1 (konkrétní cíl)."
+              },
+              {
+                "term": "Multicast",
+                "definition": "1 ↔ Skupina (např. streamování videa, IPTV)."
+              },
+              {
+                "term": "Broadcast",
+                "definition": "1 ↔ Všichni v síti (v IPv6 nahrazeno multicastem)."
+              }
+            ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Pokud se tě zeptají na Default Gateway (Výchozí bránu), je to IP adresa routeru, na kterou tvůj počítač posílá všechna data, která nejsou určena pro tvou lokální síť (tedy vše, co jde \"ven\" do internetu)."
+          }
+        ]
+      }
     },
     {
       "id": 16,
       "exam": "IKT1",
       "question": "Transportní, relační a prezentační vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "##\n\n16. Transportní, relační a prezentační vrstva modelu ISO/OSI\n\n**Transportní Vrstva \\(\n\n4. vrstva ISO/OSI\\)**-**Pozice:**\n\n Nachází se mezi síťovou vrstvou \\(\n\n3. vrstva\\) a relační vrstvou \\(\n\n5. vrstva\\).\n\n-\n\n### Funkce:\n\n\n1. **Spolehlivost** – Zajišťuje, že jsou data doručena bez chyb, v pořadí a kompletní.\n\n2. **Segmentace a rekonstrukce**\n\n– Rozděluje data na segmenty a zajišťuje jejich sprvné sestavení na straně příjemce.\n\n3. **Řízení toku** – Zabraňuje zahlcení příjemce daty \\(flow control\\).\n\n4. **Detekce a oprava chyb**\n\n– Identifikuje chyby během přenosu a provádí opakované přenosy.\n\n-\n\n### Bloky dat \\(PDU\\):\n\n Data přenášená transportní vrstvou jsou označována jako segmenty.\n\n- **Identifikace:**\n\n Segment obsahuje 3 části.\n\n1. **Čísla portů**\n\n– Určují, která aplikace na zařízení je zdrojem a cílem dat, např. port 80 pro http, port 443 pro HTTPS.\n\n2. **Sekvenční čísla** – Zajišťují doručení dat ve správném pořadí.\n\n3. **Kontrolní součet \\(checksum\\)** – Slouží k detekci chyb.\n\n-\n\n### Protokoly:\n\n\n1. **TCP \\(Transmission Control Protocol\\)**-\n\n### Účel:\n\n Spolehlivý, orientovaný na připojení.\n\n-\n\n### Funkce:\n\n Potvrzování, řízení toku a sekvenční číslování, detekce a oprava chyb\n\n- **Struktura segmentu TCP:**\n\n Hlavička obsahuje čísla portů, sekvenční číslo, potvrzovací číslo, kontrolní součet.¨\n\n1. **UDP \\(User Datagram Protocol\\):**\n\n-\n\n### Účel:\n\n Nespojovaný, lehký protokol.\n\n\n-\n\n### Funkce:\n\n Rychlý přenos dat bez potvrzování, vhodný pro streaming, online hry\n\n\n- **Struktura datagramu UDP:**\n\n Jednodušší hlavička než TCP, zahrnuje pouze čísla portů, délku a kontrolní součet.\n\n- **Zabezpečení spolehlivé komunikace:**\n\n1. **Potvrzování \\(ACK\\)**\n\n– Odesílatel očekává potvrzení přijetí dat.\n\n2. **Opakovaný přenos**\n\n– Pokud potvrzení nepřijde, data jsou znovu odeslána.\n\n3. **Kontrola toku**– Příjemce reguluje množství dat, která může přijmout.**Relační vrstva \\(\n\n5. vrstva ISO/OSI\\)**-**Pozice:**\n\n Nachází se nad transportní vrstvou a pod prezentační vrstvou.\n\n-\n\n### Funkce:\n\n\n1. **Správa relací** – Zahájení, udržování a ukončení relací mezi aplikacemi.\n\n2. **Synchronizace**\n\n– Synchronizační body, umožňují přenosu pokračovat po přerušení.\n\n3. **Řízení komunikace**– Určuje, která strana může aktuálně posílat či přijímat data.**Prezentační Vrstva \\(\n\n6. vrstva ISO/OSI\\)**-**Pozice:**\n\n Nachází se nad relační vrstvou a pod aplikační vrstvou.\n\n-\n\n### Funkce:\n\n\n1.\n\n### Kódování a dekódování\n\n\n– Převod mezi různými datovými formáty \\(ASCII, Unicode\\).\n\n2. **Komprese dat**\n\n– Snižuje velikost dat pro rychlejší přenos.\n\n3. **Šifrování a dešifrování**\n\n– Zvyšuje bezpečnost přenosu.\n\n-\n\n### Protokoly:\n\n\n1. **TLS \\(Transport Layer Security\\)**\n\n– Šifruje komunikaci a oveřuje identitu stran.\n\n2. **SSL \\(Secure Sockets Layer\\)**\n\n– Předchůdce TLS, dnes méně používaný.\n\n3. **JPEG, GIF, MP3**\n\n– Standardy pro formátování dat \\(obrázky, audio\\)\n\n- **Tabulky znaků:**\n\n ASCII, Unicode, EBCDIC\n\n- **Bezpečnostní Funkce:**\n\n**1\\) Šifrování dat**– Např. algoritmy AES, RSA.**2\\) Ochrana integrity**\n\n– Kontrola, zda se data během přenosu nezměnila.\n\n- **Rozšíření elektronické pošty:**\n\n-**MIME**\n\n– Umožňuje posílat ne\\-textové formáty \\(obrázky, zvuk\\)\n\n-\n\n### Typy kódování:\n\n##\n\n1. Base64– Kódování binárních dat do textového formátu.**2**.**Quoted\\-Printable**\n\n– Umožňuje přenos znaků mimo ASCII.\n\n",
+      "answer": "## 16. Transportní, relační a prezentační vrstva modelu ISO/OSI\n\n### Transportní Vrstva (4. vrstva ISO/OSI)\n* Pozice: Nachází se mezi síťovou vrstvou (3. vrstva) a relační vrstvou (5. vrstva).\n* Funkce:\n    1. Spolehlivost – Zajišťuje, že jsou data doručena bez chyb, v pořadí a kompletní.\n    2. Segmentace a rekonstrukce – Rozděluje data na segmenty a zajišťuje jejich sprvné sestavení na straně příjemce.\n    3. Řízení toku – Zabraňuje zahlcení příjemce daty (flow control).\n    4. Detekce a oprava chyb – Identifikuje chyby během přenosu a provádí opakované přenosy.\n* Bloky dat (PDU): Data přenášená transportní vrstvou jsou označována jako segmenty.\n* Identifikace: Segment obsahuje 3 části.\n    1. Čísla portů – Určují, která aplikace na zařízení je zdrojem a cílem dat, např. port 80 pro http, port 443 pro HTTPS.\n    2. Sekvenční čísla – Zajišťují doručení dat ve správném pořadí.\n    3. Kontrolní součet (checksum) – Slouží k detekci chyb.\n* Protokoly:\n    1. TCP (Transmission Control Protocol)\n        * Účel: Spolehlivý, orientovaný na připojení.\n        * Funkce: Potvrzování, řízení toku a sekvenční číslování, detekce a oprava chyb\n        * Struktura segmentu TCP: Hlavička obsahuje čísla portů, sekvenční číslo, potvrzovací číslo, kontrolní součet.\n    2. UDP (User Datagram Protocol):\n        * Účel: Nespojovaný, lehký protokol.\n        * Funkce: Rychlý přenos dat bez potvrzování, vhodný pro streaming, online hry\n        * Struktura datagramu UDP: Jednodušší hlavička než TCP, zahrnuje pouze čísla portů, délku a kontrolní součet.\n* Zabezpečení spolehlivé komunikace:\n    1. Potvrzování (ACK) – Odesílatel očekává potvrzení přijetí dat.\n    2. Opakovaný přenos – Pokud potvrzení nepřijde, data jsou znovu odeslána.\n    3. Kontrola toku – Příjemce reguluje množství dat, která může přijmout.\n\n### Relační vrstva (5. vrstva ISO/OSI)\n* Pozice: Nachází se nad transportní vrstvou a pod prezentační vrstvou.\n* Funkce: \n    1. Správa relací – Zahájení, udržování a ukončení relací mezi aplikacemi.\n    2. Synchronizace – Synchronizační body, umožňují přenosu pokračovat po přerušení.\n    3. Řízení komunikace – Určuje, která strana může aktuálně posílat či přijímat data.\n\n### Prezentační Vrstva (6. vrstva ISO/OSI)\n* Pozice: Nachází se nad relační vrstvou a pod aplikační vrstvou.\n* Funkce:\n    1. Kódování a dekódování – Převod mezi různými datovými formáty (ASCII, Unicode).\n    2. Komprese dat – Snižuje velikost dat pro rychlejší přenos.\n    3. Šifrování a dešifrování – Zvyšuje bezpečnost přenosu.\n* Protokoly:\n    1. TLS (Transport Layer Security) – Šifruje komunikaci a oveřuje identitu stran.\n    2. SSL (Secure Sockets Layer) – Předchůdce TLS, dnes méně používaný.\n    3. JPEG, GIF, MP3 – Standardy pro formátování dat (obrázky, audio)\n* Tabulky znaků: ASCII, Unicode, EBCDIC\n* Bezpečnostní Funkce:\n    1. Šifrování dat – Např. algoritmy AES, RSA.\n    2. Ochrana integrity – Kontrola, zda se data během přenosu nezměnila.\n* Rozšíření elektronické pošty:\n    * MIME – Umožňuje posílat ne-textové formáty (obrázky, zvuk)\n* Typy kódování:\n    1. Base64 – Kódování binárních dat do textového formátu.\n    2. Quoted-Printable – Umožňuje přenos znaků mimo ASCII.",
       "keywords": [
         "ISO/OSI",
         "TCP",
@@ -789,307 +888,120 @@
       ],
       "difficulty": "těžké",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/16. Transportní, relační a prezentační vrstva modelu ISO OSI.docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Transportní vrstva (4. vrstva ISO/OSI)",
-            "text": "Zajišťuje spolehlivou a efektivní komunikaci mezi aplikacemi. Umožňuje segmentaci dat, kontrolu toku a opakování přenosu při chybách.",
-            "subsections": [
-              {
-                "title": "Pozice a funkce",
-                "items": [
-                  "Nachází se mezi síťovou vrstvou (3.) a relační vrstvou (5.).",
-                  {
-                    "term": "Spolehlivost",
-                    "definition": "Zajišťuje, že data jsou doručena bez chyb, v pořadí a kompletní."
-                  },
-                  {
-                    "term": "Segmentace a rekonstrukce",
-                    "definition": "Rozděluje data na segmenty a zajišťuje jejich správné sestavení."
-                  },
-                  {
-                    "term": "Řízení toku",
-                    "definition": "Zabraňuje zahlcení příjemce daty (flow control)."
-                  },
-                  {
-                    "term": "Detekce a oprava chyb",
-                    "definition": "Identifikuje chyby a provádí opakované přenosy."
-                  }
-                ]
-              },
-              {
-                "title": "Bloky dat a jejich identifikace",
-                "text": "Data přenášená transportní vrstvou jsou segmenty.",
-                "items": [
-                  {
-                    "term": "Čísla portů",
-                    "definition": "Určují, která aplikace je zdrojem a cílem (např. port 80 pro HTTP, 443 pro HTTPS)."
-                  },
-                  {
-                    "term": "Sekvenční čísla",
-                    "definition": "Zajišťují doručení dat ve správném pořadí."
-                  },
-                  {
-                    "term": "Kontrolní součet (checksum)",
-                    "definition": "Slouží k detekci chyb."
-                  }
-                ]
-              },
-              {
-                "title": "Protokoly",
-                "items": [
-                  {
-                    "term": "TCP (Transmission Control Protocol)",
-                    "definition": "Spolehlivý, orientovaný na připojení. Potvrzování, řízení toku, sekvenční číslování, detekce a oprava chyb."
-                  },
-                  {
-                    "term": "UDP (User Datagram Protocol)",
-                    "definition": "Nespojovaný, lehký protokol. Rychlý přenos bez potvrzování. Vhodný pro streaming, VoIP, online hry."
-                  }
-                ]
-              },
-              {
-                "title": "Zabezpečení spolehlivé komunikace",
-                "items": [
-                  {
-                    "term": "Potvrzování (ACK)",
-                    "definition": "Odesílatel očekává potvrzení přijetí dat."
-                  },
-                  {
-                    "term": "Opakovaný přenos",
-                    "definition": "Pokud potvrzení nepřijde, data jsou znovu odeslána."
-                  },
-                  {
-                    "term": "Kontrola toku",
-                    "definition": "Příjemce reguluje množství dat, která může přijmout."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Relační vrstva (5. vrstva ISO/OSI)",
-            "text": "Zodpovědná za řízení a udržování relace (session) mezi dvěma zařízeními nebo aplikacemi.",
-            "subsections": [
-              {
-                "title": "Pozice a funkce",
-                "items": [
-                  "Nachází se nad transportní vrstvou a pod prezentační vrstvou.",
-                  {
-                    "term": "Správa relací",
-                    "definition": "Zahájení, udržování a ukončení relací mezi aplikacemi."
-                  },
-                  {
-                    "term": "Synchronizace",
-                    "definition": "Vkládání synchronizačních bodů pro pokračování přenosu po přerušení."
-                  },
-                  {
-                    "term": "Řízení komunikace",
-                    "definition": "Určuje, která strana může aktuálně posílat nebo přijímat data."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Prezentační vrstva (6. vrstva ISO/OSI)",
-            "text": "Zodpovědná za formátování a kódování dat, aby je aplikace mohly snadno interpretovat.",
-            "subsections": [
-              {
-                "title": "Pozice a funkce",
-                "items": [
-                  "Nachází se nad relační vrstvou a pod aplikační vrstvou.",
-                  {
-                    "term": "Kódování a dekódování",
-                    "definition": "Převod mezi různými datovými formáty (např. ASCII, Unicode)."
-                  },
-                  {
-                    "term": "Komprese dat",
-                    "definition": "Snižuje velikost dat pro rychlejší přenos."
-                  },
-                  {
-                    "term": "Šifrování a dešifrování",
-                    "definition": "Zvyšuje bezpečnost přenosu."
-                  }
-                ]
-              },
-              {
-                "title": "Protokoly",
-                "items": [
-                  {
-                    "term": "TLS (Transport Layer Security)",
-                    "definition": "Šifrování komunikace a ověření identity stran."
-                  },
-                  {
-                    "term": "SSL (Secure Sockets Layer)",
-                    "definition": "Předchůdce TLS, dnes méně používaný."
-                  },
-                  {
-                    "term": "JPEG, GIF, MP3",
-                    "definition": "Standardy pro formátování dat (obrázky, audio)."
-                  }
-                ]
-              },
-              {
-                "title": "Tabulky znaků a bezpečnostní funkce",
-                "items": [
-                  {
-                    "term": "Tabulky znaků",
-                    "definition": "ASCII, Unicode, EBCDIC."
-                  },
-                  {
-                    "term": "Šifrování dat",
-                    "definition": "Pomocí algoritmů AES, RSA."
-                  },
-                  {
-                    "term": "Ochrana integrity",
-                    "definition": "Kontrola, zda data nebyla během přenosu změněna."
-                  }
-                ]
-              },
-              {
-                "title": "Rozšíření elektronické pošty, typy kódování",
-                "items": [
-                  {
-                    "term": "MIME",
-                    "definition": "Multipurpose Internet Mail Extensions - umožňuje posílat ne-textové formáty."
-                  },
-                  {
-                    "term": "Base64",
-                    "definition": "Kódování binárních dat do textového formátu."
-                  },
-                  {
-                    "term": "Quoted-Printable",
-                    "definition": "Umožňuje přenos znaků mimo ASCII."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Transportní vrstva se zaměřuje na segmentaci, řízení toku a spolehlivost (TCP/UDP). Relační vrstva spravuje a synchronizuje relace. Prezentační vrstva provádí konverze a zajišťuje bezpečnost dat. Tyto vrstvy tvoří základ pro efektivní komunikaci aplikací."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Transportní vrstva (L4) 🚚",
+            "title": "1. Transportní vrstva (L4 – Transport Layer)",
+            "text": "Zajišťuje přenos dat mezi koncovými aplikacemi. Zatímco síťová vrstva doručí paket na správné PC, transportní vrstva ho doručí správnému programu.",
             "items": [
-              "4. vrstva - Spolehlivost a doručení dat aplikacím",
               {
-                "term": "Data",
-                "definition": "Segmenty (TCP) / Datagramy (UDP)"
+                "term": "PDU (Jednotka)",
+                "definition": "Segment."
               },
               {
-                "term": "Adresace",
-                "definition": "Porty (Služby)"
+                "term": "Identifikace",
+                "definition": "Pomocí čísel portů (např. HTTP = 80, HTTPS = 443)."
+              },
+              {
+                "term": "Socket",
+                "definition": "Spojení IP adresy a portu (např. 192.168.1.10:80)."
               }
             ]
           },
           {
-            "title": "Funkce L4 🛠️",
+            "title": "Hlavní funkce (Transportní vrstva)",
             "items": [
-              {
-                "term": "Spolehlivost",
-                "definition": "Garantované doručení"
-              },
               {
                 "term": "Segmentace",
-                "definition": "Dělení dat + Rekonstrukce"
+                "definition": "Rozdělení dat na menší kusy a jejich očíslování (sekvenční čísla)."
               },
               {
-                "term": "Flow Control",
-                "definition": "Řízení toku (aby se nepřeplnil)"
+                "term": "Řízení toku (Flow Control)",
+                "definition": "Příjemce říká odesílateli, jak rychle může data posílat."
               },
               {
-                "term": "Error Correction",
-                "definition": "Oprava chyb (Retransmise)"
+                "term": "Kontrolní součet (Checksum)",
+                "definition": "Detekce poškození segmentu."
               }
             ]
           },
           {
-            "title": "TCP Protokol (Transmission Control) 🛡️",
+            "title": "Srovnání klíčových protokolů",
             "items": [
               {
                 "term": "Typ",
-                "definition": "Spojovaný (Connection-oriented)"
+                "definition": "TCP: Spojovaný (před přenosem se naváže spojení) | UDP: Nespojovaný (data se prostě pošlou)"
               },
               {
-                "term": "Vlastnosti",
-                "definition": "Spolehlivý, Potvrzování (ACK)"
+                "term": "Spolehlivost",
+                "definition": "TCP: Vysoká – potvrzuje přijetí (ACK), chyby opravuje | UDP: Nízká – nic nepotvrzuje, ztráty neřeší"
               },
               {
-                "term": "Segment",
-                "definition": "Porty + SEQ + ACK + Checksum"
+                "term": "Rychlost",
+                "definition": "TCP: Pomalý (kvůli režii a potvrzování) | UDP: Velmi rychlý (minimální hlavička)"
               },
               {
-                "term": "Handshake",
-                "definition": "3-way (SYN, SYN-ACK, ACK)"
+                "term": "Využití",
+                "definition": "TCP: Web (HTTP), E-mail, soubory (FTP) | UDP: Streaming, online hry, VoIP, DNS"
               }
             ]
           },
           {
-            "title": "UDP Protokol (User Datagram) 🚀",
+            "title": "2. Relační vrstva (L5 – Session Layer)",
+            "text": "Spravuje dialog mezi aplikacemi. Organizuje zahájení, průběh a ukončení komunikace.",
             "items": [
               {
-                "term": "Typ",
-                "definition": "Nespojovaný (Connectionless)"
+                "term": "Správa relací",
+                "definition": "Udržuje spojení otevřené (např. přihlášení uživatele k serveru)."
               },
               {
-                "term": "Vlastnosti",
-                "definition": "Rychlý, Bez záruky (Best effort)"
+                "term": "Synchronizace",
+                "definition": "Vkládá do dat \"záchytné body\". Pokud spojení vypadne, přenos se nemusí opakovat od začátku, ale od posledního bodu."
               },
               {
-                "term": "Použití",
-                "definition": "Streaming, Hry, VoIP, DNS"
-              },
-              {
-                "term": "Datagram",
-                "definition": "Porty + Délka + Checksum"
+                "term": "Řízení komunikace",
+                "definition": "Určuje, kdo zrovna mluví (poloduplex / plný duplex)."
               }
             ]
           },
           {
-            "title": "Relační vrstva (L5) 🤝",
+            "title": "3. Prezentační vrstva (L6 – Presentation Layer)",
+            "text": "Zajišťuje, aby data byla pro obě strany čitelná (\"překladatelská služba\").",
             "items": [
-              "5. vrstva - Řízení relace (Session)",
-              {
-                "term": "Funkce",
-                "definition": "Start/Stop relace, Synchronizace"
-              },
-              {
-                "term": "Řízení",
-                "definition": "Simplex / Half / Full-Duplex"
-              },
-              {
-                "term": "Příklady",
-                "definition": "RPC, NetBIOS, SQL Session"
-              }
-            ]
-          },
-          {
-            "title": "Prezentační vrstva (L6) 🎨",
-            "items": [
-              "6. vrstva - Formát dat",
               {
                 "term": "Kódování",
-                "definition": "Převod (ASCII, Unicode)"
+                "definition": "Převod znakových sad (ASCII, Unicode/UTF-8)."
               },
               {
                 "term": "Komprese",
-                "definition": "Zmenšení (ZIP, JPEG)"
+                "definition": "Zmenšení objemu dat (např. ZIP, JPEG, MP3)."
               },
               {
                 "term": "Šifrování",
-                "definition": "Bezpečnost (TLS/SSL)"
-              },
-              {
-                "term": "MIME",
-                "definition": "Typy souborů v mailu"
+                "definition": "Zajištění bezpečnosti (standardy TLS – dříve SSL)."
               }
             ]
+          },
+          {
+            "title": "Formáty a standardy",
+            "items": [
+              {
+                "term": "MIME",
+                "definition": "Umožňuje e-mailu přenášet i fotky a přílohy, ne jen holý text."
+              },
+              {
+                "term": "Base64",
+                "definition": "Metoda kódování binárních dat (obrázků) do textových znaků."
+              },
+              {
+                "term": "Datové typy",
+                "definition": "JPEG, GIF (obrázky), MPEG (video), XML, JSON (strukturovaná data)."
+              }
+            ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Pokud se tě zeptají, kde probíhá šifrování HTTPS, správná odpověď je, že moderní protokol TLS začíná na pomezí Transportní a Prezentační vrstvy. A nezapomeň: TCP garantuje pořadí (pokud segmenty dorazí \"napřeskáčku\", TCP je podle sekvenčních čísel seřadí)."
           }
         ]
       }
@@ -1099,7 +1011,7 @@
       "exam": "IKT1",
       "question": "Aplikační vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "##\n\n17. Aplikační vrstva modelu ISO/OSI\n\n**Pozice v modelu ISO/OSI**\n\n- Nachází se na\n\n7. a poslední pozici v modelu ISO/OSI.** Funkce:**\n\n1. **Poskytování rozhraní pro aplikace** – Poskytuje aplikacím služby pro komunikaci přes síť. Požadavky se zasílají na jiné zařízení či server.\n\n2. **Sběr a zpracování dat** – Sbírá data a připravuje je na přenos do nižších vrstev, může zahrnovat kódování dat do určitého formátu či šifrování.\n\n3. **Řízení komunikace mezi aplikacemi**– Zařizuje správné směrování mezi aplikacemi na různých zařízeních v síti.**DNS Systém**:\n\n-\n\n### Účel:\n\n Slouží k překladu doménových jmen na IP adresy.\n\n-\n\n### Funkce:\n\n Umožňuje uživateli připojit se k webovce či jiné službě pomocí lehkého jména místo IP adres.\n\n- **Struktura:**\n\n Používá hierarchickou strukturu domén, nejvyšší úroveň např .com, .org, následuje název domény a případné subdomény.\n\n- **Princip komunikace:**\n\nZadání doménového jména \\-> odešle DNS dotaz na DNS server \\-> vráti odpověď v IP adrese.**WWW \\(World Wide Web\\):**\n\n-\n\n### Účel:\n\n Způsob pro vyhledávání a zobrazení dokumentů pomocí prohlížeče, obsah obvykle dostupný ve formátu HTML \\(HyperText Markup Language\\).\n\n-\n\n### Funkce:\n\n Webovky jsou hostovány na serverech a jsou přístupné skrz prohlížeč, který používá protokol HTTP / HTTPS\n\n- **Protokol a použití:**\n\nHTTP \\(HyperText Transfer Protocol\\) – Je na přenos stránek mezi webovými servery a klienty .**URL \\(Uniform Resource Locator\\):**\n\n-\n\n### Účel:\n\n Jedinečný identifikátor pro zdroje na internetu.\n\n- **Struktura:**\n\n1. **Protokol \\(HTTP, HTTPS, FTP aj.\\)** – Určuje jaký protokol použijeme při komunikaci.\n\n2. **Doménové jméno \\(např**[**www.google.com**](http://www.google.com)\\) – Určuje server.\n\n3. **Cesta**\n\n– Určuje konkrétní soubor/stránku serveru \\(např. /about\\)\n\n4. **Porty a parametry \\(např**.**?id=123\\).**\n\n**Základní protokoly:**\n\n1. **HTTP \\(HyperText Transfer Protocol\\)**-\n\n### Účel:\n\n Přenos hypertextových dokumentů.\n\n-\n\n### Funkce:\n\n Určuje jak jsou požadavky/odpovědi na serveru zpracovány.\n\n- **Struktura komunikace:**\n\n1. **Požadavek**\n\n– Klient \\(prohlížeč\\) odešle požadavek s metodou \\(GET, POST, PUT, DELETE\\) a cílovou URL\n\n2. **Odpověď**\n\n– Server vrací odpověď ve formě HTML dokumentu, obrázků, souborů.\n\n- **Stavové kódy:**\n\n1. **200 OK**\n\n– Požadavek zpracován úspěšně.\n\n2. **404 Not Found**\n\n– Požadavek nenalezen.\n\n3. **500 Internal Server Error**\n\n– Chyba na straně serveru.\n\n4. **FTP \\(File Transfer Protocol\\):**\n\n-\n\n### Účel:\n\n Přenos souborů mezi klientem a serverem.\n\n-\n\n### Funkce:\n\n Umožňuje uživatelům nahrávat, stahovat, přejmenovávat, mazat soubory na serveru.\n\n- **Struktura:**\n\n Používá komunikační spojení pro příkazy a pro přenos dat.\n\n- **Princip komunikace:**\n\nKlient odešle příkaz serveru pro přenos souborů a server vrací odpověď.**Elektronická pošta:**\n\n-\n\n### Účel:\n\n Umožňuje uživatelům odesílat/přijímat zprávy, přílohy mezi zařízeními a uživ. účty, <a id=\"_Hlk192670809\"></a>je to rychlý a efektivní způsob jak komunikovat na dálku.\n\n-\n\n### Protokoly:\n\n\n1. **SMTP \\(Simple Mail Transfer Protocol\\)**-\n\n### Účel:\n\n Pro odesílání emailů ze serveru na server.\n\n- **Princip:**\n\n Odesílá zprávy mezi e\\-mailovými servery.\n\n1. **POP3 \\(Post Office Protocol 3\\)**-\n\n### Účel:\n\n Stahování emailů ze serveru na kleinta.\n\n- **Princip:**\n\n Kliente si stáhne zprávy na své zařízení a zprávy jsou na serveru smazány \\(obvykle\\).\n\n1. **IMAP \\(Internet Message Access Protocol\\)**-\n\n### Účel:\n\n Přístup pro klienta k emailům uloženým na serveru bez stahování.\n\n- **Princip:**\n\n Uživatel má přístup k emailům na serveru a může je třídit a spravovat.\n\n- **Princip komunikace:**\n\n1. Odesílatel použije SMTP pro odeslání zprávy na e\\-mailový server.\n\n2. Server jí doručí na příjemcův server.\n\n3. Příjemce může stáhnout POP3 či IMAP.\n\n4. E\\-mailové klienty komunikují se servery skrz tyto protokoly.\n\n",
+      "answer": "## 17. Aplikační vrstva modelu ISO/OSI\n\n### Pozice v modelu ISO/OSI\n* Nachází se na 7. a poslední pozici v modelu ISO/OSI.\n\n### Funkce:\n1. Poskytování rozhraní pro aplikace – Poskytuje aplikacím služby pro komunikaci přes síť. Požadavky se zasílají na jiné zařízení či server.\n2. Sběr a zpracování dat – Sbírá data a připravuje je na přenos do nižších vrstev, může zahrnovat kódování dat do určitého formátu či šifrování.\n3. Řízení komunikace mezi aplikacemi – Zařizuje správné směrování mezi aplikacemi na různých zařízeních v síti.\n\n### DNS Systém:\n* Účel: Slouží k překladu doménových jmen na IP adresy.\n* Funkce: Umožňuje uživateli připojit se k webovce či jiné službě pomocí lehkého jména místo IP adres.\n* Struktura: Používá hierarchickou strukturu domén, nejvyšší úroveň např .com, .org, následuje název domény a případné subdomény.\n* Princip komunikace: Zadání doménového jména -> odešle DNS dotaz na DNS server -> vráti odpověď v IP adrese.\n\n### WWW (World Wide Web):\n* Účel: Způsob pro vyhledávání a zobrazení dokumentů pomocí prohlížeče, obsah obvykle dostupný ve formátu HTML (HyperText Markup Language).\n* Funkce: Webovky jsou hostovány na serverech a jsou přístupné skrz prohlížeč, který používá protokol HTTP / HTTPS\n* Protokol a použití: HTTP (HyperText Transfer Protocol) – Je na přenos stránek mezi webovými servery a klienty .\n\n### URL (Uniform Resource Locator):\n* Účel: Jedinečný identifikátor pro zdroje na internetu.\n* Struktura:\n    1. Protokol (HTTP, HTTPS, FTP aj.) – Určuje jaký protokol použijeme při komunikaci.\n    2. Doménové jméno (např www.google.com) – Určuje server.\n    3. Cesta – Určuje konkrétní soubor/stránku serveru (např. /about)\n    4. Porty a parametry (např. ?id=123).\n\n### Základní protokoly:\n1. HTTP (HyperText Transfer Protocol)\n    * Účel: Přenos hypertextových dokumentů.\n    * Funkce: Určuje jak jsou požadavky/odpovědi na serveru zpracovány.\n    * Struktura komunikace:\n        1. Požadavek – Klient (prohlížeč) odešle požadavek s metodou (GET, POST, PUT, DELETE) a cílovou URL\n        2. Odpověď – Server vrací odpověď ve formě HTML dokumentu, obrázků, souborů.\n    * Stavové kódy:\n        1. 200 OK – Požadavek zpracován úspěšně.\n        2. 404 Not Found – Požadavek nenalezen.\n        3. 500 Internal Server Error – Chyba na straně serveru.\n2. FTP (File Transfer Protocol):\n    * Účel: Přenos souborů mezi klientem a serverem.\n    * Funkce: Umožňuje uživatelům nahrávat, stahovat, přejmenovávat, mazat soubory na serveru.\n    * Struktura: Používá komunikační spojení pro příkazy a pro přenos dat.\n    * Princip komunikace: Klient odešle příkaz serveru pro přenos souborů a server vrací odpověď.\n\n### Elektronická pošta:\n* Účel: Umožňuje uživatelům odesílat/přijímat zprávy, přílohy mezi zařízeními a uživ. účty, je to rychlý a efektivní způsob jak komunikovat na dálku.\n* Protokoly:\n    1. SMTP (Simple Mail Transfer Protocol)\n        * Účel: Pro odesílání emailů ze serveru na server.\n        * Princip: Odesílá zprávy mezi e-mailovými servery.\n    2. POP3 (Post Office Protocol 3)\n        * Účel: Stahování emailů ze serveru na kleinta.\n        * Princip: Kliente si stáhne zprávy na své zařízení a zprávy jsou na serveru smazány (obvykle).\n    3. IMAP (Internet Message Access Protocol)\n        * Účel: Přístup pro klienta k emailům uloženým na serveru bez stahování.\n        * Princip: Uživatel má přístup k emailům na serveru a může je třídit a spravovat.\n    * Princip komunikace:\n        1. Odesílatel použije SMTP pro odeslání zprávy na e-mailový server.\n        2. Server jí doručí na příjemcův server.\n        3. Příjemce může stáhnout POP3 či IMAP.\n        4. E-mailové klienty komunikují se servery skrz tyto protokoly.",
       "keywords": [
         "ISO/OSI",
         "aplikační vrstva",
@@ -1107,301 +1019,106 @@
       ],
       "difficulty": "střední",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/17. Aplikační vrstva modelu ISO OSI.docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Pozice vrstvy v modelu a její funkce",
-            "subsections": [
-              {
-                "title": "Pozice v modelu",
-                "items": [
-                  "Aplikační vrstva je na 7. pozici v modelu ISO/OSI.",
-                  "Leží nad všemi ostatními vrstvami a zajišťuje přímý přístup aplikací k síti.",
-                  "Je jedinou vrstvou, která je v přímém kontaktu s uživatelskými aplikacemi."
-                ]
-              },
-              {
-                "title": "Funkce",
-                "items": [
-                  {
-                    "term": "Poskytování rozhraní pro aplikace",
-                    "definition": "Poskytuje aplikacím služby pro komunikaci přes síť."
-                  },
-                  {
-                    "term": "Sběr a zpracování dat",
-                    "definition": "Podílí se na sběru dat a jejich přípravě pro přenos do nižších vrstev, včetně kódování a šifrování."
-                  },
-                  {
-                    "term": "Řízení komunikace mezi aplikacemi",
-                    "definition": "Stará se o správné směrování dat mezi aplikacemi na různých zařízeních."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "DNS systém, WWW služba, URL",
-            "subsections": [
-              {
-                "title": "DNS (Domain Name System)",
-                "items": [
-                  {
-                    "term": "Účel",
-                    "definition": "Slouží k překladu doménových jmen na IP adresy (např. www.google.com → IP adresa serveru)."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Umožňuje uživatelům připojit se k webovým stránkám pomocí snadno zapamatovatelných jmen."
-                  },
-                  {
-                    "term": "Struktura",
-                    "definition": "Hierarchická struktura domén - nejvyšší úroveň (.com, .org), název domény, subdomény."
-                  },
-                  {
-                    "term": "Princip",
-                    "definition": "Při zadání doménového jména je odeslán DNS dotaz, který vrátí odpověď ve formě IP adresy."
-                  }
-                ]
-              },
-              {
-                "title": "WWW služba (World Wide Web)",
-                "items": [
-                  {
-                    "term": "Účel",
-                    "definition": "Poskytuje způsob pro vyhledávání a zobrazování dokumentů na internetu pomocí prohlížeče."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Webové stránky jsou hostovány na serverech a přístupné přes HTTP/HTTPS protokoly."
-                  },
-                  {
-                    "term": "Protokol",
-                    "definition": "HTTP (HyperText Transfer Protocol) je protokol pro přenos dat mezi servery a klienty."
-                  }
-                ]
-              },
-              {
-                "title": "URL (Uniform Resource Locator)",
-                "text": "Jedinečný identifikátor pro zdroje na internetu.",
-                "items": [
-                  {
-                    "term": "Protokol",
-                    "definition": "HTTP, HTTPS, FTP - určuje protokol pro komunikaci."
-                  },
-                  {
-                    "term": "Doménové jméno",
-                    "definition": "Specifikuje server (např. www.google.com)."
-                  },
-                  {
-                    "term": "Cesta",
-                    "definition": "Určuje konkrétní soubor nebo stránku na serveru (např. /about)."
-                  },
-                  "Volitelně port a parametry (např. ?id=123)."
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Základní protokoly",
-            "subsections": [
-              {
-                "title": "HTTP (HyperText Transfer Protocol)",
-                "items": [
-                  {
-                    "term": "Účel",
-                    "definition": "Protokol pro přenos hypertextových dokumentů v rámci WWW."
-                  },
-                  {
-                    "term": "Struktura",
-                    "definition": "Požadavek (metody GET, POST, PUT, DELETE) a odpověď (HTML, obrázky, soubory)."
-                  },
-                  {
-                    "term": "Princip",
-                    "definition": "Klient odešle požadavek, server vrátí odpověď s daty."
-                  }
-                ]
-              },
-              {
-                "title": "Stavové kódy HTTP",
-                "items": [
-                  {
-                    "term": "200 OK",
-                    "definition": "Požadavek byl úspěšně zpracován."
-                  },
-                  {
-                    "term": "404 Not Found",
-                    "definition": "Požadovaná stránka nebyla nalezena."
-                  },
-                  {
-                    "term": "500 Internal Server Error",
-                    "definition": "Došlo k chybě na straně serveru."
-                  }
-                ]
-              },
-              {
-                "title": "FTP (File Transfer Protocol)",
-                "items": [
-                  {
-                    "term": "Účel",
-                    "definition": "Přenos souborů mezi klientem a serverem."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Nahrávání, stahování, přejmenovávání nebo mazání souborů."
-                  },
-                  {
-                    "term": "Struktura",
-                    "definition": "Používá dvě spojení - jedno pro příkazy, druhé pro přenos dat."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Elektronická pošta",
-            "text": "E-mail umožňuje uživatelům odesílat a přijímat zprávy a přílohy mezi různými zařízeními.",
-            "subsections": [
-              {
-                "title": "Protokoly",
-                "items": [
-                  {
-                    "term": "SMTP",
-                    "definition": "Simple Mail Transfer Protocol - odesílání e-mailů ze serveru na server."
-                  },
-                  {
-                    "term": "POP3",
-                    "definition": "Post Office Protocol 3 - stahování e-mailů ze serveru na klienta (zprávy jsou obvykle smazány)."
-                  },
-                  {
-                    "term": "IMAP",
-                    "definition": "Internet Message Access Protocol - přístup k e-mailům na serveru bez jejich stahování."
-                  }
-                ]
-              },
-              {
-                "title": "Princip komunikace",
-                "text": "Odesílatel používá SMTP pro odeslání zprávy na server, který ji doručí na příjemcův server, odkud ji příjemce stáhne pomocí POP3 nebo IMAP."
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Aplikační vrstva zajišťuje konektivitu mezi aplikacemi a podkladovými vrstvami. Používá protokoly DNS, HTTP, FTP, SMTP, IMAP a POP3 pro širokou škálu internetových služeb od webových stránek po elektronickou poštu."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Aplikační vrstva (L7) 🖥️",
+            "title": "1. Funkce a význam",
+            "text": "Aplikační vrstva je rozhraním mezi člověkem a sítí. Zajišťuje, aby data z programů (Chrome, Outlook) byla srozumitelná pro zbytek sítě.",
             "items": [
-              "7. vrstva - Rozhraní pro uživatele",
               {
-                "term": "Funkce",
-                "definition": "Služby (Web, Mail, FS)"
+                "term": "Sběr dat",
+                "definition": "Příprava dat pro přenos."
               },
               {
-                "term": "Interakce",
-                "definition": "Přímo s aplikací"
+                "term": "Identifikace partnerů",
+                "definition": "Ověření, zda je server na druhé straně \"na příjmu\"."
               }
             ]
           },
           {
-            "title": "Webové služby (HTTP/S) 🌐",
+            "title": "2. DNS (Domain Name System)",
+            "text": "Účel: Překlad textových adres (www.seznam.cz) na číselné IP adresy.",
             "items": [
               {
-                "term": "HTTP (80)",
-                "definition": "Nešifrovaný text"
+                "term": "Hierarchie",
+                "definition": "* Kořenový server (.) → TLD (.cz, .com) → 2. úroveň (google, idnes)."
               },
               {
-                "term": "HTTPS (443)",
-                "definition": "Šifrovaný (TLS)"
+                "term": "Záznam A",
+                "definition": "Překlad jména na IPv4."
               },
               {
-                "term": "Metody",
-                "definition": "GET, POST, PUT, DELETE"
+                "term": "Záznam AAAA",
+                "definition": "Překlad jména na IPv6."
+              },
+              {
+                "term": "Záznam MX",
+                "definition": "Určuje poštovní server pro danou doménu."
               }
             ]
           },
           {
-            "title": "DNS (Domain Name System) 📒",
+            "title": "3. WWW, HTTP a HTTPS",
             "items": [
               {
-                "term": "Port",
-                "definition": "53 (UDP/TCP)"
+                "term": "URL",
+                "definition": "Unikátní adresa (Protokol + Doména + Cesta)."
               },
               {
-                "term": "Funkce",
-                "definition": "Překlad Doména ↔ IP"
+                "term": "HTTP",
+                "definition": "Protokol pro přenos webu."
               },
               {
-                "term": "Struktura",
-                "definition": "Hierarchická (Root .cz .seznam)"
+                "term": "HTTPS",
+                "definition": "Šifrovaná varianta (port 443)."
               },
               {
-                "term": "Záznamy",
-                "definition": "A (IPv4), AAAA (IPv6), MX (Mail), CNAME (Alias)"
+                "term": "Stavové kódy",
+                "definition": "200 OK (Vše v pořádku), 301/302 (Přesměrování), 403 Forbidden (Zakázaný), 404 Not Found (Nenalezeno), 500 Internal Error (Chyba serveru)."
               }
             ]
           },
           {
-            "title": "E-mail ✉️",
+            "title": "4. Elektronická pošta (E-mail)",
             "items": [
               {
-                "term": "SMTP (25/587)",
-                "definition": "Odesílání pošty"
+                "term": "SMTP",
+                "definition": "Odesílání (od klienta na server)."
               },
               {
-                "term": "POP3 (110)",
-                "definition": "Stažení (lokálně)"
+                "term": "POP3",
+                "definition": "Stažení pošty (stáhne a ze serveru smaže)."
               },
               {
-                "term": "IMAP (143)",
-                "definition": "Synchronizace (na serveru)"
+                "term": "IMAP",
+                "definition": "Synchronizace (vše zůstává na serveru). Dnes standard."
               }
             ]
           },
           {
-            "title": "Přenos souborů 📁",
+            "title": "5. \"Bonusové\" protokoly pro L7",
             "items": [
               {
-                "term": "FTP (20/21)",
-                "definition": "File Transfer (Plain)"
+                "term": "DHCP",
+                "definition": "Automaticky přiděluje IP adresy, masky a brány."
               },
               {
-                "term": "SFTP (22)",
-                "definition": "Secure (SSH tunel)"
+                "term": "SSH",
+                "definition": "Bezpečný vzdálený přístup k příkazové řádce."
               },
               {
-                "term": "TFTP (69)",
-                "definition": "Trivial (Boot, UDP)"
+                "term": "Telnet",
+                "definition": "Starší, nezabezpečená verze SSH (nepoužívat!)."
+              },
+              {
+                "term": "FTP",
+                "definition": "Přenos souborů (Port 21 – řízení, Port 20 – data)."
               }
             ]
           },
           {
-            "title": "Správa a Ostatní 🛠️",
-            "items": [
-              {
-                "term": "DHCP (67/68)",
-                "definition": "Auto IP konfigurace"
-              },
-              {
-                "term": "SSH (22)",
-                "definition": "Secure Shell (Konzole)"
-              },
-              {
-                "term": "Telnet (23)",
-                "definition": "Nešifrované (Nepoužívat)"
-              },
-              {
-                "term": "SNMP (161)",
-                "definition": "Monitoring sítě"
-              },
-              {
-                "term": "NTP (123)",
-                "definition": "Synchronizace času"
-              }
-            ]
+            "title": "Tip k maturitě 💡",
+            "text": "Pokud se tě zeptají, jestli aplikační vrstva obsahuje i samotný prohlížeč (např. Google Chrome), odpověď je NE. Prohlížeč je aplikace, která vrstvu L7 pouze využívá (pomocí jejích protokolů)."
           }
         ]
       }
@@ -1411,7 +1128,7 @@
       "exam": "IKT1",
       "question": "Síťové prvky modelu ISO/OSI a strukturovaná kabeláž",
       "category": "Počítačové sítě",
-      "answer": "##\n\n18. Síťové prvky modelu ISO/OSI a strukturovaná kabeláž\n\n**Síťové Prvky**\n\n- Dělí se podle role v síti a funkce, kterou plní při přenosu a směrování dat:**\n\nRežimová zařízení**\n\n1. ** Hub \\(rozdělovač\\):**\n\n-**Konstrukce:**\n\n Jednoduché zařízení, skládá se z jednoho centrálního rozbočovače. Porty propojeny na centrální sběrnici.\n\n\n-\n\n### Funkce:\n\n Propojení zařízení v síti. Data, která přijdou na jeden port jsou vysílána na všechny ostatní porty.\n\n\n- **Použití:**\n\n Menší, nezabezpečené sítě, kde není nutné řídit přístup podle adres.\n\n2. **Switch \\(přepínač\\):**\n\n-**Konstrukce:**\n\n Obsahuje porty, jsou schopny přijímat a přeposílat data podle MAC adres.\n\n\n-\n\n### Funkce:\n\n Pracuje na druhé vrstvě ISO/OSI. Efektivně směruje rámce mezi zařízeními v síti, zvyšuje výkon sítě.\n\n\n- **Použití:**\n\n Pro větší sítě, kde je třeba efektivně směrovat data a minimalizovat kolize.\n\n3. **Router \\(směrovač\\):**\n\n-**Konstrukce:**\n\n Propojuje síťové segmenty a směruje pakety mezi nimi základě IP adres.\n\n\n-\n\n### Funkce:\n\n Pracuje na třetí vrstvě modelu ISO/OSI. Směruje pakety mezi podsítěmi či sítěmi.\n\n\n- **Použití:**\n\n Propojení lokálních sítí s internetem či různými částmi sítí.\n\n4. **Firewall:**\n\n-**Konstrukce:**\n\n Software či hardware zařízení, filtruje síťovou komunikaci podle bezpečnostních pravidel.\n\n\n-\n\n### Funkce:\n\n K ochraně sítě před neoprávněným přístupem a zajištění bezpečnosti.\n\n\n- **Použití:**\n\n Ochrana sítě před vnějšími hrozbami, např. firemní sítě, domácí sítě, datové centra\n\n5. **Bridge:**\n\n-**Konstrukce:**\n\n Propojuje dvě či více síťových segmentů a zajišťuje správný přenos.\n\n\n-\n\n### Funkce:\n\n Pracuje na linkové vrstvě ISO/OSI, zajišťuje efektivní rozdělení a správu provozu v síti.\n\n\n- **Použití:**\n\nSegmantace sítě, snížení kolizí, zlepšení výkonu sítě.**Schématické značky CISCO:**\n\n1. **Switch \\(Přepínač\\):**\n\n Čtvercová ikona s porty.\n\n2. **Router \\(Směrovač\\):**\n\n Čtverec s ikonou směrování či trojúhelník co značí síť.\n\n3. **Hub \\(Rozbočovač\\):**\n\n Malé zařízení s několika porty, bez pokročilých směrovacích funkcí.\n\n4. **Firewall:**\n\n Zařízení s ochranou ikonkou či zámkem.\n\n5. **Modem:**\n\nZařízení s dvěma připojeními – 1 pro PC a druhé pro telefonní linku.**Strukturovaná kabeláž:**\n\n-**Definice:**\n\nZpůsob a uspořádání a instalace kabelů, umožňuje snadnou údržbu, flexibilitu a správu sítě.\n\n### Komponenty strukturované kabeláže:\n\n\n1. **Kabely**\n\n– Používají se různé typy podle potřeby, např kroucená dvojlinka či optické vlákno\n\n2. **Racks**\n\n– Pro uložení síťových zařízení.\n\n3. **Panely** \\\n\n- Organizace připojení.\n\n4. **Jacks a zásuvky**\n\n– Připojení zařízení k síti. Jsou součástí kabeláže co spojuje zařízení s aktivními síťovými prvky.\n\n5. **Patch kabely**– Krátké kabely, jsou na propojení mezi zařízenímí a patch panely či mezi panely a racky.\n\n### Topologie:\n\n\n1. **Hvězdicová**\n\n– Všechna zařízení připojena k centrálnímu síťovému prvku \\(Switch či hub\\), topologie pro místní sítě.\n\n2. **Sběrnicová**\n\n– Zařízení připojena k jedinému kabelu \\(sběrnici\\), méně používaná, v minulosti běžná v ethernet sítích.\n\n3. **Kruhová**– Zařízení propojena do kruhu, data putují jedním směrem kolem sítě.**Kategorie kabeláže:**\n\n1. **Cat 5e \\(Category 5 Enhanced\\)** – Rychlost až 1000 Mbps, používána v místních sítích.\n\n2. **Cat 6**\n\n– Vylepšená verze, podporuje rychlosti až 10 Gbps na kratší vzdálenosti.\n\n3. **Cat 6a a Cat 7**– Vyšší přenosové rychlosti a větší šířka pásma pro datacentra a profesionální aplikace.**Rack:**\n\n1. **Rack Mount**\n\n– Slouží k montáži síťových zařízení a serverů. Správně splňuje standardy pro správné umístění zařízení, chlazení a správu kabeláže.\n\n2. **19\" rack**: Nejběžnější standard pro umístění síťových zařízení a serverů. V tomto racku je možné umístit až 42U zařízení \\(jednotky výšky\\).\n\n",
+      "answer": "## 18. Síťové prvky modelu ISO/OSI a strukturovaná kabeláž\n\n### Síťové Prvky\n* Dělí se podle role v síti a funkce, kterou plní při přenosu a směrování dat:\n\n### Režimová zařízení\n1. Hub (rozdělovač):\n    * Konstrukce: Jednoduché zařízení, skládá se z jednoho centrálního rozbočovače. Porty propojeny na centrální sběrnici.\n    * Funkce: Propojení zařízení v síti. Data, která přijdou na jeden port jsou vysílána na všechny ostatní porty.\n    * Použití: Menší, nezabezpečené sítě, kde není nutné řídit přístup podle adres.\n2. Switch (přepínač):\n    * Konstrukce: Obsahuje porty, jsou schopny přijímat a přeposílat data podle MAC adres.\n    * Funkce: Pracuje na druhé vrstvě ISO/OSI. Efektivně směruje rámce mezi zařízeními v síti, zvyšuje výkon sítě.\n    * Použití: Pro větší sítě, kde je třeba efektivně směrovat data a minimalizovat kolize.\n3. Router (směrovač):\n    * Konstrukce: Propojuje síťové segmenty a směruje pakety mezi nimi základě IP adres.\n    * Funkce: Pracuje na třetí vrstvě modelu ISO/OSI. Směruje pakety mezi podsítěmi či sítěmi.\n    * Použití: Propojení lokálních sítí s internetem či různými částmi sítí.\n4. Firewall:\n    * Konstrukce: Software či hardware zařízení, filtruje síťovou komunikaci podle bezpečnostních pravidel.\n    * Funkce: K ochraně sítě před neoprávněným přístupem a zajištění bezpečnosti.\n    * Použití: Ochrana sítě před vnějšími hrozbami, např. firemní sítě, domácí sítě, datové centra\n5. Bridge:\n    * Konstrukce: Propojuje dvě či více síťových segmentů a zajišťuje správný přenos.\n    * Funkce: Pracuje na linkové vrstvě ISO/OSI, zajišťuje efektivní rozdělení a správu provozu v síti.\n    * Použití: Segmantace sítě, snížení kolizí, zlepšení výkonu sítě.\n\n### Schématické značky CISCO:\n1. Switch (Přepínač): Čtvercová ikona s porty.\n2. Router (Směrovač): Čtverec s ikonou směrování či trojúhelník co značí síť.\n3. Hub (Rozbočovač): Malé zařízení s několika porty, bez pokročilých směrovacích funkcí.\n4. Firewall: Zařízení s ochranou ikonkou či zámkem.\n5. Modem: Zařízení s dvěma připojeními – 1 pro PC a druhé pro telefonní linku.\n\n### Strukturovaná kabeláž:\n* Definice: Způsob a uspořádání a instalace kabelů, umožňuje snadnou údržbu, flexibilitu a správu sítě.\n\n### Komponenty strukturované kabeláže:\n1. Kabely – Používají se různé typy podle potřeby, např kroucená dvojlinka či optické vlákno\n2. Racks – Pro uložení síťových zařízení.\n3. Panely - Organizace připojení.\n4. Jacks a zásuvky – Připojení zařízení k síti. Jsou součástí kabeláže co spojuje zařízení s aktivními síťovými prvky.\n5. Patch kabely – Krátké kabely, jsou na propojení mezi zařízenímí a patch panely či mezi panely a racky.\n\n### Topologie:\n1. Hvězdicová – Všechna zařízení připojena k centrálnímu síťovému prvku (Switch či hub), topologie pro místní sítě.\n2. Sběrnicová – Zařízení připojena k jedinému kabelu (sběrnici), méně používaná, v minulosti běžná v ethernet sítích.\n3. Kruhová – Zařízení propojena do kruhu, data putují jedním směrem kolem sítě.\n\n### Kategorie kabeláže:\n1. Cat 5e (Category 5 Enhanced) – Rychlost až 1000 Mbps, používána v místních sítích.\n2. Cat 6 – Vylepšená verze, podporuje rychlosti až 10 Gbps na kratší vzdálenosti.\n3. Cat 6a a Cat 7 – Vyšší přenosové rychlosti a větší šířka pásma pro datacentra a profesionální aplikace.\n\n### Rack:\n1. Rack Mount – Slouží k montáži síťových zařízení a serverů. Správně splňuje standardy pro správné umístění zařízení, chlazení a správu kabeláže.\n2. 19\" rack: Nejběžnější standard pro umístění síťových zařízení a serverů. V tomto racku je možné umístit až 42U zařízení (jednotky výšky).",
       "keywords": [
         "switch",
         "router",
@@ -1419,313 +1136,125 @@
       ],
       "difficulty": "střední",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/18. Síťové prvky modelu ISO OSI a strukturovaná kabeláž.docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Síťové prvky: dělení, konstrukce, funkce, použití",
-            "subsections": [
-              {
-                "title": "Hub (rozdělovač)",
-                "items": [
-                  {
-                    "term": "Konstrukce",
-                    "definition": "Jednoduché zařízení s centrálním rozbočovačem, všechny porty propojeny na sběrnici."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Data z jednoho portu jsou vysílána na všechny ostatní porty."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Menší, nezabezpečené sítě bez řízení přístupu."
-                  }
-                ]
-              },
-              {
-                "title": "Switch (přepínač)",
-                "items": [
-                  {
-                    "term": "Konstrukce",
-                    "definition": "Obsahuje porty schopné přijímat a přeposílat data na základě MAC adresy."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Operuje na 2. vrstvě (linková). Efektivní směrování paketů, minimalizace kolizí."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Větší sítě vyžadující efektivní směrování dat."
-                  }
-                ]
-              },
-              {
-                "title": "Router (směrovač)",
-                "items": [
-                  {
-                    "term": "Konstrukce",
-                    "definition": "Zařízení propojující různé síťové segmenty na základě IP adres."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Operuje na 3. vrstvě (síťová). Směruje pakety mezi podsíťemi."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Propojení LAN s internetem nebo mezi částmi firemních sítí."
-                  }
-                ]
-              },
-              {
-                "title": "Firewall",
-                "items": [
-                  {
-                    "term": "Konstrukce",
-                    "definition": "Software nebo hardware filtrující síťovou komunikaci podle bezpečnostních pravidel."
-                  },
-                  {
-                    "term": "Funkce",
-                    "definition": "Ochrana sítě před neoprávněným přístupem."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Ochrana firemních sítí, domácích sítí, datových center."
-                  }
-                ]
-              },
-              {
-                "title": "Bridge (most)",
-                "items": [
-                  {
-                    "term": "Funkce",
-                    "definition": "Operuje na 2. vrstvě. Propojuje síťové segmenty a správně předává data."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Segmentace sítě, snížení kolizí, zlepšení výkonu."
-                  }
-                ]
-              },
-              {
-                "title": "Modem",
-                "items": [
-                  {
-                    "term": "Funkce",
-                    "definition": "Převádí digitální signály na analogové pro přenos po telefonní lince."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Dial-up připojení, domácí připojení k internetu."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Schematické značky CISCO",
-            "items": [
-              {
-                "term": "Switch",
-                "definition": "Čtvercová ikona s několika porty."
-              },
-              {
-                "term": "Router",
-                "definition": "Čtverec s ikonou směrování nebo trojúhelníkem."
-              },
-              {
-                "term": "Hub",
-                "definition": "Malé zařízení s porty, bez pokročilých funkcí."
-              },
-              {
-                "term": "Firewall",
-                "definition": "Zařízení s ochrannou ikonkou nebo zámkem."
-              },
-              {
-                "term": "Modem",
-                "definition": "Zařízení se dvěma připojeními (počítač + telefonní linka)."
-              }
-            ]
-          },
-          {
-            "title": "Strukturovaná kabeláž",
-            "text": "Systematický způsob uspořádání a instalace kabelů pro snadnou údržbu a flexibilitu.",
-            "subsections": [
-              {
-                "title": "Komponenty",
-                "items": [
-                  {
-                    "term": "Kabely",
-                    "definition": "Kroucená dvojlinka (UTP), optické vlákno."
-                  },
-                  {
-                    "term": "Racks a panely",
-                    "definition": "Pro uložení síťových zařízení a organizaci připojení."
-                  },
-                  {
-                    "term": "Jacks a zásuvky",
-                    "definition": "Připojení zařízení k síti."
-                  },
-                  {
-                    "term": "Patch kabely",
-                    "definition": "Krátké kabely pro propojení mezi zařízeními a patch panely."
-                  }
-                ]
-              },
-              {
-                "title": "Topologie",
-                "items": [
-                  {
-                    "term": "Hvězdicová (Star)",
-                    "definition": "Všechna zařízení připojena k centrálnímu prvku (switch/hub). Nejběžnější pro LAN."
-                  },
-                  {
-                    "term": "Sběrnicová (Bus)",
-                    "definition": "Všechna zařízení připojena k jednomu kabelu. Dnes méně používaná."
-                  },
-                  {
-                    "term": "Kruhová (Ring)",
-                    "definition": "Zařízení propojena do uzavřeného kruhu, data putují jedním směrem."
-                  }
-                ]
-              },
-              {
-                "title": "Kategorie kabeláže",
-                "items": [
-                  {
-                    "term": "Cat 5e",
-                    "definition": "Až 1000 Mbps, běžně používaná v místních sítích."
-                  },
-                  {
-                    "term": "Cat 6",
-                    "definition": "Až 10 Gbps na kratší vzdálenosti."
-                  },
-                  {
-                    "term": "Cat 6a a Cat 7",
-                    "definition": "Vyšší rychlosti a šířka pásma pro datacentra."
-                  }
-                ]
-              },
-              {
-                "title": "Rack",
-                "items": [
-                  {
-                    "term": "Rack mount",
-                    "definition": "Slouží k montáži síťových zařízení a serverů."
-                  },
-                  {
-                    "term": "19\" rack",
-                    "definition": "Nejběžnější standard, až 42U zařízení (jednotky výšky)."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Síťové prvky a strukturovaná kabeláž tvoří nezbytnou součást každé moderní počítačové sítě. Správné použití switchů, routerů, modemů a správný návrh kabeláže zajišťují optimální výkon, efektivitu a bezpečnost sítě."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Síťové prvky (Přehled) 🧰",
+            "title": "Síťové prvky a strukturovaná kabeláž",
+            "text": "Tato otázka se dělí na aktivní prvky (zpracovávají data) a pasivní prvky (kabeláž)."
+          },
+          {
+            "title": "1. Aktivní síťové prvky",
             "items": [
               {
-                "term": "Repeater (L1)",
-                "definition": "Zesilovač signálu"
+                "term": "Hub (Rozbočovač)",
+                "definition": "L1 | Broadcast | \"Hloupý\". Co přijde, pošle na všechny porty. Riziko kolizí."
               },
               {
-                "term": "Hub (L1)",
-                "definition": "Rozbočovač (Broadcast)"
+                "term": "Switch (Přepínač)",
+                "definition": "L2 | MAC adresy | \"Chytrý\". Učí se (CAM tabulka), posílá jen adresátovi. Odděluje kolizní domény."
               },
               {
-                "term": "Bridge (L2)",
-                "definition": "Most (Oddělení segmentů)"
+                "term": "Router (Směrovač)",
+                "definition": "L3 | IP adresy | Propojuje různé sítě (LAN/Internet). Rozhoduje o cestě."
               },
               {
-                "term": "Switch (L2)",
-                "definition": "Přepínač (MAC adresy)"
+                "term": "Bridge (Most)",
+                "definition": "L2 | MAC adresy | Starší verze switche (2 porty). Spojuje dva segmenty."
               },
               {
-                "term": "Router (L3)",
-                "definition": "Směrovač (IP adresy)"
-              },
-              {
-                "term": "Gateway (L7)",
-                "definition": "Brána (Překlad protokolů)"
+                "term": "Firewall",
+                "definition": "L3/L4+ | Pravidla (ACL) | Bezpečnostní brána. Filtruje provoz."
               }
             ]
           },
           {
-            "title": "Strukturovaná kabeláž 🏗️",
+            "title": "2. Cisco symboly",
             "items": [
               {
-                "term": "Princip",
-                "definition": "Univerzální kabeláž budovy"
+                "term": "Router",
+                "definition": "Kruh se čtyřmi šipkami (dovnitř a ven)."
               },
               {
-                "term": "Horizontální",
-                "definition": "Patro (Zásuvka - Patch panel)"
+                "term": "Switch",
+                "definition": "Čtverec/obdélník se dvěma protisměrnými šipkami."
               },
               {
-                "term": "Vertikální",
-                "definition": "Páteř (Mezi patry/budovami)"
+                "term": "Hub",
+                "definition": "Obdélník s jednou jednoduchou šipkou."
               },
               {
-                "term": "Prvky",
-                "definition": "Patch panel, Zásuvka, Patch kabel"
+                "term": "Firewall",
+                "definition": "Symbol cihlové zdi."
               },
               {
-                "term": "Rack",
-                "definition": "Rozvaděč 19\" (U = 44.45mm)"
+                "term": "Cloud",
+                "definition": "Symbol obláčku (internet nebo cizí síť)."
               }
             ]
           },
           {
-            "title": "Kategorie kabelů (Cat) 🧵",
+            "title": "3. Strukturovaná kabeláž",
+            "text": "Univerzální systém v budově pro přenos dat, hlasu i obrazu.",
+            "items": [
+              {
+                "term": "Kabely",
+                "definition": "Kroucená dvojlinka (UTP/STP) nebo optické vlákno (páteřní)."
+              },
+              {
+                "term": "Patch panel",
+                "definition": "Ukončení pevných kabelů v rozvaděči."
+              },
+              {
+                "term": "Patch kabel",
+                "definition": "Krátký ohebný kabel pro propojení prvků."
+              },
+              {
+                "term": "Zásuvky",
+                "definition": "Koncové body v kancelářích (RJ-45)."
+              },
+              {
+                "term": "Rozvaděč (Rack)",
+                "definition": "Skříň pro uložení prvků."
+              }
+            ]
+          },
+          {
+            "title": "4. Rack a jeho standardy",
+            "items": [
+              {
+                "term": "Šířka",
+                "definition": "Standardně 19 palců."
+              },
+              {
+                "term": "Výška",
+                "definition": "Jednotky U (1U = 1,75\" / 44,45 mm). Standard 42U."
+              },
+              {
+                "term": "Funkce",
+                "definition": "Ochrana, uspořádání, chlazení."
+              }
+            ]
+          },
+          {
+            "title": "5. Kategorie kroucené dvojlinky",
             "items": [
               {
                 "term": "Cat 5e",
-                "definition": "1 Gbps (100 MHz)"
+                "definition": "1 Gbps | 100 MHz. Nejrozšířenější."
               },
               {
                 "term": "Cat 6",
-                "definition": "1 Gbps / 10 Gbps na 55m"
+                "definition": "10 Gbps (do 55m) | 250 MHz. Lepší stínění."
               },
               {
-                "term": "Cat 6a",
-                "definition": "10 Gbps (500 MHz)"
-              },
-              {
-                "term": "Cat 7",
-                "definition": "Stíněný (600 MHz)"
-              },
-              {
-                "term": "Cat 8",
-                "definition": "Datacentra (25/40 Gbps)"
+                "term": "Cat 6a / 7",
+                "definition": "10 Gbps (na 100m) | 500–600 MHz. Vysoké stínění."
               }
             ]
           },
           {
-            "title": "Zapojení RJ-45 (T568) 🌈",
-            "items": [
-              {
-                "term": "T568A",
-                "definition": "Zelená / Zelená / Oranžová..."
-              },
-              {
-                "term": "T568B",
-                "definition": "Oranžová / Oranžová / Zelená (Standard)"
-              },
-              {
-                "term": "Přímý",
-                "definition": "Stejné (PC ↔ Switch)"
-              },
-              {
-                "term": "Křížený",
-                "definition": "Opačné (PC ↔ PC, Switch ↔ Switch)"
-              }
-            ]
+            "title": "Tip k maturitě 💡",
+            "text": "Nezapomeň zmínit, že strukturovaná kabeláž se dělí na horizontální (k zásuvkám na patře) a vertikální (páteřní rozvody mezi patry). Vertikální rozvody jsou dnes téměř vždy řešeny optikou."
           }
         ]
       }
