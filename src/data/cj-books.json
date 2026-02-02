@@ -24,15 +24,13 @@
         "titleAnalysis": "Lakomec = hlavní postava Harpagon, ztělesnění chorobné lakoty.",
         "plot": "Harpagon je bohatý pařížský vdovec, který žije se svými dvěma dětmi – synem Kleantem a dcerou Eliškou. Je nesmírně lakomý a své bohatství střeží jako oko v hlavě. Svou truhlici s deseti tisíci zlatých dukátů ukrývá na zahradě.\n\nKleantes je zamilován do chudé dívky Mariany, která žije se svou nemocnou matkou. Když se Harpagon rozhodne, že si Marianu vezme sám za ženu, dojde mezi otcem a synem k ostrému konfliktu. Eliška je zase zamilována do Valéra, který se dostal do domu jako správce pod falešnou identitou.\n\nHarpagon plánuje provdat Elišku za starého bohatého pána Anselma bez věna a oženit Kleanta s bohatou vdovou. Děti jsou zoufalé z otcových sobeckých plánů.\n\nSituace se vyhrotí, když Čipera (Harpagonův sluha, kterého si najal Kleantes) ukradne Harpagonovu truhlici s penězi. Harpagon zuří a obviňuje všechny kolem sebe. Podezírá Valéra, který se přizná k \"únosu\", ale myslí tím Elišku, nikoli peníze.\n\nV závěrečném rozuzlení se zjistí, že Valér a Mariana jsou ve skutečnosti ztracené děti bohatého Anselma, které ztratil při ztroskotání lodi před šestnácti lety. Anselmo je šťasten, že našel své děti.\n\nPříběh končí šťastně – Kleantes dostane Marianu, Eliška Valéra, a Harpagon svou truhlici zpět. Anselmo zaplatí obě svatby, čímž se Harpagon vyhne jakýmkoli výdajům.",
         "themes": {
-          "main": "Kritika chorobného lakomství a jeho dopadu na vztahy",
+          "main": "Kritika lakomství jako špatné lidské vlastnosti, která ničí mezilidské vztahy a rodinné pouto",
           "motifs": [
             "lakomství",
             "touha po penězích",
             "láska vs. peníze",
             "konflikt generací",
-            "pokrytectví",
-            "přetvářka",
-            "svatba z rozumu"
+            "pokrytectví"
           ]
         },
         "setting": {
@@ -42,13 +40,7 @@
         "characters": [
           {
             "name": "Harpagon",
-            "traits": {
-              "Role": "Vdovec, otec Kleanta a Elišky",
-              "Povaha": "Chorobný lakomec, podezřívavý",
-              "Priorita": "Peníze > děti",
-              "Symbol": "Ztělesnění lakoty",
-              "Cíl": "Provdat děti bez věna + vzít si Marianu"
-            },
+            "description": "Bohatý lakomý vdovec, posedlý penězi. Představuje ztělesnění lakoty – peníze > děti. Komická postava",
             "isMain": true
           },
           {
