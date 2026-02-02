@@ -1,0 +1,130 @@
+const fs = require('fs');
+const path = require('path');
+
+const filePath = path.join(__dirname, 'src/data/it-questions.json');
+
+try {
+    const data = fs.readFileSync(filePath, 'utf8');
+    let db = JSON.parse(data);
+
+    // Ensure db.questions exists and is an array
+    if (!db.questions || !Array.isArray(db.questions)) {
+        console.error('structure of it-questions.json is incorrect (root.questions missing/not array)');
+        process.exit(1);
+    }
+
+    const { questions } = db;
+
+    // --- Fix Q12 (Fyzická vrstva) ---
+    const q12Index = questions.findIndex(q => q.id === 12);
+    if (q12Index !== -1) {
+        let a12 = questions[q12Index].answer;
+        // Use replaceAll with strings to avoid regex escaping issues
+        if (a12) {
+            // Replace literal "\(" with "(" and "\)" with ")"
+            a12 = a12.replaceAll('\\(', '(').replaceAll('\\)', ')');
+            // Replace literal "\-" with "-"
+            a12 = a12.replaceAll('\\-', '-');
+            // Fix header spacing if possible (simple split/join or specific check)
+            // Replace "##\n\n12." with "## 12."
+            a12 = a12.replace('##\n\n12.', '## 12.');
+            // Replace "##\n\n12." (if there are more newlines) - simple regex for this
+            a12 = a12.replace(/##\s+12\./, '## 12.');
+
+            questions[q12Index].answer = a12;
+            console.log('Fixed Q12 answer formatting.');
+        }
+    }
+
+    // --- Fix Q13 (Linková vrstva) ---
+    const q13Index = questions.findIndex(q => q.id === 13);
+    if (q13Index !== -1) {
+        // User text with standard Markdown formatting
+        // Converting • to * and 1) to 1. to ensure Markdown rendering works, 
+        // while keeping the structure exactly as requested.
+        const newAnswerQ13 = `## 13. Linková vrstva modelu ISO/OSI (Data Link Layer)
+
+### Pozice v modelu ISO/OSI
+* Linková vrstva je 2. vrstvou modelu ISO/OSI (mezi Fyzickou a Síťovou)
+* **Hl. Funkce:** zajišťuje spolehlivou komunikaci mezi zařízeními v lokální síti, přebírá data z fyzické vrstvy a organizuje je do rámců.
+
+### Funkce:
+1. Rámcování (framing) – Rozděluje data na bloky zvané „rámce“, hlavička a trailer (body).
+2. Řízení přístupu k médiu (MAC) – Zajišťuje zařízením přístup k přenosovému médiu bez konfliktů.
+3. Detekce chyb (Error Detection) – Identifikuje chyby vzniklé při přenosu dat pomocí CRC (kontrolní součet).
+4. Řízení toku dat (Flow Control) – Zabraňuje zahlcení zařízení rychlým přenosem dat.
+5. Adresace – Používá fyzické adresy (MAC adresy) k identifikaci zařízení v síti.
+
+### Propojení síťových prvků:
+1. Switche – Přeposílají rámce mezi zařízeními na základě jejich MAC adres.
+2. Bridge (Mosty) – Propojují dvě nebo více sítí na úrovni linkové vrstvy.
+3. Access Pointy (AP) – Umožňují bezdrátové zařízení připojit k síti.
+
+### Kabeláž:
+1. Kroucená dvojlinka (Twisted Pair) - Nejčastěji používaná pro Ethernet.
+2. Koaxiální kabel - Používán v starších sítích.
+3. Optické vlákno (Fiber Optic) - Pro vysokorychlostní přenosy a dlouhé vzdálenosti.
+
+### Protokoly:
+1. Ethernet – Standardizuje přenosové technologie v LAN.
+2. PPP (Point-to-Point Protocol) – Přímé přepojení mezi dvěma zařízeními.
+3. HDLC – Protokol pro sériové linky.
+4. Wi-Fi (IEEE 802.11) – Bezdrátové připojení.
+
+### Podvrstvy:
+**1. Podvrstva řízení přístupu k médiu (MAC):**
+* Účel – Spravuje přístup k fyzickému médiu a definuje jak data vstupují na přenosové médium.
+* Funkce:
+    1. Fyzická adresace (MAC adresy 48bitové)
+    2. Řízení Kolizí – V sítích jako Ethernet (např. metoda CSMA/CD)
+    3. Přenos dat mezi zařízeními ve stejné (lokální) síti.
+
+**2. Podvrstva řízení logického spoje (Logical Link Control, LLC)**
+* Účel – Poskytuje rozhraní mezi linkovou vrstvu a vyššími vrstvami.
+* Funkce:
+    1. Multiplexování – Umožňuje více protokolům sdílet stejný fyzický přenosový kanál.
+    2. Detekce chyb – Používá kontrolní součty pro zajištění integrity dat.
+
+### Adresy/adresace:
+* **MAC Adresa (Media Access Control Address):**
+    * Unikátní identifikátor síť. zařízení, používá se pro směrování rámců v LAN
+    * 2 části:
+        1. **OUI (prefix)** – prvních 24 bitů, např. 00:1A:2B, prefix dán firmou
+        2. **NIC** – zbývajících 24 bitů – jedničné čísla přidělená výrobcem
+
+### Přístupové metody:
+**1) CSMA/CD**
+* **Použití:** Ethernet
+* **Funkce:** zařízení naslechne médiu, zda je volné a v případě kolize přenos přeruší a opakují.
+
+**2) CSMA/CA**
+* **Použití:** Wi-Fi
+* **Funkce:** Zabraňuje kolizím tím, že zařízení rezervuje přenosové médium před odesláním dat.
+
+**3) Token Passing:**
+* **Použití:** Sítě jako Token Ring.
+* **Funkce:** Token je speciální rámec, který zařízení potřebuje pro zahájení přenosu.
+
+### Síťové prvky a jejich funkce:
+1. Switch – Přeposílá rámce na základě MAC adres.
+2. Bridge (Most) – Propojuje různé segmenty sítě a filtruje data na základě MAC adres.
+3. Access Point – Slouží k propojení bezdrátových zařízení s kabelovou sítí.
+4. NIC (Síťová karta) – Zprostředkovává komunikaci mezi počítačem a síťovou infrastrukturou a obsahuje MAC adresu zařízeni.`;
+
+        questions[q13Index].answer = newAnswerQ13;
+        // Remove content object if it exists
+        if (questions[q13Index].content) delete questions[q13Index].content;
+        // Clear compactContent if exists
+        if (questions[q13Index].compactContent) delete questions[q13Index].compactContent;
+
+        console.log('Fixed Q13 answer formatting.');
+    }
+
+    // Save back
+    fs.writeFileSync(filePath, JSON.stringify(db, null, 2), 'utf8');
+    console.log('Updates saved successfully.');
+
+} catch (err) {
+    console.error('Error updating file:', err);
+    process.exit(1);
+}

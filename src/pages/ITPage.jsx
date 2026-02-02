@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FaList, FaLayerGroup, FaQuestion, FaCheck, FaTimes, FaLaptop } from 'react-icons/fa';
+import { FaList, FaQuestion, FaCheck, FaTimes, FaLaptop } from 'react-icons/fa';
 import QuestionList from '../components/it/QuestionList';
-import FlashcardMode from '../components/it/FlashcardMode';
+
 import QuizMode from '../components/it/QuizMode';
 import itQuestionsData from '../data/it-questions.json';
 
@@ -12,7 +12,7 @@ const ITPage = () => {
 
   const modes = [
     { id: 'list', icon: FaList, label: 'Seznam' },
-    { id: 'flashcard', icon: FaLayerGroup, label: 'Flashcards' },
+
     { id: 'quiz', icon: FaQuestion, label: 'Kvíz' },
   ];
 
@@ -85,7 +85,7 @@ const ITPage = () => {
       {/* Content */}
       <div>
         {mode === 'list' && <QuestionList filter={filter} subjectFilter={subjectFilter} />}
-        {mode === 'flashcard' && <FlashcardMode filter={filter} subjectFilter={subjectFilter} />}
+
         {mode === 'quiz' && <QuizMode filter={filter} subjectFilter={subjectFilter} />}
       </div>
     </div>

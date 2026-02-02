@@ -223,7 +223,7 @@
       "exam": "IKT1",
       "question": "Historie a vývoj počítačových sítí, Internet",
       "category": "Počítačové sítě",
-      "answer": "##\n\n11. Historie a vývoj počítačových sítí, Internet\n\n### Princip činnosti sítí:\n\n- Počítačová síť propojuje zařízení \\(počítače, servery, tiskárny\\) pomocí přenosových médií \\(kabely, Wi\\-Fi\\). Síť umožňuje sdílení zdrojů, komunikaci a přístup k internetu.\n\n### Dělení:\n\n\n1. **Podle Velikosti:**\n\n-**LAN \\(Local Area Network\\):**\n\n Lokální síť, budovy či malé oblasti \\(např. domáci síť\\)\n\n\n- **MAN \\(Metropolitan Area Network\\):**\n\n Propojení více LAN v rámci města.\n\n\n- **WAN \\(Wide Area Network\\):**\n\n Globální síť, jako Internet\n\n2. **Podle Topologie:**\n\n-**Sběrnicová:**\n\nzařízení připojena k jednomu kabelu \\(sběrnici\\),**\\+**rozšíření, kabeláž, průtok sítě,**\\-** kolize, řeší přístupová metoda CSMA/CD , kolize vzniká když 2 počítače vysílají zároveň\n\n\n- **Hvězdicová:**\n\nzařízení připojena k centrálnímu bodu \\(např. Switch\\),**\\+**při selhání 1 zařízení další komunikují,**\\-** závislost na centrálním prvku, kabeláž\n\n\n- **Kruhová:**\n\n data přenášena v okruhu, \\+ kabeláž, data putujou jedním směrem, \\\n\n- výpadek jednoho počítače způsobí nefunkci sítě, je dobré použít záložní UPS\n\n3. **Podle řízení přístupu:**\n\n-**Peer\\-to\\-peer:**\n\n všechna zařízení jsou rovnocenná\n\n- **Klient\\-server:**\n\nklienti žádají služby od centrálního serveru\n\n### Historie – Internet, organizace a správa, standardy, síťová architektura\n\n\n1. **Internet**\n\n\n- 1969: Vznik ARPANETu\n\n\n- 1983: Přechod na protokol TCP/IP, základ moderního Internetu\n\n\n- 1990: Záník ARPANETu, internet veřejně dostupný\n\n2. **Organizace a správa**\n\n\n- Správa internetu je decentralizovaná. Organizace IANA a ICANN spravují adresní prostor a domény\n\n3. **Standardy**\n\n- RFC \\(Request for Comments\\): dokumenty definují pravidla a standardy.\n\n### Historie sítí \\\n\n- První počítačové sítě –\n\n60. léta\n\n20. století\n\n\n**ARPANET \\(1969\\-1990\\)**-**Charaktestika:**\n\n První síť založená na přepojování paketů – rozdělení dat na malé části \\(pakety\\), přenášeno a sestavováno na cílovém zařízení, vytvořena americkým Ministerstvem obrany\n\n- **Cíle:**\n\n Sdílení zdrojl mezi univerzitami a vojenskými institucemi.\n\n- **Technologie:**\n\n Protokol NCP \\(Network Control Protocol\\), 1983: přešlá na TCP/IP\n\n- **Význam:**\n\nZáklad internetu a koncept přepojování paketů.**CYCLADES \\(1972\\)**-**Charaktestika:**\n\n Francouzská síť, vznikla jako experimentální projekt.\n\n- **Inovace:**\n\nKoncept end\\-to\\-end protokolu, zajistil přenosovou spolehlivost na**konečném zařízení**-**Technologie:**\n\n Zásadní inspirace pro TCP/IP protokol.\n\n- **Význam:**\n\nPřinesla myšlenku decentralizované komunikace, kterou následně převzal Internet.**X.25 \\(1970\\)**-**Charaktestika:**\n\n mezinárodní standard pro přepojování paketů\n\n- **Použití:**\n\n Využiváný ve finančních institucích \\(např. bankomaty\\) a telekomunikacích\n\n- **Technologie:**\n\n definoval tři vrstvy komunikace, fyzickou, linkovou, síťovou, použití na komunikaci přes veřejné datové sítě \\(např. Telefonní linky\\)\n\n- **Význam:**\n\nX.25 byl základem pro pozdější protokoly, jako je Frame Relay – telekomunikační služba pro přenos datových paketů**USENET \\(1979\\)**-**Charaktestika:**\n\n Distribuovaná síť zaměřená na diskusní skupiny a sdílení informací.\n\n- **Technologie:**\n\n Založena na UUCP \\(Unix\\-to\\-Unix Copy Protocol\\) \\\n\n- protokol na přenos souborů, odesílání emailů, vzdálené spouštění příkazů mezi PC s OS Unix, umožnění uživatelům posílat zprávu do skupin \\(tzv. newsgroups\\)\n\n- **Význam:**\n\nPředchůdce moderních fór, diskusních platforem a e\\-mailových skupin**BITNET \\(1981\\)**-**Charaktestika:**\n\n síť propojující univerzity a akademické instituce\n\n- **Technologie:**\n\n Přenos zpráv a souborů, jednoduchý systém elektronické pošty\n\n- **Význam:**\n\npodpora spolupráce mezi akademickými institucemi a sdílení informací**NSFNET \\(1986\\-1995\\)**-**Charaktestika:**\n\n Národní vědecká nadace \\(NSF\\) v USA vytvořila tuto síť jako akademickou pro propojení univerzit\n\n- **Technologie:**\n\n Sloužila jako páteřní síť pro Internet, založená na TCP/IP\n\n- **Význam:**\n\nHlavní akademická síť, položila základy pro dnešní internetovou infrastrukturu\n\n### Shrnutí významu historických sítí\n\n\nKaždá z těchto sítí přispěla k technologickému vývoji:\n\n1. **ARPANET** ukázal koncept přepojování paketů.\n\n2. **CYCLADES** zdůraznil důležitost end\\-to\\-end komunikace.\n\n3. **X.25** vytvořil základ pro komerční datové sítě.\n\n4. **USENET a BITNET** podpořily spolupráci akademiků.\n\n5. **NSFNET** transformoval akademické sítě na globální internet.\n\n",
+      "answer": "## 11. Historie a vývoj počítačových sítí, Internet\n\n### Princip činnosti sítí:\n*   Počítačová síť propojuje zařízení (počítače, servery, tiskárny) pomocí přenosových médií (kabely, Wi-Fi). Síť umožňuje sdílení zdrojů, komunikaci a přístup k internetu.\n\n### Dělení:\n**1. Podle Velikosti:**\n*   **LAN (Local Area Network):** Lokální síť, budovy či malé oblasti (např. domáci síť)\n*   **MAN (Metropolitan Area Network):** Propojení více LAN v rámci města.\n*   **WAN (Wide Area Network):** Globální síť, jako Internet\n\n**2. Podle Topologie:**\n*   **Sběrnicová:** zařízení připojena k jednomu kabelu (sběrnici), + rozšíření, kabeláž, průtok sítě, - kolize, řeší přístupová metoda CSMA/CD , kolize vzniká když 2 počítače vysílají zároveň\n*   **Hvězdicová:** zařízení připojena k centrálnímu  bodu (např. Switch), + při selhání 1 zařízení další komunikují, - závislost na centrálním prvku, kabeláž\n*   **Kruhová:** data přenášena v okruhu, + kabeláž, data putujou jedním směrem, - výpadek jednoho počítače způsobí nefunkci sítě, je dobré použít záložní UPS\n\n**3. Podle řízení přístupu:**\n*   **Peer-to-peer:** všechna zařízení jsou rovnocenná\n*   **Klient-server:** klienti žádají služby od centrálního serveru\n\n### Historie – Internet, organizace a správa, standardy, síťová architektura\n\n**1. Internet**\n*   **1969:** Vznik ARPANETu\n*   **1983:** Přechod na protokol TCP/IP, základ moderního Internetu\n*   **1990:** Záník ARPANETu, internet veřejně dostupný\n\n**2. Organizace a správa**\n*   Správa internetu je decentralizovaná. Organizace IANA a ICANN spravují adresní prostor a domény\n\n**3. Standardy**\n*   **RFC (Request for Comments):** dokumenty definují pravidla a standardy.\n\n### Historie sítí - První počítačové sítě – 60. léta 20. století\n\n**ARPANET (1969-1990)**\n*   **Charaktestika:** První síť založená na přepojování paketů – rozdělení dat na malé části (pakety), přenášeno a sestavováno na cílovém zařízení, vytvořena americkým Ministerstvem obrany\n*   **Cíle:** Sdílení zdrojl mezi univerzitami a vojenskými institucemi.\n*   **Technologie:** Protokol NCP (Network Control Protocol), 1983: přešlá na TCP/IP\n*   **Význam:** Základ internetu a koncept přepojování paketů.\n\n**CYCLADES (1972)**\n*   **Charaktestika:** Francouzská síť, vznikla jako experimentální projekt.\n*   **Inovace:** Koncept end-to-end protokolu, zajistil přenosovou spolehlivost na konečném zařízení\n*   **Technologie:** Zásadní inspirace pro TCP/IP protokol.\n*   **Význam:** Přinesla myšlenku decentralizované komunikace, kterou následně převzal Internet.\n\n**X.25 (1970)**\n*   **Charaktestika:** mezinárodní standard pro přepojování paketů\n*   **Použití:** Využiváný ve finančních institucích (např. bankomaty) a telekomunikacích\n*   **Technologie:** definoval tři vrstvy komunikace, fyzickou, linkovou, síťovou, použití na komunikaci přes veřejné datové sítě (např. Telefonní linky)\n*   **Význam:** X.25 byl základem pro pozdější protokoly, jako je Frame Relay – telekomunikační služba pro přenos datových paketů\n\n**USENET (1979)**\n*   **Charaktestika:** Distribuovaná síť zaměřená na diskusní skupiny a sdílení informací.\n*   **Technologie:** Založena na UUCP (Unix-to-Unix Copy Protocol) -  protokol na přenos souborů, odesílání emailů, vzdálené spouštění příkazů mezi PC s OS Unix, umožnění uživatelům posílat zprávu do skupin (tzv. newsgroups)\n*   **Význam:** Předchůdce moderních fór, diskusních platforem a e-mailových skupin\n\n**BITNET (1981)**\n*   **Charaktestika:** síť propojující univerzity a akademické instituce\n*   **Technologie:** Přenos zpráv a souborů, jednoduchý systém elektronické pošty\n*   **Význam:** podpora spolupráce mezi akademickými institucemi a sdílení informací \n\n**NSFNET (1986-1995)**\n*   **Charaktestika:** Národní vědecká nadace (NSF) v USA vytvořila tuto síť jako akademickou pro propojení univerzit\n*   **Technologie:** Sloužila jako páteřní síť pro Internet, založená na TCP/IP\n*   **Význam:** Hlavní akademická síť, položila základy pro dnešní internetovou infrastrukturu\n\n### Shrnutí významu historických sítí\nKaždá z těchto sítí přispěla k technologickému vývoji:\n1.  **ARPANET** ukázal koncept přepojování paketů.\n2.  **CYCLADES** zdůraznil důležitost end-to-end komunikace.\n3.  **X.25** vytvořil základ pro komerční datové sítě.\n4.  **USENET a BITNET** podpořily spolupráci akademiků.\n5.  **NSFNET** transformoval akademické sítě na globální internet.",
       "keywords": [
         "historie",
         "Internet",
@@ -231,410 +231,128 @@
       ],
       "difficulty": "střední",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/11. Historie a vývoj počítačových sítí, Internet.docx",
-      "content": {
-        "sections": [
-          {
-            "title": "První počítačové sítě, data/informace, komunikace",
-            "text": "Počítačové sítě začaly vznikat v 60. letech 20. století, kdy byl vyvinut ARPANET (Advanced Research Projects Agency Network). Cílem bylo propojit počítače různých univerzit a vládních institucí, aby mohly sdílet data a výpočetní výkon. ARPANET byl první sítí založenou na technologii přepojování paketů.",
-            "items": [
-              {
-                "term": "Data a informace",
-                "definition": "Data jsou základní jednotkou přenosu, zatímco informace je jejich interpretace. Přenos dat vyžaduje protokoly (např. TCP/IP)."
-              },
-              {
-                "term": "Komunikace",
-                "definition": "Síťová komunikace zahrnuje vysílání, přenos a příjem datových paketů. Klíčové faktory: rychlost, spolehlivost a bezpečnost."
-              }
-            ]
-          },
-          {
-            "title": "Princip činnosti sítí a jejich základní dělení",
-            "text": "Počítačová síť propojuje zařízení pomocí přenosových médií (kabely, Wi-Fi). Umožňuje sdílení zdrojů, komunikaci a přístup k internetu.",
-            "subsections": [
-              {
-                "title": "Podle velikosti",
-                "items": [
-                  {
-                    "term": "LAN (Local Area Network)",
-                    "definition": "Lokální síť, omezená na budovu nebo malou oblast."
-                  },
-                  {
-                    "term": "MAN (Metropolitan Area Network)",
-                    "definition": "Propojuje více LAN v rámci města."
-                  },
-                  {
-                    "term": "WAN (Wide Area Network)",
-                    "definition": "Globální síť, jako je internet."
-                  }
-                ]
-              },
-              {
-                "title": "Podle topologie",
-                "items": [
-                  {
-                    "term": "Sběrnicová",
-                    "definition": "Všechna zařízení připojena k jednomu kabelu (sběrnici)."
-                  },
-                  {
-                    "term": "Hvězdicová",
-                    "definition": "Zařízení připojena k centrálnímu bodu (např. switch)."
-                  },
-                  {
-                    "term": "Kruhová",
-                    "definition": "Data se přenášejí v kruhu."
-                  }
-                ]
-              },
-              {
-                "title": "Podle řízení přístupu",
-                "items": [
-                  {
-                    "term": "Peer-to-peer",
-                    "definition": "Všechna zařízení jsou rovnocenná."
-                  },
-                  {
-                    "term": "Klient-server",
-                    "definition": "Klienti žádají služby od centrálního serveru."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Historie Internetu, organizace a správa",
-            "subsections": [
-              {
-                "title": "Historie internetu",
-                "items": [
-                  {
-                    "term": "1969",
-                    "definition": "Vznik ARPANETu."
-                  },
-                  {
-                    "term": "1983",
-                    "definition": "Přechod na protokol TCP/IP, základ moderního internetu."
-                  },
-                  {
-                    "term": "1990",
-                    "definition": "Zánik ARPANETu, internet veřejně dostupný."
-                  }
-                ]
-              },
-              {
-                "title": "Organizace a správa",
-                "text": "Správa internetu je decentralizovaná. IANA a ICANN spravují adresní prostor a domény."
-              },
-              {
-                "title": "Standardy a architektura",
-                "text": "RFC dokumenty definují pravidla a standardy. Internet má hierarchickou strukturu s páteřními sítěmi, ISP a koncovými uživateli."
-              }
-            ]
-          },
-          {
-            "title": "Historické sítě",
-            "subsections": [
-              {
-                "title": "ARPANET (1969–1990)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "První síť založená na přepojování paketů, vytvořena US Ministerstvem obrany."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Položil základ internetu a koncept přepojování paketů."
-                  }
-                ]
-              },
-              {
-                "title": "CYCLADES (1972)",
-                "items": [
-                  {
-                    "term": "Inovace",
-                    "definition": "Koncept end-to-end protokolu pro spolehlivost na koncových zařízeních."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Inspirace pro TCP/IP protokol."
-                  }
-                ]
-              },
-              {
-                "title": "NPL Network (1968)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Projekt britské Národní fyzikální laboratoře (NPL)."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Testovací prostředí pro rané síťové technologie."
-                  }
-                ]
-              },
-              {
-                "title": "X.25 (1970s)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Mezinárodní standard pro přepojování paketů."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Finanční instituce a telekomunikace. Základ pro Frame Relay."
-                  }
-                ]
-              },
-              {
-                "title": "USENET (1979)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Distribuovaná síť pro diskusní skupiny (newsgroups)."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Předchůdce moderních fór a e-mailových skupin."
-                  }
-                ]
-              },
-              {
-                "title": "BITNET (1981)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Síť propojující univerzity a akademické instituce."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Podpora spolupráce a sdílení informací."
-                  }
-                ]
-              },
-              {
-                "title": "FidoNet (1984)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Amatérská síť pro BBS (Bulletin Board System)."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Umožnila komunitám komunikovat před rozšířením internetu."
-                  }
-                ]
-              },
-              {
-                "title": "NSFNET (1986–1995)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Akademická síť NSF, páteřní síť internetu založená na TCP/IP."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Položila základy dnešní internetové infrastruktury."
-                  }
-                ]
-              },
-              {
-                "title": "EUNET (1982)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Evropská síť propojující akademické instituce."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "První evropská síť umožňující komunikaci přes hranice."
-                  }
-                ]
-              },
-              {
-                "title": "MILNET (1983)",
-                "items": [
-                  {
-                    "term": "Charakteristika",
-                    "definition": "Vojenská část ARPANETu oddělená kvůli bezpečnosti."
-                  },
-                  {
-                    "term": "Význam",
-                    "definition": "Zabezpečená vojenská síť pro strategické operace."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "numberedItems": [
-              "ARPANET ukázal koncept přepojování paketů.",
-              "CYCLADES zdůraznil end-to-end komunikaci.",
-              "X.25 vytvořil základ pro komerční datové sítě.",
-              "USENET a BITNET podpořily akademickou spolupráci.",
-              "NSFNET transformoval akademické sítě na globální internet."
-            ]
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "1. Základní pojmy a komunikace 🗣️",
-            "items": [
-              {
-                "term": "Data",
-                "definition": "Surová fakta (čísla, znaky) bez kontextu."
-              },
-              {
-                "term": "Informace",
-                "definition": "Data s přidaným významem a interpretací."
-              },
-              {
-                "term": "Protokoly",
-                "definition": "Pravidla komunikace (např. TCP/IP)."
-              },
-              {
-                "term": "Fáze komunikace",
-                "definition": "1. Vysílání → 2. Přenos → 3. Příjem."
-              },
-              {
-                "term": "Klíčové faktory",
-                "definition": "Rychlost, spolehlivost a bezpečnost."
-              }
-            ]
-          },
-          {
-            "title": "2. Dělení sítí (Velikost a Řízení) 📏",
+            "title": "1. Základní principy a dělení 🌐",
+            "text": "Počítačová síť propojuje zařízení (PC, servery, tiskárny) za účelem sdílení zdrojů a komunikace. Data vs. Informace: Data jsou surová fakta; informace jsou interpretovaná data s významem.",
             "items": [
               {
                 "term": "LAN (Local)",
-                "definition": "Malá oblast (byt, firma)."
+                "definition": "Malé oblasti (byt, škola). Vysoké rychlosti."
               },
               {
                 "term": "MAN (Metropolitan)",
-                "definition": "Městská síť (propojuje LAN)."
+                "definition": "Městská síť, propojuje více LAN."
               },
               {
                 "term": "WAN (Wide)",
-                "definition": "Globální dosah (Internet)."
+                "definition": "Globální dosah, největší je Internet."
               },
               {
                 "term": "Peer-to-Peer (P2P)",
-                "definition": "Zařízení jsou si rovna."
+                "definition": "Všechna zařízení jsou si rovna (každý je klient i server)."
               },
               {
                 "term": "Klient-Server",
-                "definition": "Centrální server obsluhuje klienty."
+                "definition": "Centrální server poskytuje služby, klienti o ně žádají."
               }
             ]
           },
           {
-            "title": "3. Topologie sítí (Uspořádání) 🕸️",
+            "title": "2. Topologie sítí (Uspořádání) 🕸️",
             "items": [
               {
                 "term": "Sběrnicová (Bus)",
-                "definition": "Vše na jednom kabelu. Jednoduchá, ale náchylná na přerušení."
+                "definition": "Jedno médium pro všechny. + Jednoduchost, levná kabeláž / - Kolize (řeší CSMA/CD), při přerušení kabelu padne celá síť."
               },
               {
                 "term": "Hvězdicová (Star)",
-                "definition": "Vše do centrálního prvku (switch). Dnes nejběžnější."
+                "definition": "Vše do centrálního prvku (Switch). + Výpadek stanice neovlivní ostatní / - Závislost na centrálním prvku. Dnes nejběžnější."
               },
               {
                 "term": "Kruhová (Ring)",
-                "definition": "Data putují v uzavřeném kruhu."
+                "definition": "Data putují v jednom směru. + Předvídatelnost / - Výpadek jednoho uzlu zastaví síť (řeší se záložním okruhem nebo UPS)."
               },
               {
                 "term": "Stromová (Tree)",
-                "definition": "Hierarchická struktura, kombinuje hvězdy."
+                "definition": "Hierarchické propojení hvězd (typické pro rozsáhlé firemní sítě)."
               },
               {
                 "term": "Mesh (Síťová)",
-                "definition": "Každý s každým. Vysoká odolnost (redundance)."
+                "definition": "Každý s každým. Maximální odolnost (redundance), drahá kabeláž."
               }
             ]
           },
           {
-            "title": "4. Internet – Historie a správa 🌍",
+            "title": "3. Internet – Historie a správa 🌍",
             "items": [
               {
                 "term": "1969",
-                "definition": "Vznik ARPANETu (první přepojování paketů)."
+                "definition": "Vznik ARPANETu (první síť s přepojováním paketů)."
               },
               {
                 "term": "1983",
-                "definition": "Přechod na TCP/IP – vznik moderního Internetu."
+                "definition": "Přechod z protokolu NCP na TCP/IP – oficiální zrod moderního Internetu."
               },
               {
-                "term": "1991",
-                "definition": "Tim Berners-Lee představuje WWW."
+                "term": "1990/91",
+                "definition": "Zánik ARPANETu, Tim Berners-Lee představuje WWW (World Wide Web)."
               },
               {
-                "term": "Správa",
-                "definition": "Decentralizovaná (více organizací)."
-              },
-              {
-                "term": "IANA/ICANN",
-                "definition": "Správa IP adres a domén."
+                "term": "IANA / ICANN",
+                "definition": "Správa IP adres a domén (DNS)."
               },
               {
                 "term": "IETF",
-                "definition": "Vývoj standardů."
+                "definition": "Vývoj standardů (protokoly)."
               },
               {
                 "term": "W3C",
-                "definition": "Standardy pro web."
+                "definition": "Standardy pro web (HTML, CSS)."
               },
               {
-                "term": "RFC",
-                "definition": "Veřejné dokumenty definující standardy."
+                "term": "RFC (Request for Comments)",
+                "definition": "Veřejné dokumenty definující veškeré pravidla a standardy internetu."
               }
             ]
           },
           {
-            "title": "5. Klíčové historické sítě 🏛️",
+            "title": "4. Klíčové historické sítě 🏛️",
             "items": [
               {
                 "term": "ARPANET (1969)",
-                "definition": "Základ internetu, první přepojování paketů (US ministerstvo obrany)."
+                "definition": "Projekt US ministerstva obrany. Zavedl přepojování paketů (rozdělení dat na části místo vytěžování celé linky)."
               },
               {
                 "term": "CYCLADES (1972)",
-                "definition": "Francouzská síť, zavedla koncept end-to-end (spolehlivost řeší koncová zařízení)."
+                "definition": "Francouzský experiment. Inovace: koncept end-to-end (spolehlivost řeší koncová zařízení, ne síť samotná). Zásadní inspirace pro TCP/IP."
               },
               {
-                "term": "NPL Network (1968)",
-                "definition": "Britský experiment s přepojováním paketů."
-              },
-              {
-                "term": "X.25 (70. léta)",
-                "definition": "Mezinárodní standard pro bankomaty a telekomunikace."
+                "term": "X.25 (1970)",
+                "definition": "Mezinárodní standard pro veřejné datové sítě. Definoval 3 vrstvy (fyzickou, linkovou, síťovou). Využíván v bankovnictví (bankomaty)."
               },
               {
                 "term": "USENET (1979)",
-                "definition": "Distribuované diskusní skupiny (newsgroups)."
+                "definition": "Decentralizovaná síť pro diskusní skupiny. Protokol UUCP (Unix-to-Unix Copy). Předchůdce dnešních fór."
               },
               {
                 "term": "BITNET (1981)",
-                "definition": "Akademická síť pro sdílení souborů a e-mailů."
-              },
-              {
-                "term": "FidoNet (1984)",
-                "definition": "Amatérská síť přes modemy (BBS)."
+                "definition": "\"Because It's Time Network\". Propojoval akademické instituce, zaměřen na e-maily a sdílení souborů."
               },
               {
                 "term": "NSFNET (1986)",
-                "definition": "Akademická páteřní síť USA, urychlila rozvoj internetu."
-              },
-              {
-                "term": "EUNET (1982)",
-                "definition": "První evropská síť umožňující komunikaci přes hranice."
+                "definition": "Akademická páteřní síť USA. Nahradila ARPANET v roli \"páteře\" a umožnila masivní rozmach internetu díky vysoké rychlosti."
               },
               {
                 "term": "MILNET (1983)",
-                "definition": "Vojenská větev oddělená od ARPANETu kvůli bezpečnosti."
+                "definition": "Čistě vojenská větev, která se oddělila od ARPANETu kvůli bezpečnosti."
               }
             ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Nezapomeň zmínit, že zásadní rozdíl mezi starými sítěmi (jako telefonní linky) a internetem je přepojování paketů vs. přepojování okruhů. Internet díky paketům přežije i výpadek části sítě."
           }
         ]
       }
@@ -644,7 +362,7 @@
       "exam": "IKT1",
       "question": "Fyzická vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "##\n\n12. Fyzická vrstva modelu ISO/OSI \\(Physical Layer\\)\n\n**Pozice v modelu ISO/OSI**\n\n- Fyzická vrstva je první a nejnižší vrstva sedmivrstvého modelu ISO/OSI.\n\n- **Hl. Funkce:**\n\nje zodpovědná za přenos dat ve formě signálů mezi síťovými zařízeními.\n\n### Funkce:\n\n\n1. **Převod dat na signály**\n\n– Tato vrstva převádí digitální data na fyzické signály \\(elektrické, optické, či rádiové\\)\n\n2. **Definice přenosových médií**\n\n– Stanovuje, jaké typy kabelů nebo bezdrátových médií budou použity,\n\n3. **Synchronizace bitů**\n\n– Zajišťuje správnou synchronizaci při přenosu dat, aby přijímač vědel kde datový bit začíná a kde končí.\n\n4.\n\n### Přenosová rychlost\n\n\n– Určuje maximální rychlost přenosu dat v síti\n\n5. **Fyzická topologie**– Řídí uspořádání připojení mezi zařízenímí \\(např. hvězda, sběrnice, kruh\\) – zde lze popsat jednotlivé topologie\n\n### Druhy Kabeláže:\n\n\n1. **Kroucená dvojlinka \\(Twisted Pair\\)**-**Složení:**\n\n Páry měděných vodičů kroucených do spirály, které minimalizují elektromagnetické rušení.\n\n1. **UTP \\(Unshielded Twisted Pair\\):**\n\n bez stínění, vhodné pro kancelářské a domácí sítě\n\n2. **STP \\(Shielded Twisted Pair\\):**\n\n S ochranou proti rušení, vhodné pro průmyslové prostředí.\n\n- Maximální rychlost: až 10 Gbps na krátké vzdálenosti\n\n1. **Koaxiální kabel \\(Coaxial Cable\\):**\n\n- Složení: Centrální vodič obklopený izolací, stíněním a pláštěm.\n\n- **Použití:**\n\n Kabelové televize a starší sítě.\n\n- **Výhody:**\n\n Odolnost proti rušení\n\n- **Nevýhody:**\n\n Omezená flexibilita.\n\n1. **Optické vlákno \\(Fiber Optic Cable\\):**\n\n- Přenáší data skrz světelné pulzy.\n\n-\n\n### Typy:\n\n-**Single\\-mode:**\n\n Přenos na dlouhé vzdálenosti \\(páteřní sítě\\)\n\n\n- **Multi\\-mode:**\n\n Kratší vzdálenost, datové centra\n\n- **Výhody:**\n\n Vysoká přenosová rychlost, nízké zpoždění\n\n- **Nevýhody:**\n\nVyšší cena, náročnější instalace.\n\n### Druhy Konektorů:\n\n\n1. **RJ\\-45**-**Použití:**\n\n s kroucenou dvojlinkou pro Ethernet\n\n-\n\n### Přenosová rychlost:\n\n od 10 Mbps do 10 Gbps\n\n1. **BNC**-**Použití:**\n\n s koaxiálním kabelem, CCTV či starší sítě\n\n1. **SC, LC, ST**-**Použití:**\n\ns optickými vlákny, rozdíly v konstrukci a velikosti konektorů\n\n### Vlastnosti přenosových médií:\n\n\n1. **Šírka pásma**\n\n– Max. kapacita přenosu dat, např. 1 Gbps u měděného kabelu, 100 Gbps u optického vlákna\n\n2. **Rušení \\(EMI/RFI\\):**\n\n Elektrická a rádiová interference, která může narušit přenos\n\n3. **Vzdálenost:**\n\n Omezená délkou kabelu \\(dvoulinka do 100 m, optické vlákno až stovky km\\)\n\n4. **Latence:**\n\nDoba zpoždení signálu mezi odesláním a přijetím \\(odezva\\)\n\n### Typy přenosů:\n\n\n1. **Simplexní**\n\n- Data proudí jedním směrem \\(např. vysílání rádia\\)\n\n1. **Half\\-Duplex**\n\n- Data mohou proudit oběma směry, ale ne současně \\(např. vysílačky\\)\n\n1. **Plný duplex:**\n\n- Obousměrná komunikace v reálném čase \\(např. telefonní hovory\\)**Analogové sítě:**\n\n-\n\n### Přenos:\n\n plynulé signály, např. zvuk telefonních hovorů\n\n- Používají amplitudu \\(výška sinusiody\\) a frekvenci \\(na ose x\\) pro přenos dat\n\n#### Digitální sítě:\n\n-\n\n### Přenos:\n\n diskrétní signály \\(1 a 0\\)\n\n- **Výhody:**\n\nnižší šum, vyšší spolehlivost\n\n### Kódování:\n\n-**Definice:**\n\n Převod digitálních dat na signály.\n\n-\n\n### Typy:\n\n\n1. **NRZ \\(Non return to Zero\\):**\n\n Jednoduché kódování binárních hodnot.\n\n2. **Manchester:**\n\nData kódována s vloženými hodinami.\n\n### Modulace:\n\n-\n\n### Funkce:\n\n Přízpůsobuje signál přenosovému médiu:\n\n1. **AM \\(Amplitudová modulace\\):**\n\n Změna amplitudy signálu.\n\n2. **FM \\(Frekvenční modulace\\):**\n\n Změna frekvence signálu.\n\n3. **QAM \\(Kvadraturní amplitudová modulace\\):**\n\nZměny amplitudy a fáze\n\n### Síťové prvky a jejich funkce:\n\n\n1. **Repeater \\(Opakovač\\)**\n\n– Zesiluje signál a prodlužuje dosah sítě.\n\n2. **Hub \\(Rozbočovač\\)**\n\n– Přeposílá data všem zařízením v síti bez ohledu na cíl.\n\n3. **Switch \\(Linková vrstva\\)**\\-** ** Inteligentně přeposílá data pouze cílovému zařízení.\n\n4. **Router \\(Síťová vrstva\\)**\n\n– Směruje datové pakety mezi různými sítěmi.\n\n5. **Modem**\n\n– Převádí digitální data na analogový signál a naopak.\n\n6. **Přístupový bod \\(Access Point\\)**\n\n– Slouží k propojení bezdrátových zařízení s kabelovou sítí.\n\n",
+      "answer": "## 12. Fyzická vrstva modelu ISO/OSI (Physical Layer)\n\n### Pozice v modelu ISO/OSI\n* Fyzická vrstva je první a nejnižší vrstva sedmivrstvého modelu ISO/OSI. \n* **Hl. Funkce:** je zodpovědná za přenos dat ve formě signálů mezi síťovými zařízeními.\n\n### Funkce:\n1. Převod dat na signály – Tato vrstva převádí digitální data na fyzické signály (elektrické, optické, či rádiové)\n2. Definice přenosových médií – Stanovuje, jaké typy kabelů nebo bezdrátových médií budou použity,\n3. Synchronizace bitů – Zajišťuje správnou synchronizaci při přenosu dat, aby přijímač vědel kde datový bit začíná a kde končí.\n4. Přenosová rychlost – Určuje maximální rychlost přenosu dat v síti\n5. Fyzická topologie – Řídí uspořádání připojení mezi zařízenímí (např. hvězda, sběrnice, kruh) – zde lze popsat jednotlivé topologie\n\n### Druhy Kabeláže:\n1. Kroucená dvojlinka (Twisted Pair)\n    * Složení: Páry měděných vodičů kroucených do spirály, které minimalizují elektromagnetické rušení.\n    * A. UTP (Unshielded Twisted Pair): bez stínění, vhodné pro kancelářské a domácí sítě\n    * B. STP (Shielded Twisted Pair): S ochranou proti rušení, vhodné pro průmyslové prostředí.\n    * Maximální rychlost: až 10 Gbps na krátké vzdálenosti\n2. Koaxiální kabel (Coaxial Cable):\n    * Složení: Centrální vodič obklopený izolací, stíněním a pláštěm.\n    * Použití: Kabelové televize a starší sítě.\n    * Výhody: Odolnost proti rušení\n    * Nevýhody: Omezená flexibilita.\n3. Optické vlákno (Fiber Optic Cable):\n    * Přenáší data skrz světelné pulzy.\n    * Typy:\n        * Single-mode: Přenos na dlouhé vzdálenosti (páteřní sítě)\n        * Multi-mode: Kratší vzdálenost, datové centra\n    * Výhody: Vysoká přenosová rychlost, nízké zpoždění\n    * Nevýhody: Vyšší cena, náročnější instalace.\n\n### Druhy Konektorů:\n1. RJ-45\n    * Použití: s kroucenou dvojlinkou pro Ethernet\n    * Přenosová rychlost: od 10 Mbps do 10 Gbps\n2. BNC\n    * Použití: s koaxiálním kabelem, CCTV či starší sítě\n3. SC, LC, ST\n    * Použití: s optickými vlákny, rozdíly v konstrukci a velikosti konektorů\n\n### Vlastnosti přenosových médií:\n1. Šírka pásma – Max. kapacita přenosu dat, např. 1 Gbps u měděného kabelu, 100 Gbps u optického vlákna\n2. Rušení (EMI/RFI): Elektrická a rádiová interference, která může narušit přenos\n3. Vzdálenost: Omezená délkou kabelu (dvoulinka do 100 m, optické vlákno až stovky km)\n4. Latence: Doba zpoždení signálu mezi odesláním a přijetím (odezva)\n\n### Typy přenosů:\n1. Simplexní\n    * Data proudí jedním směrem (např. vysílání rádia)\n2. Half-Duplex\n    * Data mohou proudit oběma směry, ale ne současně (např. vysílačky)\n3. Plný duplex:\n    * Obousměrná komunikace v reálném čase (např. telefonní hovory)\n\n### Analogové sítě:\n* Přenos: plynulé signály, např. zvuk telefonních hovorů\n* Používají amplitudu (výška sinusiody) a frekvenci (na ose x) pro přenos dat\n\n### Digitální sítě:\n* Přenos: diskrétní signály (1 a 0)\n* Výhody: nižší šum, vyšší spolehlivost\n\n### Kódování:\n* Definice: Převod digitálních dat na signály.\n* Typy:\n    1. NRZ (Non return to Zero): Jednoduché kódování binárních hodnot.\n    2. Manchester: Data kódována s vloženými hodinami.\n\n### Modulace:\n* Funkce: Přízpůsobuje signál přenosovému médiu:\n    1. AM (Amplitudová modulace): Změna amplitudy signálu.\n    2. FM (Frekvenční modulace): Změna frekvence signálu.\n    3. QAM (Kvadraturní amplitudová modulace): Změny amplitudy a fáze\n\n### Síťové prvky a jejich funkce:\n1. Repeater (Opakovač) – Zesiluje signál a prodlužuje dosah sítě.\n2. Hub (Rozbočovač) – Přeposílá data všem zařízením v síti bez ohledu na cíl.\n3. Switch (Linková vrstva) - Inteligentně přeposílá data pouze cílovému zařízení.\n4. Router (Síťová vrstva) – Směruje datové pakety mezi různými sítěmi.\n5. Modem – Převádí digitální data na analogový signál a naopak.\n6. Přístupový bod (Access Point) – Slouží k propojení bezdrátových zařízení s kabelovou sítí.",
       "keywords": [
         "ISO/OSI",
         "fyzická vrstva",
@@ -657,442 +375,133 @@
       ],
       "difficulty": "těžké",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/12. Fyzická vrstva modelu ISO OSI (Physical Layer).docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Pozice vrstvy v modelech a funkce",
-            "subsections": [
-              {
-                "title": "Pozice",
-                "items": [
-                  "Fyzická vrstva se nachází na spodku sedmivrstvého modelu ISO/OSI.",
-                  "Zajišťuje fyzické spojení mezi zařízeními a přenos datových bitů."
-                ]
-              },
-              {
-                "title": "Funkce",
-                "items": [
-                  {
-                    "term": "Převod dat na signály",
-                    "definition": "Převádí digitální data na fyzické signály (elektrické, optické, rádiové)."
-                  },
-                  {
-                    "term": "Definice přenosových médií",
-                    "definition": "Určuje, jaké typy kabelů nebo bezdrátových médií budou použity."
-                  },
-                  {
-                    "term": "Synchronizace bitů",
-                    "definition": "Zajišťuje správnou synchronizaci datového přenosu."
-                  },
-                  {
-                    "term": "Přenosová rychlost",
-                    "definition": "Definuje maximální rychlost přenosu dat."
-                  },
-                  {
-                    "term": "Fyzická topologie",
-                    "definition": "Určuje uspořádání síťových zařízení (např. hvězda, sběrnice, kruh)."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Druhy kabeláže a konektory",
-            "subsections": [
-              {
-                "title": "Kroucená dvojlinka (Twisted Pair)",
-                "items": [
-                  {
-                    "term": "UTP (Unshielded Twisted Pair)",
-                    "definition": "Bez stínění, vhodné pro kancelářské sítě."
-                  },
-                  {
-                    "term": "STP (Shielded Twisted Pair)",
-                    "definition": "Chrání před rušením, vhodné pro průmyslové prostředí."
-                  },
-                  "Maximální rychlost: Až 10 Gbps."
-                ]
-              },
-              {
-                "title": "Koaxiální kabel (Coaxial Cable)",
-                "items": [
-                  "Používá se pro kabelové televize a starší sítě.",
-                  {
-                    "term": "Výhody",
-                    "definition": "Vysoká odolnost proti rušení."
-                  },
-                  {
-                    "term": "Nevýhody",
-                    "definition": "Omezená flexibilita."
-                  }
-                ]
-              },
-              {
-                "title": "Optické vlákno (Fiber Optic Cable)",
-                "text": "Přenáší data světelnými pulzy.",
-                "items": [
-                  {
-                    "term": "Single-mode",
-                    "definition": "Pro dlouhé vzdálenosti."
-                  },
-                  {
-                    "term": "Multi-mode",
-                    "definition": "Pro kratší vzdálenosti."
-                  },
-                  {
-                    "term": "Výhody",
-                    "definition": "Vysoká rychlost, nízké zpoždění."
-                  },
-                  {
-                    "term": "Nevýhody",
-                    "definition": "Vyšší cena, náročná instalace."
-                  }
-                ]
-              },
-              {
-                "title": "Konektory",
-                "items": [
-                  {
-                    "term": "RJ-45",
-                    "definition": "Pro kroucenou dvojlinku (Ethernet)."
-                  },
-                  {
-                    "term": "BNC",
-                    "definition": "Pro koaxiální kabely."
-                  },
-                  {
-                    "term": "SC, LC, ST",
-                    "definition": "Pro optická vlákna."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Vlastnosti přenosových médií a typy přenosů",
-            "subsections": [
-              {
-                "title": "Vlastnosti přenosových médií",
-                "items": [
-                  {
-                    "term": "Šířka pásma",
-                    "definition": "Maximální kapacita přenosu (např. 1 Gbps u měděného kabelu)."
-                  },
-                  {
-                    "term": "Rušení (EMI/RFI)",
-                    "definition": "Elektrická a rádiová interference."
-                  },
-                  {
-                    "term": "Vzdálenost",
-                    "definition": "Omezena délkou kabelu (např. dvojlinka do 100 m)."
-                  },
-                  {
-                    "term": "Latence",
-                    "definition": "Zpoždění signálu mezi odesláním a přijetím."
-                  }
-                ]
-              },
-              {
-                "title": "Typy přenosů",
-                "items": [
-                  {
-                    "term": "Simplexní",
-                    "definition": "Jednosměrný přenos (např. rádio)."
-                  },
-                  {
-                    "term": "Poloduplexní",
-                    "definition": "Obousměrný přenos, ale ne současně (např. vysílačky)."
-                  },
-                  {
-                    "term": "Plný duplex",
-                    "definition": "Obousměrná komunikace v reálném čase (např. telefon)."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Analogové a digitální sítě, kódování a modulace",
-            "subsections": [
-              {
-                "title": "Analogové sítě",
-                "items": [
-                  "Přenášejí plynulé signály (např. zvuk).",
-                  "Používají amplitudu a frekvenci."
-                ]
-              },
-              {
-                "title": "Digitální sítě",
-                "items": [
-                  "Přenášejí diskrétní signály (1 a 0).",
-                  {
-                    "term": "Výhody",
-                    "definition": "Nižší šum, vyšší spolehlivost."
-                  }
-                ]
-              },
-              {
-                "title": "Kódování",
-                "text": "Převádí digitální data na signály:",
-                "items": [
-                  {
-                    "term": "NRZ",
-                    "definition": "Jednoduché binární kódování."
-                  },
-                  {
-                    "term": "Manchester",
-                    "definition": "Kódování s vloženými hodinami."
-                  }
-                ]
-              },
-              {
-                "title": "Modulace",
-                "text": "Přizpůsobuje signál médiu:",
-                "items": [
-                  {
-                    "term": "AM",
-                    "definition": "Změna amplitudy signálu."
-                  },
-                  {
-                    "term": "FM",
-                    "definition": "Změna frekvence signálu."
-                  },
-                  {
-                    "term": "QAM",
-                    "definition": "Kombinace amplitudy a fáze."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Síťové prvky a jejich funkce",
-            "items": [
-              {
-                "term": "Repeater",
-                "definition": "Zesiluje signál."
-              },
-              {
-                "term": "Hub",
-                "definition": "Přeposílá data všem zařízením."
-              },
-              {
-                "term": "Switch",
-                "definition": "Přeposílá data cíleně na konkrétní zařízení."
-              },
-              {
-                "term": "Router",
-                "definition": "Směruje datové pakety mezi sítěmi."
-              },
-              {
-                "term": "Modem",
-                "definition": "Převádí digitální data na analogová a naopak."
-              },
-              {
-                "term": "Přístupový bod (Access Point)",
-                "definition": "Spojuje bezdrátová zařízení s kabelovou sítí."
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí bodů",
-            "numberedItems": [
-              "Pozice a funkce fyzické vrstvy: Převod dat na signály, definice médií, topologie.",
-              "Kabely: Kroucená dvojlinka, koaxiální kabel, optická vlákna.",
-              "Vlastnosti médií: Šířka pásma, rušení, vzdálenost, latence.",
-              "Typy přenosů: Simplex, poloduplex, plný duplex.",
-              "Síťové prvky: Repeater, hub, switch, router, modem, přístupový bod."
-            ]
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Fyzická vrstva (L1) 🔌",
+            "title": "1. Funkce a pozice vrstvy",
+            "text": "Fyzická vrstva (L1) je nejnižší vrstva. Jejím úkolem je přenos surových dat ve formě bitů (0 a 1) pomocí fyzických signálů přes přenosová média.",
             "items": [
-              "Najnižší vrstva (1. ISO/OSI)",
               {
-                "term": "Funkce",
-                "definition": "Data → Signály (El./Opt./Rádio)"
+                "term": "Pozice",
+                "definition": "Základna modelu ISO/OSI, přímo komunikuje s přenosovým médiem."
               },
               {
-                "term": "Obsah",
-                "definition": "Média + Konektory + Synchronizace bitů"
+                "term": "Převod dat",
+                "definition": "Digitální data -> Signály (elektrické, optické, rádiové)."
               },
               {
-                "term": "Rychlost",
-                "definition": "Max přenosová kapacita (bps)"
+                "term": "Synchronizace",
+                "definition": "Synchronizace bitů (aby odesílatel i příjemce věděli, kdy začíná a končí bit)."
               },
               {
-                "term": "Topologie",
-                "definition": "Fyzické uspořádání (Hvězda/Sběrnice)"
+                "term": "Vlastnosti",
+                "definition": "Konektory, napětí, fyzická topologie, rychlost."
               }
             ]
           },
           {
-            "title": "Kabeláž: Kroucená dvojlinka (Twisted Pair) 🌀",
+            "title": "2. Přenosová média a konektory",
             "items": [
               {
-                "term": "Složení",
-                "definition": "Měděné páry ve spirále (proti rušení)"
+                "term": "Kroucená dvojlinka (Twisted Pair)",
+                "definition": "UTP (nestíněná, LAN), STP (stíněná, odolná EMI/RFI) | Konektor: RJ-45 | Max: 100m."
               },
               {
-                "term": "UTP",
-                "definition": "Unshielded (Kanceláře/Doma)"
+                "term": "Koaxiální kabel",
+                "definition": "Středový vodič + stínění. TV/Staré sítě (BNC konektor)."
               },
               {
-                "term": "STP",
-                "definition": "Shielded (Průmysl - rušení)"
+                "term": "Optické vlákno",
+                "definition": "Přenos světelnými pulzy. SC/LC/ST konektory."
               },
               {
-                "term": "Rychlost",
-                "definition": "Až 10 Gbps (dle kategorie)"
+                "term": "Single-mode (Optika)",
+                "definition": "Tenké jádro, 1 paprsek, pro km vzdálenosti."
+              },
+              {
+                "term": "Multi-mode (Optika)",
+                "definition": "Širší jádro, více paprsků, pro kratší vzdálenosti."
               }
             ]
           },
           {
-            "title": "Kabeláž: Koaxiální kabel 📺",
+            "title": "3. Vlastnosti a typy přenosů",
             "items": [
               {
-                "term": "Složení",
-                "definition": "Vodič + Izolace + Stínění"
-              },
-              {
-                "term": "Použití",
-                "definition": "TV + Staré sítě"
-              },
-              {
-                "term": "✅ / ⚠️",
-                "definition": "Odolný / Málo flexibilní"
-              }
-            ]
-          },
-          {
-            "title": "Kabeláž: Optické vlákno 💡",
-            "items": [
-              {
-                "term": "Princip",
-                "definition": "Světelné pulzy"
-              },
-              {
-                "term": "Single-mode",
-                "definition": "Dlouhé tratě (Páteř)"
-              },
-              {
-                "term": "Multi-mode",
-                "definition": "Kratší (Datacentra)"
-              },
-              {
-                "term": "✅ / ⚠️",
-                "definition": "Rychlost+Dosah / Cena+Instalace"
-              }
-            ]
-          },
-          {
-            "title": "Konektory 🔌",
-            "items": [
-              {
-                "term": "RJ-45",
-                "definition": "Ethernet (Dvojlinka)"
-              },
-              {
-                "term": "BNC",
-                "definition": "Koax (CCTV)"
-              },
-              {
-                "term": "SC / LC / ST",
-                "definition": "Optika"
-              }
-            ]
-          },
-          {
-            "title": "Vlastnosti médií 📊",
-            "items": [
-              {
-                "term": "Šířka pásma",
-                "definition": "Max kapacita (např. 1Gbps)"
-              },
-              {
-                "term": "Rušení (EMI)",
-                "definition": "Elmag. interference"
-              },
-              {
-                "term": "Vzdálenost",
-                "definition": "Limit (UTP 100m, Optika km)"
+                "term": "Šířka pásma (Bandwidth)",
+                "definition": "Max. kapacita (např. 1 Gbps)."
               },
               {
                 "term": "Latence",
-                "definition": "Zpoždění (Odezva)"
-              }
-            ]
-          },
-          {
-            "title": "Typy přenosů ↔️",
-            "items": [
+                "definition": "Zpoždění signálu."
+              },
+              {
+                "term": "Útlum",
+                "definition": "Ztráta síly signálu s rostoucí vzdáleností."
+              },
               {
                 "term": "Simplex",
-                "definition": "1 směr (Rádio)"
+                "definition": "Jednosměrný (rádio, TV)."
               },
               {
-                "term": "Half-Duplex",
-                "definition": "Střídavě (Vysílačka)"
+                "term": "Half-duplex",
+                "definition": "Obousměrný, ale ne současně (vysílačky, Wi-Fi)."
               },
               {
-                "term": "Full-Duplex",
-                "definition": "Obousměrně (Telefon)"
+                "term": "Full-duplex",
+                "definition": "Obousměrný současně (moderní Ethernet, telefon)."
               }
             ]
           },
           {
-            "title": "Signály & Kódování 📡",
+            "title": "4. Kódování a modulace",
             "items": [
               {
-                "term": "Analog",
-                "definition": "Plynulý (Zvuk/TV) → Amplituda+Frekvence"
+                "term": "Digitální sítě",
+                "definition": "Diskrétní signály (1/0). Kódování určuje tvar el. průběhu."
               },
               {
-                "term": "Digitál",
-                "definition": "Diskrétní (0/1) → Odolnější"
+                "term": "NRZ (Non-Return-to-Zero)",
+                "definition": "Jednoduché přiřazení napětí k 0 a 1."
               },
               {
-                "term": "Kódování",
-                "definition": "NRZ (Binární), Manchester (Hodiny)"
+                "term": "Manchester",
+                "definition": "Změna uprostřed bitu (synchronizace)."
+              },
+              {
+                "term": "Analogové sítě",
+                "definition": "Spojitý signál. Používá modulaci (úprava nosné vlny)."
               },
               {
                 "term": "Modulace",
-                "definition": "AM (Amp), FM (Frek), QAM (Kombinace)"
+                "definition": "AM (Amplituda), FM (Frekvence), QAM (Amplituda+Fáze - Wi-Fi/Modemy)."
               }
             ]
           },
           {
-            "title": "Síťové prvky (Kompletní seznam) 🧰",
+            "title": "5. Síťové prvky (L1 a okolí)",
             "items": [
               {
-                "term": "Repeater",
-                "definition": "Zesiluje signál (L1)"
+                "term": "Repeater (Opakovač)",
+                "definition": "Zesiluje/obnovuje zesláblý signál."
               },
               {
-                "term": "Hub",
-                "definition": "Rozbočovač - Broadcast všem (L1)"
-              },
-              {
-                "term": "Switch",
-                "definition": "Přepínač - Cíleně dle MAC (L2)"
-              },
-              {
-                "term": "Router",
-                "definition": "Směrovač - Mezi sítěmi dle IP (L3)"
+                "term": "Hub (Rozbočovač)",
+                "definition": "\"Hloupý\", posílá data všem (kolizní doména)."
               },
               {
                 "term": "Modem",
-                "definition": "Digital ↔ Analog (Převodník)"
+                "definition": "Modulátor/Demodulátor (digitál ↔ analog)."
               },
               {
-                "term": "Access Point",
-                "definition": "Bezdrátový přístup (Wi-Fi ↔ Kabel)"
+                "term": "Access Point (AP)",
+                "definition": "Most mezi drátovou sítí a bezdrátovým signálem."
               }
             ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Pokud se tě zeptají, proč se dvojlinka kroutí, odpověď zní: Omezení přeslechů (interferencí) mezi páry a vnějšího elektromagnetického rušení."
           }
         ]
       }
@@ -1102,7 +511,7 @@
       "exam": "IKT1",
       "question": "Linková vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "##\n\n13. Linková vrstva modelu ISO/OSI \\(Data Link Layer\\)\n\n**Pozice v modelu ISO/OSI**\n\n- Linková vrstva je\n\n2. vrstvou modelu ISO/OSI \\(mezi Fyzickou a Síťovou\\)\n\n- **Hl. Funkce:**\n\nzajišťuje spolehlivou komunikaci mezi zařízeními v**lokální**síti, přebírá data z fyzické vrstvy a organizuje je do rámců.\n\n### Funkce:\n\n\n1. **Rámcování \\(framing\\)**\n\n– Rozděluje data na bloky zvané „rámce“, hlavička a trailer \\(body\\).\n\n2. **Řízení přístupu k médiu \\(MAC\\)**\n\n– Zajišťuje zařízením přístup k přenosovému médiu bez konfliktů.\n\n3. **Detekce chyb \\(Error Detection\\)**\n\n– Identifikuje chyby vzniklé při přenosu dat pomocí CRC \\(kontrolní součet\\).\n\n4. **Řízení toku dat \\(Flow Control\\)**\n\n– Zabraňuje zahlcení zařízení rychlým přenosem dat.\n\n5. **Adresace –**Používá fyzické adresy \\(MAC adresy\\) k identifikaci zařízení v síti.\n\n### Propojení síťových prvků:\n\n\n1. **Switche**\n\n– Přeposílají rámce mezi zařízeními na základě jejich MAC adres.\n\n2. **Bridge \\(Mosty\\)**– Propojují dvě nebo více sítí na úrovni linkové vrstvy**.**\n\n3. ** Access Pointy \\(AP\\)**– Umožňují bezdrátové zařízení připojit k síti.\n\n### Kabeláž:\n\n\n1. **Kroucená dvojlinka \\(Twisted Pair\\)**\\\n\n- Nejčastěji používaná pro Ethernet.\n\n2. **Koaxiální kabel**\\\n\n- Používán v starších sítích.\n\n3. **Optické vlákno \\(Fiber Optic\\)**\\\n\n- Pro vysokorychlostní přenosy a dlouhé vzdálenosti.\n\n### Protokoly:\n\n\n1. **Ethernet**\n\n– Standardizuje přenosové technologie v LAN.\n\n2. **PPP \\(Point\\-to\\-Point Protocol\\)**\n\n– Přímé přepojení mezi dvěma zařízeními.\n\n3. **HDLC**\n\n– Protokol pro sériové linky.\n\n4. **Wi\\-Fi \\(IEEE\n\n802.11\\)**– Bezdrátové připojení.\n\n### Podvrstvy:\n\n\n1. **Podvrstva řízení přístupu k médiu \\(MAC\\):**\n\n-\n\n### Účel\n\n\n– Spravuje přístup k fyzickému médiu a definuje jak data vstupují na přenosové médium.\n\n-\n\n### Funkce:\n\n\n1. **Fyzická adresace**\\(MAC adresy 48bitové\\)\n\n2. **Řízení Kolizí**\n\n– V sítích jako Ethernet \\(např. metoda CSMA/CD\\)\n\n3. **Přenos dat** mezi zařízeními ve stejné \\(lokální\\) síti.\n\n4. **Podvrstva řízení logického spoje \\(Logical Link Control, LLC\\)**-\n\n### Účel\n\n\n– Poskytuje rozhraní mezi linkovou vrstvu a vyššími vrstvami.\n\n-\n\n### Funkce:\n\n\n1. **Multiplexování**\n\n– Umožňuje více protokolům sdílet stejný fyzický přenosový kanál.\n\n2. **Detekce chyb**– Používá kontrolní součty pro zajištění integrity dat.\n\n### Adresy/adresace:\n\n-**MAC Adresa \\(Media Access Control Address\\):**\n\n\n- Unikátní identifikátor síť. zařízení, používá se pro směrování rámců v LAN\n\n\n- **2 části:**\n\n**1\\) OUI \\(prefix\\)**– prvních 24 bitů, např. 00:1A:2B, prefix dán firmou**2\\) NIC**– zbývajících 24 bitů – jedničné čísla přidělená výrobcem\n\n### Přístupové metody:\n\n\n1. **CSMA/CD**-**Použití:**\n\n Ethernet\n\n\n-\n\n### Funkce:\n\n zařízení naslechne médiu, zda je volné a v případě kolize přenos přeruší a opakují.\n\n2. **CSMA/CA**-**Použití:**\n\n Wi\\-Fi\n\n\n-\n\n### Funkce:\n\n Zabraňuje kolizím tím, že zařízení rezervuje přenosové médium před odesláním dat.\n\n3. **Token Passing:**\n\n-**Použití:**\n\n Sítě jako Token Ring.\n\n\n- Token je speciální rámec, který zařízení potřebuje pro zahájení přenosu.\n\n### Síťové prvky a jejich funkce:\n\n1. **Switch**\n\n– Přeposílá rámce na základě MAC adres.\n\n2. **Bridge \\(Most\\)**\n\n– Propojuje různé segmenty sítě a filtruje data na základě MAC adres.\n\n3. **Access Point**\n\n– Slouží k propojení bezdrátových zařízení s kabelovou sítí.\n\n4. **NIC \\(Síťová karta\\)**\n\n– Zprostředkovává komunikaci mezi počítačem a síťovou infrastrukturou a obsahuje MAC adresu zařízeni.\n\n",
+      "answer": "## 13. Linková vrstva modelu ISO/OSI (Data Link Layer)\n\n### Pozice v modelu ISO/OSI\n* Linková vrstva je 2. vrstvou modelu ISO/OSI (mezi Fyzickou a Síťovou)\n* **Hl. Funkce:** zajišťuje spolehlivou komunikaci mezi zařízeními v lokální síti, přebírá data z fyzické vrstvy a organizuje je do rámců.\n\n### Funkce:\n1. Rámcování (framing) – Rozděluje data na bloky zvané „rámce“, hlavička a trailer (body).\n2. Řízení přístupu k médiu (MAC) – Zajišťuje zařízením přístup k přenosovému médiu bez konfliktů.\n3. Detekce chyb (Error Detection) – Identifikuje chyby vzniklé při přenosu dat pomocí CRC (kontrolní součet).\n4. Řízení toku dat (Flow Control) – Zabraňuje zahlcení zařízení rychlým přenosem dat.\n5. Adresace – Používá fyzické adresy (MAC adresy) k identifikaci zařízení v síti.\n\n### Propojení síťových prvků:\n1. Switche – Přeposílají rámce mezi zařízeními na základě jejich MAC adres.\n2. Bridge (Mosty) – Propojují dvě nebo více sítí na úrovni linkové vrstvy.\n3. Access Pointy (AP) – Umožňují bezdrátové zařízení připojit k síti.\n\n### Kabeláž:\n1. Kroucená dvojlinka (Twisted Pair) - Nejčastěji používaná pro Ethernet.\n2. Koaxiální kabel - Používán v starších sítích.\n3. Optické vlákno (Fiber Optic) - Pro vysokorychlostní přenosy a dlouhé vzdálenosti.\n\n### Protokoly:\n1. Ethernet – Standardizuje přenosové technologie v LAN.\n2. PPP (Point-to-Point Protocol) – Přímé přepojení mezi dvěma zařízeními.\n3. HDLC – Protokol pro sériové linky.\n4. Wi-Fi (IEEE 802.11) – Bezdrátové připojení.\n\n### Podvrstvy:\n**1. Podvrstva řízení přístupu k médiu (MAC):**\n* Účel – Spravuje přístup k fyzickému médiu a definuje jak data vstupují na přenosové médium.\n* Funkce:\n    1. Fyzická adresace (MAC adresy 48bitové)\n    2. Řízení Kolizí – V sítích jako Ethernet (např. metoda CSMA/CD)\n    3. Přenos dat mezi zařízeními ve stejné (lokální) síti.\n\n**2. Podvrstva řízení logického spoje (Logical Link Control, LLC)**\n* Účel – Poskytuje rozhraní mezi linkovou vrstvu a vyššími vrstvami.\n* Funkce:\n    1. Multiplexování – Umožňuje více protokolům sdílet stejný fyzický přenosový kanál.\n    2. Detekce chyb – Používá kontrolní součty pro zajištění integrity dat.\n\n### Adresy/adresace:\n* **MAC Adresa (Media Access Control Address):**\n    * Unikátní identifikátor síť. zařízení, používá se pro směrování rámců v LAN\n    * 2 části:\n        1. **OUI (prefix)** – prvních 24 bitů, např. 00:1A:2B, prefix dán firmou\n        2. **NIC** – zbývajících 24 bitů – jedničné čísla přidělená výrobcem\n\n### Přístupové metody:\n**1) CSMA/CD**\n* **Použití:** Ethernet\n* **Funkce:** zařízení naslechne médiu, zda je volné a v případě kolize přenos přeruší a opakují.\n\n**2) CSMA/CA**\n* **Použití:** Wi-Fi\n* **Funkce:** Zabraňuje kolizím tím, že zařízení rezervuje přenosové médium před odesláním dat.\n\n**3) Token Passing:**\n* **Použití:** Sítě jako Token Ring.\n* **Funkce:** Token je speciální rámec, který zařízení potřebuje pro zahájení přenosu.\n\n### Síťové prvky a jejich funkce:\n1. Switch – Přeposílá rámce na základě MAC adres.\n2. Bridge (Most) – Propojuje různé segmenty sítě a filtruje data na základě MAC adres.\n3. Access Point – Slouží k propojení bezdrátových zařízení s kabelovou sítí.\n4. NIC (Síťová karta) – Zprostředkovává komunikaci mezi počítačem a síťovou infrastrukturou a obsahuje MAC adresu zařízeni.",
       "keywords": [
         "ISO/OSI",
         "linková vrstva",
@@ -1110,322 +519,111 @@
       ],
       "difficulty": "těžké",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/13. Linková vrstva modelu ISO OSI (Data Link Layer).docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Pozice vrstvy v modelech, funkce",
-            "subsections": [
-              {
-                "title": "Pozice",
-                "items": [
-                  "Linková vrstva je druhá vrstva v modelu ISO/OSI.",
-                  "Nachází se nad fyzickou vrstvou a pod síťovou vrstvou.",
-                  "Přemosťuje rozdíly mezi fyzickými médii a vyššími vrstvami."
-                ]
-              },
-              {
-                "title": "Funkce",
-                "items": [
-                  {
-                    "term": "Rámcování (Framing)",
-                    "definition": "Rozděluje data na bloky zvané rámce. Přidává hlavičku a koncový kód."
-                  },
-                  {
-                    "term": "Řízení přístupu k médiu (MAC)",
-                    "definition": "Zajišťuje přístup k přenosovému médiu bez konfliktů."
-                  },
-                  {
-                    "term": "Detekce chyb",
-                    "definition": "Identifikuje chyby při přenosu pomocí CRC (Cyclic Redundancy Check)."
-                  },
-                  {
-                    "term": "Řízení toku dat",
-                    "definition": "Zabraňuje zahlcení zařízení rychlým přenosem dat."
-                  },
-                  {
-                    "term": "Adresace",
-                    "definition": "Používá fyzické adresy (MAC adresy) k identifikaci zařízení."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Propojení síťových prvků, kabeláž, protokoly",
-            "subsections": [
-              {
-                "title": "Propojení síťových prvků",
-                "items": [
-                  {
-                    "term": "Switche",
-                    "definition": "Přeposílají rámce mezi zařízeními na základě MAC adres."
-                  },
-                  {
-                    "term": "Bridge (Mosty)",
-                    "definition": "Propojují dvě nebo více sítí na úrovni linkové vrstvy."
-                  },
-                  {
-                    "term": "Access Pointy (AP)",
-                    "definition": "Umožňují bezdrátová zařízení připojit k síti."
-                  }
-                ]
-              },
-              {
-                "title": "Kabeláž",
-                "items": [
-                  {
-                    "term": "Kroucená dvojlinka",
-                    "definition": "Nejčastěji používaná pro Ethernet."
-                  },
-                  {
-                    "term": "Koaxiální kabel",
-                    "definition": "Používán v starších sítích."
-                  },
-                  {
-                    "term": "Optické vlákno",
-                    "definition": "Pro vysokorychlostní přenosy a dlouhé vzdálenosti."
-                  }
-                ]
-              },
-              {
-                "title": "Protokoly",
-                "items": [
-                  {
-                    "term": "Ethernet",
-                    "definition": "Standardizuje přenosové technologie v LAN."
-                  },
-                  {
-                    "term": "PPP",
-                    "definition": "Point-to-Point Protocol pro přímé připojení mezi dvěma zařízeními."
-                  },
-                  {
-                    "term": "HDLC",
-                    "definition": "Protokol pro sériové linky."
-                  },
-                  {
-                    "term": "Wi-Fi (IEEE 802.11)",
-                    "definition": "Bezdrátové připojení."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Podvrstvy linkové vrstvy",
-            "subsections": [
-              {
-                "title": "MAC (Media Access Control)",
-                "text": "Spravuje přístup k fyzickému médiu a definuje, jak data vstupují na přenosové médium.",
-                "items": [
-                  {
-                    "term": "Fyzická adresace",
-                    "definition": "Používá MAC adresy (48bitové)."
-                  },
-                  {
-                    "term": "Řízení kolizí",
-                    "definition": "V sítích jako Ethernet (např. metoda CSMA/CD)."
-                  },
-                  "Přenos dat mezi zařízeními na stejné síti."
-                ]
-              },
-              {
-                "title": "LLC (Logical Link Control)",
-                "text": "Poskytuje rozhraní mezi linkovou vrstvou a vyššími vrstvami.",
-                "items": [
-                  {
-                    "term": "Multiplexování",
-                    "definition": "Umožňuje více protokolům sdílet stejný fyzický kanál."
-                  },
-                  {
-                    "term": "Detekce chyb",
-                    "definition": "Používá kontrolní součty pro zajištění integrity dat."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Adresy/adresace, přístupové metody",
-            "subsections": [
-              {
-                "title": "MAC adresa",
-                "text": "Unikátní identifikátor síťového zařízení. 48bitová adresa rozdělená na OUI (Organizationally Unique Identifier) a NIC (Network Interface Controller). Používá se pro směrování rámců v LAN."
-              },
-              {
-                "title": "Přístupové metody",
-                "items": [
-                  {
-                    "term": "CSMA/CD",
-                    "definition": "Carrier Sense Multiple Access with Collision Detection - používá se v Ethernetu. Zařízení naslouchají na médiu a v případě kolize přenos opakují."
-                  },
-                  {
-                    "term": "CSMA/CA",
-                    "definition": "Collision Avoidance - používá se v Wi-Fi. Zařízení rezervuje médium před odesláním dat."
-                  },
-                  {
-                    "term": "Token Passing",
-                    "definition": "Používá se v Token Ring. Token je speciální rámec potřebný pro zahájení přenosu."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Síťové prvky a jejich funkce",
-            "items": [
-              {
-                "term": "Switch",
-                "definition": "Přeposílá rámce na základě MAC adres. Minimalizuje kolize."
-              },
-              {
-                "term": "Bridge (Most)",
-                "definition": "Propojuje různé segmenty sítě. Filtruje data na základě MAC adres."
-              },
-              {
-                "term": "Access Point",
-                "definition": "Propojuje bezdrátová zařízení s kabelovou sítí."
-              },
-              {
-                "term": "NIC (Síťová karta)",
-                "definition": "Zprostředkovává komunikaci mezi počítačem a sítí. Obsahuje MAC adresu zařízení."
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Linková vrstva zajišťuje přenos dat mezi zařízeními v lokální síti a správu přístupu k přenosovému médiu. Klíčové koncepty: rámce, MAC adresy, přístupové metody a protokoly (Ethernet, Wi-Fi). Dělení na podvrstvy (MAC a LLC) umožňuje správu fyzického přístupu i řízení komunikace."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Linková vrstva (L2) 🔗",
+            "title": "1. Funkce a podvrstvy",
+            "text": "Linková vrstva (L2) zajišťuje přenos dat mezi sousedními uzly v rámci jedné lokální sítě (LAN). Pracuje s celky zvanými rámce (frames).",
             "items": [
-              "2. vrstva ISO/OSI (mezi Fyzickou a Síťovou)",
               {
-                "term": "Cíl",
-                "definition": "Spolehlivost v lokální síti (LAN)"
+                "term": "LLC (Horní)",
+                "definition": "Komunikuje s L3 (síťovou). Zajišťuje multiplexování a řízení toku."
               },
               {
-                "term": "Jednotka",
-                "definition": "Rámec (Frame) 📦"
-              }
-            ]
-          },
-          {
-            "title": "Hlavní funkce ⚙️",
-            "items": [
+                "term": "MAC (Dolní)",
+                "definition": "Komunikuje s L1 (fyzickou). Řeší fyzické adresování a přístup k médiu."
+              },
               {
                 "term": "Rámcování",
-                "definition": "Data → Hlavička + Payload + Trailer"
-              },
-              {
-                "term": "Fyz. Adresace",
-                "definition": "MAC adresy"
-              },
-              {
-                "term": "Řízení přístupu",
-                "definition": "K médiu (MAC sublayer)"
+                "definition": "Balí data do rámců (Hlavička + Data + Patička/Trailer)."
               },
               {
                 "term": "Detekce chyb",
-                "definition": "CRC (Trailer)"
+                "definition": "CRC v patičce. Pokud nesedí, rámec se zahodí."
               },
               {
-                "term": "Flow Control",
-                "definition": "Brání zahlcení"
+                "term": "Řízení toku",
+                "definition": "Brání zahlcení pomalého příjemce."
               }
             ]
           },
           {
-            "title": "Podvrstvy L2 🍰",
+            "title": "2. Adresace (MAC adresa)",
+            "text": "Fyzická adresa vypálená v síťové kartě (NIC). Je 48bitová a zapisuje se v šestnáctkové soustavě (HEX).",
             "items": [
               {
-                "term": "MAC (Media Access)",
-                "definition": "Řízení přístupu + Fyz. adresy"
+                "term": "Struktura",
+                "definition": "24 bitů OUI (Výrobce) + 24 bitů NIC (Sériové číslo)."
               },
               {
-                "term": "LLC (Logical Link)",
-                "definition": "Rozhraní pro L3 + Multiplex + Error check"
+                "term": "Příklad",
+                "definition": "00:1A:2B:3C:4D:5E"
               }
             ]
           },
           {
-            "title": "MAC Adresa 🏷️",
-            "items": [
-              {
-                "term": "Definice",
-                "definition": "Unikátní ID, 48 bitů (6B)"
-              },
-              {
-                "term": "OUI (Prefix)",
-                "definition": "24 bitů (Výrobce)"
-              },
-              {
-                "term": "NIC (Suffix)",
-                "definition": "24 bitů (Sériové číslo)"
-              }
-            ]
-          },
-          {
-            "title": "Přístupové metody 🚦",
+            "title": "3. Přístupové metody (Media Access)",
+            "text": "Určují pravidla pro sdílení kabelu/vzduchu, aby nedocházelo ke kolizím.",
             "items": [
               {
                 "term": "CSMA/CD",
-                "definition": "Ethernet (kabel) → Detekce kolizí"
+                "definition": "Ethernet. Detekce kolize -> Stop -> Náhodný čas."
               },
               {
                 "term": "CSMA/CA",
-                "definition": "Wi-Fi → Předcházení kolizím"
+                "definition": "Wi-Fi. Předcházení kolizím (signál „budu vysílat“)."
               },
               {
                 "term": "Token Passing",
-                "definition": "Token Ring → Žeton (Token)"
+                "definition": "Předávání „peška“ (token). Vysílá jen ten, kdo ho má."
               }
             ]
           },
           {
-            "title": "Síťové prvky L2 🧰",
+            "title": "4. Síťové prvky na L2",
             "items": [
               {
                 "term": "Switch",
-                "definition": "Přeposílá rámce dle MAC (Unicast)"
+                "definition": "Inteligentní. Učí se MAC adresy (CAM tabulka), posílá adresně."
               },
               {
                 "term": "Bridge",
-                "definition": "Spojuje segmenty, filtruje dle MAC"
+                "definition": "Propojuje dva segmenty (dnes nahrazen switchem)."
+              },
+              {
+                "term": "NIC",
+                "definition": "Síťová karta (dává PC MAC adresu)."
               },
               {
                 "term": "Access Point",
-                "definition": "Wi-Fi připojení do sítě"
-              },
-              {
-                "term": "NIC (Karta)",
-                "definition": "Rozhraní PC ↔ Síť (má MAC)"
+                "definition": "Převádí rámce z Wi-Fi (802.11) na Ethernet (802.3)."
               }
             ]
           },
           {
-            "title": "Protokoly 📜",
+            "title": "5. Protokoly",
             "items": [
               {
                 "term": "Ethernet",
-                "definition": "LAN standard"
+                "definition": "Nejpoužívanější standard pro drátové sítě (IEEE 802.3)."
               },
               {
                 "term": "Wi-Fi",
-                "definition": "802.11"
+                "definition": "Standard pro bezdrátové sítě (IEEE 802.11)."
               },
               {
                 "term": "PPP",
-                "definition": "Point-to-Point (přímé spojení)"
+                "definition": "Point-to-Point (přímé spojení, např. modem)."
               },
               {
                 "term": "HDLC",
-                "definition": "Sériové linky"
+                "definition": "Starší protokol pro sériové linky."
               }
             ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Pamatuj, že switch pracuje s MAC adresami, zatímco router (L3) pracuje s IP adresami. To je nejčastější otázka zkoušejících."
           }
         ]
       }
@@ -1435,7 +633,7 @@
       "exam": "IKT1",
       "question": "Síťová vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "##\n\n14. Síťová vrstva modelu ISO/OSI \\(Network Layer\\)\n\n**Pozice v modelu ISO/OSI**\n\n- Síťová vrstva je\n\n3. vrstvou modelu ISO/OSI** Funkce:**\n\n1. ** Směrování \\(Routing\\)** – Určuje nejvhodnější cestu, kterou se data dostanou z jednoho bodu do druhého.\n\n2. **Logická adresace**\n\n– Přiděluje síťové adresy zařízením \\(IPv4, IPv6\\).\n\n3. **Fragmentace a sestavení paketů**\n\n– Rozděluje velké bloky dat na malé, tzv. pakety.\n\n4. **Detekce a řízení přetížení**\n\n– Sleduje síťové zatížení a minimalizuje přetížení.\n\n5. **Přenos dat mezi různými typy sítí**– Zajišťuje kompatibilitu mezi sítěmi s odlišnými technologiemi.**Adresní prostory IPv4:**\n\n-**Velikost:**\n\n IPv4 používá 32bit adresy \\-> 4,3 miliardy unikátních adres\n\n- **Rozdělení:**\n\nIPv4 je rozdělena do 4 „oktetů“ \\(8bit bloky\\) oddělenými tečkami \\(\n\n192.168.\n\n1.1\\)**Třídy IPv4 adres:**\n\n1. **Třída A**-**Rozsah:**\n\n\n\n0.0.\n\n0.0 –\n\n127.255.\n\n255.255\n\n- **Použití:**\n\n Velké sítě.\n\n- **Maska sítě:**\n\n\n\n255.0.\n\n0.0 \\(prefix /8 – první oktet\\)\n\n1. **Třída B**-**Rozsah:**\n\n\n\n128.0.\n\n0.0 –\n\n191.255.\n\n255.255\n\n- **Použití:**\n\n Středně velké sítě.\n\n- **Maska sítě:**\n\n\n\n255.255.\n\n0.0 \\(prefix /16 – první 2 oktety\\)\n\n1. **Třída C**-**Rozsah:**\n\n\n\n192.0.\n\n0.0 –\n\n223.255.\n\n255.255\n\n- **Použití:**\n\n Malé sítě.\n\n- **Maska sítě:**\n\n\n\n255.255.\n\n255.0 \\(prefix /24 – první 3 oktety\\)\n\n1. **Třída D**-**Rozsah:**\n\n\n\n224.0.\n\n0.0 –\n\n239.255.\n\n255.255\n\n- **Použití:**\n\n Multicast.\n\n1. **Třída E**-**Rozsah:**\n\n\n\n240.0.\n\n0.0 –\n\n255.255.\n\n255.255\n\n- **Použití:**\n\nExperimentální adresy.\n\n### Typy IPv4 adres:\n\n\n1. **Veřejné adresy** – Globálně unikátní a směrovatelné na internetu.\n\n2. **Soukromé adresy \\(Lokální sítě\\)**-**Rozsahy:**\n\n-**Třída A:**\n\n10.0.\n\n0.0 –\n\n10.255.\n\n255.255** **-**Třída B:**\n\n\n\n172.16.\n\n0.0 –\n\n172.31.\n\n255.255\n\n\n- **Třída C:**\n\n\n\n192.168.\n\n0.0 –\n\n192.168.\n\n255.255\n\n1. **Broadcast adresy**\n\n– používají se pro adresaci všech zařízení v síti \\(\n\n192.168.\n\n1.255\\)\n\n2. **Loopback adresy**– testovací adresa zařízení \\(\n\n127.0.\n\n0.1\\)**Maska podsítě \\(Subnet Mask\\):**\n\n-\n\n### Funkce:\n\n Slouží k rozdělení adresního prostoru na menší podsítě\n\n- **Příklad:**\n\n255.255.\n\n255.0 \\(první 3 oktety určují síť a poslední určuje hostitele\\)**Adresní prostory IPv6:**\n\n-**Velikost:**\n\n IPv6 používá 128bit adresy\n\n- **Rozdělení:**\n\n IPv6 je rozdělena na 8 16bitových bloků\n\n- **Příklad:**\n\n2001:0db8:85a3:0000:0000:8a2e:0370:7334\n\n### Typy IPv6 adres:\n\n\n1. **Unicast**\n\n– Identifikace 1 zařízení, např 2001::/16\n\n2. **Multicast**– adresace skupiny zařízení,**Rozsah** \\\n\n- FF00::/8\n\n3. **Anycast**– adresuje nejbližší zařízení ve skupině**Adresní prostory/bloky IPv6:**\n\n1. **Globálně unikátní adresy:**\n\n 2000::/3\n\n2. **Link\\-Local adresy:**\n\n FE80::/10, pouze pro lokální komunikaci\n\n3. **Soukromé adresy:**\n\nFC00::/7**Maska podsítě**– používá se prefix \\(např. /64\\), který určuje počet bitů pro sí/tovou část adresy.\n\n### Bloky Dat \\(PDU\\):\n\n\n- Na síťové vrstvě se přenáší pakety \\(packets\\).\n\n- **Struktura paketu:**\n\n1. **Hlavička** – zdrojová a cílová IP adresa, délka paketu, kontrolní součet\n\n2. **Data**– Obsahuje užitečná data přenášená vyššími vrstvami.\n\n### Protokoly:\n\n\n1. **IP \\(Internet Protocol\\)**-\n\n### Účel:\n\n Směrování a doručení paketů\n\n- **Struktura:**\n\n Hlavička obsahuje IP adresy, verzi, délku a další parametry.\n\n1. **ICMP \\(Internet Control Message Protocol\\)**-\n\n### Účel:\n\n Diagnostika a hlášení chyb v síti \\(např. příkaz ping\\)\n\n1. **ARP \\(Address Resolution Protocol\\)**-\n\n### Účel:\n\n Převod IP adres na MAC adresy.\n\n1. **NAT \\(Network Address Translation\\):**\n\n-\n\n### Účel:\n\npřevádí privátní IP adresy na veřejné.\n\n### Síťové prvky:\n\n\n1. **Router**\n\n– Směruje pakety mezi sítěmi, analyzuje IP adresy, určuje nejlepší cestu pro přenos dat\n\n2. **Firewall**\n\n– Chrání síť před neoprávněnými přístupy a útoky, filtruje provoz na základě pravidel\n\n3. **Gateway \\(Brána\\)**\n\n– Překlad protokolů mezi různými sítěmi.\n\n4. **Layer 3 switch**\n\n– kombinace switch a router, přepíná data na základě IP adres\n\n",
+      "answer": "## 14. Síťová vrstva modelu ISO/OSI (Network Layer)\n\n### Pozice v modelu ISO/OSI\n* Síťová vrstva je 3. vrstvou modelu ISO/OSI\n\n### Funkce:\n1. Směrování (Routing) – Určuje nejvhodnější cestu, kterou se data dostanou z jednoho bodu do druhého.\n2. Logická adresace – Přiděluje síťové adresy zařízením (IPv4, IPv6).\n3. Fragmentace a sestavení paketů – Rozděluje velké bloky dat na malé, tzv. pakety.\n4. Detekce a řízení přetížení – Sleduje síťové zatížení a minimalizuje přetížení.\n5. Přenos dat mezi různými typy sítí – Zajišťuje kompatibilitu mezi sítěmi s odlišnými technologiemi.\n\n### Adresní prostory IPv4:\n* Velikost: IPv4 používá 32bit adresy -> 4,3 miliardy unikátních adres\n* Rozdělení: IPv4 je rozdělena do 4 „oktetů“ (8bit bloky) oddělenými tečkami (192.168.1.1)\n\n### Třídy IPv4 adres:\n1. Třída A\n    * Rozsah: 0.0.0.0 – 127.255.255.255\n    * Použití: Velké sítě.\n    * Maska sítě: 255.0.0.0 (prefix /8 – první oktet)\n2. Třída B\n    * Rozsah: 128.0.0.0 – 191.255.255.255\n    * Použití: Středně velké sítě.\n    * Maska sítě: 255.255.0.0 (prefix /16 – první 2 oktety)\n3. Třída C\n    * Rozsah: 192.0.0.0 – 223.255.255.255\n    * Použití: Malé sítě.\n    * Maska sítě: 255.255.255.0 (prefix /24 – první 3 oktety)\n4. Třída D\n    * Rozsah: 224.0.0.0 – 239.255.255.255\n    * Použití: Multicast.\n5. Třída E\n    * Rozsah: 240.0.0.0 – 255.255.255.255\n    * Použití: Experimentální adresy.\n\n### Typy IPv4 adres:\n1. Veřejné adresy – Globálně unikátní a směrovatelné na internetu.\n2. Soukromé adresy (Lokální sítě)\n    * Rozsahy:\n        * Třída A: 10.0.0.0 – 10.255.255.255 \n        * Třída B: 172.16.0.0 – 172.31.255.255\n        * Třída C: 192.168.0.0 – 192.168.255.255\n3. Broadcast adresy – používají se pro adresaci všech zařízení v síti (192.168.1.255)\n4. Loopback adresy – testovací adresa zařízení (127.0.0.1)\n\n### Maska podsítě (Subnet Mask):\n* Funkce: Slouží k rozdělení adresního prostoru na menší podsítě\n* Příklad: 255.255.255.0 (první 3 oktety určují síť a poslední určuje hostitele)\n\n### Adresní prostory IPv6:\n* Velikost: IPv6 používá 128bit adresy\n* Rozdělení: IPv6 je rozdělena na 8 16bitových bloků\n* Příklad: 2001:0db8:85a3:0000:0000:8a2e:0370:7334\n\n### Typy IPv6 adres:\n1. Unicast – Identifikace 1 zařízení, např 2001::/16\n2. Multicast – adresace skupiny zařízení,  Rozsah - FF00::/8\n3. Anycast – adresuje nejbližší zařízení ve skupině\n\n### Adresní prostory/bloky IPv6:\n1. Globálně unikátní adresy: 2000::/3\n2. Link-Local adresy: FE80::/10, pouze pro lokální komunikaci\n3. Soukromé adresy: FC00::/7\n\n### Maska podsítě:\n* používá se prefix (např. /64), který určuje počet bitů pro síťovou část adresy.\n\n### Bloky Dat (PDU):\n* Na síťové vrstvě se přenáší pakety (packets).\n* Struktura paketu: \n    1. Hlavička – zdrojová a cílová IP adresa, délka paketu, kontrolní součet\n    2. Data – Obsahuje užitečná data přenášená vyššími vrstvami.\n\n### Protokoly:\n1. IP (Internet Protocol)\n    * Účel: Směrování a doručení paketů\n    * Struktura: Hlavička obsahuje IP adresy, verzi, délku a další parametry.\n2. ICMP (Internet Control Message Protocol)\n    * Účel: Diagnostika a hlášení chyb v síti (např. příkaz ping)\n3. ARP (Address Resolution Protocol)\n    * Účel: Převod IP adres na MAC adresy.\n4. NAT (Network Address Translation):\n    * Účel: převádí privátní IP adresy na veřejné.\n\n### Síťové prvky:\n1. Router – Směruje pakety mezi sítěmi, analyzuje IP adresy, určuje nejlepší cestu pro přenos dat\n2. Firewall – Chrání síť před neoprávněnými přístupy a útoky, filtruje provoz na základě pravidel\n3. Gateway (Brána) – Překlad protokolů mezi různými sítěmi.\n4. Layer 3 switch – kombinace switch a router, přepíná data na základě IP adres",
       "keywords": [
         "ISO/OSI",
         "síťová vrstva",
@@ -1443,369 +641,123 @@
       ],
       "difficulty": "těžké",
       "sourceFile": "/materialy/ICT1/PSI/Zkrácené/14. Síťová vrstva modelu ISO OSI (Network Layer).docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Pozice vrstvy v modelech, funkce",
-            "subsections": [
-              {
-                "title": "Pozice",
-                "items": [
-                  "Síťová vrstva je třetí vrstva modelu ISO/OSI, nad linkovou vrstvou a pod transportní vrstvou.",
-                  "Zatímco linková vrstva se stará o přenos dat mezi zařízeními na stejné síti (lokálně), síťová vrstva se zabývá komunikací mezi různými sítěmi."
-                ]
-              },
-              {
-                "title": "Funkce",
-                "items": [
-                  {
-                    "term": "Směrování (Routing)",
-                    "definition": "Určuje nejvhodnější cestu, kterou se data dostanou z jednoho uzlu do druhého."
-                  },
-                  {
-                    "term": "Logická adresace",
-                    "definition": "Přiděluje síťové adresy zařízením (např. IPv4, IPv6). Tato adresace je nezávislá na fyzickém umístění zařízení."
-                  },
-                  {
-                    "term": "Fragmentace a sestavení paketů",
-                    "definition": "Rozděluje velké datové bloky na menší části (MTU) a po přenosu je sestavuje zpět."
-                  },
-                  {
-                    "term": "Detekce a řízení přetížení",
-                    "definition": "Sleduje síťové zatížení a minimalizuje přetížení."
-                  },
-                  {
-                    "term": "Přenos dat mezi různými typy sítí",
-                    "definition": "Zajišťuje kompatibilitu mezi sítěmi s různými technologiemi."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Adresní prostory/třídy IPv4 adres",
-            "text": "IPv4 používá 32bitové adresy, což umožňuje přibližně 4,3 miliardy unikátních adres. Adresa je rozdělena do 4 osmibitových bloků oddělených tečkami (např. 192.168.1.1).",
-            "subsections": [
-              {
-                "title": "Třídy IPv4 adres",
-                "items": [
-                  {
-                    "term": "Třída A",
-                    "definition": "Rozsah: 0.0.0.0 – 127.255.255.255. Použití: Velké sítě. Maska: 255.0.0.0 (/8)."
-                  },
-                  {
-                    "term": "Třída B",
-                    "definition": "Rozsah: 128.0.0.0 – 191.255.255.255. Použití: Středně velké sítě. Maska: 255.255.0.0 (/16)."
-                  },
-                  {
-                    "term": "Třída C",
-                    "definition": "Rozsah: 192.0.0.0 – 223.255.255.255. Použití: Malé sítě. Maska: 255.255.255.0 (/24)."
-                  },
-                  {
-                    "term": "Třída D",
-                    "definition": "Rozsah: 224.0.0.0 – 239.255.255.255. Použití: Multicast."
-                  },
-                  {
-                    "term": "Třída E",
-                    "definition": "Rozsah: 240.0.0.0 – 255.255.255.255. Použití: Experimentální adresy."
-                  }
-                ]
-              },
-              {
-                "title": "Typy IPv4 adres",
-                "items": [
-                  {
-                    "term": "Veřejné adresy",
-                    "definition": "Globálně unikátní a směrovatelné na internetu."
-                  },
-                  {
-                    "term": "Soukromé adresy",
-                    "definition": "Používají se v lokálních sítích. Rozsahy: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16."
-                  },
-                  {
-                    "term": "Broadcast adresy",
-                    "definition": "Adresování všech zařízení v síti (např. 192.168.1.255)."
-                  },
-                  {
-                    "term": "Loopback adresy",
-                    "definition": "Testovací adresa zařízení (127.0.0.1)."
-                  }
-                ]
-              },
-              {
-                "title": "Maska podsítě (Subnet Mask)",
-                "text": "Slouží k rozdělení adresního prostoru na menší podsítě. Např. maska 255.255.255.0 (/24) znamená, že první tři oktety určují síť a poslední oktet určuje hostitele."
-              }
-            ]
-          },
-          {
-            "title": "Adresní prostory IPv6 adres",
-            "text": "IPv6 používá 128bitové adresy, což umožňuje přibližně 3.4×10^38 unikátních adres. Adresa je zapsána v osmi 16bitových blocích oddělených dvojtečkami (např. 2001:0db8:85a3:0000:0000:8a2e:0370:7334).",
-            "subsections": [
-              {
-                "title": "Typy IPv6 adres",
-                "items": [
-                  {
-                    "term": "Unicast",
-                    "definition": "Identifikuje jediné zařízení. Rozsah: např. 2001::/16."
-                  },
-                  {
-                    "term": "Multicast",
-                    "definition": "Adresuje skupinu zařízení. Rozsah: FF00::/8."
-                  },
-                  {
-                    "term": "Anycast",
-                    "definition": "Adresuje nejbližší zařízení ve skupině."
-                  }
-                ]
-              },
-              {
-                "title": "Adresní bloky IPv6",
-                "items": [
-                  {
-                    "term": "Globálně unikátní adresy",
-                    "definition": "2000::/3"
-                  },
-                  {
-                    "term": "Link-local adresy",
-                    "definition": "FE80::/10 (pouze pro lokální komunikaci)."
-                  },
-                  {
-                    "term": "Soukromé adresy",
-                    "definition": "FC00::/7"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Bloky dat, protokoly",
-            "text": "Na síťové vrstvě se přenáší pakety (packets). Struktura paketu obsahuje hlavičku (zdrojová a cílová IP adresa, délka, kontrolní součet) a data.",
-            "subsections": [
-              {
-                "title": "Protokoly",
-                "items": [
-                  {
-                    "term": "IP (Internet Protocol)",
-                    "definition": "Směrování a doručení paketů. Hlavička obsahuje IP adresy, verzi, délku."
-                  },
-                  {
-                    "term": "ICMP",
-                    "definition": "Internet Control Message Protocol - diagnostika a hlášení chyb (např. ping)."
-                  },
-                  {
-                    "term": "ARP",
-                    "definition": "Address Resolution Protocol - převod IP adres na MAC adresy."
-                  },
-                  {
-                    "term": "NAT",
-                    "definition": "Network Address Translation - převádí privátní IP adresy na veřejné."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Síťové prvky a jejich funkce",
-            "items": [
-              {
-                "term": "Router (Směrovač)",
-                "definition": "Směruje pakety mezi různými sítěmi. Analyzuje IP adresy a určuje nejlepší cestu."
-              },
-              {
-                "term": "Firewall",
-                "definition": "Chrání síť před neoprávněnými přístupy a útoky."
-              },
-              {
-                "term": "Gateway (Brána)",
-                "definition": "Překládá protokoly mezi různými sítěmi."
-              },
-              {
-                "term": "Layer 3 Switch",
-                "definition": "Kombinace switch a routeru. Přepíná data na základě IP adres."
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Síťová vrstva modelu ISO/OSI je zodpovědná za logickou adresaci, směrování a přenos dat mezi sítěmi. Používá adresy IPv4 a IPv6, protokoly jako IP, ICMP a ARP a pracuje s prvky jako routery nebo firewally."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Síťová vrstva (L3) 🌐",
-            "items": [
-              "3. vrstva ISO/OSI",
-              {
-                "term": "Cíl",
-                "definition": "Směrování mezi sítěmi (Routing)"
-              },
-              {
-                "term": "Jednotka",
-                "definition": "Paket (Packet) 📦"
-              },
-              {
-                "term": "Adresace",
-                "definition": "Logická (IP adresy)"
-              }
-            ]
-          },
-          {
-            "title": "Hlavní funkce 🛠️",
+            "title": "1. Hlavní funkce",
+            "text": "Síťová vrstva (L3) zajišťuje komunikaci mezi koncovými zařízeními v různých sítích. Hlavním úkolem je směrování a logická adresace.",
             "items": [
               {
-                "term": "Routing",
-                "definition": "Hledání nejlepší cesty"
+                "term": "Logická adresace",
+                "definition": "Každé zařízení dostane unikátní IP adresu."
               },
               {
-                "term": "Adresace",
-                "definition": "Unikátní IP (IPv4 / IPv6)"
+                "term": "Směrování (Routing)",
+                "definition": "Výběr nejlepší cesty pro paket (provádí router)."
               },
               {
                 "term": "Fragmentace",
-                "definition": "Dělení paketů (MTU)"
+                "definition": "Rozdělení paketu na menší části dle MTU."
               },
               {
-                "term": "QoS",
-                "definition": "Prioritizace provozu"
-              },
-              {
-                "term": "Přetížení",
-                "definition": "Detekce a řízení"
+                "term": "Propojování sítí",
+                "definition": "Komunikace mezi různými technologiemi (Ethernet ↔ Wi-Fi)."
               }
             ]
           },
           {
-            "title": "IPv4 🔢",
+            "title": "2. Adresace IPv4",
+            "text": "32 bitů (4 oktety, např. 192.168.1.1).",
             "items": [
               {
-                "term": "Délka",
-                "definition": "32 bitů (4 oktety po 8b)"
+                "term": "Maska podsítě",
+                "definition": "Určuje část sítě a část hostitele."
               },
               {
-                "term": "Formát",
-                "definition": "192.168.1.1 (Dotted Decimal)"
+                "term": "Třídy (Legacy)",
+                "definition": "A (Velké), B (Střední), C (Malé/Domácí)."
               },
               {
-                "term": "Kapacita",
-                "definition": "~4.3 miliardy adres"
-              }
-            ]
-          },
-          {
-            "title": "Třídy IPv4 (Classful) 📚",
-            "items": [
-              {
-                "term": "A",
-                "definition": "0-127 (Velké sítě, /8)"
-              },
-              {
-                "term": "B",
-                "definition": "128-191 (Střední, /16)"
-              },
-              {
-                "term": "C",
-                "definition": "192-223 (Malé, /24)"
-              },
-              {
-                "term": "D",
-                "definition": "224-239 (Multicast)"
-              },
-              {
-                "term": "E",
-                "definition": "240-255 (Experimentální)"
-              }
-            ]
-          },
-          {
-            "title": "Typy adres 🏷️",
-            "items": [
-              {
-                "term": "Veřejné",
-                "definition": "Internet (Globální)"
-              },
-              {
-                "term": "Privátní",
-                "definition": "Lokální (LAN) - nesměrovatelné v netu"
+                "term": "Soukromé IP",
+                "definition": "10.x.x.x, 172.16-31.x.x, 192.168.x.x (neveřejné)."
               },
               {
                 "term": "Loopback",
-                "definition": "127.0.0.1 (Localhost)"
+                "definition": "127.0.0.1 (vlastní PC)."
               },
               {
                 "term": "Broadcast",
-                "definition": "Všem v síti"
+                "definition": "Pro všechny v síti (např. 192.168.1.255)."
               }
             ]
           },
           {
-            "title": "IPv6 🚀",
+            "title": "3. Adresace IPv6",
+            "text": "128 bitů (8 skupin hex, např. 2001:db8::...). Řeší nedostatek adres.",
             "items": [
               {
-                "term": "Délka",
-                "definition": "128 bitů (16 bajtů)"
+                "term": "Unicast",
+                "definition": "Jeden → Jeden."
               },
               {
-                "term": "Formát",
-                "definition": "Hex (2001:db8::1)"
+                "term": "Multicast",
+                "definition": "Jeden → Skupina."
               },
               {
-                "term": "Typy",
-                "definition": "Unicast / Multicast / Anycast"
+                "term": "Anycast",
+                "definition": "Jeden → Nejbližší z příjemců."
               },
               {
-                "term": "Adresy",
-                "definition": "Globální / Link-local (FE80) / Soukromé"
+                "term": "Link-Local",
+                "definition": "FE80::/10 (jen v rámci sítě)."
               }
             ]
           },
           {
-            "title": "Protokoly L3 📜",
+            "title": "4. Klíčové protokoly",
             "items": [
               {
                 "term": "IP",
-                "definition": "Doručení paketů"
+                "definition": "Samotný přenos paketů."
               },
               {
                 "term": "ICMP",
-                "definition": "Ping / Chyby"
+                "definition": "Diagnostika (PING, Traceroute)."
               },
               {
                 "term": "ARP",
-                "definition": "IP → MAC"
-              },
-              {
-                "term": "RARP",
-                "definition": "MAC → IP"
+                "definition": "Překlad IP na MAC adresy."
               },
               {
                 "term": "NAT",
-                "definition": "Překlad privátní ↔ veřejná IP"
+                "definition": "Překlad adres (schová síť za 1 veřejnou IP)."
               }
             ]
           },
           {
-            "title": "Síťové prvky L3 🧰",
+            "title": "5. Síťové prvky na L3",
             "items": [
               {
                 "term": "Router",
-                "definition": "Směruje (Nejlepší cesta)"
-              },
-              {
-                "term": "Firewall",
-                "definition": "Filtr (Bezpečnost)"
-              },
-              {
-                "term": "Gateway (Brána)",
-                "definition": "Překlad protokolů"
+                "definition": "Směruje pakety, odděluje sítě."
               },
               {
                 "term": "L3 Switch",
-                "definition": "Rychlý routing (HW)"
+                "definition": "Rychlé přepínání + Směrování."
+              },
+              {
+                "term": "Firewall",
+                "definition": "Filtruje provoz (bezpečnost)."
+              },
+              {
+                "term": "Gateway",
+                "definition": "Brána do internetu."
               }
             ]
+          },
+          {
+            "title": "Tip k maturitě 💡",
+            "text": "Nezapomeň, že v IPv6 už neexistuje Broadcast. Vše, co dříve dělal broadcast, dnes v IPv6 obstarává speciální Multicast. Je to efektivnější."
           }
         ]
       }
@@ -1815,314 +767,14 @@
       "exam": "IKT1",
       "question": "Adresace a směřování v sítích",
       "category": "Počítačové sítě",
-      "answer": "##\n\n15. Adresace a směrování v sítích\n\n\n### Adresace/Směrování\n\n\n- Základní mechanismy pro komunikaci v počítačových sítích.\n\n### Adresace\n\n\n- Identifikace zařízení v síti \\(ID\\)**Schéma sítě \\(PC, Switch, Router\\) \\+ příklad**\n\n1. ** PC \\(Personal Computer\\)** – Koncová zařízení, generují a přijímají data, mají svojí unikatní IP adresu a připojují se k síti přes switch či bezdrátově.\n\n2. **Switch \\(Přepínač\\)** – Pracuje na\n\n2. vrstvě modelu ISO/OSI, spojuje zařízení v rámci LAN \\(Local Area Network\\) a přepíná data na základě MAC adres.\n\n3. **Router \\(Směrovač\\)**– Pracuje na\n\n3. vrstvě modelu ISO/OSI, propojuje sítě a směruje data mezi nimi pomocí IP adres.**VLSM Maska \\(Variable Length Subnet Masking\\)**-\n\n### Funkce:\n\n Umožňuje použít různě dlouhé masky podsítě v jedné síti.\n\n- **Využití:**\n\nEfektivně využije adresní prostor, přiděluje přesný počet adres pro každou podsíť**Určení IPv4 adres sítě:**\n\n1. **Síťová část:**\n\n Identifikace sítě \\(např.\n\n192.168.\n\n1.0/24\\)\n\n2. **Hostitelská část:**\n\nIdentifikace zařízení v sití.**Subnetting:**\n\n-\n\n### Funkce:\n\n Rozdělení jedné sítě na menší podsítě pomocí masky podsítě.\n\n- **Příklad:**\n\n\n\n192.168.\n\n1.0/26 \\(64 adres, 62 hostitelé\\) –>\n\n192.168.\n\n1.64/26 \\(64 adres, 62 hosti\\)\n\n- **Použití:**\n\nV případě že víme, že nenaplníme plnou kapacitu sítě tak můžeme efektivně využít adresní prostor.**CIDR adresace:**\n\n-\n\n### Funkce:\n\n nahrazuje tradiční třídní adresování \\(A, B, C\\)\n\n- **Použití:**\n\n pro agregaci adres do větších bloků \\(supernetting\\) a dělení na menší \\(subnetting\\)\n\n- **Zápis:**\n\nSíťová adresa/prefix \\(např.\n\n192.168.\n\n1.0/24\\)**Síťové výpočty:**\n\n1. **Počet hostitelů:**\n\n\n- Např. prefix 24: 2\\(32−24\\)−2=28−2=256−2=254 hostitelů\n\n2. **Rozsah adres:**\n\n\n- Začíná první adresou sítě \\(např.\n\n192.168.\n\n1.0\\).\n\n\n- Končí broadcast adresou \\(např.\n\n192.168.\n\n1.255\\).\n\n3. **Maska podsítě:**\n\n- /24 =\n\n255.255.\n\n255.0, /26 =\n\n255.255.\n\n255.192\n\n### Směrování\n\n\n- umožňuje přenos dat mezi zařízeními ve stejné či odlišné síti\n\n### Druhy směrování:\n\n\n1. **Statické směrování**\n\n- Administrátor ručně nastaví cesty.\n\n- **Výhody:**\n\n Jednoduché pro malé sítě.\n\n- **Nevýhody:**\n\n Není flexibilní při změnách v síti.\n\n1. **Dynamické směrování**\n\n- Směrovače automaticky upravují směrovací tabulky na základě aktuální topologie.\n\n- Používají se směrovací protokoly \\(např. OSPF, RIP\\)\n\n#### Směrovací tabulka:\n\n- **Obsah:**\n\n záznamy o směrech k cílovým sítím.\n\n- **Položky:**\n\n1. **Cílová síť**\n\n– Např.\n\n192.168.\n\n1.0/24\n\n2. **Maska sítě**\n\n– Např.\n\n255.255.\n\n255.0\n\n3. **Next hop**\n\n– Adresa následujícího routeru\n\n4. **Metrika**– Hodnota určující kvalitu cesty \\(např. počet skoků\\)**Metrika:**\n\n-**Definice:**\n\n Parametr používaný k určení nejlepší cesty.\n\n-\n\n### Typy:\n\n\n1. **Počet skoků \\(Hop Count\\)**\n\n– Počet routerů, kterými data prochází.\n\n2. **Šířka pásma**\n\n– Rychlost dostupného spojení.\n\n3. **Zpoždění**– Čas potřebný pro přenos dat.**Směrovací metody:**\n\n1. **Unicast**\n\n– Přenos mezi dvěma zařízeními.\n\n2. **Multicast**\n\n– Přenos z jednoho zařízení na skupinu zařízení.\n\n3. **Broadcast –**Přenos na všechna zařízení v síti.**Směrovací protokoly:**\n\n1. **RIP**-\n\n### Funkce:\n\n Používá metodu „počet skoků“.\n\n- **Kapacita next hop:**\n\n 15\n\n- **Výhoda/Nevýhoda:**\n\n Je jednoduchý ale pomalý.\n\n1. **OSPF**\n\n- Protokol typu link\\-state – vypočítává nejkratší cesty ke všem destinacím pomocí SPF \\(Shortest Path First\\)\n\n- Používá metriky jako šířka pásma.\n\n- **Výhoda:**\n\n Rychlé a přesné směrování.\n\n1. **BGP**-**Použití:**\n\n autonomní systémy \\(internet\\)\n\n- Klíčový protokol pro globální směrování.\n\n1. **EIGRP \\(Enhanced Interior Gateway Routing Protocol\\):**\n\n- Protokol vlastněný Ciscem.\n\n- Rychlejší než RIP, méně náročný než OSPF.\n\n",
+      "answer": "## 15. Adresace a směrování v sítích\n\n### Adresace/Směrování\n* Základní mechanismy pro komunikaci v počítačových sítích.\n\n### Adresace\n* Identifikace zařízení v síti (ID)\n\n### Schéma sítě (PC, Switch, Router) + příklad\n1. PC (Personal Computer) – Koncová zařízení, generují a přijímají data, mají svojí unikatní IP adresu a připojují se k síti přes switch či bezdrátově.\n2. Switch (Přepínač) – Pracuje na 2. vrstvě modelu ISO/OSI, spojuje zařízení v rámci LAN (Local Area Network) a přepíná data na základě MAC adres.\n3. Router (Směrovač) – Pracuje na 3. vrstvě modelu ISO/OSI, propojuje sítě a směruje data mezi nimi pomocí IP adres.\n\n### VLSM Maska (Variable Length Subnet Masking)\n* Funkce: Umožňuje použít různě dlouhé masky podsítě v jedné síti.\n* Využití: Efektivně využije adresní prostor, přiděluje přesný počet adres pro každou podsíť\n\n### Určení IPv4 adres sítě:\n1. Síťová část: Identifikace sítě (např. 192.168.1.0/24)\n2. Hostitelská část: Identifikace zařízení v sití.\n\n### Subnetting:\n* Funkce: Rozdělení jedné sítě na menší podsítě pomocí masky podsítě.\n* Příklad: 192.168.1.0/26 (64 adres, 62 hostitelé) –> 192.168.1.64/26 (64 adres, 62 hosti)\n* Použití: V případě že víme, že nenaplníme plnou kapacitu sítě tak můžeme efektivně využít adresní prostor.\n\n### CIDR adresace:\n* Funkce: nahrazuje tradiční třídní adresování (A, B, C)\n* Použití: pro agregaci adres do větších bloků (supernetting) a dělení na menší (subnetting)\n* Zápis: Síťová adresa/prefix (např. 192.168.1.0/24)\n\n### Síťové výpočty:\n1. Počet hostitelů:\n    * Např. prefix 24: 2^(32−24)−2=2^8−2=256−2=254 hostitelů\n2. Rozsah adres:\n    * Začíná první adresou sítě (např. 192.168.1.0).\n    * Končí broadcast adresou (např. 192.168.1.255).\n3. Maska podsítě:\n    * /24 = 255.255.255.0, /26 = 255.255.255.192\n\n### Směrování\n* umožňuje přenos dat mezi zařízeními ve stejné či odlišné síti\n\n### Druhy směrování:\n1. Statické směrování\n    * Administrátor ručně nastaví cesty.\n    * Výhody: Jednoduché pro malé sítě.\n    * Nevýhody: Není flexibilní při změnách v síti.\n2. Dynamické směrování\n    * Směrovače automaticky upravují směrovací tabulky na základě aktuální topologie.\n    * Používají se směrovací protokoly (např. OSPF, RIP)\n\n### Směrovací tabulka:\n* Obsah: záznamy o směrech k cílovým sítím.\n* Položky:\n    1. Cílová síť – Např. 192.168.1.0/24\n    2. Maska sítě – Např. 255.255.255.0\n    3. Next hop – Adresa následujícího routeru\n    4. Metrika – Hodnota určující kvalitu cesty (např. počet skoků)\n\n### Metrika:\n* Definice: Parametr používaný k určení nejlepší cesty.\n* Typy:\n    1. Počet skoků (Hop Count) – Počet routerů, kterými data prochází.\n    2. Šířka pásma – Rychlost dostupného spojení.\n    3. Zpoždění – Čas potřebný pro přenos dat.\n\n### Směrovací metody:\n1. Unicast – Přenos mezi dvěma zařízeními.\n2. Multicast – Přenos z jednoho zařízení na skupinu zařízení.\n3. Broadcast – Přenos na všechna zařízení v síti.\n\n### Směrovací protokoly:\n1. RIP\n    * Funkce: Používá metodu „počet skoků“.  \n    * Kapacita next hop: 15\n    * Výhoda/Nevýhoda: Je jednoduchý ale pomalý.\n2. OSPF\n    * Protokol typu link-state – vypočítává nejkratší cesty ke všem destinacím pomocí SPF (Shortest Path First)\n    * Používá metriky jako šířka pásma.\n    * Výhoda: Rychlé a přesné směrování.\n3. BGP\n    * Použití: autonomní systémy (internet)\n    * Klíčový protokol pro globální směrování.\n4. EIGRP (Enhanced Interior Gateway Routing Protocol):\n    * Protokol vlastněný Ciscem.\n    * Rychlejší než RIP, méně náročný než OSPF.",
       "keywords": [
         "IP adresa",
         "routing",
         "směrování"
       ],
       "difficulty": "těžké",
-      "sourceFile": "/materialy/ICT1/PSI/Zkrácené/15. Adresace a směrování v síti.docx",
-      "content": {
-        "sections": [
-          {
-            "title": "Schéma sítě (PC, switch, routery)",
-            "text": "Schéma sítě zobrazuje fyzické a logické uspořádání síťových prvků.",
-            "items": [
-              {
-                "term": "PC (Personal Computer)",
-                "definition": "Koncová zařízení, která generují a přijímají data. Mají unikátní IP adresu."
-              },
-              {
-                "term": "Switch (Přepínač)",
-                "definition": "Pracuje na 2. vrstvě (linková). Spojuje zařízení v rámci jedné LAN a přepíná data na základě MAC adres."
-              },
-              {
-                "term": "Router (Směrovač)",
-                "definition": "Pracuje na 3. vrstvě (síťová). Propojuje různé sítě a směruje data mezi nimi pomocí IP adres."
-              }
-            ]
-          },
-          {
-            "title": "VLSM maska, určení IPv4 adres sítě, subnetting",
-            "subsections": [
-              {
-                "title": "VLSM (Variable Length Subnet Mask)",
-                "text": "Umožňuje použít různě dlouhé masky podsítě v rámci jedné sítě. Efektivní využití adresního prostoru přidělením přesného počtu adres pro každou podsíť."
-              },
-              {
-                "title": "Určení IPv4 adres sítě",
-                "items": [
-                  {
-                    "term": "Síťová část",
-                    "definition": "Identifikuje síť (např. 192.168.1.0/24)."
-                  },
-                  {
-                    "term": "Hostitelská část",
-                    "definition": "Identifikuje zařízení v síti."
-                  }
-                ]
-              },
-              {
-                "title": "Subnetting",
-                "text": "Rozdělení jedné sítě na menší podsítě pomocí masky. Příklad: Síť 192.168.1.0/24 rozdělena na 192.168.1.0/26 (64 adres) a 192.168.1.64/26 (64 adres)."
-              }
-            ]
-          },
-          {
-            "title": "CIDR adresace, síťové výpočty",
-            "subsections": [
-              {
-                "title": "CIDR (Classless Inter-Domain Routing)",
-                "text": "Nahrazuje tradiční třídní adresování (A, B, C). Používá se pro agregaci adres do větších bloků (supernetting) nebo dělení na menší (subnetting). Zápis: Síťová adresa/prefix (např. 192.168.1.0/24)."
-              },
-              {
-                "title": "Síťové výpočty",
-                "items": [
-                  {
-                    "term": "Počet hostitelů",
-                    "definition": "2^(32-prefix) - 2. Např. /24: 2^8 - 2 = 254 hostitelů."
-                  },
-                  {
-                    "term": "Rozsah adres",
-                    "definition": "Od první adresy sítě (např. 192.168.1.0) po broadcast adresu (např. 192.168.1.255)."
-                  },
-                  {
-                    "term": "Maska podsítě",
-                    "definition": "/24 = 255.255.255.0, /26 = 255.255.255.192"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Druhy směrování, směrovací tabulka, metrika",
-            "subsections": [
-              {
-                "title": "Druhy směrování",
-                "items": [
-                  {
-                    "term": "Statické směrování",
-                    "definition": "Administrátor ručně nastaví cesty. Jednoduché pro malé sítě, ale není flexibilní."
-                  },
-                  {
-                    "term": "Dynamické směrování",
-                    "definition": "Směrovače automaticky upravují směrovací tabulky. Používá protokoly jako OSPF, RIP."
-                  }
-                ]
-              },
-              {
-                "title": "Směrovací tabulka",
-                "text": "Obsahuje záznamy o směrech k cílovým sítím: cílová síť, maska sítě, next hop (adresa následujícího routeru), metrika."
-              },
-              {
-                "title": "Metrika",
-                "text": "Parametr pro určení nejlepší cesty.",
-                "items": [
-                  {
-                    "term": "Počet skoků (Hop Count)",
-                    "definition": "Počet routerů, kterými data procházejí."
-                  },
-                  {
-                    "term": "Šířka pásma",
-                    "definition": "Rychlost dostupného spojení."
-                  },
-                  {
-                    "term": "Zpoždění",
-                    "definition": "Čas potřebný pro přenos dat."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Směrovací metody a protokoly",
-            "subsections": [
-              {
-                "title": "Směrovací metody",
-                "items": [
-                  {
-                    "term": "Unicast",
-                    "definition": "Přenos mezi dvěma zařízeními."
-                  },
-                  {
-                    "term": "Multicast",
-                    "definition": "Přenos z jednoho zařízení na skupinu zařízení."
-                  },
-                  {
-                    "term": "Broadcast",
-                    "definition": "Přenos na všechna zařízení v síti."
-                  }
-                ]
-              },
-              {
-                "title": "Směrovací protokoly",
-                "items": [
-                  {
-                    "term": "RIP",
-                    "definition": "Routing Information Protocol. Metoda 'počet skoků', max 15 skoků. Jednoduchý, ale pomalý."
-                  },
-                  {
-                    "term": "OSPF",
-                    "definition": "Open Shortest Path First. Protokol typu link-state, rychlé a přesné směrování."
-                  },
-                  {
-                    "term": "BGP",
-                    "definition": "Border Gateway Protocol. Používá se mezi autonomními systémy (Internet). Klíčový pro globální směrování."
-                  },
-                  {
-                    "term": "EIGRP",
-                    "definition": "Enhanced Interior Gateway Routing Protocol. Cisco proprietární, rychlejší než RIP."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Adresace zahrnuje přidělování IP adres a subnetting pro optimalizaci adresního prostoru. Směrování využívá statické a dynamické metody, směrovací tabulky a protokoly (RIP, OSPF, BGP) k určení nejlepší cesty pro přenos dat."
-          }
-        ]
-      },
-      "compactContent": {
-        "sections": [
-          {
-            "title": "Adresace a Síťová zařízení 🗺️",
-            "items": [
-              {
-                "term": "PC",
-                "definition": "Koncový bod, IP + MAC"
-              },
-              {
-                "term": "Switch (L2)",
-                "definition": "Spojuje LAN (MAC)"
-              },
-              {
-                "term": "Router (L3)",
-                "definition": "Spojuje sítě (IP)"
-              }
-            ]
-          },
-          {
-            "title": "Subnetting a Masky 🎭",
-            "items": [
-              {
-                "term": "VLSM",
-                "definition": "Různé délky masek (Efektivita)"
-              },
-              {
-                "term": "Subnetting",
-                "definition": "Dělení sítě na menší podsítě"
-              },
-              {
-                "term": "Maska",
-                "definition": "Síťová vs Hostitelská část"
-              },
-              {
-                "term": "CIDR",
-                "definition": "Prefix (/24 místo 255.255.255.0)"
-              }
-            ]
-          },
-          {
-            "title": "Výpočty sítě 🧮",
-            "items": [
-              {
-                "term": "Rozsah",
-                "definition": "Síťová adresa → Broadcast"
-              },
-              {
-                "term": "Hostitelé",
-                "definition": "2^(bity hosta) - 2"
-              },
-              {
-                "term": "Broadcast",
-                "definition": "Poslední adresa subnetu"
-              },
-              {
-                "term": "Network ID",
-                "definition": "První adresa subnetu"
-              }
-            ]
-          },
-          {
-            "title": "Privátní rozsahy (LAN) 🔒",
-            "items": [
-              {
-                "term": "A",
-                "definition": "10.0.0.0 - 10.255.255.255"
-              },
-              {
-                "term": "B",
-                "definition": "172.16.0.0 - 172.31.255.255"
-              },
-              {
-                "term": "C",
-                "definition": "192.168.0.0 - 192.168.255.255"
-              }
-            ]
-          },
-          {
-            "title": "Směrování (Routing) 🚦",
-            "items": [
-              {
-                "term": "Statické",
-                "definition": "Ručně zadané (Malé sítě)"
-              },
-              {
-                "term": "Dynamické",
-                "definition": "Automatické (Protokoly)"
-              }
-            ]
-          },
-          {
-            "title": "Směrovací tabulka 📋",
-            "items": [
-              {
-                "term": "Cíl",
-                "definition": "IP sítě"
-              },
-              {
-                "term": "Maska",
-                "definition": "Velikost"
-              },
-              {
-                "term": "Next Hop",
-                "definition": "Další skok (Router)"
-              },
-              {
-                "term": "Metrika",
-                "definition": "Cena (Hop count / Bandwidth)"
-              },
-              {
-                "term": "Metody",
-                "definition": "Unicast / Broadcast / Multicast"
-              }
-            ]
-          },
-          {
-            "title": "Směrovací protokoly 🤖",
-            "items": [
-              {
-                "term": "RIP",
-                "definition": "Hops (max 15), Pomalý"
-              },
-              {
-                "term": "OSPF",
-                "definition": "Link-state, Rychlý, SPF algoritmus"
-              },
-              {
-                "term": "BGP",
-                "definition": "Internet (Autonomní systémy)"
-              },
-              {
-                "term": "EIGRP",
-                "definition": "Cisco, Hybridní"
-              }
-            ]
-          }
-        ]
-      }
+      "sourceFile": "/materialy/ICT1/PSI/Zkrácené/15. Adresace a směrování v síti.docx"
     },
     {
       "id": 16,
