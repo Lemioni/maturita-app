@@ -21,11 +21,11 @@ const DopaminePage = () => {
 
     // Interaction State
     const dragRef = useRef(null); // { id: number, startX: number, startY: number }
-    const [hoveredTargetId, setHoveredTargetId] = useState(null); // ID of bubble currently hovered over by drag
+    const [connectingTargetId, setConnectingTargetId] = useState(null); // ID of magnet-locked bubble
 
     // Constants
     const REPULSION_FORCE = 0.5;
-    const DRAG_AREA_PADDING = 100;
+    const MAGNET_DISTANCE = 150; // Distance to trigger magnetic snap
 
     // Initialize Audio
     useEffect(() => {
@@ -80,9 +80,9 @@ const DopaminePage = () => {
                 osc.start(now);
                 osc.stop(now + 0.1);
                 break;
-            case 'hover':
+            case 'magnet': // Connection sound
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(400, now);
+                osc.frequency.setValueAtTime(800, now);
                 gain.gain.setValueAtTime(0.05, now);
                 gain.gain.linearRampToValueAtTime(0, now + 0.1);
                 osc.start(now);
@@ -145,11 +145,11 @@ const DopaminePage = () => {
             pairId: pairId,
             text: pair.q,
             type: 'question',
-            x: spawnX - 50,
+            x: spawnX - 60,
             y: spawnY,
             vx: (Math.random() - 0.5) * 1,
             vy: (Math.random() - 0.5) * 1,
-            radius: 60,
+            radius: 65,
             color: 'border-purple-500 bg-purple-900/40 text-purple-100',
         };
 
@@ -158,11 +158,11 @@ const DopaminePage = () => {
             pairId: pairId,
             text: pair.a,
             type: 'answer',
-            x: spawnX + 50,
+            x: spawnX + 60,
             y: spawnY,
             vx: (Math.random() - 0.5) * 1,
             vy: (Math.random() - 0.5) * 1,
-            radius: 50,
+            radius: 55,
             color: 'border-green-500 bg-green-900/40 text-green-100',
         };
 
@@ -181,24 +181,21 @@ const DopaminePage = () => {
                     const b1 = nextBubbles[i];
                     const b2 = nextBubbles[j];
 
-                    // Skip if one is being dragged - dragging overrides physics for that one
+                    // Skip physics for dragged bubble
                     if (dragRef.current && (dragRef.current.id === b1.id || dragRef.current.id === b2.id)) {
-                        // We still want the non-dragged one to be pushed away by the dragged one, 
-                        // but the dragged one shouldn't move by physics.
-                        // However, let's keep it simple: if either is dragged, just push the non-dragged one.
+                        // continue; // Or implement simpler push-away
                     }
 
                     const dx = b2.x - b1.x;
                     const dy = b2.y - b1.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    const minDist = b1.radius + b2.radius + 20; // +20 padding
+                    const minDist = b1.radius + b2.radius + 10;
 
                     if (dist < minDist && dist > 0) {
-                        const force = (minDist - dist) * REPULSION_FORCE; // Linear spring
+                        const force = (minDist - dist) * REPULSION_FORCE;
                         const fx = (dx / dist) * force;
                         const fy = (dy / dist) * force;
 
-                        // Apply forces (opposite directions)
                         if (!dragRef.current || dragRef.current.id !== b1.id) {
                             b1.vx -= fx * 0.1;
                             b1.vy -= fy * 0.1;
@@ -213,22 +210,20 @@ const DopaminePage = () => {
 
             // 2. Move & Wall Bounce
             return nextBubbles.map(b => {
-                if (dragRef.current && dragRef.current.id === b.id) return b; // Dragged object position is managed by pointer events
+                if (dragRef.current && dragRef.current.id === b.id) return b;
 
                 let { x, y, vx, vy, radius } = b;
 
-                // Friction/Damping
                 vx *= 0.98;
                 vy *= 0.98;
 
-                // Minimum movement noise to keep them alive
                 vx += (Math.random() - 0.5) * 0.05;
                 vy += (Math.random() - 0.5) * 0.05;
 
                 x += vx;
                 y += vy;
 
-                // Wall Constraints
+                // Margins
                 if (x <= radius) { x = radius; vx = Math.abs(vx) * 0.5; }
                 if (x >= window.innerWidth - radius) { x = window.innerWidth - radius; vx = -Math.abs(vx) * 0.5; }
                 if (y <= 80 + radius) { y = 80 + radius; vy = Math.abs(vy) * 0.5; }
@@ -258,15 +253,8 @@ const DopaminePage = () => {
         const scheduleNextSpawn = () => {
             if (gameState !== 'playing') return;
 
-            // "Čím míň, tím rychleji" formula
-            // Base delay 500ms + 500ms per bubble pair on screen
-            // 0 bubbles = 500ms delay
-            // 10 bubbles = 5500ms delay
-            // Cap at some reasonable max so it doesn't stop completely
             const currentBubbleCount = bubbles.length;
             const delay = 500 + (currentBubbleCount * 400);
-
-            // Hard cap max bubbles based on level
             const maxBubbles = 10 + (level * 2);
 
             if (currentBubbleCount < maxBubbles) {
@@ -275,7 +263,6 @@ const DopaminePage = () => {
                     scheduleNextSpawn();
                 }, delay);
             } else {
-                // If full, check again in a second
                 timeoutId = setTimeout(scheduleNextSpawn, 1000);
             }
         };
@@ -295,14 +282,14 @@ const DopaminePage = () => {
         setLives(5);
         setCombo(0);
         setLevel(1);
-        spawnBubble(); // Immediate first spawn
+        spawnBubble();
         if (audioCtxRef.current?.state === 'suspended') audioCtxRef.current.resume();
         requestRef.current = requestAnimationFrame(updatePhysics);
     };
 
     useEffect(() => {
         return () => cancelAnimationFrame(requestRef.current);
-    }, []); // Only on unmount
+    }, []);
 
     // --- INTERACTIONS ---
     const handlePointerDown = (e, bubbleId) => {
@@ -313,7 +300,6 @@ const DopaminePage = () => {
                 startX: e.clientX - bubble.x,
                 startY: e.clientY - bubble.y
             };
-            // Bring to front logic could go here (reorder array)
         }
     };
 
@@ -321,8 +307,6 @@ const DopaminePage = () => {
         if (!dragRef.current) return;
 
         const { id, startX, startY } = dragRef.current;
-
-        // Update position of dragged bubble immediately for responsiveness
         const draggedBubble = bubbles.find(b => b.id === id);
         if (!draggedBubble) return;
 
@@ -333,25 +317,32 @@ const DopaminePage = () => {
             b.id === id ? { ...b, x: newX, y: newY, vx: 0, vy: 0 } : b
         ));
 
-        // Check for hover overlap
+        // Magnetic Detection
         const center1 = { x: newX + draggedBubble.radius, y: newY + draggedBubble.radius };
         let foundTarget = null;
+        let minDistanceFound = Infinity;
 
         for (const b of bubbles) {
             if (b.id === id) continue;
+
+            // Allow connecting only different types (Q to A)
+            if (b.type === draggedBubble.type) continue;
+
             const center2 = { x: b.x + b.radius, y: b.y + b.radius };
             const dist = Math.hypot(center1.x - center2.x, center1.y - center2.y);
-            const mergeThreshold = draggedBubble.radius + b.radius - 20; // Overlap by 20px
 
-            if (dist < mergeThreshold) {
-                foundTarget = b.id;
-                break; // Only one target at a time
+            // Check within magnet range
+            if (dist < MAGNET_DISTANCE + b.radius) {
+                if (dist < minDistanceFound) {
+                    minDistanceFound = dist;
+                    foundTarget = b.id;
+                }
             }
         }
 
-        if (foundTarget !== hoveredTargetId) {
-            setHoveredTargetId(foundTarget);
-            if (foundTarget) playSfx('hover');
+        if (foundTarget !== connectingTargetId) {
+            setConnectingTargetId(foundTarget);
+            if (foundTarget) playSfx('magnet');
         }
     };
 
@@ -360,21 +351,20 @@ const DopaminePage = () => {
             const draggedId = dragRef.current.id;
             dragRef.current = null;
 
-            // Attempt Merge
-            if (hoveredTargetId) {
+            // Attempt Merge if Magnet Locked
+            if (connectingTargetId) {
                 const b1 = bubbles.find(b => b.id === draggedId);
-                const b2 = bubbles.find(b => b.id === hoveredTargetId);
+                const b2 = bubbles.find(b => b.id === connectingTargetId);
 
                 if (b1 && b2) {
-                    if (b1.pairId === b2.pairId && b1.type !== b2.type) {
+                    if (b1.pairId === b2.pairId) {
                         handleMatch(b1, b2);
                     } else {
                         handleMismatch(b1, b2);
                     }
                 }
             }
-
-            setHoveredTargetId(null);
+            setConnectingTargetId(null);
         }
     };
 
@@ -405,14 +395,16 @@ const DopaminePage = () => {
         setCombo(0);
         playSfx('error');
 
-        // Repulse them strongly
+        // Strong Repulsion Kick
         const dx = b2.x - b1.x;
         const dy = b2.y - b1.y;
         const angle = Math.atan2(dy, dx);
-        const kick = 15;
+        const kick = 20;
 
         setBubbles(prev => prev.map(b => {
+            // Push dragged one back
             if (b.id === b1.id) return { ...b, vx: -Math.cos(angle) * kick, vy: -Math.sin(angle) * kick };
+            // Push target one away
             if (b.id === b2.id) return { ...b, vx: Math.cos(angle) * kick, vy: Math.sin(angle) * kick };
             return b;
         }));
@@ -420,14 +412,22 @@ const DopaminePage = () => {
         createExplosion(b1.x + b1.radius, b1.y + b1.radius, '#ef4444');
     };
 
+    // Helper for Font Scaling
+    const getFontSize = (text) => {
+        if (text.length < 10) return '1.2rem';
+        if (text.length < 30) return '1rem';
+        if (text.length < 60) return '0.85rem';
+        return '0.75rem';
+    };
+
     if (gameState === 'menu') {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-terminal-bg text-terminal-text relative overflow-hidden">
-                {/* Background ambient particles could go here */}
                 <div className="z-10 text-center max-w-lg p-8 terminal-card border-purple-500/50 shadow-[0_0_50px_rgba(168,85,247,0.2)]">
                     <FaRocket className="text-6xl text-purple-400 mx-auto mb-6 animate-pulse" />
                     <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 mb-2">NEON LINK</h1>
-                    <p className="text-xl text-terminal-text/60 mb-2">Spojuj bubliny. Přežij.</p>
+                    <p className="text-xl text-terminal-text/60 mb-2">Magneticky spojuj bubliny.</p>
+                    <p className="text-sm text-terminal-text/40 mb-8">Přetáhni bublinu k její dvojici. Nemusíš se trefit přesně, magnet to zařídí.</p>
 
                     <button onClick={startGame} className="w-full py-4 text-xl font-bold bg-purple-600 hover:bg-purple-500 text-white rounded shadow-lg shadow-purple-500/30 mt-8">
                         PLAY
@@ -455,12 +455,25 @@ const DopaminePage = () => {
         );
     }
 
+    // Prepare Connection Beam coords
+    let beamCoords = null;
+    if (dragRef.current && connectingTargetId) {
+        const b1 = bubbles.find(b => b.id === dragRef.current.id);
+        const b2 = bubbles.find(b => b.id === connectingTargetId);
+        if (b1 && b2) {
+            beamCoords = {
+                x1: b1.x + b1.radius, y1: b1.y + b1.radius,
+                x2: b2.x + b2.radius, y2: b2.y + b2.radius
+            };
+        }
+    }
+
     return (
         <div
             className="fixed inset-0 bg-terminal-bg overflow-hidden touch-none"
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
-            onPointerLeave={handlePointerUp} // Safety drop
+            onPointerLeave={handlePointerUp}
         >
             {/* HUD */}
             <div className="absolute top-20 left-4 right-4 flex justify-between items-start pointer-events-none select-none z-50">
@@ -471,9 +484,20 @@ const DopaminePage = () => {
                 </div>
                 <div className="flex flex-col items-end">
                     <div className="text-4xl font-bold text-white font-mono">{score}</div>
-                    {combo > 1 && <div className="text-yellow-400 font-bold text-xl animate-bounce">{combo}x COMBO</div>}
                 </div>
             </div>
+
+            {/* Neon Beam Layer (SVG) */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none z-30">
+                {beamCoords && (
+                    <line
+                        x1={beamCoords.x1} y1={beamCoords.y1}
+                        x2={beamCoords.x2} y2={beamCoords.y2}
+                        stroke="#facc15" strokeWidth="4" strokeDasharray="10,5"
+                        className="animate-pulse"
+                    />
+                )}
+            </svg>
 
             {/* Particles */}
             {particles.map(p => (
@@ -491,24 +515,26 @@ const DopaminePage = () => {
 
             {/* Bubbles */}
             {bubbles.map(bubble => {
-                const isHovered = hoveredTargetId === bubble.id;
+                const isConnecting = connectingTargetId === bubble.id;
                 const isDragging = dragRef.current?.id === bubble.id;
 
                 return (
                     <div
                         key={bubble.id}
                         onPointerDown={(e) => handlePointerDown(e, bubble.id)}
-                        className={`absolute rounded-full flex items-center justify-center text-center p-4 cursor-grab active:cursor-grabbing select-none transition-transform shadow-lg backdrop-blur-sm border-2 ${bubble.color} ${isHovered ? 'ring-4 ring-yellow-400 scale-105 z-40' : ''}`}
+                        className={`absolute rounded-full flex items-center justify-center text-center p-4 cursor-grab active:cursor-grabbing select-none transition-transform shadow-lg backdrop-blur-sm border-2 ${bubble.color} ${isConnecting ? 'ring-4 ring-yellow-400 scale-105 shadow-[0_0_30px_#facc15]' : ''}`}
                         style={{
                             left: bubble.x, top: bubble.y,
                             width: bubble.radius * 2, height: bubble.radius * 2,
-                            fontSize: bubble.type === 'question' ? '0.85rem' : '0.75rem',
+                            fontSize: getFontSize(bubble.text),
                             zIndex: isDragging ? 100 : 10,
                             transform: isDragging ? 'scale(1.1)' : 'scale(1)',
-                            boxShadow: isHovered ? '0 0 30px #facc15' : '0 4px 6px rgba(0,0,0,0.1)'
+                            boxShadow: isConnecting ? '0 0 30px #facc15' : '0 4px 6px rgba(0,0,0,0.1)'
                         }}
                     >
-                        {bubble.text}
+                        <div className="line-clamp-4 overflow-hidden text-ellipsis px-1">
+                            {bubble.text}
+                        </div>
                     </div>
                 );
             })}
