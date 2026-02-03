@@ -7,6 +7,7 @@ import ProgressPage from './pages/ProgressPage';
 import SearchPage from './pages/SearchPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
 import BookDetailPage from './pages/BookDetailPage';
+import DopaminePage from './pages/DopaminePage';
 
 import { ExperimentalProvider } from './context/ExperimentalContext';
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/cj" element={<CJPage />} />
             <Route path="/cj/book/:id" element={<BookDetailPage />} />
             <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/dopamine" element={<DopaminePage />} />
             <Route path="/search" element={<SearchPage />} />
           </Routes>
         </Layout>
