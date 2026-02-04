@@ -9,55 +9,54 @@
 }
 
 @layer components {
+
   /* Terminal-style card with glowing border */
   .terminal-card {
-    @apply bg-terminal-dim border border-terminal-border/30 rounded-sm p-4 
-           hover:border-terminal-border/60 transition-all duration-200;
+    @apply bg-terminal-dim border border-terminal-border/30 rounded-sm p-4 hover:border-terminal-border/60 transition-all duration-200;
   }
-  
+
   /* Glowing border effect */
   .terminal-glow {
     @apply shadow-glow-green;
   }
-  
+
   /* Icon button - minimal style */
   .icon-btn {
-    @apply p-2 border border-terminal-text/20 hover:border-terminal-border/60 
-           rounded-sm transition-all duration-200 hover:shadow-glow-green;
+    @apply p-2 border border-terminal-text/20 hover:border-terminal-border/60 rounded-sm transition-all duration-200 hover:shadow-glow-green;
   }
-  
+
   .icon-btn.active {
     @apply border-terminal-border bg-terminal-border/10 shadow-glow-green;
   }
-  
+
   /* Markdown content styling */
   .markdown-body {
     @apply text-terminal-text leading-relaxed;
   }
-  
-  .markdown-body > *:first-child {
+
+  .markdown-body>*:first-child {
     @apply mt-0;
   }
-  
-  .markdown-body > *:last-child {
+
+  .markdown-body>*:last-child {
     @apply mb-0;
   }
-  
+
   /* Alert boxes */
   .alert-box {
     @apply rounded-r transition-all duration-200;
   }
-  
+
   .alert-box:hover {
     @apply shadow-md;
   }
-  
+
   /* Keyword highlighting */
   .keyword-highlight {
     @apply bg-terminal-accent/20 text-terminal-accent px-0.5 rounded-sm font-medium;
     background-color: rgba(255, 255, 255, 0.1);
   }
-  
+
   /* Better list styling in markdown */
   .markdown-body ul ul,
   .markdown-body ol ol,
@@ -65,12 +64,12 @@
   .markdown-body ol ul {
     @apply mt-1 mb-0;
   }
-  
+
   /* Table hover effect */
   .markdown-body table tr:hover td {
     @apply bg-terminal-border/10;
   }
-  
+
   /* Smooth scroll for TOC navigation */
   html {
     scroll-behavior: smooth;
@@ -86,4 +85,40 @@
   padding: 0 2px;
   background: rgba(251, 191, 36, 0.1);
   border-radius: 2px;
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.5);
+  }
 }
