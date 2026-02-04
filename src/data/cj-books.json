@@ -798,24 +798,307 @@
     },
     {
       "id": 4,
-      "title": "Povídky",
+      "title": "Povídky a básně",
       "author": "Edgar Allan Poe",
       "period": "Literatura 19. století",
-      "genre": "Povídka",
-      "literaryForm": "Próza",
-      "year": "19. století",
-      "subworks": [
-        "Jáma a kyvadlo",
-        "Černý kocour",
-        "+1 navíc"
-      ],
+      "genre": "Povídka / Poezie",
+      "literaryForm": "Próza / Poezie",
+      "year": "1845",
       "keywords": [
         "romantismus",
         "horor",
-        "americká literatura",
-        "detektivka"
+        "symbolismus",
+        "americká literatura"
       ],
-      "analysis": null
+      "analysis": {
+        "authorContext": {
+          "shortBio": {
+            "name": "Edgar Allan Poe (1809–1849)",
+            "info": [
+              "Americký básník, prozaik, zakladatel detektivky a hororu",
+              "Tragický život: sirotek, konflikty s otčímem, smrt manželky",
+              "Zemřel za nevyjasněných okolností (alkoholové delirium)",
+              "Dílo plné tajemství, smrti a psychologie"
+            ]
+          },
+          "bio": "Edgar Allan Poe (1809–1849) – americký básník, prozaik, literární teoretik a esejista. Považován za zakladatele detektivky a hororu.",
+          "life": [
+            "Matka herečka zemřela brzy, otec rodinu opustil, vyrůstal u pěstounů Allanových",
+            "Dobré vzdělání, ale problémy s alkoholem a dluhy z hazardu",
+            "Vyloučen z univerzity i vojenské akademie",
+            "Oženil se se svou 13letou sestřenicí Virginií, která zemřela na tuberkulózu (hluboký dopad na jeho dílo)",
+            "Žil v bídě, trpěl depresemi a alkoholismem",
+            "Zemřel v 40 letech v nemocnici v Baltimoru po nalezení v zuboženém stavu"
+          ],
+          "otherWorks": [
+            {
+              "title": "Vraždy v ulici Morgue",
+              "year": "1841",
+              "note": "první detektivka (detektiv Dupin)"
+            },
+            {
+              "title": "Zánik domu Usherů",
+              "year": "1839",
+              "note": "gotický horor"
+            },
+            {
+              "title": "Zlatý brouk",
+              "year": "1843",
+              "note": "povídka s luštěním šifry"
+            }
+          ],
+          "workPosition": "Havran (1845) je autorovým nejslavnějším básnickým dílem."
+        },
+        "literaryContext": {
+          "movement": "Romantismus / Symbolismus",
+          "period": "1. polovina 19. století",
+          "description": "Temný romantismus, důraz na emoce, tajemno, smrt a hrůzu (gotický román). Předchůdce prokletých básníků.",
+          "characteristics": [
+            "Zájem o temné stránky lidské psychiky",
+            "Motivy smrti, šílenství, strachu",
+            "Fantaskní a mystické prvky",
+            "Subjektivismus a individualismus"
+          ],
+          "otherAuthors": [
+            {
+              "name": "Charles Baudelaire",
+              "years": "1821–1867",
+              "note": "Překladatel Poea, Prokleté básníky"
+            },
+            {
+              "name": "Oscar Wilde",
+              "years": "1854–1900",
+              "note": "Dekadence, Obraz Doriana Graye"
+            }
+          ]
+        },
+        "stories": [
+          {
+            "title": "Havran",
+            "titleAnalysis": "Havran (The Raven) – symbol smrti, zmaru a neodvratného osudu. V originále 'Raven' (krkavec).",
+            "plot": "Muž v horečce a žalu nad ztrátou své milované Lenory klímá ve svém pokoji. O půlnoci uslyší zaklepání. Když otevře, nikdo tam není, jen tma. Poté vletí oknem dovnitř havran a usadí se na bustě Pallas Athény nade dveřmi.\n\nMuž se ptáka zeptá na jméno, havran odpoví „Už víckrát ne“ (Nevermore). Muž pak klade další otázky – zda zapomene na Lenoru, zda ji potká v ráji. Havran na vše odpovídá stejně: „Už víckrát ne“. Muž propadá zoufalství a šílenství, uvědomuje si, že se svého smutku (havrana) už nikdy nezbaví.",
+            "themes": {
+              "main": "Bolest ze ztráty milované osoby, neodvratnost osudu a smrti",
+              "motifs": [
+                "smrt",
+                "havran",
+                "půlnoc",
+                "Lenora",
+                "busty Pallas Athény",
+                "stín",
+                "Nevermore"
+              ]
+            },
+            "setting": {
+              "place": "Pokoj lyrického subjektu (uzavřený prostor)",
+              "time": "Půlnoc, ponurý prosinec"
+            },
+            "composition": {
+              "structure": "108 veršů (18 strof po 6 verších)",
+              "timeline": "Chronologický děj s gradací napětí",
+              "rhyme": "Trochej, refrén 'Nevermore', vnitřní rýmy"
+            },
+            "literaryForm": "Poezie",
+            "genre": "Lyricko-epická baladická báseň",
+            "narration": {
+              "narrator": "Ich-forma (lyrický subjekt)",
+              "style": "Monolog prokládaný 'dialogem' s havranem"
+            },
+            "characters": [
+              {
+                "name": "Muž (Lyrický subjekt)",
+                "description": "Osamělý, truchlící intelektuál, zmítaný horečkou a žalem. Postupně propadá beznaději.",
+                "isMain": true
+              },
+              {
+                "name": "Havran",
+                "description": "Tajemný, zlověstný pták. Symbolizuje smrt a trvalou připomínku ztráty. Odpovídá pouze 'Nevermore'.",
+                "isMain": true
+              },
+              {
+                "name": "Lenora",
+                "description": "Zemřelá milenka, ideál krásy. Přítomna pouze ve vzpomínkách.",
+                "isMain": false
+              }
+            ],
+            "excerpt": {
+              "text": "„Proroku,“ dím, „mene tekel, ať jsi pták anebo z pekel,\npři nebi, jež nad námi je, při Bohu, jenž leká mne,\nrci té duši, jež žal tají, zdali aspoň jednou v ráji\ntu, již svatí nazývají Lenora, kdy přivine,\njasnou dívku Lenoru, kdy v náruči své přivine“ –\nhavran dí: „Už víckrát ne.“",
+              "context": "Vyvrcholení básně, kdy se muž ptá, zda se shledá s Lenorou v posmrtném životě."
+            },
+            "languageDevices": [
+              "Refrén (Už víckrát ne / Nevermore)",
+              "Zvukomalba (temné hlásky O, U, R)",
+              "Archaismy a knižní výrazy (dím, rci)",
+              "Apostrofa (Proroku!)",
+              "Metafora (vyndej zobák z mého srdce)",
+              "Epiteton (jasná dívka)"
+            ],
+            "literaryDevices": [
+              {
+                "name": "Refrén",
+                "example": "Už víckrát ne"
+              },
+              {
+                "name": "Metafora",
+                "example": "vrhat stín na duši"
+              },
+              {
+                "name": "Gradace",
+                "example": "zvyšující se naléhavost otázek"
+              }
+            ],
+            "additionalInfo": {
+              "relevance": "Báseň o vyrovnávání se se smrtí je nadčasová.",
+              "adaptations": [
+                "Mnoho hudebních i filmových zpracování, parodie (Simpsonovi)."
+              ]
+            }
+          },
+          {
+            "title": "Černý kocour",
+            "titleAnalysis": "Symbol svědomí, nevinnosti, ale i alkoholu a nevysvětlitelného zla.",
+            "plot": "Vypravěč líčí svůj postupný pád. Původně milovník zvířat propadá alkoholu a začíná týrat svou ženu i domácí mazlíčky. Nejoblíbenějšího kocoura Plutona nejprve připraví o oko a později ho v záchvatu vzteku oběsí na stromě. Téže noci mu vyhoří dům.\n\nPozději najde v hospodě podobného kocoura s bílou skvrnou na hrudi, který mu připomíná šibenici. Kocour mu začíná nahánět hrůzu. Jednou ve sklepě v afektu zabije svou ženu sekyrou, když bránila kocoura. Její tělo zazdí do stěny. Když přijde policie, vypravěč je sebevědomý a poklepe na zeď, ze které se ozve děsivý křik. Policie zeď zboří a najde mrtvolu ženy, na jejíž hlavě sedí černý kocour, kterého tam vypravěč omylem zazdil.",
+            "themes": {
+              "main": "Vina a trest, rozklad lidské osobnosti vlivem alkoholu, perverzita jako lidský sklon",
+              "motifs": [
+                "alkoholismus",
+                "černý kocour",
+                "vražda",
+                "svědomí",
+                "šibenice",
+                "šílenství"
+              ]
+            },
+            "setting": {
+              "place": "Dům vypravěče, sklep, hospoda",
+              "time": "Neurčený čas (pravděpodobně 19. století)"
+            },
+            "composition": {
+              "structure": "Retrospektivní vyprávění psané ve vězení před popravou",
+              "timeline": "Chronologické líčení událostí vedoucích k úpadku"
+            },
+            "literaryForm": "Próza",
+            "genre": "Hororová (gotická) povídka",
+            "narration": {
+              "narrator": "Ich-forma (nespolehlivý vypravěč)",
+              "style": "Subjektivní, naléhavé, zpovědní"
+            },
+            "characters": [
+              {
+                "name": "Vypravěč",
+                "description": "Původně laskavý člověk, který pod vlivem alkoholu a vnitřní perverzity propadá agresivitě a šílenství.",
+                "isMain": true
+              },
+              {
+                "name": "Manželka",
+                "description": "Trpělivá, milující zvířata. Stává se obětí manželovy brutality.",
+                "isMain": false
+              },
+              {
+                "name": "Pluto / druhý kocour",
+                "description": "Symboly nevinnosti a později výčitky svědomí, které vypravěče pronásledují.",
+                "isMain": true
+              }
+            ],
+            "excerpt": {
+              "text": "„Byl jsem však ještě příliš mladý, než abych mohl uvěřit, že perverznost je jedním z prvotních impulzů lidského srdce – jednou z oněch neoddělitelných prvotních vloh či citů, které určují charakter člověka.“",
+              "context": "Úvaha vypravěče o sklonu člověka činit zlo jen proto, že je zakázané."
+            },
+            "languageDevices": [
+              "Sugestivní líčení děje",
+              "Gradace hrůzy",
+              "Odborné termíny kombinované s emocionálními výlevy",
+              "Metafory spojené se svědomím"
+            ],
+            "literaryDevices": [
+              {
+                "name": "Symbolika",
+                "example": "Bílá skvrna ve tvaru šibenice"
+              },
+              {
+                "name": "Pointa",
+                "example": "Odhalení zazděného kocoura policií"
+              }
+            ],
+            "additionalInfo": {
+              "dominantStyle": "Vyprávěcí s prvky úvahy",
+              "purpose": "Ukázat neodvratný pád člověka a sílu svědomí"
+            }
+          },
+          {
+            "title": "Jáma a kyvadlo",
+            "titleAnalysis": "Symboly dvou forem smrti: jáma (neznámá, temná smrt) a kyvadlo (neodvratná, mechanická, sledovaná smrt).",
+            "plot": "Hrdina je odsouzen inkvizicí k smrti a ocitá se v naprosté tmě vězení v Toledu. Při průzkumu cely málem spadne do hluboké jámy uprostřed. Poté omdlí a po probuzení zjistí, že je připoután k lůžku pod obřím ostřeným kyvadlem, které se kývá a pomalu klesá k jeho srdci.\n\nVypravěč využije nápad: potře svá pouta zbytky jídla a přiláká krysy, které provazy překousou těsně před dopadem kyvadla. Inkvizitoři však začnou rozžhavovat kovové stěny vězení a posunovat je k sobě, aby ho dohnali do jámy. V poslední vteřině, kdy už vypravěč ztrácí naději a padá, ho zachytí ruka generála Lasalla – francouzská armáda právě dobyla Toledo a vězně zachránila.",
+            "themes": {
+              "main": "Extrémní strach, psychický teror, mechanismy mučení, přežití díky rozumu",
+              "motifs": [
+                "inkvizice",
+                "tma",
+                "jáma",
+                "kyvadlo",
+                "krysy",
+                "rozžhavené stěny",
+                "záchrana"
+              ]
+            },
+            "setting": {
+              "place": "Vězení inkvizice v Toledu (Španělsko)",
+              "time": "Období napoleonských válek (konec 18. / začátek 19. století)"
+            },
+            "composition": {
+              "structure": "Ucelený děj s důrazem na prožívání strachu a detailní popisy mučení",
+              "timeline": "Chronologická s retrospektivním začátkem (rozsudek)"
+            },
+            "literaryForm": "Próza",
+            "genre": "Hororová (gotická) povídka",
+            "narration": {
+              "narrator": "Ich-forma (oběť inkvizice)",
+              "style": "Sugestivní, detailní popis smyslových vjemů (tma, pach, hmat)"
+            },
+            "characters": [
+              {
+                "name": "Vypravěč / Vězeň",
+                "description": "Bezejmenný hrdina, který si zachovává chladnou logiku i v mezních situacích. Bojuje o život do poslední chvíle.",
+                "isMain": true
+              },
+              {
+                "name": "Inkvizitoři",
+                "description": "Nevidění trýznitelé, kteří manipulují s prostředím cely a psychikou vězně.",
+                "isMain": false
+              },
+              {
+                "name": "Generál Lasalle",
+                "description": "Postava 'deus ex machina' (zásah shora), která přináší záchranu a konec utrpení.",
+                "isMain": false
+              }
+            ],
+            "excerpt": {
+              "text": "„Viděl jsem rty černě oděných soudců. Zdály se mi bílé – bělejší než list papíru, na němž píši tyto řádky... a pak se všechno utopilo v nekonečném tichu.“",
+              "context": "Popis okamžiku po vynesení rozsudku smrti, kdy vězeň ztrácí vědomí."
+            },
+            "languageDevices": [
+              "Hromadění podstatných a přídavných jmen pro vyvolání úzkosti",
+              "Krátké, úsečné věty v momentech nebezpečí",
+              "Technické popisy mučicích nástrojů",
+              "Kontrast mezi tmou a ostrým světlem rozžhavených stěn"
+            ],
+            "literaryDevices": [
+              {
+                "name": "Symbolika",
+                "example": "Kyvadlo jako symbol neúprosného času"
+              },
+              {
+                "name": "Personifikace",
+                "example": "Smrtící stěny, které 'objímají' vězně"
+              }
+            ],
+            "additionalInfo": {
+              "dominantStyle": "Popisný a vyprávěcí",
+              "purpose": "Zkoumat hranice lidského strachu a vůle k životu"
+            }
+          }
+        ]
+      }
     },
     {
       "id": 5,
