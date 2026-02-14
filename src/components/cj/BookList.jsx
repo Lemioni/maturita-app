@@ -53,37 +53,31 @@ const BookList = ({ filter }) => {
             key={book.id}
             className="terminal-card group"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-3">
               <Link
                 to={`/cj/book/${book.id}`}
                 className="flex-1 min-w-0"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-terminal-text/60">#{book.id}</span>
-                  <span className="text-xs px-1 border border-terminal-text/20 text-terminal-text/60">
-                    {book.period.substring(0, 15)}...
-                  </span>
-                  <span className="text-xs text-terminal-text/40">{book.year}</span>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-[10px] text-terminal-text/40 font-mono">#{book.id}</span>
+                  <h3 className="text-sm font-bold text-terminal-text group-hover:text-terminal-accent transition-colors truncate">
+                    {book.title}
+                  </h3>
                 </div>
-                <h3 className="text-sm text-terminal-text group-hover:text-terminal-accent transition-colors">
-                  {book.title}
-                </h3>
-                <p className="text-xs text-terminal-accent/70 mt-1">
+                <p className="text-xs text-terminal-accent/80 mb-1.5">
                   {book.author}
                 </p>
-
-                {book.keywords && book.keywords.length > 0 && (
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {book.keywords.slice(0, 4).map((keyword, i) => (
-                      <span
-                        key={i}
-                        className="px-1 text-xs text-terminal-text/40"
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-[11px] px-1.5 py-0.5 border border-terminal-border/25 text-terminal-text/50">
+                    {book.genre}
+                  </span>
+                  <span className="text-[11px] px-1.5 py-0.5 border border-terminal-border/25 text-terminal-text/50">
+                    {book.literaryForm}
+                  </span>
+                  <span className="text-[11px] text-terminal-text/30">
+                    {book.year}
+                  </span>
+                </div>
               </Link>
 
               <div

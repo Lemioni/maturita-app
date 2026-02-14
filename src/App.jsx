@@ -10,24 +10,27 @@ import BookDetailPage from './pages/BookDetailPage';
 import DopaminePage from './pages/DopaminePage';
 
 import { ExperimentalProvider } from './context/ExperimentalContext';
+import { PodcastProvider } from './context/PodcastContext';
 
 function App() {
   return (
     <ExperimentalProvider>
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/it" element={<ITPage />} />
-            <Route path="/it/question/:id" element={<QuestionDetailPage />} />
-            <Route path="/cj" element={<CJPage />} />
-            <Route path="/cj/book/:id" element={<BookDetailPage />} />
-            <Route path="/progress" element={<ProgressPage />} />
-            <Route path="/dopamine" element={<DopaminePage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Routes>
-        </Layout>
-      </Router>
+      <PodcastProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/it" element={<ITPage />} />
+              <Route path="/it/question/:id" element={<QuestionDetailPage />} />
+              <Route path="/cj" element={<CJPage />} />
+              <Route path="/cj/book/:id" element={<BookDetailPage />} />
+              <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/dopamine" element={<DopaminePage />} />
+              <Route path="/search" element={<SearchPage />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </PodcastProvider>
     </ExperimentalProvider>
   );
 }

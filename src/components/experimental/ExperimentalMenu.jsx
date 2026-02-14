@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { FaFlask, FaTimes, FaHighlighter } from 'react-icons/fa';
 import { useExperimental } from '../../context/ExperimentalContext';
+import { usePodcast } from '../../context/PodcastContext';
 
 const ExperimentalMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { highlighterActive, toggleHighlighter } = useExperimental();
+    const { playerVisible } = usePodcast();
+
+    // Only show when podcast player is collapsed
+    if (playerVisible) return null;
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2">
+        <div className="fixed bottom-0 right-16 z-50 flex flex-col items-end">
             {/* Menu Content */}
             {isOpen && (
                 <div className="bg-terminal-card border border-terminal-accent/30 rounded-lg p-3 shadow-lg shadow-terminal-accent/10 mb-2 w-48 animate-in slide-in-from-bottom-2 fade-in duration-200">
@@ -21,8 +26,8 @@ const ExperimentalMenu = () => {
                         <button
                             onClick={toggleHighlighter}
                             className={`w-full text-left px-2 py-1.5 rounded text-xs flex items-center justify-between transition-colors ${highlighterActive
-                                    ? 'bg-yellow-400/20 text-yellow-400 border border-yellow-400/50'
-                                    : 'text-terminal-text/70 hover:bg-terminal-border/20'
+                                ? 'bg-yellow-400/20 text-yellow-400 border border-yellow-400/50'
+                                : 'text-terminal-text/70 hover:bg-terminal-border/20'
                                 }`}
                         >
                             <span className="flex items-center gap-2">
@@ -41,16 +46,16 @@ const ExperimentalMenu = () => {
             {/* Float Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`p-3 rounded-full shadow-lg transition-all duration-300 ${isOpen || highlighterActive
-                        ? 'bg-terminal-accent text-terminal-bg shadow-terminal-accent/20 rotate-0'
-                        : 'bg-terminal-card border border-terminal-border/50 text-terminal-text/50 hover:text-terminal-accent hover:border-terminal-accent'
+                className={`px-3 py-1.5 flex items-center gap-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 backdrop-blur-md transition-all ${isOpen || highlighterActive
+                    ? 'text-terminal-accent'
+                    : 'text-terminal-text/40 hover:text-terminal-accent'
                     }`}
-                title="Experimental Features"
             >
-                {isOpen ? <FaTimes /> : <FaFlask />}
+                {isOpen ? <FaTimes className="text-xs" /> : <FaFlask className="text-xs" />}
             </button>
         </div>
     );
 };
 
 export default ExperimentalMenu;
+

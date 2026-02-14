@@ -1,0 +1,20 @@
+1. Lakomec [12/13] missing: additionalInfo
+2. Romeo a Julie [13/13] missing: none
+3. Král Lávra [13/13] missing: none
+4. Povídky a básně [2/13] missing: titleAnalysis, plot, themes, setting, characters, narration, composition, languageDevices, literaryDevices, excerpt, additionalInfo
+5. Tyrolské elegie [13/13] missing: none
+6. Stařec a moře [13/13] missing: none
+7. Malý princ [13/13] missing: none
+8. Petr a Lucie [13/13] missing: none
+9. Na západní frontě klid [13/13] missing: none
+10. Velký Gatsby [13/13] missing: none
+11. Farma zvířat [13/13] missing: none
+12. Vražda v Orient Expresu [13/13] missing: none
+13. Němá barikáda [13/13] missing: none
+14. O myších a lidech [13/13] missing: none
+15. Smrt krásných srnců [13/13] missing: none
+16. Ostře sledované vlaky [13/13] missing: none
+17. Bylo nás pět [13/13] missing: none
+18. Bílá Nemoc [13/13] missing: none
+19. R.U.R. [13/13] missing: none
+20. Saturnin [13/13] missing: none

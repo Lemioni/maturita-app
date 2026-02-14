@@ -1373,15 +1373,20 @@
         ],
         "narration": {
           "narrator": "Střídání er-formy (vypravěč) s ich-formou (rozmluvy Santiaga s chlapcem, s rybou a se sebou samým)",
-          "style": "Pouze pásmo vypravěče, metoda ledovce – podstatné je to 'pod vodou' (cílem si to domyslet)"
+          "style": "Metoda ledovce – podstatné zůstává nevyřčeno, čtenář si musí domyslet hlubší význam. Krátké, úsečné věty. Minimum přídavných jmen. Střídání pásma vypravěče s vnitřním monologem starce."
         },
         "excerpt": {
           "text": "Žralok je rychle dohnal odzadu, a když se vrhl na rybu, viděl stařec jeho otevřenou tlamu a podivné oči a slyšel cvaknutí jeho zubů, když se zahryzl do rybího masa těsně nad ocasem. Žraločí hlava vyčnívala z vody a jeho hřbet se vynořoval a stařec slyšel, jak se na jeho velké rybě trhá kůže a maso. V tom okamžiku stařec vrazil harpunu žralokovi do hlavy v těch místech, kde spojnice mezi očima protínala čáru, táhnoucí se mu od nosu přímo vzad. Ty čáry nebylo ve skutečnosti vidět. Bylo vidět jen těžkou špičatou modrou hlavu a veliké oči a cvakající, dravě chňapající hltavé čelisti. Ale v těch místech má žralok mozek a stařec ho tam zasáhl. Zasáhl ho svýma krví pomazanýma rukama a vbodl mu tam dobře mířenou harpunu ze všech sil. Vrazil mu ji tam bez naděje, ale odhodlaně a s naprostou škodolibou nenávistí.",
           "context": "Úryvek je ze závěrečné části knihy, kdy má stařec rybu ulovenou a při cestě domů bojuje se žraloky."
         },
         "languageDevices": [
+          "Krátké úsečné věty – typický Hemingwayův styl, minimum přídavných jmen",
+          "Hovorový jazyk – dialog Santiaga s chlapcem působí přirozeně",
+          "Vnitřní monolog – stařec promlouvá sám k sobě na moři ('Rybo, mám tě rád')",
           "Onomatopie – 'cvaknutí', 'zadrnčel'",
-          "Odborný výraz – 'harpuna'"
+          "Odborný výraz – 'harpuna', 'plachta', 'stěžeň'",
+          "Konkrétní podstatná jména – důraz na věci a činy, ne abstrakce",
+          "Opakování – zesiluje naléhavost ('Porazit ji, porazit')"
         ],
         "literaryDevices": [
           {
@@ -1394,11 +1399,23 @@
           },
           {
             "name": "Personifikace",
-            "example": "'žralok to nechtěl uznat'"
+            "example": "'žralok to nechtěl uznat', stařec mluví k rybě jako k člověku"
           },
           {
             "name": "Přirovnání",
             "example": "'rozrýval hladinu jako rychlý motorový člun'"
+          },
+          {
+            "name": "Metafora",
+            "example": "ryba = životní výzva, žraloci = překážky a nepřátelé"
+          },
+          {
+            "name": "Symbol",
+            "example": "moře = život, ryba = sen a cíl, kostra = pyrrhovo vítězství, lvi na pláži = mládí a síla"
+          },
+          {
+            "name": "Kontrast",
+            "example": "stařecova fyzická slabost vs. duševní síla; obrovská ryba vs. malá loďka"
           }
         ],
         "authorContext": {

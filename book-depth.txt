@@ -1,0 +1,20 @@
+1. Lakomec | plot:1280 | chars:6 | lang:6 | lit:5 | excerpt:YES
+2. Romeo a Julie | plot:1289 | chars:9 | lang:8 | lit:9 | excerpt:YES
+3. Král Lávra | plot:1215 | chars:5 | lang:5 | lit:4 | excerpt:YES
+4. Povídky a básně | plot:0 | chars:0 | lang:0 | lit:0 | excerpt:NO
+5. Tyrolské elegie | plot:1117 | chars:4 | lang:8 | lit:5 | excerpt:YES
+6. Stařec a moře | plot:1357 | chars:2 | lang:2 | lit:4 | excerpt:YES
+7. Malý princ | plot:1174 | chars:4 | lang:5 | lit:4 | excerpt:YES
+8. Petr a Lucie | plot:1626 | chars:3 | lang:2 | lit:5 | excerpt:YES
+9. Na západní frontě klid | plot:1388 | chars:7 | lang:6 | lit:3 | excerpt:YES
+10. Velký Gatsby | plot:1150 | chars:6 | lang:3 | lit:4 | excerpt:YES
+11. Farma zvířat | plot:1342 | chars:6 | lang:4 | lit:3 | excerpt:YES
+12. Vražda v Orient Expresu | plot:2406 | chars:5 | lang:4 | lit:3 | excerpt:YES
+13. Němá barikáda | plot:561 | chars:3 | lang:3 | lit:2 | excerpt:YES
+14. O myších a lidech | plot:418 | chars:3 | lang:3 | lit:2 | excerpt:YES
+15. Smrt krásných srnců | plot:486 | chars:3 | lang:3 | lit:1 | excerpt:YES
+16. Ostře sledované vlaky | plot:385 | chars:3 | lang:3 | lit:2 | excerpt:YES
+17. Bylo nás pět | plot:320 | chars:6 | lang:3 | lit:1 | excerpt:YES
+18. Bílá Nemoc | plot:358 | chars:4 | lang:2 | lit:1 | excerpt:YES
+19. R.U.R. | plot:512 | chars:4 | lang:3 | lit:1 | excerpt:YES
+20. Saturnin | plot:505 | chars:6 | lang:3 | lit:2 | excerpt:YES
