@@ -3,6 +3,7 @@ import { usePodcast } from '../../context/PodcastContext';
 import { FaPlay, FaPause, FaChevronDown, FaChevronUp, FaSpinner, FaMusic, FaVolumeUp, FaVolumeDown, FaVolumeMute, FaRedo, FaStepForward } from 'react-icons/fa';
 import { books } from '../../data/bookData';
 import { hasPodcast } from '../../data/podcastData';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const formatTime = (seconds) => {
     if (!seconds || isNaN(seconds)) return '0:00';
@@ -34,6 +35,7 @@ const MiniPlayer = () => {
         toggleAutoplay,
     } = usePodcast();
 
+    const { frutigerAero } = useExperimental();
     const [showList, setShowList] = useState(false);
 
     const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
@@ -55,12 +57,28 @@ const MiniPlayer = () => {
         <div className="fixed bottom-0 left-0 right-0 z-50">
             {/* Podcast list dropdown */}
             {showList && (
-                <div className="bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-64 overflow-y-auto custom-scrollbar">
+                <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-64 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>
                     <div className="container mx-auto px-4 py-2">
-                        <p className="text-[10px] text-terminal-text/40 uppercase tracking-wider mb-2 font-bold">Vyber podcast</p>
-                        <div className="space-y-0.5">
+                        {!frutigerAero && (
+                            <p className="text-[10px] text-terminal-text/40 uppercase tracking-wider mb-2 font-bold">Vyber podcast</p>
+                        )}
+                        <div className={`space-y-0.5 ${frutigerAero ? 'frutiger-podcast-list flex flex-col gap-1 p-2' : ''}`}>
                             {podcastBooks.map(book => {
                                 const isActive = currentTrack?.bookId === book.id;
+                                if (frutigerAero) {
+                                    return (
+                                        <button
+                                            key={book.id}
+                                            onClick={() => {
+                                                play(book.id, book.title, book.author);
+                                                setShowList(false);
+                                            }}
+                                            className={isActive ? 'active-track' : ''}
+                                        >
+                                            {book.title} ({book.author})
+                                        </button>
+                                    );
+                                }
                                 return (
                                     <button
                                         key={book.id}
@@ -91,44 +109,51 @@ const MiniPlayer = () => {
                 </div>
             )}
 
-            {/* Seek slider */}
-            {currentTrack && (
-                <div className="bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/30 px-4 pt-2 pb-0" onClick={e => e.stopPropagation()}>
-                    <div className="container mx-auto flex items-center gap-2">
-                        <span className="text-[10px] text-terminal-text/40 font-mono w-10 text-right">{formatTime(currentTime)}</span>
-                        <input
-                            type="range"
-                            min="0"
-                            max={duration || 0}
-                            step="1"
-                            value={currentTime}
-                            onChange={(e) => seek(parseFloat(e.target.value))}
-                            className="flex-1 h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
-                            style={{ accentColor: 'var(--color-terminal-accent, #8b5cf6)' }}
-                        />
-                        <span className="text-[10px] text-terminal-text/40 font-mono w-10">{formatTime(duration)}</span>
-                    </div>
-                </div>
-            )}
-
-            <div className="bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10">
+            <div className={`bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10 ${frutigerAero ? 'bg-[#d4d0c8] border-t-2 border-white border-b-2 border-[#808080] p-1' : ''}`}>
                 <div
-                    className="container mx-auto px-4 py-2 flex items-center gap-3 cursor-pointer"
-                    onClick={() => setShowList(!showList)}
+                    className="container mx-auto px-4 py-1 flex items-center gap-3"
+                    onClick={frutigerAero ? undefined : () => setShowList(!showList)}
                 >
-                    {/* Title & time or placeholder */}
-                    <div className="flex-1 min-w-0">
-                        {currentTrack ? (
-                            <>
-                                <p className="text-xs text-terminal-text truncate font-medium">
-                                    {currentTrack.title}
+                    {/* Integrated Slider & Info */}
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                        {/* Title Row */}
+                        <div className="flex items-center justify-between mb-1" onClick={() => setShowList(!showList)}>
+                            {currentTrack ? (
+                                <div className="flex items-baseline gap-2 cursor-pointer">
+                                    <p className={`text-xs truncate font-medium ${frutigerAero ? 'text-black font-serif' : 'text-terminal-text'}`}>
+                                        {currentTrack.title}
+                                    </p>
+                                    {!frutigerAero && (
+                                        <p className="text-[10px] text-terminal-text/50">
+                                            {currentTrack.author}
+                                        </p>
+                                    )}
+                                </div>
+                            ) : (
+                                <p className={`text-xs cursor-pointer ${frutigerAero ? 'text-blue-800 underline font-serif' : 'text-terminal-text/40'}`}>
+                                    {frutigerAero ? 'Vybrat...' : 'Vyber podcast k poslechu'}
                                 </p>
-                                <p className="text-[10px] text-terminal-text/50">
-                                    {currentTrack.author}
-                                </p>
-                            </>
-                        ) : (
-                            <p className="text-xs text-terminal-text/40">Vyber podcast k poslechu</p>
+                            )}
+                            {currentTrack && (
+                                <span className={`text-[10px] font-mono ${frutigerAero ? 'text-black' : 'text-terminal-text/40'}`}>
+                                    {formatTime(currentTime)} / {formatTime(duration)}
+                                </span>
+                            )}
+                        </div>
+
+                        {/* Integrated Progress Bar */}
+                        {currentTrack && (
+                            <input
+                                type="range"
+                                min="0"
+                                max={duration || 0}
+                                step="1"
+                                value={currentTime}
+                                onChange={(e) => seek(parseFloat(e.target.value))}
+                                className="w-full h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
+                                style={{ accentColor: frutigerAero ? '#008000' : 'var(--color-terminal-accent, #8b5cf6)', height: frutigerAero ? '2px' : '4px' }}
+                                onClick={e => e.stopPropagation()}
+                            />
                         )}
                     </div>
 
@@ -137,7 +162,7 @@ const MiniPlayer = () => {
                         <div className="flex items-center gap-0.5" onClick={e => e.stopPropagation()}>
                             <button
                                 onClick={togglePlayPause}
-                                className="w-9 h-9 flex items-center justify-center text-terminal-accent hover:bg-terminal-accent/20 transition-colors"
+                                className={`w-8 h-8 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black border border-gray-400 bg-[#e0e0e0]' : 'text-terminal-accent hover:bg-terminal-accent/20'}`}
                                 aria-label={isPlaying ? 'Pauza' : 'Přehrát'}
                             >
                                 {isLoading ? (
@@ -150,35 +175,33 @@ const MiniPlayer = () => {
                             </button>
                             <button
                                 onClick={toggleLoop}
-                                className={`w-7 h-7 flex items-center justify-center transition-colors ${loopEnabled
-                                        ? 'text-terminal-accent'
-                                        : 'text-terminal-text/30 hover:text-terminal-text/50'
-                                    }`}
+                                className={`w-6 h-6 flex items-center justify-center transition-colors ${loopEnabled
+                                    ? 'text-terminal-accent'
+                                    : 'text-terminal-text/30 hover:text-terminal-text/50'
+                                    } ${frutigerAero ? 'text-black opacity-60' : ''}`}
                                 aria-label={loopEnabled ? 'Loop zapnutý' : 'Loop vypnutý'}
-                                title={loopEnabled ? 'Opakovat: ON' : 'Opakovat: OFF'}
                             >
                                 <FaRedo className="text-[10px]" />
                             </button>
                             <button
                                 onClick={toggleAutoplay}
-                                className={`w-7 h-7 flex items-center justify-center transition-colors ${autoplayEnabled
-                                        ? 'text-terminal-accent'
-                                        : 'text-terminal-text/30 hover:text-terminal-text/50'
-                                    }`}
+                                className={`w-6 h-6 flex items-center justify-center transition-colors ${autoplayEnabled
+                                    ? 'text-terminal-accent'
+                                    : 'text-terminal-text/30 hover:text-terminal-text/50'
+                                    } ${frutigerAero ? 'text-black opacity-60' : ''}`}
                                 aria-label={autoplayEnabled ? 'Další: ON' : 'Další: OFF'}
-                                title={autoplayEnabled ? 'Přehrát další: ON' : 'Přehrát další: OFF'}
                             >
                                 <FaStepForward className="text-[10px]" />
                             </button>
                         </div>
                     )}
 
-                    {/* Volume control */}
+                    {/* Volume control - Hidden on mobile, visible on desktop */}
                     {currentTrack && (
                         <div className="hidden sm:flex items-center gap-1" onClick={e => e.stopPropagation()}>
                             <button
                                 onClick={() => setVolume(volume > 0 ? 0 : 1)}
-                                className="w-6 h-6 flex items-center justify-center text-terminal-text/40 hover:text-terminal-accent transition-colors"
+                                className={`w-6 h-6 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/40 hover:text-terminal-accent'}`}
                                 aria-label="Mute"
                             >
                                 {volume === 0 ? <FaVolumeMute className="text-[10px]" /> :
@@ -193,7 +216,7 @@ const MiniPlayer = () => {
                                 value={volume}
                                 onChange={(e) => setVolume(parseFloat(e.target.value))}
                                 className="w-16 h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
-                                style={{ accentColor: 'var(--color-terminal-accent, #8b5cf6)' }}
+                                style={{ accentColor: frutigerAero ? '#008000' : 'var(--color-terminal-accent, #8b5cf6)' }}
                             />
                         </div>
                     )}
@@ -201,7 +224,7 @@ const MiniPlayer = () => {
                     {/* Collapse button */}
                     <button
                         onClick={(e) => { e.stopPropagation(); setPlayerVisible(false); setShowList(false); }}
-                        className="w-7 h-7 flex items-center justify-center text-terminal-text/30 hover:text-terminal-text/60 transition-colors"
+                        className={`w-6 h-6 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/30 hover:text-terminal-text/60'}`}
                         aria-label="Skrýt přehrávač"
                     >
                         <FaChevronDown className="text-xs" />

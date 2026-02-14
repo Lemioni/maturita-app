@@ -644,6 +644,39 @@
     color: #dadada !important;
 }
 
+.frutiger-aero #mainContent {
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    /* Custom scrollbar for main content */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(35, 105, 47, 0.8) rgba(31, 31, 31, 0.65);
+}
+
+.frutiger-aero .nav-active span {
+    text-decoration: underline !important;
+}
+
+/* Frutiger Podcast List - Old School Links */
+.frutiger-podcast-list button {
+    color: #0000EE;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 2px 0;
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.frutiger-podcast-list button:hover {
+    color: #551A8B;
+}
+
+.frutiger-podcast-list button.active-track {
+    color: #FF0000;
+    font-weight: bold;
+}
+
 .frutiger-aero ::-webkit-scrollbar {
     width: 8px;
 }
@@ -796,6 +829,23 @@
 @media (max-width: 768px) {
     .frutiger-aero #navigationMenu {
         display: none;
+    }
+
+    .frutiger-aero .mobile-nav-open #navigationMenu {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100%;
+        z-index: 50;
+        background: rgba(26, 26, 26, 0.95);
+        border-right: 1px solid #424242;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .frutiger-aero .mobile-nav-open {
+        position: relative;
     }
 
     .frutiger-aero .website-spacers {

@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import Header from './Header';
 import ExperimentalMenu from '../experimental/ExperimentalMenu';
 import MiniPlayer from '../podcast/MiniPlayer';
 import FrutigerSidebar from '../experimental/FrutigerSidebar';
 import { useExperimental } from '../../context/ExperimentalContext';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Layout = ({ children }) => {
     const { frutigerAero } = useExperimental();
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
     if (frutigerAero) {
         return (
@@ -20,9 +23,16 @@ const Layout = ({ children }) => {
                                 <span className="header-motto">Study smarter, not harder</span>
                             </div>
                         </div>
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className="md:hidden ml-auto mr-2 text-white border border-white/50 rounded px-2 py-1 bg-black/20 hover:bg-black/40 transition-colors"
+                            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                        >
+                            {isMobileNavOpen ? <FaTimes /> : <FaBars />}
+                        </button>
                     </header>
 
-                    <div id="navAndContentContainer">
+                    <div id="navAndContentContainer" className={isMobileNavOpen ? 'mobile-nav-open' : ''}>
                         <FrutigerSidebar />
                         <main id="mainContent">
                             {children}
