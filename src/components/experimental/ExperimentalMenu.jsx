@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { FaFlask, FaTimes, FaHighlighter } from 'react-icons/fa';
+import { FaFlask, FaTimes, FaHighlighter, FaCloudSun } from 'react-icons/fa';
 import { useExperimental } from '../../context/ExperimentalContext';
 import { usePodcast } from '../../context/PodcastContext';
 
 const ExperimentalMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { highlighterActive, toggleHighlighter } = useExperimental();
+    const { highlighterActive, toggleHighlighter, frutigerAero, toggleFrutigerAero } = useExperimental();
     const { playerVisible } = usePodcast();
 
     // Only show when podcast player is collapsed
@@ -35,6 +35,40 @@ const ExperimentalMenu = () => {
                             </span>
                             <span className={`w-2 h-2 rounded-full ${highlighterActive ? 'bg-yellow-400 animate-pulse' : 'bg-terminal-border'}`}></span>
                         </button>
+
+                        <button
+                            onClick={toggleFrutigerAero}
+                            className={`w-full text-left px-2 py-1.5 rounded text-xs flex items-center justify-between transition-colors ${frutigerAero
+                                ? 'bg-sky-400/20 text-sky-400 border border-sky-400/50'
+                                : 'text-terminal-text/70 hover:bg-terminal-border/20'
+                                }`}
+                        >
+                            <span className="flex items-center gap-2">
+                                <FaCloudSun /> Frutiger Aero
+                            </span>
+                            {/* Aero-styled toggle switch */}
+                            <span
+                                className="relative inline-block w-8 h-4 rounded-full transition-all duration-300"
+                                style={{
+                                    background: frutigerAero
+                                        ? 'linear-gradient(180deg, #fff 0%, #9efd96 3%, #32912a 30%, #185815 55%, #0b3112 55%, #1a5c1e 100%)'
+                                        : '#333',
+                                    border: '1px solid #000',
+                                    boxShadow: frutigerAero ? '0 0 4px rgba(87,250,111,0.4)' : 'none',
+                                }}
+                            >
+                                <span
+                                    className="absolute top-0.5 w-2.5 h-2.5 rounded-full transition-all duration-300"
+                                    style={{
+                                        left: frutigerAero ? '17px' : '2px',
+                                        background: frutigerAero
+                                            ? 'linear-gradient(180deg, #fff 0%, #ddd 100%)'
+                                            : 'linear-gradient(180deg, #888 0%, #555 100%)',
+                                        border: '1px solid rgba(0,0,0,0.3)',
+                                    }}
+                                />
+                            </span>
+                        </button>
                     </div>
 
                     <div className="mt-3 pt-2 text-[0.6rem] text-terminal-text/30 border-t border-terminal-border/10">
@@ -46,7 +80,7 @@ const ExperimentalMenu = () => {
             {/* Float Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`px-3 py-1.5 flex items-center gap-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 backdrop-blur-md transition-all ${isOpen || highlighterActive
+                className={`px-3 py-1.5 flex items-center gap-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 backdrop-blur-md transition-all ${isOpen || highlighterActive || frutigerAero
                     ? 'text-terminal-accent'
                     : 'text-terminal-text/40 hover:text-terminal-accent'
                     }`}
@@ -58,4 +92,3 @@ const ExperimentalMenu = () => {
 };
 
 export default ExperimentalMenu;
-

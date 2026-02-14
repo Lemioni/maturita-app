@@ -30,7 +30,7 @@ const ITPage = () => {
       {/* Header */}
       <div className="border-b border-terminal-border/20 pb-3">
         <h1 className="text-xl text-terminal-accent tracking-wider">
-          &gt; IT OTÁZKY
+          IT OTÁZKY
         </h1>
       </div>
 

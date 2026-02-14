@@ -127,7 +127,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
         {/* Header */}
         <div className="p-4 border-b border-terminal-border/30 text-center">
           <div className="text-xs text-terminal-accent/60 tracking-wider">
-            &gt; KVÍZ
+            KVÍZ
           </div>
         </div>
 
@@ -183,7 +183,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
                   <div className="px-4 pb-4 text-center">
                     <div className="bg-terminal-bg/50 p-4 border border-terminal-border/30">
                       <div className="text-xs text-terminal-accent/60 mb-2">
-                        &gt; ODPOVĚĎ
+                        ODPOVĚĎ
                       </div>
                       <p className="text-terminal-text/90 whitespace-pre-line text-sm text-left">
                         {q.answer}
@@ -219,7 +219,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
         {isQuizComplete && (
           <div className="p-6 text-center border-t border-terminal-accent/30 bg-terminal-accent/5">
             <div className="text-xs text-terminal-accent mb-4 tracking-wider">
-              &gt; VÝSLEDEK
+              VÝSLEDEK
             </div>
             <div className="flex justify-center gap-8 mb-4">
               <div>

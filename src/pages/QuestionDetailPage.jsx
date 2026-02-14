@@ -137,7 +137,7 @@ const QuestionDetailPage = () => {
       {/* Answer Content */}
       <div className="terminal-card">
         <div className="flex items-center justify-between mb-3 pb-2 border-b border-terminal-border/20">
-          <span className="text-xs text-terminal-text/80">&gt; ANSWER</span>
+          <span className="text-xs text-terminal-text/80">ANSWER</span>
 
           <div className="flex gap-2">
             {/* ISO/OSI Modal Trigger */}
@@ -193,7 +193,7 @@ const QuestionDetailPage = () => {
         {/* Keywords */}
         {question.keywords && question.keywords.length > 0 && (
           <div className="mt-6 pt-4 border-t border-terminal-border/20">
-            <div className="text-xs text-terminal-text/60 mb-2">&gt; KEYWORDS</div>
+            <div className="text-xs text-terminal-text/60 mb-2">KEYWORDS</div>
             <div className="flex flex-wrap gap-2">
               {question.keywords.map((keyword, i) => (
                 <span

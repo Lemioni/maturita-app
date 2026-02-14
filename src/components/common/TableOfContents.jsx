@@ -23,7 +23,7 @@ const TableOfContents = ({ sections }) => {
         onClick={() => setIsCollapsed(!isCollapsed)}
       >
         <div className="text-xs text-terminal-accent font-bold tracking-wider">
-          &gt; OBSAH
+          OBSAH
         </div>
         <button className="icon-btn p-1">
           {isCollapsed ? <FaChevronDown size={12} /> : <FaChevronUp size={12} />}

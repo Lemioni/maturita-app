@@ -810,7 +810,7 @@ const BookDetailPage = () => {
             {
                 book.keywords && book.keywords.length > 0 && (
                     <div className="terminal-card">
-                        <div className="text-xs text-terminal-text/60 mb-2">&gt; KEYWORDS</div>
+                        <div className="text-xs text-terminal-text/60 mb-2">KEYWORDS</div>
                         <div className="flex flex-wrap gap-2">
                             {book.keywords.map((keyword, i) => (
                                 <span

@@ -428,7 +428,7 @@ const QuizMode = ({ filter }) => {
 
                         <div className="p-6 bg-terminal-accent/10 border border-terminal-accent/20 rounded shadow-inner">
                             <p className="text-xs text-terminal-accent/80 mb-2 uppercase font-bold tracking-wider">
-                                &gt; Správná odpověď
+                                Správná odpověď
                             </p>
                             <p className="text-lg text-terminal-text font-medium whitespace-pre-line">
                                 {currentQ.answer}

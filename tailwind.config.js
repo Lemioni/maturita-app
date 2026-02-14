@@ -15,10 +15,10 @@ export default {
           bg: '#0a0a0a',
           text: '#e0e0e0',
           border: '#ffffff',
-          accent: '#ffffff', // bílá pro text/bordery
+          accent: '#ffffff',
           glow: '#ffffff',
           red: '#ff3333',
-          green: '#33ff33', // zelená jen pro checkboxy
+          green: '#33ff33',
           dim: '#1a1a1a',
         },
       },

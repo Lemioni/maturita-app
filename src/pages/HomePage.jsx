@@ -6,7 +6,7 @@ const HomePage = () => {
       {/* Question Grid */}
       <div>
         <h2 className="text-sm text-terminal-text/60 mb-3 tracking-wider">
-          &gt; MATURITA
+          MATURITA
         </h2>
         <QuestionGrid />
       </div>
@@ -15,4 +15,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

@@ -28,7 +28,7 @@ const CJPage = () => {
       {/* Header */}
       <div className="border-b border-terminal-border/20 pb-3">
         <h1 className="text-xl text-terminal-accent tracking-wider">
-          &gt; ČESKÁ LITERATURA
+          ČESKÁ LITERATURA
         </h1>
       </div>
 
