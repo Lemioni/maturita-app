@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaCheck, FaTimes, FaRedo, FaChevronDown, FaRandom, FaMinus, FaPlus } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const QuizMode = ({ filter, subjectFilter }) => {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -11,6 +12,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
   const questionRefs = useRef({});
+  const { frutigerAero } = useExperimental();
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
@@ -196,14 +198,18 @@ const QuizMode = ({ filter, subjectFilter }) => {
                             className="p-3 bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500/20 transition-colors"
                             title="Umím"
                           >
-                            <FaCheck />
+                            {frutigerAero ? (
+                              <img src="/aero-icons/vista_firewall_status_1.ico" alt="Umím" className="w-5 h-5" />
+                            ) : <FaCheck />}
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); handleAnswer(q.id, false); }}
                             className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors"
                             title="Neumím"
                           >
-                            <FaTimes />
+                            {frutigerAero ? (
+                              <img src="/aero-icons/vista_firewall_status_3.ico" alt="Neumím" className="w-5 h-5" />
+                            ) : <FaTimes />}
                           </button>
                         </div>
                       )}

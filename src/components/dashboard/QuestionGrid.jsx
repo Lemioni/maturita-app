@@ -4,6 +4,7 @@ import { FaDesktop, FaBook, FaCheck, FaTimes, FaLayerGroup } from 'react-icons/f
 import itQuestionsData from '../../data/it-questions.json';
 import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const QuestionGrid = () => {
   const [progress] = useLocalStorage('maturita-progress', {});
@@ -11,6 +12,7 @@ const QuestionGrid = () => {
   const [statusFilter, setStatusFilter] = useState('all'); // 'all', 'known', 'unknown'
   const [itQuestions, setItQuestions] = useState([]);
   const [cjBooks, setCjBooks] = useState([]);
+  const { frutigerAero } = useExperimental();
 
   useEffect(() => {
     setItQuestions([...itQuestionsData.questions]);
@@ -76,21 +78,21 @@ const QuestionGrid = () => {
               className={`icon-btn ${viewMode === 'all' ? 'active' : ''}`}
               title="Vše (IT + ČJ)"
             >
-              <FaLayerGroup />
+              {frutigerAero ? <img src="/aero-icons/vista_collab.ico" alt="All" className="w-5 h-5" /> : <FaLayerGroup />}
             </button>
             <button
               onClick={() => setViewMode('it')}
               className={`icon-btn ${viewMode === 'it' ? 'active' : ''}`}
               title="IT"
             >
-              <FaDesktop />
+              {frutigerAero ? <img src="/aero-icons/minecraft1.ico" alt="IT" className="w-5 h-5" /> : <FaDesktop />}
             </button>
             <button
               onClick={() => setViewMode('cj')}
               className={`icon-btn ${viewMode === 'cj' ? 'active' : ''}`}
               title="ČJ"
             >
-              <FaBook />
+              {frutigerAero ? <img src="/aero-icons/vista_book_3.ico" alt="CJ" className="w-5 h-5" /> : <FaBook />}
             </button>
           </div>
 
@@ -101,32 +103,55 @@ const QuestionGrid = () => {
               className={`icon-btn ${statusFilter === 'all' ? 'active' : ''}`}
               title="VŠE"
             >
-              <FaLayerGroup />
+              {frutigerAero ? <img src="/aero-icons/vista_accessibility.ico" alt="All" className="w-5 h-5" /> : <FaLayerGroup />}
             </button>
             <button
               onClick={() => setStatusFilter('known')}
               className={`icon-btn ${statusFilter === 'known' ? 'active' : ''}`}
               title="UMÍM"
             >
-              <FaCheck />
+              {frutigerAero ? <img src="/aero-icons/vista_firewall_status_1.ico" alt="Known" className="w-5 h-5" /> : <FaCheck />}
             </button>
             <button
               onClick={() => setStatusFilter('unknown')}
               className={`icon-btn ${statusFilter === 'unknown' ? 'active' : ''}`}
               title="NEUMÍM"
             >
-              <FaTimes />
+              {frutigerAero ? <img src="/aero-icons/vista_firewall_status_3.ico" alt="Unknown" className="w-5 h-5" /> : <FaTimes />}
             </button>
           </div>
         </div>
 
         {/* Stats in corner */}
-        <div className="text-xs text-terminal-text/60">
-          <span className="text-terminal-green">{stats.known}</span>
-          <span className="mx-1">/</span>
-          <span className="text-terminal-red">{stats.unknown}</span>
-          <span className="mx-1">/</span>
-          <span>{stats.total}</span>
+        {/* Stats in corner - 2000s Style */}
+        <div className="flex items-center gap-2">
+          {frutigerAero ? (
+            <div className="flex items-center bg-black border-2 border-gray-600 rounded p-1 shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] font-mono text-xs">
+              {/* Known */}
+              <div className="flex items-center px-2 border-r border-gray-700">
+                <img src="/aero-icons/vista_firewall_status_1.ico" className="w-3 h-3 mr-1" alt="ok" />
+                <span className="text-[#00ff00] text-shadow-neon">{String(stats.known).padStart(3, '0')}</span>
+              </div>
+              {/* Unknown */}
+              <div className="flex items-center px-2 border-r border-gray-700">
+                <img src="/aero-icons/vista_firewall_status_3.ico" className="w-3 h-3 mr-1" alt="bad" />
+                <span className="text-[#ff0000] text-shadow-neon">{String(stats.unknown).padStart(3, '0')}</span>
+              </div>
+              {/* Total */}
+              <div className="flex items-center px-2">
+                <span className="text-gray-400">/</span>
+                <span className="text-[#00ffff] ml-1">{String(stats.total).padStart(3, '0')}</span>
+              </div>
+            </div>
+          ) : (
+            <div className="text-xs text-terminal-text/60">
+              <span className="text-terminal-green">{stats.known}</span>
+              <span className="mx-1">/</span>
+              <span className="text-terminal-red">{stats.unknown}</span>
+              <span className="mx-1">/</span>
+              <span>{stats.total}</span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -135,7 +160,7 @@ const QuestionGrid = () => {
         <div className="mb-4">
           {viewMode === 'all' && (
             <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60">
-              <FaDesktop />
+              {frutigerAero ? <img src="/aero-icons/minecraft1.ico" alt="IT" className="w-4 h-4" /> : <FaDesktop />}
               <span>IT ({filteredItQuestions.length})</span>
             </div>
           )}
@@ -163,7 +188,7 @@ const QuestionGrid = () => {
         <div>
           {viewMode === 'all' && (
             <div className="flex items-center gap-2 mb-2 text-xs text-terminal-text/60 mt-4 pt-3 border-t border-terminal-border/20">
-              <FaBook />
+              {frutigerAero ? <img src="/aero-icons/vista_book_3.ico" alt="CJ" className="w-4 h-4" /> : <FaBook />}
               <span>ČJ ({filteredCjBooks.length})</span>
             </div>
           )}

@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react';
 import { FaCheck, FaTimes, FaRedo, FaBook, FaGlobe, FaPlay, FaList, FaQuoteRight } from 'react-icons/fa';
 import cjBooksData from '../../data/bookData.js';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const QuizMode = ({ filter }) => {
+    const { frutigerAero } = useExperimental();
     // Stages: 'selection', 'config', 'quiz', 'result'
     const [stage, setStage] = useState('selection');
     const [selectedBookId, setSelectedBookId] = useState('all');
@@ -442,15 +444,19 @@ const QuizMode = ({ filter }) => {
                             <div className="grid grid-cols-2 gap-4">
                                 <button
                                     onClick={() => handleNext(false)}
-                                    className="px-4 py-4 border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors flex justify-center items-center"
+                                    className="px-4 py-4 border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors flex justify-center items-center gap-2"
                                 >
-                                    <FaTimes className="mr-2" /> NE
+                                    {frutigerAero ? (
+                                        <img src="/aero-icons/vista_firewall_status_3.ico" alt="NE" className="w-5 h-5" />
+                                    ) : <FaTimes className="mr-2" />} NE
                                 </button>
                                 <button
                                     onClick={() => handleNext(true)}
-                                    className="px-4 py-4 border border-green-500/30 text-green-400 hover:bg-green-500/10 transition-colors flex justify-center items-center"
+                                    className="px-4 py-4 border border-green-500/30 text-green-400 hover:bg-green-500/10 transition-colors flex justify-center items-center gap-2"
                                 >
-                                    <FaCheck className="mr-2" /> ANO
+                                    {frutigerAero ? (
+                                        <img src="/aero-icons/vista_firewall_status_1.ico" alt="ANO" className="w-5 h-5" />
+                                    ) : <FaCheck className="mr-2" />} ANO
                                 </button>
                             </div>
                         </div>

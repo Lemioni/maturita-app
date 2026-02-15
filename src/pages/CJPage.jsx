@@ -4,23 +4,24 @@ import BookList from '../components/cj/BookList';
 import QuizMode from '../components/cj/QuizMode';
 import MockExamMode from '../components/cj/MockExamMode';
 import TimelineMode from '../components/cj/TimelineMode';
+import { useExperimental } from '../context/ExperimentalContext';
 
 const CJPage = () => {
   const [mode, setMode] = useState('list');
   const [filter, setFilter] = useState('all');
+  const { frutigerAero } = useExperimental();
 
   const modes = [
-    { id: 'list', icon: FaList, label: 'Seznam' },
-    { id: 'quiz', icon: FaQuestion, label: 'Kvíz' },
-
-    { id: 'mock', icon: FaGraduationCap, label: 'Potítko' },
-    { id: 'timeline', icon: FaStream, label: 'Časová osa' },
+    { id: 'list', icon: FaList, label: 'Seznam', imgSrc: '/aero-icons/vista_book_2.ico' },
+    { id: 'quiz', icon: FaQuestion, label: 'Kvíz', imgSrc: '/aero-icons/vista_photo_gallery.ico' },
+    { id: 'mock', icon: FaGraduationCap, label: 'Potítko', imgSrc: '/aero-icons/vista_warning.ico' },
+    { id: 'timeline', icon: FaStream, label: 'Časová osa', imgSrc: '/aero-icons/vista_cal_1.ico' },
   ];
 
   const filters = [
-    { id: 'all', icon: FaBook, label: 'VŠE' },
-    { id: 'known', icon: FaCheck, label: 'UMÍM' },
-    { id: 'unknown', icon: FaTimes, label: 'NEUMÍM' },
+    { id: 'all', icon: FaBook, label: 'VŠE', imgSrc: '/aero-icons/vista_book_3.ico' },
+    { id: 'known', icon: FaCheck, label: 'UMÍM', imgSrc: '/aero-icons/vista_firewall_status_1.ico' },
+    { id: 'unknown', icon: FaTimes, label: 'NEUMÍM', imgSrc: '/aero-icons/vista_firewall_status_3.ico' },
   ];
 
   return (
@@ -44,7 +45,7 @@ const CJPage = () => {
                 className={`icon-btn ${mode === m.id ? 'active' : ''}`}
                 title={m.label}
               >
-                <m.icon />
+                {frutigerAero ? <img src={m.imgSrc} alt={m.label} className="w-5 h-5" /> : <m.icon />}
               </button>
             ))}
           </div>
@@ -58,7 +59,7 @@ const CJPage = () => {
                 className={`icon-btn ${filter === f.id ? 'active' : ''}`}
                 title={f.label}
               >
-                <f.icon />
+                {frutigerAero ? <img src={f.imgSrc} alt={f.label} className="w-5 h-5" /> : <f.icon />}
               </button>
             ))}
           </div>

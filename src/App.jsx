@@ -8,6 +8,8 @@ import SearchPage from './pages/SearchPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
 import BookDetailPage from './pages/BookDetailPage';
 import DopaminePage from './pages/DopaminePage';
+import ChatPage from './pages/ChatPage';
+import PresentationsPage from './pages/PresentationsPage';
 
 import { ExperimentalProvider } from './context/ExperimentalContext';
 import { PodcastProvider } from './context/PodcastContext';
@@ -27,6 +29,8 @@ function App() {
               <Route path="/progress" element={<ProgressPage />} />
               <Route path="/dopamine" element={<DopaminePage />} />
               <Route path="/search" element={<SearchPage />} />
+              <Route path="/chat" element={<ChatPage />} />
+              <Route path="/presentations" element={<PresentationsPage />} />
             </Routes>
           </Layout>
         </Router>

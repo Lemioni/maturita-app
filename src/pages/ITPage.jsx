@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaList, FaQuestion, FaCheck, FaTimes, FaLaptop } from 'react-icons/fa';
 import QuestionList from '../components/it/QuestionList';
+import { useExperimental } from '../context/ExperimentalContext';
 
 import QuizMode from '../components/it/QuizMode';
 import itQuestionsData from '../data/it-questions.json';
@@ -10,17 +11,17 @@ const ITPage = () => {
   const [mode, setMode] = useState('list');
   const [filter, setFilter] = useState('all');
   const [subjectFilter, setSubjectFilter] = useLocalStorage('it-subject-filter', 'all');
+  const { frutigerAero } = useExperimental();
 
   const modes = [
-    { id: 'list', icon: FaList, label: 'Seznam' },
-
-    { id: 'quiz', icon: FaQuestion, label: 'Kvíz' },
+    { id: 'list', icon: FaList, label: 'Seznam', imgSrc: '/aero-icons/vista_console.ico' },
+    { id: 'quiz', icon: FaQuestion, label: 'Kvíz', imgSrc: '/aero-icons/minecraft2.ico' },
   ];
 
   const filters = [
-    { id: 'all', icon: FaLaptop, label: 'VŠE' },
-    { id: 'known', icon: FaCheck, label: 'UMÍM' },
-    { id: 'unknown', icon: FaTimes, label: 'NEUMÍM' },
+    { id: 'all', icon: FaLaptop, label: 'VŠE', imgSrc: '/aero-icons/vista_pc_1.ico' },
+    { id: 'known', icon: FaCheck, label: 'UMÍM', imgSrc: '/aero-icons/vista_firewall_status_1.ico' },
+    { id: 'unknown', icon: FaTimes, label: 'NEUMÍM', imgSrc: '/aero-icons/vista_firewall_status_3.ico' },
   ];
 
   const subjects = ['all', ...itQuestionsData.categories];
@@ -46,7 +47,7 @@ const ITPage = () => {
                 className={`icon-btn ${mode === m.id ? 'active' : ''}`}
                 title={m.label}
               >
-                <m.icon />
+                {frutigerAero ? <img src={m.imgSrc} alt={m.label} className="w-5 h-5" /> : <m.icon />}
               </button>
             ))}
           </div>
@@ -60,7 +61,7 @@ const ITPage = () => {
                 className={`icon-btn ${filter === f.id ? 'active' : ''}`}
                 title={f.label}
               >
-                <f.icon />
+                {frutigerAero ? <img src={f.imgSrc} alt={f.label} className="w-5 h-5" /> : <f.icon />}
               </button>
             ))}
           </div>

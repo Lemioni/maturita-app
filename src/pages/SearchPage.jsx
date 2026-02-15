@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import Fuse from 'fuse.js';
 import cjBooksData from '../data/bookData.js';
 import itQuestionsData from '../data/it-questions.json';
+import { useExperimental } from '../context/ExperimentalContext';
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState([]);
   const [fuseCJ, setFuseCJ] = useState(null);
   const [fuseIT, setFuseIT] = useState(null);
+  const { frutigerAero } = useExperimental();
 
   useEffect(() => {
     // Initialize Fuse.js for CJ books
@@ -45,7 +47,8 @@ const SearchPage = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-4">
       {/* Header */}
-      <div className="border-b border-terminal-border/20 pb-3">
+      <div className="border-b border-terminal-border/20 pb-3 flex items-center gap-2">
+        {frutigerAero && <img src="/aero-icons/vista_search_globe.ico" alt="" className="w-8 h-8" />}
         <h1 className="text-xl text-terminal-accent tracking-wider">
           VYHLEDÁVÁNÍ
         </h1>
@@ -54,7 +57,11 @@ const SearchPage = () => {
       {/* Search Bar */}
       <div className="terminal-card">
         <div className="flex items-center gap-3">
-          <FaSearch className="text-terminal-accent/60" />
+          {frutigerAero ? (
+            <img src="/aero-icons/search_icon_1771111945520.png" alt="" className="w-5 h-5 opacity-60" />
+          ) : (
+            <FaSearch className="text-terminal-accent/60" />
+          )}
           <input
             type="text"
             value={searchTerm}
@@ -81,7 +88,15 @@ const SearchPage = () => {
           >
             <div className="flex items-start gap-3">
               <div className={`p-2 ${item.type === 'cj' ? 'text-terminal-accent' : 'text-blue-400'}`}>
-                {item.type === 'cj' ? <FaBook /> : <FaLaptop />}
+                {frutigerAero ? (
+                  <img
+                    src={item.type === 'cj' ? "/aero-icons/vista_book_1.ico" : "/aero-icons/vista_pc_1.ico"}
+                    alt=""
+                    className="w-5 h-5"
+                  />
+                ) : (
+                  item.type === 'cj' ? <FaBook /> : <FaLaptop />
+                )}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">

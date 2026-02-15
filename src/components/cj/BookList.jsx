@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import cjBooksData from '../../data/bookData.js';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const BookList = ({ filter }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [books, setBooks] = useState([]);
+  const { frutigerAero } = useExperimental();
 
   useEffect(() => {
     let filtered = [...cjBooksData.books];
@@ -38,6 +40,37 @@ const BookList = ({ filter }) => {
   const isKnown = (bookId) => {
     return progress.cjBooks?.[bookId]?.known || false;
   };
+
+  if (frutigerAero) {
+    return (
+      <div className="space-y-1 pl-2">
+        {books.map((book) => {
+          const known = isKnown(book.id);
+          return (
+            <div key={book.id} className="flex items-center gap-2 text-sm font-serif">
+              <img src="/aero-icons/vista_book_1.ico" alt="Book" className="w-4 h-4" />
+              <Link
+                to={`/cj/book/${book.id}`}
+                className="text-blue-700 underline hover:text-blue-900"
+              >
+                {book.title}
+              </Link>
+              <span className="text-black">- {book.author}</span>
+
+              <div className="ml-auto pr-2">
+                <KnowledgeCheckbox
+                  questionId={`cj-${book.id}`}
+                  initialKnown={known}
+                  onChange={(newValue) => updateKnowledge(book.id, newValue)}
+                />
+              </div>
+            </div>
+          );
+        })}
+        {books.length === 0 && <p className="text-gray-500 italic">No books found.</p>}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-3">

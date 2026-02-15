@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import itQuestionsData from '../../data/it-questions.json';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../common/KnowledgeCheckbox';
+import { useExperimental } from '../../context/ExperimentalContext';
 
 const QuestionList = ({ filter, subjectFilter }) => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [questions, setQuestions] = useState([]);
+  const { frutigerAero } = useExperimental();
 
   useEffect(() => {
     let filtered = [...itQuestionsData.questions];
@@ -43,6 +45,37 @@ const QuestionList = ({ filter, subjectFilter }) => {
   const isKnown = (questionId) => {
     return progress.itQuestions?.[questionId]?.known || false;
   };
+
+  if (frutigerAero) {
+    return (
+      <div className="space-y-1 pl-2">
+        {questions.map((question) => {
+          const known = isKnown(question.id);
+          return (
+            <div key={question.id} className="flex items-center gap-2 text-sm font-serif">
+              <img src="/aero-icons/vista_pc_1.ico" alt="PC" className="w-4 h-4" />
+              <Link
+                to={`/it/question/${question.id}`}
+                className="text-blue-700 underline hover:text-blue-900 truncate max-w-[70%]"
+                title={question.question}
+              >
+                {question.question}
+              </Link>
+
+              <div className="ml-auto pr-2">
+                <KnowledgeCheckbox
+                  questionId={question.id}
+                  initialKnown={known}
+                  onChange={(newValue) => updateKnowledge(question.id, newValue)}
+                />
+              </div>
+            </div>
+          );
+        })}
+        {questions.length === 0 && <p className="text-gray-500 italic">No questions found.</p>}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-3">
