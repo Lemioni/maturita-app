@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
-import { getPodcastUrl, hasPodcast, podcastBookIds } from '../data/podcastData';
+import { getPodcastUrl, hasPodcast, podcastBookIds, getPsiPodcastUrl, hasPsiPodcast, psiPodcastIds, psiQuestionTitles } from '../data/podcastData';
 import { books } from '../data/bookData';
 
 const PodcastContext = createContext();
@@ -114,21 +114,21 @@ export const PodcastProvider = ({ children }) => {
         }
     }, []);
 
-    const play = useCallback((bookId, title, author) => {
-        const url = getPodcastUrl(bookId);
+    const play = useCallback((bookId, title, author, type = 'book') => {
+        const url = type === 'psi' ? getPsiPodcastUrl(bookId) : getPodcastUrl(bookId);
         if (!url) return;
 
         const audio = audioRef.current;
         if (!audio) return;
 
         // If same track, just resume
-        if (currentTrack?.bookId === bookId && audio.src.includes(encodeURIComponent(url.split('/').pop()))) {
+        if (currentTrack?.bookId === bookId && currentTrack?.type === type && audio.src.includes(encodeURIComponent(url.split('/').pop()))) {
             audio.play();
             return;
         }
 
         // New track
-        const track = { bookId, title, author };
+        const track = { bookId, title, author, type };
         setCurrentTrack(track);
         setIsLoading(true);
         setCurrentTime(0);
@@ -145,20 +145,32 @@ export const PodcastProvider = ({ children }) => {
         updateMediaSession(track);
     }, [currentTrack, updateMediaSession]);
 
-    // Auto-play next track
+    // Auto-play next track (within the same category)
     const playNext = useCallback(() => {
         if (!currentTrack || !autoplayEnabled) return;
-        const idx = podcastBookIds.indexOf(currentTrack.bookId);
-        const nextIdx = idx + 1;
-        // If we're at the end, only continue if loop is enabled
-        if (nextIdx >= podcastBookIds.length) {
-            if (!loopEnabled) return;
-        }
-        const wrappedIdx = nextIdx % podcastBookIds.length;
-        const nextBookId = podcastBookIds[wrappedIdx];
-        const nextBook = books.find(b => b.id === nextBookId);
-        if (nextBook) {
-            setTimeout(() => play(nextBookId, nextBook.title, nextBook.author), 300);
+
+        if (currentTrack.type === 'psi') {
+            const idx = psiPodcastIds.indexOf(currentTrack.bookId);
+            const nextIdx = idx + 1;
+            if (nextIdx >= psiPodcastIds.length) {
+                if (!loopEnabled) return;
+            }
+            const wrappedIdx = nextIdx % psiPodcastIds.length;
+            const nextId = psiPodcastIds[wrappedIdx];
+            const title = psiQuestionTitles[nextId] || `PSI otázka ${nextId}`;
+            setTimeout(() => play(nextId, title, 'PSI', 'psi'), 300);
+        } else {
+            const idx = podcastBookIds.indexOf(currentTrack.bookId);
+            const nextIdx = idx + 1;
+            if (nextIdx >= podcastBookIds.length) {
+                if (!loopEnabled) return;
+            }
+            const wrappedIdx = nextIdx % podcastBookIds.length;
+            const nextBookId = podcastBookIds[wrappedIdx];
+            const nextBook = books.find(b => b.id === nextBookId);
+            if (nextBook) {
+                setTimeout(() => play(nextBookId, nextBook.title, nextBook.author, 'book'), 300);
+            }
         }
     }, [currentTrack, play, autoplayEnabled, loopEnabled]);
 
@@ -251,6 +263,7 @@ export const PodcastProvider = ({ children }) => {
         skipForward,
         skipBackward,
         hasPodcast,
+        hasPsiPodcast,
         playerVisible,
         setPlayerVisible,
         volume,

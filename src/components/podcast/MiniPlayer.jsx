@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { usePodcast } from '../../context/PodcastContext';
-import { FaPlay, FaPause, FaChevronDown, FaChevronUp, FaSpinner, FaMusic, FaVolumeUp, FaVolumeDown, FaVolumeMute, FaRedo, FaStepForward } from 'react-icons/fa';
+import { FaPlay, FaPause, FaChevronDown, FaChevronUp, FaSpinner, FaMusic, FaVolumeUp, FaVolumeDown, FaVolumeMute, FaRedo, FaStepForward, FaNetworkWired, FaBook } from 'react-icons/fa';
 import { books } from '../../data/bookData';
-import { hasPodcast } from '../../data/podcastData';
+import { hasPodcast, psiPodcastIds, psiQuestionTitles } from '../../data/podcastData';
 import { useExperimental } from '../../context/ExperimentalContext';
 
 const formatTime = (seconds) => {
@@ -14,6 +14,13 @@ const formatTime = (seconds) => {
 
 // Books that have podcasts
 const podcastBooks = books.filter(b => hasPodcast(b.id));
+
+// PSI podcast items for the list
+const psiPodcasts = psiPodcastIds.map(id => ({
+    id,
+    title: psiQuestionTitles[id] || `Otázka ${id}`,
+    subtitle: `PSI – Otázka ${id}`,
+}));
 
 const MiniPlayer = () => {
     const {
@@ -37,6 +44,7 @@ const MiniPlayer = () => {
 
     const { frutigerAero } = useExperimental();
     const [showList, setShowList] = useState(false);
+    const [listTab, setListTab] = useState('knizky'); // 'knizky' | 'psi'
 
     const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
@@ -57,54 +65,127 @@ const MiniPlayer = () => {
         <div className="fixed bottom-0 left-0 right-0 z-50">
             {/* Podcast list dropdown */}
             {showList && (
-                <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-64 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>
+                <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-72 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>
                     <div className="container mx-auto px-4 py-2">
-                        {!frutigerAero && (
-                            <p className="text-[10px] text-terminal-text/40 uppercase tracking-wider mb-2 font-bold">Vyber podcast</p>
-                        )}
-                        <div className={`space-y-0.5 ${frutigerAero ? 'frutiger-podcast-list flex flex-col gap-1 p-2' : ''}`}>
-                            {podcastBooks.map(book => {
-                                const isActive = currentTrack?.bookId === book.id;
-                                if (frutigerAero) {
+                        {/* Category tabs */}
+                        <div className="flex gap-1 mb-2">
+                            <button
+                                onClick={() => setListTab('knizky')}
+                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${
+                                    listTab === 'knizky'
+                                        ? (frutigerAero ? 'bg-white text-black font-bold border border-gray-400' : 'bg-terminal-accent/20 text-terminal-accent font-medium border border-terminal-accent/30')
+                                        : (frutigerAero ? 'bg-[#d4d0c8] text-black border border-gray-400' : 'text-terminal-text/50 hover:text-terminal-text/70 hover:bg-terminal-border/10')
+                                }`}
+                            >
+                                <FaBook className="text-[10px]" />
+                                Knížky
+                            </button>
+                            <button
+                                onClick={() => setListTab('psi')}
+                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${
+                                    listTab === 'psi'
+                                        ? (frutigerAero ? 'bg-white text-black font-bold border border-gray-400' : 'bg-terminal-accent/20 text-terminal-accent font-medium border border-terminal-accent/30')
+                                        : (frutigerAero ? 'bg-[#d4d0c8] text-black border border-gray-400' : 'text-terminal-text/50 hover:text-terminal-text/70 hover:bg-terminal-border/10')
+                                }`}
+                            >
+                                <FaNetworkWired className="text-[10px]" />
+                                PSI
+                            </button>
+                        </div>
+
+                        {/* Books list */}
+                        {listTab === 'knizky' && (
+                            <div className={`space-y-0.5 ${frutigerAero ? 'frutiger-podcast-list flex flex-col gap-1 p-2' : ''}`}>
+                                {podcastBooks.map(book => {
+                                    const isActive = currentTrack?.bookId === book.id && currentTrack?.type !== 'psi';
+                                    if (frutigerAero) {
+                                        return (
+                                            <button
+                                                key={book.id}
+                                                onClick={() => {
+                                                    play(book.id, book.title, book.author, 'book');
+                                                    setShowList(false);
+                                                }}
+                                                className={isActive ? 'active-track' : ''}
+                                            >
+                                                {book.title} ({book.author})
+                                            </button>
+                                        );
+                                    }
                                     return (
                                         <button
                                             key={book.id}
                                             onClick={() => {
-                                                play(book.id, book.title, book.author);
+                                                play(book.id, book.title, book.author, 'book');
                                                 setShowList(false);
                                             }}
-                                            className={isActive ? 'active-track' : ''}
+                                            className={`w-full text-left px-3 py-2 flex items-center gap-3 transition-colors ${isActive
+                                                ? 'bg-terminal-accent/15 border-l-2 border-terminal-accent'
+                                                : 'hover:bg-terminal-border/10 border-l-2 border-transparent'
+                                                }`}
                                         >
-                                            {book.title} ({book.author})
+                                            <span className="text-[10px] text-terminal-text/30 font-mono w-5 text-right flex-shrink-0">{book.id}</span>
+                                            <div className="flex-1 min-w-0">
+                                                <p className={`text-xs truncate ${isActive ? 'text-terminal-accent font-medium' : 'text-terminal-text/80'}`}>
+                                                    {book.title}
+                                                </p>
+                                                <p className="text-[10px] text-terminal-text/40 truncate">{book.author}</p>
+                                            </div>
+                                            {isActive && isPlaying && (
+                                                <FaMusic className="text-terminal-accent text-[10px] animate-pulse flex-shrink-0" />
+                                            )}
                                         </button>
                                     );
-                                }
-                                return (
-                                    <button
-                                        key={book.id}
-                                        onClick={() => {
-                                            play(book.id, book.title, book.author);
-                                            setShowList(false);
-                                        }}
-                                        className={`w-full text-left px-3 py-2 flex items-center gap-3 transition-colors ${isActive
-                                            ? 'bg-terminal-accent/15 border-l-2 border-terminal-accent'
-                                            : 'hover:bg-terminal-border/10 border-l-2 border-transparent'
-                                            }`}
-                                    >
-                                        <span className="text-[10px] text-terminal-text/30 font-mono w-5 text-right flex-shrink-0">{book.id}</span>
-                                        <div className="flex-1 min-w-0">
-                                            <p className={`text-xs truncate ${isActive ? 'text-terminal-accent font-medium' : 'text-terminal-text/80'}`}>
-                                                {book.title}
-                                            </p>
-                                            <p className="text-[10px] text-terminal-text/40 truncate">{book.author}</p>
-                                        </div>
-                                        {isActive && isPlaying && (
-                                            <FaMusic className="text-terminal-accent text-[10px] animate-pulse flex-shrink-0" />
-                                        )}
-                                    </button>
-                                );
-                            })}
-                        </div>
+                                })}
+                            </div>
+                        )}
+
+                        {/* PSI list */}
+                        {listTab === 'psi' && (
+                            <div className={`space-y-0.5 ${frutigerAero ? 'frutiger-podcast-list flex flex-col gap-1 p-2' : ''}`}>
+                                {psiPodcasts.map(item => {
+                                    const isActive = currentTrack?.bookId === item.id && currentTrack?.type === 'psi';
+                                    if (frutigerAero) {
+                                        return (
+                                            <button
+                                                key={item.id}
+                                                onClick={() => {
+                                                    play(item.id, item.title, 'PSI', 'psi');
+                                                    setShowList(false);
+                                                }}
+                                                className={isActive ? 'active-track' : ''}
+                                            >
+                                                {item.id}. {item.title}
+                                            </button>
+                                        );
+                                    }
+                                    return (
+                                        <button
+                                            key={item.id}
+                                            onClick={() => {
+                                                play(item.id, item.title, 'PSI', 'psi');
+                                                setShowList(false);
+                                            }}
+                                            className={`w-full text-left px-3 py-2 flex items-center gap-3 transition-colors ${isActive
+                                                ? 'bg-terminal-accent/15 border-l-2 border-terminal-accent'
+                                                : 'hover:bg-terminal-border/10 border-l-2 border-transparent'
+                                                }`}
+                                        >
+                                            <span className="text-[10px] text-terminal-text/30 font-mono w-5 text-right flex-shrink-0">{item.id}</span>
+                                            <div className="flex-1 min-w-0">
+                                                <p className={`text-xs truncate ${isActive ? 'text-terminal-accent font-medium' : 'text-terminal-text/80'}`}>
+                                                    {item.title}
+                                                </p>
+                                                <p className="text-[10px] text-terminal-text/40 truncate">{item.subtitle}</p>
+                                            </div>
+                                            {isActive && isPlaying && (
+                                                <FaMusic className="text-terminal-accent text-[10px] animate-pulse flex-shrink-0" />
+                                            )}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
@@ -120,6 +201,9 @@ const MiniPlayer = () => {
                         <div className="flex items-center justify-between mb-1" onClick={() => setShowList(!showList)}>
                             {currentTrack ? (
                                 <div className="flex items-baseline gap-2 cursor-pointer">
+                                    {!frutigerAero && currentTrack.type === 'psi' && (
+                                        <span className="text-[9px] text-terminal-accent/60 bg-terminal-accent/10 px-1.5 py-0.5 rounded font-mono uppercase tracking-wider">PSI</span>
+                                    )}
                                     <p className={`text-xs truncate font-medium ${frutigerAero ? 'text-black font-serif' : 'text-terminal-text'}`}>
                                         {currentTrack.title}
                                     </p>
@@ -159,10 +243,17 @@ const MiniPlayer = () => {
 
                     {/* Playback controls */}
                     {currentTrack && (
-                        <div className="flex items-center gap-0.5" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center gap-1" onClick={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}>
                             <button
                                 onClick={togglePlayPause}
-                                className={`w-8 h-8 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black border border-gray-400 bg-[#e0e0e0]' : 'text-terminal-accent hover:bg-terminal-accent/20'}`}
+                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); togglePlayPause(); }}
+                                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
+                                    frutigerAero
+                                        ? 'text-black border border-gray-400 bg-[#e0e0e0]'
+                                        : isPlaying
+                                            ? 'bg-terminal-accent text-terminal-bg hover:bg-terminal-accent/80'
+                                            : 'bg-terminal-accent/20 text-terminal-accent border border-terminal-accent/40 hover:bg-terminal-accent/30'
+                                }`}
                                 aria-label={isPlaying ? 'Pauza' : 'Přehrát'}
                             >
                                 {isLoading ? (
@@ -170,43 +261,47 @@ const MiniPlayer = () => {
                                 ) : isPlaying ? (
                                     <FaPause className="text-sm" />
                                 ) : (
-                                    <FaPlay className="text-sm" />
+                                    <FaPlay className="text-sm ml-0.5" />
                                 )}
                             </button>
                             <button
                                 onClick={toggleLoop}
-                                className={`w-6 h-6 flex items-center justify-center transition-colors ${loopEnabled
-                                    ? 'text-terminal-accent'
-                                    : 'text-terminal-text/30 hover:text-terminal-text/50'
-                                    } ${frutigerAero ? 'text-black opacity-60' : ''}`}
+                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); toggleLoop(); }}
+                                className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${loopEnabled
+                                    ? (frutigerAero ? 'text-black bg-white border border-gray-400' : 'text-terminal-accent bg-terminal-accent/15 border border-terminal-accent/30')
+                                    : (frutigerAero ? 'text-black opacity-40' : 'text-terminal-text/30 hover:text-terminal-text/50 hover:bg-terminal-border/10')
+                                    }`}
                                 aria-label={loopEnabled ? 'Loop zapnutý' : 'Loop vypnutý'}
+                                title={loopEnabled ? 'Loop: ON' : 'Loop: OFF'}
                             >
-                                <FaRedo className="text-[10px]" />
+                                <FaRedo className="text-xs" />
                             </button>
                             <button
                                 onClick={toggleAutoplay}
-                                className={`w-6 h-6 flex items-center justify-center transition-colors ${autoplayEnabled
-                                    ? 'text-terminal-accent'
-                                    : 'text-terminal-text/30 hover:text-terminal-text/50'
-                                    } ${frutigerAero ? 'text-black opacity-60' : ''}`}
+                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); toggleAutoplay(); }}
+                                className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${autoplayEnabled
+                                    ? (frutigerAero ? 'text-black bg-white border border-gray-400' : 'text-terminal-accent bg-terminal-accent/15 border border-terminal-accent/30')
+                                    : (frutigerAero ? 'text-black opacity-40' : 'text-terminal-text/30 hover:text-terminal-text/50 hover:bg-terminal-border/10')
+                                    }`}
                                 aria-label={autoplayEnabled ? 'Další: ON' : 'Další: OFF'}
+                                title={autoplayEnabled ? 'Autoplay: ON' : 'Autoplay: OFF'}
                             >
-                                <FaStepForward className="text-[10px]" />
+                                <FaStepForward className="text-xs" />
                             </button>
                         </div>
                     )}
 
                     {/* Volume control - Hidden on mobile, visible on desktop */}
                     {currentTrack && (
-                        <div className="hidden sm:flex items-center gap-1" onClick={e => e.stopPropagation()}>
+                        <div className="hidden sm:flex items-center gap-1" onClick={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}>
                             <button
                                 onClick={() => setVolume(volume > 0 ? 0 : 1)}
-                                className={`w-6 h-6 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/40 hover:text-terminal-accent'}`}
+                                className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/40 hover:text-terminal-accent hover:bg-terminal-border/10'}`}
                                 aria-label="Mute"
                             >
-                                {volume === 0 ? <FaVolumeMute className="text-[10px]" /> :
-                                    volume < 0.5 ? <FaVolumeDown className="text-[10px]" /> :
-                                        <FaVolumeUp className="text-[10px]" />}
+                                {volume === 0 ? <FaVolumeMute className="text-xs" /> :
+                                    volume < 0.5 ? <FaVolumeDown className="text-xs" /> :
+                                        <FaVolumeUp className="text-xs" />}
                             </button>
                             <input
                                 type="range"
@@ -224,7 +319,8 @@ const MiniPlayer = () => {
                     {/* Collapse button */}
                     <button
                         onClick={(e) => { e.stopPropagation(); setPlayerVisible(false); setShowList(false); }}
-                        className={`w-6 h-6 flex items-center justify-center transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/30 hover:text-terminal-text/60'}`}
+                        onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); setPlayerVisible(false); setShowList(false); }}
+                        className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/30 hover:text-terminal-text/60 hover:bg-terminal-border/10'}`}
                         aria-label="Skrýt přehrávač"
                     >
                         <FaChevronDown className="text-xs" />
