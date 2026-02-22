@@ -71,22 +71,20 @@ const MiniPlayer = () => {
                         <div className="flex gap-1 mb-2">
                             <button
                                 onClick={() => setListTab('knizky')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${
-                                    listTab === 'knizky'
+                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${listTab === 'knizky'
                                         ? (frutigerAero ? 'bg-white text-black font-bold border border-gray-400' : 'bg-terminal-accent/20 text-terminal-accent font-medium border border-terminal-accent/30')
                                         : (frutigerAero ? 'bg-[#d4d0c8] text-black border border-gray-400' : 'text-terminal-text/50 hover:text-terminal-text/70 hover:bg-terminal-border/10')
-                                }`}
+                                    }`}
                             >
                                 <FaBook className="text-[10px]" />
                                 Knížky
                             </button>
                             <button
                                 onClick={() => setListTab('psi')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${
-                                    listTab === 'psi'
+                                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs rounded transition-colors ${listTab === 'psi'
                                         ? (frutigerAero ? 'bg-white text-black font-bold border border-gray-400' : 'bg-terminal-accent/20 text-terminal-accent font-medium border border-terminal-accent/30')
                                         : (frutigerAero ? 'bg-[#d4d0c8] text-black border border-gray-400' : 'text-terminal-text/50 hover:text-terminal-text/70 hover:bg-terminal-border/10')
-                                }`}
+                                    }`}
                             >
                                 <FaNetworkWired className="text-[10px]" />
                                 PSI
@@ -190,9 +188,22 @@ const MiniPlayer = () => {
                 </div>
             )}
 
-            <div className={`bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10 ${frutigerAero ? 'bg-[#d4d0c8] border-t-2 border-white border-b-2 border-[#808080] p-1' : ''}`}>
+            <div className={`relative bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10 ${frutigerAero ? 'bg-[#d4d0c8] border-t-2 border-white border-b-2 border-[#808080] p-1' : ''}`}>
+                {/* Global Mobile Progress Bar - Shown only on mobile screens */}
+                {currentTrack && !frutigerAero && (
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-terminal-border/20 sm:hidden cursor-pointer"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const pos = (e.clientX - rect.left) / rect.width;
+                            seek(pos * duration);
+                        }}>
+                        <div className="h-full bg-terminal-accent relative" style={{ width: `${progress}%` }}></div>
+                    </div>
+                )}
+
                 <div
-                    className="container mx-auto px-4 py-1 flex items-center gap-3"
+                    className="container mx-auto px-2 sm:px-4 py-1.5 sm:py-1 flex items-center gap-2 sm:gap-3"
                     onClick={frutigerAero ? undefined : () => setShowList(!showList)}
                 >
                     {/* Integrated Slider & Info */}
@@ -225,7 +236,7 @@ const MiniPlayer = () => {
                             )}
                         </div>
 
-                        {/* Integrated Progress Bar */}
+                        {/* Integrated Progress Bar - Hidden on mobile */}
                         {currentTrack && (
                             <input
                                 type="range"
@@ -234,7 +245,7 @@ const MiniPlayer = () => {
                                 step="1"
                                 value={currentTime}
                                 onChange={(e) => seek(parseFloat(e.target.value))}
-                                className="w-full h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
+                                className="hidden sm:block w-full h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
                                 style={{ accentColor: frutigerAero ? '#008000' : 'var(--color-terminal-accent, #8b5cf6)', height: frutigerAero ? '2px' : '4px' }}
                                 onClick={e => e.stopPropagation()}
                             />
@@ -247,21 +258,20 @@ const MiniPlayer = () => {
                             <button
                                 onClick={togglePlayPause}
                                 onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); togglePlayPause(); }}
-                                className={`w-10 h-10 flex items-center justify-center rounded-full transition-all ${
-                                    frutigerAero
+                                className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all ${frutigerAero
                                         ? 'text-black border border-gray-400 bg-[#e0e0e0]'
                                         : isPlaying
                                             ? 'bg-terminal-accent text-terminal-bg hover:bg-terminal-accent/80'
                                             : 'bg-terminal-accent/20 text-terminal-accent border border-terminal-accent/40 hover:bg-terminal-accent/30'
-                                }`}
+                                    }`}
                                 aria-label={isPlaying ? 'Pauza' : 'Přehrát'}
                             >
                                 {isLoading ? (
-                                    <FaSpinner className="text-sm animate-spin" />
+                                    <FaSpinner className="text-xs sm:text-sm animate-spin" />
                                 ) : isPlaying ? (
-                                    <FaPause className="text-sm" />
+                                    <FaPause className="text-xs sm:text-sm" />
                                 ) : (
-                                    <FaPlay className="text-sm ml-0.5" />
+                                    <FaPlay className="text-xs sm:text-sm ml-0.5" />
                                 )}
                             </button>
                             <button

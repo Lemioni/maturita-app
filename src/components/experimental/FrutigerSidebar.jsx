@@ -30,6 +30,8 @@ const FrutigerSidebar = () => {
                 { path: '/cj', imgSrc: '/aero-icons/vista_book_3.ico', label: 'Čeština' },
                 { path: '/it', imgSrc: '/aero-icons/vista_pc_1.ico', label: 'IT Otázky' },
                 { path: '/search', imgSrc: '/aero-icons/vista_search_globe.ico', label: 'Vyhledávání' },
+                { path: '/autoscroll', imgSrc: '/aero-icons/vista_media_player.ico', label: 'Autoscroll' },
+                { path: '/dictionary', imgSrc: '/aero-icons/vista_info.ico', label: 'Slovník' },
                 { path: '/presentations', imgSrc: '/aero-icons/vista_info.ico', label: 'Prezentace (PDF)' },
             ]
         },

@@ -1,0 +1,706 @@
+{
+    "terms": [
+        {
+            "id": "antika",
+            "term": "Antika",
+            "definition": "Nejstarší období evropské literatury, tvořené starověkým Řeckem a Římem (8. st. př. n. l. – 5. st. n. l.). Základ evropské kultury a vzdělanosti.",
+            "category": "epochy"
+        },
+        {
+            "id": "stredovek",
+            "term": "Středověk",
+            "definition": "Období zhruba od 5. do 15. století. Literatura byla silně ovlivněna křesťanstvím, rozvíjely se legendy, chorály, rytířské eposy a letopisy.",
+            "category": "epochy"
+        },
+        {
+            "id": "renesance",
+            "term": "Renesance",
+            "definition": "Návrat k antice, znovuzrození člověka a pozemského života (14. – 16. st.). Důraz na lidský rozum, touha po poznání světa, optimismus.",
+            "category": "epochy"
+        },
+        {
+            "id": "humanismus",
+            "term": "Humanismus",
+            "definition": "Myšlenkový směr spojený s renesancí, soustředí se na člověka, jeho důstojnost a vzdělání. Návrat ke klasické latině a řečtině.",
+            "category": "epochy"
+        },
+        {
+            "id": "baroko",
+            "term": "Baroko",
+            "definition": "Sloh 17. a 18. století vzniklý v době třicetileté války. Charakteristika: pesimismus, utrpení, marnost pozemského života a obrat k Bohu.",
+            "category": "epochy"
+        },
+        {
+            "id": "klasicismus",
+            "term": "Klasicismus",
+            "definition": "Umělecký směr (17. – 18. st.) inspirovaný znovu antikou, důraz na rozum, jednotu místa, času a děje (u dramatu) a pevnou formu (vysoká a nízká literatura).",
+            "category": "epochy"
+        },
+        {
+            "id": "osvicenstvi",
+            "term": "Osvícenství",
+            "definition": "Myšlenkové hnutí 18. století zdůrazňující lidský rozum, toleranci a pokrok. Vedlo ke vzniku encyklopedií.",
+            "category": "epochy"
+        },
+        {
+            "id": "preromantismus",
+            "term": "Preromantismus",
+            "definition": "Přechodné období konce 18. stol. zdůrazňující cit, fantazii a vztah k přírodě. Protipól racionálního osvícenství.",
+            "category": "epochy"
+        },
+        {
+            "id": "romantismus",
+            "term": "Romantismus",
+            "definition": "Směr 1. pol. 19. st., charakteristický zdůrazňováním citu, svobody, individuality. Hrdina je často výjimečný vyvrhel rozporuplný s okolím.",
+            "category": "epochy"
+        },
+        {
+            "id": "realismus",
+            "term": "Realismus",
+            "definition": "Směr 2. pol. 19. st., usilující o pravdivé a objektivní zachycení skutečnosti, bez idealizace. Snaha analyzovat společenské problémy.",
+            "category": "epochy"
+        },
+        {
+            "id": "naturalismus",
+            "term": "Naturalismus",
+            "definition": "Vyhrocený směr realismu konce 19. st. (založen E. Zolou). Člověk je chápán jako tvor determinovaný (předurčený) dědičností a prostředím, často temná témata.",
+            "category": "epochy"
+        },
+        {
+            "id": "dekadence",
+            "term": "Dekadence",
+            "definition": "Úpadkový myšlenkový směr přelomu 19. a 20. st. Znamená pocit zmaru, tísně, nudy. Hlavní témata: smrt, erotika, satanské motivy.",
+            "category": "epochy"
+        },
+        {
+            "id": "symbolismus",
+            "term": "Symbolismus",
+            "definition": "Směr reagující na popisný realismus. Vyjadřuje skryté významy pomocí symbolů a náznaků, důraz na vnitřní svět, podvědomí.",
+            "category": "epochy"
+        },
+        {
+            "id": "impresionismus",
+            "term": "Impresionismus",
+            "definition": "Směr zachycující okamžitý zrakový a smyslový dojem, prchavou náladu v daném okamžiku. V literatuře spojený s přírodní lyrikou.",
+            "category": "epochy"
+        },
+        {
+            "id": "secese",
+            "term": "Secese",
+            "definition": "Sloh konce 19. a počátku 20. století vyznačující se dekorativností, ornamenty a stylizací rostlinných motivů.",
+            "category": "epochy"
+        },
+        {
+            "id": "avantgarda",
+            "term": "Avantgarda",
+            "definition": "Souhrnný název pro radikální umělecké směry 1. pol. 20. stol. (kubismus, futurismus apod.) odmítající tradiční formy.",
+            "category": "epochy"
+        },
+        {
+            "id": "expresionismus",
+            "term": "Expresionismus",
+            "definition": "Umělecký směr zachycující silné, často děsivé vnitřní pocity autora (strach, úzkost, absurdita) do vnější reality. Zejména oblíbený v Německu.",
+            "category": "epochy"
+        },
+        {
+            "id": "kubismus",
+            "term": "Kubismus",
+            "definition": "Směr rozkládající předměty na základní geometrické tvary a nahlížející na ně z více úhlů. V literatuře ovlivnil kaligramy Apollinaira.",
+            "category": "epochy"
+        },
+        {
+            "id": "futurismus",
+            "term": "Futurismus",
+            "definition": "Avantgardní směr oslavující moderní techniku, rychlost, pohyb, stroje a revoluci; odmítá minulost a tradice.",
+            "category": "epochy"
+        },
+        {
+            "id": "dadaismus",
+            "term": "Dadaismus",
+            "definition": "Hnutí vzniklé za 1. sv. války reagující na hrůzy války nesmyslem a absurditou. Náhodná spojení slov, hravost, popření logiky.",
+            "category": "epochy"
+        },
+        {
+            "id": "poetismus",
+            "term": "Poetismus",
+            "definition": "Výlučně český avantgardní směr (Nezval, Teige), zaměřený na radost ze života, hru, exotiku a cirkus; „umění žít a bavit se“.",
+            "category": "epochy"
+        },
+        {
+            "id": "surrealismus",
+            "term": "Surrealismus",
+            "definition": "Směr, který vychází z psychoanalýzy (objevování podvědomí); volný tok myšlenek, zachycení snových představ bez kontroly rozumu.",
+            "category": "epochy"
+        },
+        {
+            "id": "existencialismus",
+            "term": "Existencialismus",
+            "definition": "Filozofický a literární směr 20. st. Zabývá se otázkou lidské existence v absurdním světě. Člověk je pohlcen svobodou a zodpovědností za vlastní volbu.",
+            "category": "epochy"
+        },
+        {
+            "id": "soc_realismus",
+            "term": "Socialistický realismus",
+            "definition": "Oficiální estetická doktrína východního bloku po r. 1932. Požadoval „historicky pravdivé“ zobrazování skutečnosti s revolučním komunistickým vývojem.",
+            "category": "epochy"
+        },
+        {
+            "id": "magicky_realismus",
+            "term": "Magický realismus",
+            "definition": "Literární směr, zejména latinskoamerický, propojující všední reálný svět s magickými a mytologickými prvky, přijímanými jako běžná věc.",
+            "category": "epochy"
+        },
+        {
+            "id": "homer",
+            "term": "Homér",
+            "definition": "Nejstarší známý řecký básník (zřejmě z 8. stol. př. n. l.), připisuje se mu autorství eposů Ilias a Odyssea.",
+            "category": "autori"
+        },
+        {
+            "id": "ovidius",
+            "term": "Publius Ovidius Naso",
+            "definition": "Slavný římský básník vrcholného období (zlatého věku). Autor díla Proměny (Metamorfózy) obsahujícího na 250 antických mýtů.",
+            "category": "autori"
+        },
+        {
+            "id": "alighieri",
+            "term": "Dante Alighieri",
+            "definition": "Italský renesanční básník, vizionář přelomu středověku a renesance. Autor Božské komedie s jejím Peklem, Očistcem a Rájem.",
+            "category": "autori"
+        },
+        {
+            "id": "boccaccio",
+            "term": "Giovanni Boccaccio",
+            "definition": "Zakladatel italské renesanční novely. Proslavil se sbírkou Dekameron, souborem sta renesančních novel zasazených do doby morové epidemie.",
+            "category": "autori"
+        },
+        {
+            "id": "villon",
+            "term": "Francois Villon",
+            "definition": "První „prokletý básník“ tvořící na přelomu středověku a renesance. Autor děl Malý a Velký testament.",
+            "category": "autori"
+        },
+        {
+            "id": "shakespeare",
+            "term": "William Shakespeare",
+            "definition": "Nejvýznamnější anglický dramatik alžbětinského divadla. Napsal hluboké tragédie (Hamlet, Romeo a Julie, Othello) a slavné komedie (Sen noci svatojánské).",
+            "category": "autori"
+        },
+        {
+            "id": "moliere",
+            "term": "Molière",
+            "definition": "Vlastním jménem Jean-Baptiste Poquelin, představitel francouzského klasicismu, nejslavnější tvůrce satirických komedií (Lakomec, Tartuffe).",
+            "category": "autori"
+        },
+        {
+            "id": "goethe",
+            "term": "Johann Wolfgang Goethe",
+            "definition": "Německý básník a dramatik z období preromantismu (Bouře a vzdor). Celoživotní snahou o pochopení smyslu bytí je zosobněn v díle Faust.",
+            "category": "autori"
+        },
+        {
+            "id": "poe",
+            "term": "Edgar Allan Poe",
+            "definition": "Americký romantik, průkopník moderní a detektivní povídky, a také hororu. Nejznámější báseň: Havran, próza: Jáma a kyvadlo.",
+            "category": "autori"
+        },
+        {
+            "id": "hugo",
+            "term": "Victor Hugo",
+            "definition": "Hlavní představitel francouzského romantismu. Jako vrcholné dílo vytvořil román Chrám Matky Boží v Paříži nebo Bídníci.",
+            "category": "autori"
+        },
+        {
+            "id": "puskin",
+            "term": "Alexandr Sergejevič Puškin",
+            "definition": "Vrcholný představitel ruského romantismu, tvůrce „zbytečného člověka“. Nejznámější dílo je Evžen Oněgin (román ve verších).",
+            "category": "autori"
+        },
+        {
+            "id": "balzac",
+            "term": "Honoré de Balzac",
+            "definition": "Francouzský tvůrce kritického realismu. Jeho monumentální cyklus „Lidská komedie“ obšírně analyzuje tehdejší francouzskou společnost (Otec Goriot).",
+            "category": "autori"
+        },
+        {
+            "id": "gogol",
+            "term": "Nikolaj Vasiljevič Gogol",
+            "definition": "Ruský realista se sklonem k satiře a byrokratickým fraškám. Autor satirické komedie Revizor a díla Mrtvé duše.",
+            "category": "autori"
+        },
+        {
+            "id": "baudelaire",
+            "term": "Charles Baudelaire",
+            "definition": "Francouzský prekursor dekadence a symbolismu, patřil mezi „prokleté básníky“. Jádrem jeho díla jsou Květy zla.",
+            "category": "autori"
+        },
+        {
+            "id": "dostojevskij",
+            "term": "Fjodor Michajlovič Dostojevskij",
+            "definition": "Představitel ruského realismu, psycholog a moralista zkoumající hlubiny lidské duše a utrpení. Napsal např. Zločin a trest, Bratři Karamazovi.",
+            "category": "autori"
+        },
+        {
+            "id": "tolstoj",
+            "term": "Lev Nikolajevič Tolstoj",
+            "definition": "Ruský realismus nejvyššího stupně. Napsal monumentální ságy a hluboké charakterové epopeje, např. Vojna a mír nebo Anna Kareninová.",
+            "category": "autori"
+        },
+        {
+            "id": "zola",
+            "term": "Emile Zola",
+            "definition": "Otec a tvůrce francouzského naturalismu, tvrdil, že dějištěm románů má být lidské tělo. Téměř čistý biologický determinismus použil v knize Zabiják.",
+            "category": "autori"
+        },
+        {
+            "id": "wilde",
+            "term": "Oscar Wilde",
+            "definition": "Anglický dramatik irského původu s pronikavým dekadentním stylem, estét a autor mistrovských satirií (Jak je důležité míti Filipa) i Obrazu Doriana Graye.",
+            "category": "autori"
+        },
+        {
+            "id": "rimbaud",
+            "term": "Arthur Rimbaud",
+            "definition": "Jeden z francouzských prokletých básníků, celé své průlomové dílo stvořil zhruba do 20 let. Jeho nejslavnější prací je básnická skladba Opilý koráb.",
+            "category": "autori"
+        },
+        {
+            "id": "apollinaire",
+            "term": "Guillaume Apollinaire",
+            "definition": "Průkopník literární avantgardy ve Francii (přelom 19. a 20. stol.). Známý svými kaligramy (vizuálními básněmi) a sbírkou Alkoholy (s básní Pásmo).",
+            "category": "autori"
+        },
+        {
+            "id": "remarque",
+            "term": "Erich Maria Remarque",
+            "definition": "Německý autor reprezentující „ztracenou generaci“. Těžké hrůzy zákopové války popsal v románu Na západní frontě klid.",
+            "category": "autori"
+        },
+        {
+            "id": "hemingway",
+            "term": "Ernest Hemingway",
+            "definition": "Zásadní představitel americké ztracené generace. Vyvinul „teorii ledovce“ (psal velmi úsporně). Nobelista, autor např. Stařec a moře, Sbohem, armádo.",
+            "category": "autori"
+        },
+        {
+            "id": "orwell",
+            "term": "George Orwell",
+            "definition": "Britský esejista a novinář, autor dvou zásadních antiutopistických děl 20. století: románu 1984 a Farmy zvířat upozorňujících na útlak totalitarismu.",
+            "category": "autori"
+        },
+        {
+            "id": "steinbeck",
+            "term": "John Steinbeck",
+            "definition": "Americký sociálně kritický spisovatel, nobelista. Typická témata z dělnického jihu Ameriky a velkých krizí, jako např. v knize O myších a lidech.",
+            "category": "autori"
+        },
+        {
+            "id": "camus",
+            "term": "Albert Camus",
+            "definition": "Francouzský zástupce existenční literatury. Zaměřoval se na problematiku odcizení, revolty, zoufalství a nesmyslnosti (dílo Cizinec).",
+            "category": "autori"
+        },
+        {
+            "id": "styron",
+            "term": "William Styron",
+            "definition": "Americký spisovatel tvořící mj. psychologicky mrazivé romány. Nejslavnějším zůstává Sophiina volba, studující traumatizující svědomí oběti holocaustu.",
+            "category": "autori"
+        },
+        {
+            "id": "marquez",
+            "term": "Gabriel García Márquez",
+            "definition": "Kolumbijec, hlavní postava magického realismu (nobelista). Napsal nejslavnější hispánský román století – Sto roků samoty.",
+            "category": "autori"
+        },
+        {
+            "id": "kristianova_legenda",
+            "term": "Kristiánova legenda",
+            "definition": "Významné anonymní latinsky psané hagiografické dílo z konce 10. století zabývající se životem Cyrila, Metoděje, sv. Ludmily a sv. Václava.",
+            "category": "autori"
+        },
+        {
+            "id": "hospodine_pomiluj",
+            "term": "Hospodine pomiluj ny",
+            "definition": "Úplně nejstarší dochovaná česká duchovní píseň sahající ke konci 10. století (Obsahuje prvky staroslověnštiny, sloužila jako chrámová píseň).",
+            "category": "autori"
+        },
+        {
+            "id": "svaty_vaclave",
+            "term": "Svatý Václave",
+            "definition": "Jedna z nejstarších českých písní (Svatováclavský chorál) z 12. století. Byla i národní hymnou.",
+            "category": "autori"
+        },
+        {
+            "id": "kosmas",
+            "term": "Kosmas",
+            "definition": "Zakladatel české historiografie a autor první celistvé Kroniky čechů (Chronica Boemorum), psané částečně rýmovanou latinou (12. století).",
+            "category": "autori"
+        },
+        {
+            "id": "hus",
+            "term": "Jan Hus",
+            "definition": "Otec české reformace, kázal v kapli Betlémské o nápravě církve a české abecedě (diakritika - „Výklad Viery, Desatera a Páteře“). Upálen na koncilu r. 1415.",
+            "category": "autori"
+        },
+        {
+            "id": "komensky",
+            "term": "Jan Amos Komenský",
+            "definition": "Poslední biskup Jednoty bratrské, spisovatel a humanistický padagog s označením učitel národů. Velmi známý je „Labyrint světa a ráj srdce“.",
+            "category": "autori"
+        },
+        {
+            "id": "macha",
+            "term": "Karel Hynek Mácha",
+            "definition": "Velikán naší národní poezie, zakladatel a otec českého plnohodnotného moderního romantismu a slavného básnického eposu Máj.",
+            "category": "autori"
+        },
+        {
+            "id": "erben",
+            "term": "Karel Jaromír Erben",
+            "definition": "Skutečný český romantik a sběratel ústní lidové tvorby z dob Národního obrození (pověstí a pohádek). Stvořil Kytici balad orientovanou na mateřskou vinu.",
+            "category": "autori"
+        },
+        {
+            "id": "borovsky",
+            "term": "Karel Havlíček Borovský",
+            "definition": "Novinář a bojovný básník píšící satiru – s cílem budování české společnosti proti Habsburkům. Např. Král Lávra, Tyrolské elegie.",
+            "category": "autori"
+        },
+        {
+            "id": "nemcova",
+            "term": "Božena Němcová",
+            "definition": "Zakladatelka české moderní prózy a prozaička národního obrození. Nejvíce jí zajímal popis silné a příkladné ženy (Babička, Divá Bára).",
+            "category": "autori"
+        },
+        {
+            "id": "neruda",
+            "term": "Jan Neruda",
+            "definition": "Spisovatel, žurnalista a přední tvář Májovců generace poloviny 19. st. Vyhnul se idealizaci – velmi populární jsou např. Povídky malostranské, Písně kosmické.",
+            "category": "autori"
+        },
+        {
+            "id": "sladek",
+            "term": "Josef Václav Sládek",
+            "definition": "Jeden z čelných Ruchovců – zakladatel české poezie pro mládež a významně přeložil drtivou většinu zásadních děl Williama Shakespeara.",
+            "category": "autori"
+        },
+        {
+            "id": "cech",
+            "term": "Svatopluk Čech",
+            "definition": "Básník a jeden z nejvůdčích představitelů almanachu Ruch, svými „Broučkiádami“ vytvořil mimo satiru pro naši generaci i výtečný vhled do vlastenectví té doby.",
+            "category": "autori"
+        },
+        {
+            "id": "jirasek",
+            "term": "Alois Jirásek",
+            "definition": "Český národní epik z konce 19. st., proslaven historickými prózami plnými vlastenecké ideologie od mytologie (Staré pověsti české), přes Temno po husitství.",
+            "category": "autori"
+        },
+        {
+            "id": "vrchlicky",
+            "term": "Jaroslav Vrchlický",
+            "definition": "Kosmopolita, ohromný polyglot a lumírovec mající obří formát psaní. Měl klíčový odkaz jako překladatel západních pramenů do ČR a autor díla Noc na Karlštejně.",
+            "category": "autori"
+        },
+        {
+            "id": "mrstik",
+            "term": "Vilém Mrštík",
+            "definition": "Kritik a autor orientovaný spíše k tradici přírodního realismu na Moravě, nejvíce proslavený dramatem směřovaným k tragice vesnice, brněnská „Maryša“.",
+            "category": "autori"
+        },
+        {
+            "id": "capek_chod",
+            "term": "Karel Matěj Čapek-Chod",
+            "definition": "Zakladatelský pražský naturalista 19./20. stol, jenž obratně zachycoval společensky deformovaného až bizardního člena města v knihách typu Kašpar Lén mstitel.",
+            "category": "autori"
+        },
+        {
+            "id": "sova",
+            "term": "Antonín Sova",
+            "definition": "Lyrik s mimořádnou citlivostí na impresionistickou krajinomalbu (Květy intimních nálad) a též výrazně rezonoval s dobovým symbolismem a secesí v poezii.",
+            "category": "autori"
+        },
+        {
+            "id": "bezruc",
+            "term": "Petr Bezruč",
+            "definition": "Básník (vlastním jménem Vladimír Vašek), mluvčí „Slezska“. Vytvořil výjimečný revoluční svazek útlaku - Slezské písně těžkým veršem balad z hornictví.",
+            "category": "autori"
+        },
+        {
+            "id": "brezina",
+            "term": "Otokar Březina",
+            "definition": "Středobod celého českého literárního symbolismu, autor prokomponovaných poezií např. kniha Tajemné dálky; jeho řeč je nesmírně vznešená slovy o bohu a duši.",
+            "category": "autori"
+        },
+        {
+            "id": "neumann",
+            "term": "Stanislav Kostka Neumann",
+            "definition": "Celorcelibátník moderny a provokativní tvář začátku 20. st. Postupem života prožíval velký otřes: přes neoromantika, anarchistu k propagátorovi komunismu.",
+            "category": "autori"
+        },
+        {
+            "id": "dyk",
+            "term": "Viktor Dyk",
+            "definition": "Hlavní postava české politické (anarchistické) „generace buřičů“ před 1.sv. válkou – psal díla proti nepoctivosti rakouského konformismu, např. povídka Krysař.",
+            "category": "autori"
+        },
+        {
+            "id": "sramek",
+            "term": "Fráňa Šrámek",
+            "definition": "Básník obdivující tiché „křehkosti“ a vitální mládí s impresionismem u milostných pocitů. Mezi klíčová tvorba – Stříbrný vítr s popisem utíkání puberty pro mladé.",
+            "category": "autori"
+        },
+        {
+            "id": "olbracht",
+            "term": "Ivan Olbracht",
+            "definition": "Zakladatel psychologické, mytologizující i židovské prózy meziválečných let. Zásadně se zapsal knihou Nikola Šuhaj loupežník z prostředí Podkarpatské rusi.",
+            "category": "autori"
+        },
+        {
+            "id": "hasek",
+            "term": "Jaroslav Hašek",
+            "definition": "Tvůrce české hospodské grotesky, buřič, provokatér; proslavil národ do světa v satiře s knihou Osudy dobrého vojáka Švejka za světové války.",
+            "category": "autori"
+        },
+        {
+            "id": "capek",
+            "term": "Karel Čapek",
+            "definition": "Světově nejznámější český humanista, demokrat, utopista, který celosvětově zakorenil obavu věd o manipulace (Dílo z vědcových dílen – např. R.U.R., Válka s mloky, Bílá nemoc).",
+            "category": "autori"
+        },
+        {
+            "id": "vancura",
+            "term": "Vladislav Vančura",
+            "definition": "Jazykový purista s těžce vzteklou láskou k barokní mluvě. Odpůrce komerčního braku, a slavný zakladatel např. poetistického Rozmarného léta a Markéty Lazarové.",
+            "category": "autori"
+        },
+        {
+            "id": "seifert",
+            "term": "Jaroslav Seifert",
+            "definition": "Představitel českeho poetismu; Nobelista, na jehož tvorbě ustrnul velkou lehkostí popisu na mateřskou, mírnou prahu s vlezlým erotickým nádechem ženských zad.",
+            "category": "autori"
+        },
+        {
+            "id": "nezval",
+            "term": "Vítězslav Nezval",
+            "definition": "Obří představitel avantgardy ve formě tvůrce Poetismu a Surrealismu - stvořil obří kaskády oslnujících lyrických tónů (Básně s obrazností - Pantomima, Edison).",
+            "category": "autori"
+        },
+        {
+            "id": "halas",
+            "term": "František Halas",
+            "definition": "Trudný, meditativní a úzkostlivý „pěvec marnosti“ meziválečné existenciality vyžadující tmu, tvrdost od neustále zničeného domova „např. Sepie a Tvář“ a bojující za svobodu státu (Torzo naděje).",
+            "category": "autori"
+        },
+        {
+            "id": "holan",
+            "term": "Vladimír Holan",
+            "definition": "Intelektuální autor nepateticky chladné „Noci s hamletem“ s formami reflexe o neustálém základu tajemna proti pochybám lidských osudů s extrémní těžkostí slov.",
+            "category": "autori"
+        },
+        {
+            "id": "hrubin",
+            "term": "František Hrubín",
+            "definition": "Laskavý, tichý i pohádkově laděný poetický mistr – tvůrce neuvěřitelného příkazu v kontrastnu k hořkosti – Romance pro křídlovku s osudem mládí pro chlapce.",
+            "category": "autori"
+        },
+        {
+            "id": "foglar",
+            "term": "Jaroslav Foglar",
+            "definition": "Vychovatel mnoha junáků 20. století se Skautským kmenem tvůrcem obdivu k dětské odvaze (Rychlé Šípy). Zosobňuje fenomény kluboven a „Dobrodružství ježkův kletec“ pátrajících chlapců.",
+            "category": "autori"
+        },
+        {
+            "id": "hrabal",
+            "term": "Bohumil Hrabal",
+            "definition": "Literární ikona nečekaně prokládaného perla a bahna („Pábitelé“) bez gramatických bariér z lidových hospod na hranici povoleného - autor Ostře sledovaných vlaků.",
+            "category": "autori"
+        },
+        {
+            "id": "skvorecky",
+            "term": "Josef Škvorecký",
+            "definition": "Aktivní exilový hybatel z Toronta tvůrce „Danny Smiřického“ kladené proti prázdnější mluvě soc-generací i války s milovanými Jazzovými barvami (Zbabělci).",
+            "category": "autori"
+        },
+        {
+            "id": "lustig",
+            "term": "Arnošt Lustig",
+            "definition": "Spisovatel zaslíbený jen čistě tématu hrůz nacistických koncentračních mašin pro psychologickou prózu s nadějí (Dita Saxová, Modlitba pro Kateřinu).",
+            "category": "autori"
+        },
+        {
+            "id": "kundera",
+            "term": "Milan Kundera",
+            "definition": "Nejznámější celosvětově slavný česko-francouzský elitář na existenciální osudy mísící s vládním politickým kriminálem Československa - Žert, Nesnesitelná lehkost bytí.",
+            "category": "autori"
+        },
+        {
+            "id": "pavel",
+            "term": "Ota Pavel",
+            "definition": "Okouzlující esejista smíchu a tragiky (holocaustu) židovské rybářské vášně smíšené s Berounkou v jeho největší citových záchranách - Smrt krásných srnců.",
+            "category": "autori"
+        },
+        {
+            "id": "havel",
+            "term": "Václav Havel",
+            "definition": "Dramatik a absurdní hříčník nad mocí – bojovník „slov ohrožení“ s disidentem, napřiklad hry k odcizení komunikační i osobní jako Audience nebo Zahradní slavnost.",
+            "category": "autori"
+        },
+        {
+            "id": "viewegh",
+            "term": "Michal Viewegh",
+            "definition": "Komerčně velmi úspěšný povahopisec sametové revoluce na povrch lehkých zábav ze sídliště - přinesl hit o humorném dospívání - Báječná léta pod psa.",
+            "category": "autori"
+        },
+        {
+            "id": "mytus",
+            "term": "Mýtus",
+            "definition": "Báje, prastarý epický útvar pokoušející se vysvětlit vznik světa, přírodní úkazy a činy bohů pomocí fantastických představ.",
+            "category": "zanry"
+        },
+        {
+            "id": "epos",
+            "term": "Epos",
+            "definition": "Rozsáhlá epická básnická skladba o činech hrdinů nebo bohů, psaná ustáleným vznešeným veršem (např. Homérova Odyssea).",
+            "category": "zanry"
+        },
+        {
+            "id": "legenda",
+            "term": "Legenda",
+            "definition": "Středověký epický žánr vyprávějící o životě útrpných nebo zázračných činů nebo utrpení (mučednictví) prohlášených svatých.",
+            "category": "zanry"
+        },
+        {
+            "id": "kronika",
+            "term": "Kronika",
+            "definition": "Historický literární útvar popisující dějinné události v jejich chronologickém sledu, oblíbený obzvláště ve středověku (např. Kosmova nebo Dalimilova).",
+            "category": "zanry"
+        },
+        {
+            "id": "bajka",
+            "term": "Bajka",
+            "definition": "Krátký alegorický příběh (často s personifikovanými zvířaty), z kterého plyne jasné morální, mravní a naučné ponaučení (Ezop, La Fontaine).",
+            "category": "zanry"
+        },
+        {
+            "id": "pohadka",
+            "term": "Pohádka",
+            "definition": "Epika s fiktivním nepravděpodobným prvkem plná hrdinů obdařená magickými silami; dělení na fantastické a lidové motivy kde zpravidla nakonec Dobro zvítězí.",
+            "category": "zanry"
+        },
+        {
+            "id": "povest",
+            "term": "Pověst",
+            "definition": "Příběh z minulosti, jenž si uchovává malé zrnko historické pravdy, ovšem upraveno časem do nereálna. (Staré pověsti české)",
+            "category": "zanry"
+        },
+        {
+            "id": "povidka",
+            "term": "Povídka",
+            "definition": "Typický útvar s kratším dějem než román. Soustředí se na jednu ucelenou situaci bez zbytečně velké řady spletitých rovin pro postavy.",
+            "category": "zanry"
+        },
+        {
+            "id": "novela",
+            "term": "Novela",
+            "definition": "Středně dlouhý epický prozaičtější příběh; od povídky jej liší zpravidla silné pointování konce. Hlavní hrdinové se zde nemění k radikální katarzi (Giovanni Boccaccio).",
+            "category": "zanry"
+        },
+        {
+            "id": "roman",
+            "term": "Román",
+            "definition": "Ústřední žánr moderní i historické literatury ze života; propletená díla mající neuspořádanější děj i časovost s mnoha postavami pro velmi pomalý rozlet myšlenek (Balzac).",
+            "category": "zanry"
+        },
+        {
+            "id": "roman_v_dopisech",
+            "term": "Román v dopisech",
+            "definition": "Typ románu předávaného skrze uměle vytvářené zprávy nebo listy např v Goethově slavném titulu. Tento literární koncept nabízí čisté nitero a rychlé pocity odesílatelů.",
+            "category": "zanry"
+        },
+        {
+            "id": "fantasy",
+            "term": "Fantasy",
+            "definition": "Smyšlený moderní i hrdinský literární svět nesený zcela umělými reáliemami, kde je kouzlo normální entitou od pravěku a kde nefunguje tradiční historie bez mytologií.",
+            "category": "zanry"
+        },
+        {
+            "id": "sci-fi",
+            "term": "Sci-fi",
+            "definition": "Žánr utvářeící obrazy ze spekulované technologické možnosti pro dobu budoucí, prožívající témata časových paradoxů a umělé inteligence, často v dystopickém ladění.",
+            "category": "zanry"
+        },
+        {
+            "id": "pisen",
+            "term": "Píseň",
+            "definition": "Kratky veršovaný básnický styl často na zhudebnění plná rýmovaných veršu tvořící sbor i lyrické téma plná emocí z tradice dávných baladistů.",
+            "category": "zanry"
+        },
+        {
+            "id": "elegie",
+            "term": "Elegie (žalosozpěv)",
+            "definition": "Smutná až drsná básnická záležitost s tématem mrtvého lidu k neustálému prožitku zármutku z pomíjející existence milenců (Havlíček Borovský z vyhnanství).",
+            "category": "zanry"
+        },
+        {
+            "id": "epigram",
+            "term": "Epigram",
+            "definition": "Kratičká satirická nebo ironická velmi rázná forma lyrické básne. Sloužila na přelomu 19. st. predevším na ostré šťouchnutí do české a rakouské hlouposti (Havlíček).",
+            "category": "zanry"
+        },
+        {
+            "id": "oda",
+            "term": "Óda",
+            "definition": "Lyrická dlouhá pochvalná báseň (oslavná) na velké osobnosti pro slavnosti, např vítěznou svobodu a bohy ze stínu, spjata s Antikou (Horatius).",
+            "category": "zanry"
+        },
+        {
+            "id": "kaligram",
+            "term": "Kaligram",
+            "definition": "Báseň uspořádávajicí psaný vizuální obrys ve fyzické tištené podobe. Samotné písmo z básnické sbírky hraje s obrázky motivu z reálu, známe díky G. Apollinairovi.",
+            "category": "zanry"
+        },
+        {
+            "id": "pasmo",
+            "term": "Pásmo",
+            "definition": "Rozsáhlá polytematická srostlá asociativní báseň složená po kapitolách ve formě řetězení bez teček, spojená s hnaným a rychlým pocitem ve městěch stvořená (Apollinaire).",
+            "category": "zanry"
+        },
+        {
+            "id": "sonet",
+            "term": "Sonet",
+            "definition": "Velmi precizní forma klasické básne tzv 14 formátová seřazovaná struktura dvou 4-veršových i dvou 3-veršových sloko poevropsku s logickou dedukcí - Máchu a Shakespeara.",
+            "category": "zanry"
+        },
+        {
+            "id": "romance",
+            "term": "Romance",
+            "definition": "Básnická epika pro smírnější formu (na narozdíl od temné Balady), má mít veselé příbehy (o rytířích, obrozenské, Neruda z kosmu i Hrubín s platonickou láskou bez tragiky).",
+            "category": "zanry"
+        },
+        {
+            "id": "balada",
+            "term": "Balada",
+            "definition": "Epická ponurá a krutá básnická tradicní látka většinou z rolnických krajin s extrémně hořkým i smrtičným (Kytice) tragickým osudem po vině a nesmířeném trestu.",
+            "category": "zanry"
+        },
+        {
+            "id": "tragedie",
+            "term": "Tragédie",
+            "definition": "Dramatická hra pro potrat nadějí, od starořeckých tragiku, popisuje vznešený odpor s hrdinem a konec s neochotou pro osudy k smrti - viz Shakespeare za dob končící renesance.",
+            "category": "zanry"
+        },
+        {
+            "id": "komedie",
+            "term": "Komedie",
+            "definition": "Klasické dramatické dílo kde dominují hravé propletenosti (od Moliéra s komikou povah), kárá obří vady společnosti pro vtipnou pointu a spásný optimizmus.",
+            "category": "zanry"
+        },
+        {
+            "id": "cinohra",
+            "term": "Činohra",
+            "definition": "Odlišit k tragédie či Komedií tvoří se jako divadelní sice realnejších a moderních děl - na motiv sociální kritiky se zaměřuje k prožívanému občanskému lidství v naší době.",
+            "category": "zanry"
+        }
+    ]
+}

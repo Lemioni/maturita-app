@@ -10,6 +10,8 @@ import BookDetailPage from './pages/BookDetailPage';
 import DopaminePage from './pages/DopaminePage';
 import ChatPage from './pages/ChatPage';
 import PresentationsPage from './pages/PresentationsPage';
+import AutoscrollPage from './pages/AutoscrollPage';
+import DictionaryPage from './pages/DictionaryPage';
 
 import { ExperimentalProvider } from './context/ExperimentalContext';
 import { PodcastProvider } from './context/PodcastContext';
@@ -31,6 +33,8 @@ function App() {
               <Route path="/search" element={<SearchPage />} />
               <Route path="/chat" element={<ChatPage />} />
               <Route path="/presentations" element={<PresentationsPage />} />
+              <Route path="/autoscroll" element={<AutoscrollPage />} />
+              <Route path="/dictionary" element={<DictionaryPage />} />
             </Routes>
           </Layout>
         </Router>
