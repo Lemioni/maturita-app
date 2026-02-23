@@ -1,139 +1,128 @@
 import React, { useState, useMemo } from 'react';
-import { useExperimental } from '../context/ExperimentalContext';
 import { FaBookOpen, FaSearch } from 'react-icons/fa';
 import dictionaryData from '../data/dictionary.json';
 
+const sections = [
+    { id: 'epochy', label: 'Epochy a směry', icon: '🏛️' },
+    { id: 'autori', label: 'Autoři', icon: '✍️' },
+    { id: 'zanry', label: 'Žánry', icon: '📖' }
+];
+
 const DictionaryPage = () => {
-    const { frutigerAero } = useExperimental();
     const [searchTerm, setSearchTerm] = useState('');
-    const [activeTab, setActiveTab] = useState('vse');
 
-    const tabs = [
-        { id: 'vse', label: 'Vše' },
-        { id: 'epochy', label: 'Epochy a směry' },
-        { id: 'autori', label: 'Autoři' },
-        { id: 'zanry', label: 'Žánry' }
-    ];
+    const filteredBySection = useMemo(() => {
+        const result = {};
+        for (const section of sections) {
+            result[section.id] = dictionaryData.terms.filter(term => {
+                const matchesCategory = term.category === section.id;
+                if (!matchesCategory) return false;
+                if (!searchTerm) return true;
+                const s = searchTerm.toLowerCase();
+                return term.term.toLowerCase().includes(s) || term.definition.toLowerCase().includes(s);
+            });
+        }
+        return result;
+    }, [searchTerm]);
 
-    const filteredTerms = useMemo(() => {
-        return dictionaryData.terms.filter(term => {
-            const matchesSearch = term.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                term.definition.toLowerCase().includes(searchTerm.toLowerCase());
-            const matchesTab = activeTab === 'vse' || term.category === activeTab;
-            return matchesSearch && matchesTab;
-        });
-    }, [searchTerm, activeTab]);
+    const totalResults = Object.values(filteredBySection).reduce((sum, arr) => sum + arr.length, 0);
 
     return (
-        <div className={`min-h-screen pt-24 pb-12 px-4 transition-colors duration-500 ${frutigerAero
-                ? 'bg-gradient-to-br from-[#d4f0ff] via-[#e6f7ff] to-[#b3e0ff] text-[#005580]'
-                : 'bg-[#111] text-gray-200'
-            }`}>
-            <div className="max-w-4xl mx-auto">
-                {/* Header Section */}
-                <div className={`mb-8 p-6 rounded-2xl border transition-all ${frutigerAero
-                        ? 'bg-white/60 border-white/80 shadow-[0_8px_32px_rgba(0,120,255,0.15)] backdrop-blur-md'
-                        : 'bg-[#1a1a1a] border-[#333]'
-                    }`}>
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className={`p-4 rounded-xl ${frutigerAero
-                                ? 'bg-gradient-to-br from-[#00a2ff] to-[#0066cc] text-white shadow-lg'
-                                : 'bg-red-500/20 text-red-500'
-                            }`}>
-                            <FaBookOpen className="text-2xl" />
-                        </div>
-                        <div>
-                            <h1 className="text-3xl font-bold">Literární slovník</h1>
-                            <p className={`mt-1 ${frutigerAero ? 'text-[#0066cc]/80' : 'text-gray-400'}`}>
-                                Pojmy, autoři a žánry pro rychlé opakovávní.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* Search Bar */}
-                    <div className="relative mb-6">
-                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                            <FaSearch className={frutigerAero ? 'text-[#00a2ff]' : 'text-gray-400'} />
-                        </div>
-                        <input
-                            type="text"
-                            placeholder="Hledat termín nebo definici..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className={`w-full pl-12 pr-4 py-4 rounded-xl outline-none transition-all text-lg ${frutigerAero
-                                    ? 'bg-white/80 border border-[#b3e0ff] focus:border-[#00a2ff] focus:ring-4 focus:ring-[#00a2ff]/20 text-[#005580] placeholder-[#005580]/50'
-                                    : 'bg-[#222] border border-[#333] focus:border-red-500 text-white placeholder-gray-500'
-                                }`}
-                        />
-                    </div>
-
-                    {/* Category Tabs */}
-                    <div className="flex flex-wrap gap-2">
-                        {tabs.map(tab => (
-                            <button
-                                key={tab.id}
-                                onClick={() => setActiveTab(tab.id)}
-                                className={`px-5 py-2.5 rounded-xl font-medium transition-all ${activeTab === tab.id
-                                        ? frutigerAero
-                                            ? 'bg-gradient-to-r from-[#00a2ff] to-[#0066cc] text-white shadow-md'
-                                            : 'bg-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]'
-                                        : frutigerAero
-                                            ? 'bg-white/50 text-[#005580] hover:bg-white/80 hover:shadow'
-                                            : 'bg-[#222] text-gray-400 hover:text-white hover:bg-[#333]'
-                                    }`}
-                            >
-                                {tab.label}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Dictionary Terms Grid */}
-                <div className="grid gap-4">
-                    {filteredTerms.length > 0 ? (
-                        filteredTerms.map((term, idx) => (
-                            <div
-                                key={term.id}
-                                className={`p-6 rounded-xl border transition-all duration-300 hover:-translate-y-1 ${frutigerAero
-                                        ? 'bg-white/70 border-white/80 shadow-sm hover:shadow-lg hover:shadow-[#00a2ff]/10 backdrop-blur-sm'
-                                        : 'bg-[#1a1a1a] border-[#333] hover:border-red-500/50'
-                                    }`}
-                                style={{ animationDelay: `${idx * 0.05}s` }}
-                            >
-                                <div className="flex items-start justify-between mb-3">
-                                    <h3 className={`text-xl font-bold ${frutigerAero ? 'text-[#005580]' : 'text-white'
-                                        }`}>
-                                        {term.term}
-                                    </h3>
-                                    <span className={`text-xs px-2 py-1 rounded-full uppercase tracking-wider font-bold ${frutigerAero
-                                            ? 'bg-[#e6f7ff] text-[#00a2ff] border border-[#b3e0ff]'
-                                            : 'bg-[#333] text-gray-300'
-                                        }`}>
-                                        {tabs.find(t => t.id === term.category)?.label}
-                                    </span>
-                                </div>
-                                <p className={`leading-relaxed ${frutigerAero ? 'text-[#005580]/80' : 'text-gray-400'}`}>
-                                    {term.definition}
-                                </p>
-                            </div>
-                        ))
-                    ) : (
-                        <div className={`p-12 rounded-2xl text-center border ${frutigerAero ? 'bg-white/50 border-white/80' : 'bg-[#1a1a1a] border-[#333]'
-                            }`}>
-                            <div className={`inline-flex p-4 rounded-full mb-4 ${frutigerAero ? 'bg-[#e6f7ff] text-[#00a2ff]' : 'bg-[#333] text-gray-500'
-                                }`}>
-                                <FaSearch className="text-3xl" />
-                            </div>
-                            <h3 className={`text-xl font-bold mb-2 ${frutigerAero ? 'text-[#005580]' : 'text-white'}`}>
-                                Nenalezeny žádné pojmy
-                            </h3>
-                            <p className={frutigerAero ? 'text-[#005580]/70' : 'text-gray-500'}>
-                                Zkuste upravit hledaný výraz nebo vybrat jinou kategorii.
-                            </p>
-                        </div>
-                    )}
-                </div>
+        <div className="max-w-7xl mx-auto space-y-4">
+            {/* Header */}
+            <div className="border-b border-terminal-border/20 pb-3">
+                <h1 className="text-xl text-terminal-accent tracking-wider flex items-center gap-2">
+                    <FaBookOpen /> LITERÁRNÍ SLOVNÍK
+                </h1>
             </div>
+
+            {/* Search */}
+            <div className="terminal-card">
+                <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <FaSearch className="text-terminal-text/40" />
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Hledat termín nebo definici..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full pl-10 pr-4 py-2.5 bg-terminal-bg border border-terminal-border/30 text-terminal-text placeholder-terminal-text/40 outline-none focus:border-terminal-accent transition-colors text-sm"
+                    />
+                </div>
+                {searchTerm && (
+                    <div className="text-xs text-terminal-text/50 mt-2">
+                        Nalezeno {totalResults} výsledků pro "{searchTerm}"
+                    </div>
+                )}
+            </div>
+
+            {/* Sections with Tables */}
+            {sections.map(section => {
+                const terms = filteredBySection[section.id];
+                if (terms.length === 0 && searchTerm) return null;
+
+                return (
+                    <div key={section.id} className="terminal-card">
+                        {/* Section Header */}
+                        <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                            <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">
+                                {section.icon}
+                            </span>
+                            <span className="uppercase tracking-wider">{section.label}</span>
+                            <span className="text-terminal-text/40 ml-auto">{terms.length} pojmů</span>
+                        </div>
+
+                        {/* Table */}
+                        {terms.length > 0 ? (
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left">
+                                    <thead>
+                                        <tr>
+                                            <th className="text-xs text-terminal-text/50 uppercase tracking-wider pb-2 pr-4 w-8 border-b border-terminal-border/20">#</th>
+                                            <th className="text-xs text-terminal-text/50 uppercase tracking-wider pb-2 pr-4 whitespace-nowrap border-b border-terminal-border/20" style={{ minWidth: '140px' }}>Pojem</th>
+                                            <th className="text-xs text-terminal-text/50 uppercase tracking-wider pb-2 border-b border-terminal-border/20">Definice</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {terms.map((term, idx) => (
+                                            <tr
+                                                key={term.id}
+                                                className="hover:bg-terminal-border/10 transition-colors"
+                                            >
+                                                <td className="py-2 pr-4 text-xs text-terminal-text/40 align-top border-b border-terminal-border/10">
+                                                    {idx + 1}
+                                                </td>
+                                                <td className="py-2 pr-4 align-top border-b border-terminal-border/10">
+                                                    <span className="font-bold text-sm text-terminal-accent">
+                                                        {term.term}
+                                                    </span>
+                                                </td>
+                                                <td className="py-2 text-sm text-terminal-text/80 leading-relaxed align-top border-b border-terminal-border/10">
+                                                    {term.definition}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        ) : (
+                            <div className="text-center py-6 text-terminal-text/40 text-sm">
+                                Žádné pojmy v této kategorii.
+                            </div>
+                        )}
+                    </div>
+                );
+            })}
+
+            {/* No results at all */}
+            {totalResults === 0 && searchTerm && (
+                <div className="terminal-card text-center py-8">
+                    <div className="text-3xl mb-3 opacity-30">🔍</div>
+                    <h3 className="text-lg text-terminal-accent mb-1">Nenalezeny žádné pojmy</h3>
+                    <p className="text-terminal-text/50 text-sm">Zkuste upravit hledaný výraz.</p>
+                </div>
+            )}
         </div>
     );
 };

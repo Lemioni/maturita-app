@@ -1,20 +1,486 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useExperimental } from '../context/ExperimentalContext';
-import { FaPlay, FaPause, FaSyncAlt, FaRandom, FaVolumeUp, FaVolumeMute, FaArrowLeft, FaScroll } from 'react-icons/fa';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { FaPlay, FaPause, FaSyncAlt, FaRandom, FaVolumeUp, FaVolumeMute, FaArrowLeft, FaScroll, FaBook, FaUser, FaPen, FaGlobe, FaTheaterMasks } from 'react-icons/fa';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import itQuestions from '../data/it-questions.json';
 import cjBooks from '../data/cj-books.json';
 import dictionaryData from '../data/dictionary.json';
 
+// ═══════════════════════════════════════════
+// Autoscroll content renderer with memory-optimized colors
+// Amber/warm-yellow (#fbbf24) is proven best for memory retention
+// ═══════════════════════════════════════════
+
+// Custom markdown components for autoscroll (amber highlights)
+const autoscrollMdComponents = {
+    h1: ({ children }) => <h1 className="text-xl font-bold text-amber-400 mt-6 mb-2 pb-1 border-b border-amber-400/30">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-lg font-bold text-amber-400 mt-5 mb-2 pb-1 border-b border-amber-400/20">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-base font-bold text-amber-300 mt-4 mb-1">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-sm font-bold text-amber-300/90 mt-3 mb-1">{children}</h4>,
+    p: ({ children }) => <p className="text-sm leading-relaxed text-gray-200 mb-2">{children}</p>,
+    strong: ({ children }) => <strong className="text-amber-300 font-bold">{children}</strong>,
+    em: ({ children }) => <em className="text-amber-200/80 italic">{children}</em>,
+    li: ({ children }) => <li className="text-sm text-gray-200 mb-0.5 ml-4 list-disc">{children}</li>,
+    ul: ({ children }) => <ul className="mb-2">{children}</ul>,
+    ol: ({ children }) => <ol className="mb-2 list-decimal ml-4">{children}</ol>,
+    code: ({ inline, children }) => inline
+        ? <code className="text-amber-300 bg-amber-400/10 px-1 rounded text-xs">{children}</code>
+        : <pre className="bg-black/40 border border-amber-400/20 p-3 rounded text-xs text-gray-300 overflow-x-auto mb-2"><code>{children}</code></pre>,
+    table: ({ children }) => <table className="w-full text-sm mb-3 border-collapse">{children}</table>,
+    th: ({ children }) => <th className="text-left text-amber-400 text-xs uppercase border-b border-amber-400/30 pb-1 pr-3">{children}</th>,
+    td: ({ children }) => <td className="text-gray-200 py-1 pr-3 border-b border-gray-700/50 text-sm">{children}</td>,
+    blockquote: ({ children }) => <blockquote className="border-l-2 border-amber-400/50 pl-3 my-2 text-gray-300 italic">{children}</blockquote>,
+    hr: () => <hr className="border-gray-700 my-4" />,
+};
+
+// ═══════════════════════════════════════
+// Book content renderer — mirrors BookDetailPage exactly
+// ═══════════════════════════════════════
+const BookAutoscrollContent = ({ book, includePlot }) => {
+    const analysis = book.analysis;
+    if (!analysis) return <p className="text-sm text-terminal-text/50 italic">Rozbor zatím není k dispozici.</p>;
+
+    return (
+        <div className="space-y-4">
+            {/* I. ČÁST */}
+            <div className="terminal-card">
+                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">I. ČÁST</span>
+                    ANALÝZA UMĚLECKÉHO TEXTU
+                </div>
+
+                {analysis.titleAnalysis && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">📌</span><span>Analýza názvu díla</span></h3>
+                        <div className="text-xs text-terminal-text/85 pl-3 border-l-2 border-terminal-accent/30">{analysis.titleAnalysis}</div>
+                    </div>
+                )}
+
+                {analysis.plot && includePlot && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaBook className="text-sm" /><span>Děj</span></h3>
+                        <div className="whitespace-pre-line leading-relaxed pl-3 border-l-2 border-terminal-border/20 text-xs text-terminal-text/85">
+                            {analysis.plot.split('\\n').join('\n')}
+                        </div>
+                    </div>
+                )}
+
+                {analysis.themes && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">💡</span><span>Téma a motivy</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1">
+                            <p className="text-xs text-terminal-text/85">{analysis.themes.main}</p>
+                            <div className="flex flex-wrap gap-1 mt-1">
+                                {analysis.themes.motifs?.map((motif, i) => (
+                                    <span key={i} className="compact-pill">{motif}</span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {analysis.setting && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">🌍</span><span>Časoprostor</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
+                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Místo:</span><span className="text-terminal-text/85 ml-1">{analysis.setting.place}</span></div>
+                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Čas:</span><span className="text-terminal-text/85 ml-1">{analysis.setting.time}</span></div>
+                        </div>
+                    </div>
+                )}
+
+                {analysis.composition && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">🏗️</span><span>Kompozice</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 flex flex-wrap gap-1.5">
+                            {analysis.composition.structure && <span className="compact-pill">{analysis.composition.structure}</span>}
+                            {analysis.composition.timeline && <span className="compact-pill">{analysis.composition.timeline}</span>}
+                            {analysis.composition.rhyme && <span className="compact-pill">{analysis.composition.rhyme}</span>}
+                        </div>
+                    </div>
+                )}
+
+                <div className="mb-2">
+                    <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">📚</span><span>Literární druh a žánr</span></h3>
+                    <div className="pl-3 border-l-2 border-terminal-border/20 flex flex-wrap gap-1.5">
+                        <span className="compact-pill"><strong className="text-terminal-accent/80">Druh:</strong> {book.literaryForm}</span>
+                        <span className="compact-pill"><strong className="text-terminal-accent/80">Žánr:</strong> {book.genre}</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* II. ČÁST */}
+            <div className="terminal-card">
+                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">II. ČÁST</span>
+                    CHARAKTERISTIKA POSTAV A VYPRAVĚČ
+                </div>
+
+                {analysis.narration && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaTheaterMasks className="text-sm" /><span>Vypravěč a způsob vyprávění</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
+                            <p className="text-xs text-terminal-text/85"><strong className="text-terminal-accent/70">Typ:</strong> {analysis.narration.narrator}</p>
+                            <p className="text-xs text-terminal-text/85"><strong className="text-terminal-accent/70">Styl:</strong> {analysis.narration.style}</p>
+                        </div>
+                    </div>
+                )}
+
+                {analysis.characters?.length > 0 && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaUser className="text-sm" /><span>Postavy</span></h3>
+                        <div className="space-y-1.5">
+                            {analysis.characters.map((char, i) => (
+                                <div key={i} className={`p-2 border ${char.isMain ? 'border-terminal-accent/40 bg-terminal-accent/5' : 'border-terminal-border/20 bg-terminal-bg/50'}`}>
+                                    <div className="flex items-center gap-1 mb-0.5">
+                                        <span className={`font-bold text-xs ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>{char.name}</span>
+                                        {char.isMain && <span className="text-terminal-accent text-[10px]">★</span>}
+                                    </div>
+                                    {char.traits ? (
+                                        <div className="space-y-0">
+                                            {Object.entries(char.traits).map(([key, value], j) => (
+                                                <div key={j} className="text-[11px] leading-tight">
+                                                    <span className="text-terminal-accent/60 font-medium">{key}:</span>
+                                                    <span className="text-terminal-text/70 ml-1">{value}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <p className="text-terminal-text/70 text-[11px]">{char.description}</p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {analysis.excerpt && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">📜</span><span>Ukázka z textu</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-accent/50 space-y-2">
+                            <div className="bg-terminal-bg/50 p-2 border border-terminal-border/30 font-mono text-xs whitespace-pre-line leading-relaxed text-terminal-text/85">
+                                {analysis.excerpt.text.split('\\n').join('\n')}
+                            </div>
+                            {analysis.excerpt.context && (
+                                <div>
+                                    <span className="text-[10px] uppercase text-terminal-text/50">KONTEXT:</span>
+                                    <p className="text-terminal-text/80 mt-0.5 text-xs">{analysis.excerpt.context}</p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* III. ČÁST */}
+            <div className="terminal-card">
+                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">III. ČÁST</span>
+                    JAZYKOVÉ PROSTŘEDKY
+                </div>
+
+                {analysis.languageDevices?.length > 0 && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaPen className="text-sm" /><span>Jazykové prostředky</span></h3>
+                        <ul className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5 mt-1">
+                            {analysis.languageDevices.map((device, i) => (
+                                <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {device}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {analysis.literaryDevices?.length > 0 && (
+                    <div>
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaTheaterMasks className="text-sm" /><span>Tropy a figury</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5 mt-1">
+                            {analysis.literaryDevices.map((device, i) => (
+                                <div key={i} className="text-[11px] leading-tight">
+                                    <span className="font-bold text-terminal-text">{device.name}</span>
+                                    <span className="text-terminal-text/50"> – </span>
+                                    <span className="text-terminal-text/75">{device.example}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* KONTEXT */}
+            <div className="terminal-card">
+                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">KONTEXT</span>
+                    LITERÁRNĚHISTORICKÝ KONTEXT
+                </div>
+
+                {analysis.authorContext && (
+                    <div className="mb-2">
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaUser className="text-sm" /><span>Kontext autorovy tvorby</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
+                            <div className="space-y-1">
+                                {analysis.authorContext.shortBio ? (
+                                    <p className="text-terminal-accent font-bold text-xs">{analysis.authorContext.shortBio.name}</p>
+                                ) : (
+                                    <p className="text-terminal-text/90 text-xs">{analysis.authorContext.bio}</p>
+                                )}
+                                {analysis.authorContext.shortBio?.info && (
+                                    <ul className="space-y-0">
+                                        {analysis.authorContext.shortBio.info.map((item, i) => (
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                                {analysis.authorContext.life && (
+                                    <ul className="space-y-0 mt-1">
+                                        {analysis.authorContext.life.map((item, i) => (
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+
+                            {analysis.authorContext.creationPeriods && (
+                                <div className="mt-2">
+                                    <span className="text-[10px] uppercase text-terminal-text/50">OBDOBÍ TVORBY:</span>
+                                    <div className="mt-0.5 space-y-1">
+                                        {analysis.authorContext.creationPeriods.map((period, i) => (
+                                            <div key={i} className="text-[11px] border-l border-terminal-accent/30 pl-2">
+                                                <span className="text-terminal-accent font-bold">{period.name}</span>
+                                                <p className="text-terminal-text/70 leading-snug">{period.description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {analysis.authorContext.workPosition && (
+                                <div className="bg-terminal-accent/10 p-2 border border-terminal-accent/20">
+                                    <span className="text-terminal-accent text-[10px]">ZAŘAZENÍ DÍLA:</span>
+                                    <p className="text-terminal-text/85 text-xs mt-0.5">{analysis.authorContext.workPosition}</p>
+                                </div>
+                            )}
+
+                            {analysis.authorContext.otherWorks && (
+                                <div>
+                                    <span className="text-terminal-text/50 text-[10px]">DALŠÍ DÍLA:</span>
+                                    <div className="mt-1 flex flex-wrap gap-1">
+                                        {analysis.authorContext.otherWorks.map((work, i) => (
+                                            <span key={i} className="compact-pill text-terminal-accent">{work.title}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {analysis.literaryContext && (
+                    <div>
+                        <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaGlobe className="text-sm" /><span>Literární a kulturní kontext</span></h3>
+                        <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
+                            <div>
+                                <span className="text-terminal-accent text-sm font-bold">{analysis.literaryContext.movement}</span>
+                                <span className="text-terminal-text/50 text-[11px]"> {analysis.literaryContext.period && `(${analysis.literaryContext.period})`}</span>
+                                {analysis.literaryContext.description && <p className="text-terminal-text/75 text-[11px] leading-snug">{analysis.literaryContext.description}</p>}
+                            </div>
+                            {analysis.literaryContext.characteristics && (
+                                <div>
+                                    <span className="text-terminal-text/50 text-[10px]">CHARAKTERISTIKA:</span>
+                                    <ul className="mt-0.5 space-y-0">
+                                        {analysis.literaryContext.characteristics.map((char, i) => (
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {char}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                            {analysis.literaryContext.otherAuthors && (
+                                <div>
+                                    <span className="text-terminal-text/50 text-[10px]">DALŠÍ AUTOŘI SMĚRU:</span>
+                                    <div className="mt-1 flex flex-wrap gap-2">
+                                        {analysis.literaryContext.otherAuthors.map((author, i) => (
+                                            <div key={i} className="text-[11px] border-l border-terminal-text/10 pl-2">
+                                                <div>
+                                                    <span className="text-terminal-accent font-bold">{author.name}</span>
+                                                    <span className="text-terminal-text/50"> {author.years && `(${author.years})`}</span>
+                                                </div>
+                                                {author.note && <p className="text-terminal-text/60 text-[10px]">{author.note}</p>}
+                                                {author.works && (
+                                                    <div className="flex flex-wrap gap-1 mt-0.5">
+                                                        {author.works.map((work, j) => (
+                                                            <span key={j} className="text-[10px] px-1 border border-terminal-border/20 text-terminal-text/70">{work}</span>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* DALŠÍ INFORMACE */}
+            {analysis.additionalInfo && (
+                <div className="terminal-card">
+                    <div className="text-xs text-terminal-accent mb-2 pb-1 border-b border-terminal-border/20 flex items-center gap-2">
+                        <span className="px-1 py-0.5 text-[10px] bg-terminal-accent/20 border border-terminal-accent/30">DALŠÍ</span>
+                        DALŠÍ INFORMACE
+                    </div>
+                    <div className="space-y-3">
+                        <div className="flex flex-col gap-2">
+                            {analysis.additionalInfo.dominantStyle && (
+                                <div className="pl-3 border-l-2 border-terminal-border/20">
+                                    <span className="text-[10px] uppercase text-terminal-text/50">SLOHOVÝ POSTUP:</span>
+                                    <p className="text-terminal-text/90 text-xs">{analysis.additionalInfo.dominantStyle}</p>
+                                </div>
+                            )}
+                            {analysis.additionalInfo.audience && (
+                                <div className="pl-3 border-l-2 border-terminal-border/20">
+                                    <span className="text-[10px] uppercase text-terminal-text/50">ADRESÁT:</span>
+                                    <p className="text-terminal-text/90 text-xs">{analysis.additionalInfo.audience}</p>
+                                </div>
+                            )}
+                        </div>
+                        {analysis.additionalInfo.relevance && (
+                            <div className="pl-3 border-l-2 border-terminal-border/20">
+                                <span className="text-[10px] uppercase text-terminal-text/50">AKTUÁLNOST DÍLA:</span>
+                                <p className="text-terminal-text/90 text-xs">{analysis.additionalInfo.relevance}</p>
+                            </div>
+                        )}
+                        {analysis.additionalInfo.purpose && (
+                            <div className="pl-3 border-l-2 border-terminal-border/20">
+                                <span className="text-[10px] uppercase text-terminal-text/50">SMYSL DÍLA:</span>
+                                <p className="text-terminal-text/90 text-xs">{analysis.additionalInfo.purpose}</p>
+                            </div>
+                        )}
+                        {analysis.additionalInfo.similarWorks?.length > 0 && (
+                            <div>
+                                <span className="text-[10px] uppercase text-terminal-text/50">TEMATICKY PODOBNÁ DÍLA:</span>
+                                <div className="mt-1 space-y-1.5">
+                                    {analysis.additionalInfo.similarWorks.map((work, i) => (
+                                        <div key={i} className="pl-3 border-l-2 border-terminal-accent/30">
+                                            <div>
+                                                <span className="text-terminal-accent text-xs font-bold">{work.title}</span>
+                                                <span className="text-terminal-text/50 text-[10px]"> – {work.author} ({work.year})</span>
+                                            </div>
+                                            <p className="text-terminal-text/70 text-[11px]">{work.note}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                        {analysis.additionalInfo.adaptations?.length > 0 && (
+                            <div>
+                                <span className="text-[10px] uppercase text-terminal-text/50">FILMOVÉ A DIVADELNÍ ADAPTACE:</span>
+                                <ul className="mt-1 space-y-0.5 pl-3">
+                                    {analysis.additionalInfo.adaptations.map((adaptation, i) => (
+                                        <li key={i} className="text-terminal-text/80 text-[11px]">• {adaptation}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+// Component for rendering autoscroll item content
+const AutoscrollContent = ({ item, type, includePlot }) => {
+    if (type === 'it') {
+        return (
+            <div className="autoscroll-md">
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={autoscrollMdComponents}
+                >
+                    {item.content}
+                </ReactMarkdown>
+            </div>
+        );
+    }
+
+    if (type === 'books') {
+        return <BookAutoscrollContent book={item.bookData} includePlot={includePlot} />;
+    }
+
+    // Dictionary
+    return (
+        <div>
+            <p className="text-sm text-gray-200 leading-relaxed">{item.content}</p>
+        </div>
+    );
+};
+
+// Color palette for items — 20 curated distinct colors
+const ITEM_COLORS = [
+    '#f59e0b', // amber
+    '#ef4444', // red
+    '#3b82f6', // blue
+    '#10b981', // emerald
+    '#8b5cf6', // violet
+    '#ec4899', // pink
+    '#06b6d4', // cyan
+    '#f97316', // orange
+    '#84cc16', // lime
+    '#6366f1', // indigo
+    '#14b8a6', // teal
+    '#e11d48', // rose
+    '#a855f7', // purple
+    '#0ea5e9', // sky
+    '#eab308', // yellow
+    '#22c55e', // green
+    '#d946ef', // fuchsia
+    '#f43f5e', // red-rose
+    '#2dd4bf', // teal-light
+    '#fb923c', // orange-light
+];
+
+const getItemColor = (index) => ITEM_COLORS[index % ITEM_COLORS.length];
+
+// Helper: clean text for TTS
+const cleanTextForTTS = (text) => {
+    return text
+        .replace(/#{1,6}\s*/g, '')       // strip markdown headers
+        .replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1') // strip bold/italic
+        .replace(/[•\-]\s+/g, ', ')      // bullets → commas
+        .replace(/\|/g, ', ')            // table pipes
+        .replace(/`[^`]*`/g, '')         // inline code
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links
+        .replace(/<[^>]*>/g, '')         // HTML tags
+        .replace(/\n{2,}/g, '. ')        // double newlines → pause
+        .replace(/\n/g, ', ')            // single newlines → comma
+        .replace(/\s{2,}/g, ' ')         // multiple spaces
+        .replace(/[★📌💡🌍🏗️📚📜🎭]/g, '') // emojis
+        .trim();
+};
+
+// Helper: chunk text into sentences for TTS
+const chunkTextForTTS = (text, maxLen = 250) => {
+    const cleaned = cleanTextForTTS(text);
+    const sentences = cleaned.split(/(?<=[.!?])\s+/);
+    const chunks = [];
+    let current = '';
+    for (const sent of sentences) {
+        if ((current + ' ' + sent).length > maxLen && current.length > 0) {
+            chunks.push(current.trim());
+            current = sent;
+        } else {
+            current += (current ? ' ' : '') + sent;
+        }
+    }
+    if (current.trim()) chunks.push(current.trim());
+    return chunks;
+};
+
 const AutoscrollPage = () => {
-    const { frutigerAero } = useExperimental();
-
-    const [mode, setMode] = useState('selection'); // 'selection' or 'player'
+    const [mode, setMode] = useState('selection');
     const [selectedSubject, setSelectedSubject] = useState('it');
-
-    // Sub-item selection
     const [selectedSubItems, setSelectedSubItems] = useState([]);
-
     const [itemsToScroll, setItemsToScroll] = useState([]);
 
     // Player State
@@ -23,6 +489,7 @@ const AutoscrollPage = () => {
     const [isLooping, setIsLooping] = useState(false);
     const [isRandom, setIsRandom] = useState(false);
     const [isTTS, setIsTTS] = useState(false);
+    const [includePlot, setIncludePlot] = useState(true);
 
     const scrollContainerRef = useRef(null);
     const requestRef = useRef();
@@ -30,6 +497,7 @@ const AutoscrollPage = () => {
     const isUserScrollingRef = useRef(false);
     const userScrollTimeoutRef = useRef(null);
     const currentSpokenItemIndexRef = useRef(-1);
+    const ttsQueueRef = useRef([]);
 
     const subjects = [
         { id: 'it', name: 'IT Otázky', icon: '💻' },
@@ -37,7 +505,6 @@ const AutoscrollPage = () => {
         { id: 'dictionary', name: 'Slovník pojmů', icon: '📚' }
     ];
 
-    // Initialize sub-items based on subject
     useEffect(() => {
         if (selectedSubject === 'it') {
             setSelectedSubItems(itQuestions.categories || []);
@@ -49,28 +516,26 @@ const AutoscrollPage = () => {
     }, [selectedSubject]);
 
     const handleSubItemToggle = (subItemId) => {
-        setSelectedSubItems(prev => {
-            if (prev.includes(subItemId)) {
-                return prev.filter(id => id !== subItemId);
-            } else {
-                return [...prev, subItemId];
-            }
-        });
+        setSelectedSubItems(prev =>
+            prev.includes(subItemId) ? prev.filter(id => id !== subItemId) : [...prev, subItemId]
+        );
     };
 
     const handleSelectAll = (selectAll) => {
-        if (!selectAll) {
-            setSelectedSubItems([]);
-            return;
-        }
-        if (selectedSubject === 'it') {
-            setSelectedSubItems(itQuestions.categories || []);
-        } else if (selectedSubject === 'books') {
-            setSelectedSubItems(cjBooks.books.map(b => b.id.toString()));
-        } else if (selectedSubject === 'dictionary') {
-            setSelectedSubItems(['epochy', 'autori', 'zanry']);
-        }
+        if (!selectAll) { setSelectedSubItems([]); return; }
+        if (selectedSubject === 'it') setSelectedSubItems(itQuestions.categories || []);
+        else if (selectedSubject === 'books') setSelectedSubItems(cjBooks.books.map(b => b.id.toString()));
+        else if (selectedSubject === 'dictionary') setSelectedSubItems(['epochy', 'autori', 'zanry']);
     };
+
+    // Get best Czech TTS voice
+    const getBestVoice = useCallback(() => {
+        const voices = window.speechSynthesis?.getVoices() || [];
+        return voices.find(v => v.lang === 'cs-CZ' && (v.name.includes('Google') || v.name.includes('Microsoft')))
+            || voices.find(v => v.lang === 'cs-CZ')
+            || voices.find(v => v.lang.startsWith('cs'))
+            || null;
+    }, []);
 
     const handleStart = () => {
         let items = [];
@@ -78,67 +543,34 @@ const AutoscrollPage = () => {
         if (selectedSubject === 'it') {
             items = itQuestions.questions
                 .filter(q => selectedSubItems.includes(q.category))
-                .map(q => ({
+                .map((q, idx) => ({
                     id: `it-${q.id}`,
                     title: `Otázka ${q.id}: ${q.question}`,
-                    content: q.compactContent?.sections?.map(s => {
-                        let text = s.text ? s.text + '\n' : '';
-                        if (s.items) {
-                            text += s.items.map(i => `${i.term}: ${i.definition}`).join('\n');
-                        }
-                        return text;
-                    }).join('\n\n') || q.answer
+                    subtitle: q.category,
+                    content: q.answer,
+                    colorIndex: idx
                 }));
         } else if (selectedSubject === 'books') {
             items = cjBooks.books
                 .filter(b => selectedSubItems.includes(b.id.toString()))
-                .map(b => {
-                    let bookContent = `Autor: ${b.author}\nŽánr/Druh: ${b.genre || b.genres?.join(', ') || ''} / ${b.literaryForm || ''}\nObdobí: ${b.period || ''}\n\n`;
-
-                    if (b.analysis && b.analysis.theme_and_motifs) {
-                        bookContent += `TÉMA A MOTIVY:\n`;
-                        bookContent += `Hlavní téma: ${b.analysis.theme_and_motifs.main_theme || ''}\n`;
-                        bookContent += `Motivy: ${b.analysis.theme_and_motifs.motifs?.join(', ') || ''}\n\n`;
-                    }
-                    if (b.analysis && b.analysis.setting) {
-                        bookContent += `ČASOPROSTOR:\n`;
-                        bookContent += `Místo: ${b.analysis.setting.place || ''}\n`;
-                        bookContent += `Čas: ${b.analysis.setting.time || ''}\n\n`;
-                    }
-                    if (b.analysis && b.analysis.composition) {
-                        bookContent += `KOMPOZICE:\n`;
-                        bookContent += `Struktura: ${b.analysis.composition.structure || ''}\n`;
-                        bookContent += `Časová osa: ${b.analysis.composition.timeline || ''}\n\n`;
-                    }
-                    if (b.analysis && b.analysis.characters) {
-                        bookContent += `POSTAVY:\n`;
-                        b.analysis.characters.forEach(c => {
-                            bookContent += `- ${c.name}: ${c.description || ''}\n`;
-                        });
-                        bookContent += `\n`;
-                    }
-                    if (b.analysis && b.analysis.language_and_style) {
-                        bookContent += `JAZYK A STYL:\n`;
-                        if (Array.isArray(b.analysis.language_and_style.features)) {
-                            bookContent += `Znaky: ${b.analysis.language_and_style.features.join(', ')}\n`;
-                        } else if (typeof b.analysis.language_and_style === 'string') {
-                            bookContent += `${b.analysis.language_and_style}\n`;
-                        }
-                    }
-
-                    return {
-                        id: `book-${b.id}`,
-                        title: `${b.title} - ${b.author}`,
-                        content: bookContent
-                    };
-                });
+                .map((b, idx) => ({
+                    id: `book-${b.id}`,
+                    title: b.title,
+                    subtitle: b.author,
+                    meta: `${b.genre || ''} · ${b.period || ''} · ${b.year || ''}`,
+                    bookData: b,
+                    content: '',
+                    colorIndex: idx
+                }));
         } else if (selectedSubject === 'dictionary') {
             items = dictionaryData.terms
                 .filter(t => selectedSubItems.includes(t.category))
-                .map(t => ({
+                .map((t, idx) => ({
                     id: `dict-${t.id}`,
                     title: t.term,
-                    content: t.definition
+                    subtitle: t.category === 'epochy' ? 'Epocha' : t.category === 'autori' ? 'Autor' : 'Žánr',
+                    content: t.definition,
+                    colorIndex: idx
                 }));
         }
 
@@ -159,7 +591,6 @@ const AutoscrollPage = () => {
         setIsPlaying(true);
         scrollPosRef.current = 0;
 
-        // Reset TTS & Prime Engine
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             if (isTTS) {
@@ -169,7 +600,32 @@ const AutoscrollPage = () => {
             }
         }
         currentSpokenItemIndexRef.current = -1;
+        ttsQueueRef.current = [];
     };
+
+    // Speak an item using chunked TTS
+    const speakItem = useCallback((item) => {
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel();
+        ttsQueueRef.current = [];
+
+        const fullText = `${item.title}. ${item.content}`;
+        const chunks = chunkTextForTTS(fullText);
+        const voice = getBestVoice();
+
+        const speakNext = (index) => {
+            if (index >= chunks.length) return;
+            const utterance = new SpeechSynthesisUtterance(chunks[index]);
+            utterance.lang = 'cs-CZ';
+            utterance.rate = 0.9;
+            utterance.pitch = 1.0;
+            if (voice) utterance.voice = voice;
+            utterance.onend = () => speakNext(index + 1);
+            utterance.onerror = () => speakNext(index + 1);
+            window.speechSynthesis.speak(utterance);
+        };
+        speakNext(0);
+    }, [getBestVoice]);
 
     const animateScroll = useCallback(() => {
         if (!isPlaying || isUserScrollingRef.current) {
@@ -192,6 +648,7 @@ const AutoscrollPage = () => {
             }
         }
 
+        // TTS: detect visible item and speak it
         if (isTTS && 'speechSynthesis' in window && scrollContainerRef.current) {
             const containerItems = Array.from(scrollContainerRef.current.querySelectorAll('.autoscroll-item'));
             const containerTop = scrollContainerRef.current.getBoundingClientRect().top;
@@ -206,32 +663,13 @@ const AutoscrollPage = () => {
             }
 
             if (activeIndex !== -1 && activeIndex !== currentSpokenItemIndexRef.current) {
-                window.speechSynthesis.cancel();
                 currentSpokenItemIndexRef.current = activeIndex;
-
-                let contentText = itemsToScroll[activeIndex].content;
-                const textToSpeak = `${itemsToScroll[activeIndex].title}. ${contentText}`.replace(/<[^>]*>?/gm, '');
-
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                utterance.lang = 'cs-CZ';
-
-                // Get list of voices
-                const voices = window.speechSynthesis.getVoices();
-                // Try to find a good Czech or suitable voice if available
-                const czechVoice = voices.find(v => v.lang === 'cs-CZ' && (v.name.includes('Google') || v.name.includes('Microsoft')))
-                    || voices.find(v => v.lang === 'cs-CZ');
-
-                if (czechVoice) {
-                    utterance.voice = czechVoice;
-                }
-
-                utterance.rate = 1.0;
-                window.speechSynthesis.speak(utterance);
+                speakItem(itemsToScroll[activeIndex]);
             }
         }
 
         requestRef.current = requestAnimationFrame(animateScroll);
-    }, [isPlaying, scrollSpeed, isLooping, isTTS, itemsToScroll]);
+    }, [isPlaying, scrollSpeed, isLooping, isTTS, itemsToScroll, speakItem]);
 
     useEffect(() => {
         if (mode === 'player') {
@@ -243,20 +681,22 @@ const AutoscrollPage = () => {
         };
     }, [mode, animateScroll]);
 
+    // Ensure voices are loaded
+    useEffect(() => {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.getVoices();
+            const onVoicesChanged = () => window.speechSynthesis.getVoices();
+            window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged);
+            return () => window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
+        }
+    }, []);
+
     const handleUserInteraction = () => {
         if (!isPlaying) return;
-
         isUserScrollingRef.current = true;
-
-        if (scrollContainerRef.current) {
-            scrollPosRef.current = scrollContainerRef.current.scrollTop;
-        }
-
+        if (scrollContainerRef.current) scrollPosRef.current = scrollContainerRef.current.scrollTop;
         if (userScrollTimeoutRef.current) clearTimeout(userScrollTimeoutRef.current);
-
-        userScrollTimeoutRef.current = setTimeout(() => {
-            isUserScrollingRef.current = false;
-        }, 3000);
+        userScrollTimeoutRef.current = setTimeout(() => { isUserScrollingRef.current = false; }, 3000);
     };
 
     const stopAndExit = () => {
@@ -271,6 +711,9 @@ const AutoscrollPage = () => {
         currentSpokenItemIndexRef.current = -1;
     };
 
+    // ═══════════════════════════════════════════
+    // SELECTION SCREEN — Terminal style
+    // ═══════════════════════════════════════════
     if (mode === 'selection') {
         const getSubItemLabel = (subId) => {
             if (selectedSubject === 'it') return subId;
@@ -292,86 +735,94 @@ const AutoscrollPage = () => {
         const allSubItems = getAllSubItems();
 
         return (
-            <div className={`max-w-4xl mx-auto space-y-6 pt-8 pb-12 px-4 ${frutigerAero ? 'text-[#005580]' : 'text-gray-200'}`}>
-                <div className="flex items-center gap-3 border-b border-terminal-border/20 pb-4 mb-6">
-                    <FaScroll className={`text-2xl ${frutigerAero ? 'text-[#00a2ff]' : 'text-red-500'}`} />
-                    <h1 className="text-3xl font-bold">Autoscroll Reader</h1>
+            <div className="max-w-7xl mx-auto space-y-4">
+                {/* Header */}
+                <div className="border-b border-terminal-border/20 pb-3">
+                    <h1 className="text-xl text-terminal-accent tracking-wider flex items-center gap-2">
+                        <FaScroll /> AUTOSCROLL READER
+                    </h1>
                 </div>
 
-                <div className={`p-6 rounded-xl ${frutigerAero ? 'bg-white/60 border border-white/80 shadow-[0_8px_32px_rgba(0,120,255,0.15)] backdrop-blur-md' : 'bg-[#1a1a1a] border border-[#333]'}`}>
-                    <h2 className="text-xl font-semibold mb-2">Nastavení čtení</h2>
-                    <p className={`mb-6 text-sm ${frutigerAero ? 'text-[#005580]/80' : 'text-gray-400'}`}>
-                        Vyberte si předmět a materiály pro automatické plynulé scrollování. Ideální pro pasivní opakování (např. před spaním).
-                    </p>
-
-                    <div className="flex flex-wrap gap-4 mb-6 p-4 rounded-lg bg-black/5 dark:bg-white/5">
-                        <label className="flex items-center gap-2 cursor-pointer font-medium">
-                            <input type="checkbox" checked={isLooping} onChange={() => setIsLooping(!isLooping)} className={`w-4 h-4 ${frutigerAero ? 'accent-[#00a2ff]' : 'accent-red-500'}`} />
-                            <span>Opakovat dokola (Loop)</span>
-                        </label>
-                        <label className="flex items-center gap-2 cursor-pointer font-medium">
-                            <input type="checkbox" checked={isRandom} onChange={() => setIsRandom(!isRandom)} className={`w-4 h-4 ${frutigerAero ? 'accent-[#00a2ff]' : 'accent-red-500'}`} />
-                            <span>Náhodné pořadí</span>
-                        </label>
-                        <label className="flex items-center gap-2 cursor-pointer font-medium" title="Upozornění: Prohlížeč může vyžadovat ztišení.">
-                            <input type="checkbox" checked={isTTS} onChange={toggleTTS} className={`w-4 h-4 ${frutigerAero ? 'accent-[#00a2ff]' : 'accent-red-500'}`} />
-                            <span className="flex items-center gap-1">Předčítat text (TTS) <FaVolumeUp className="opacity-70" /></span>
-                        </label>
+                {/* Settings Card */}
+                <div className="terminal-card space-y-4">
+                    <div className="text-xs text-terminal-text/60 mb-1">
+                        Vyberte si předmět a materiály pro automatické scrollování.
                     </div>
 
-                    <div className="mb-6">
-                        <h3 className="text-lg font-bold mb-3">1. Výběr předmětu</h3>
-                        <div className="flex flex-wrap gap-2">
+                    {/* Options Row */}
+                    <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-terminal-border/20">
+                        <label className="flex items-center gap-2 cursor-pointer text-sm">
+                            <input type="checkbox" checked={isLooping} onChange={() => setIsLooping(!isLooping)} className="accent-terminal-accent" />
+                            <span className="text-terminal-text/80">Loop</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer text-sm">
+                            <input type="checkbox" checked={isRandom} onChange={() => setIsRandom(!isRandom)} className="accent-terminal-accent" />
+                            <span className="text-terminal-text/80">Náhodné pořadí</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer text-sm" title="Text-to-Speech">
+                            <input type="checkbox" checked={isTTS} onChange={toggleTTS} className="accent-terminal-accent" />
+                            <span className="text-terminal-text/80 flex items-center gap-1">TTS <FaVolumeUp className="opacity-60" /></span>
+                        </label>
+                        {selectedSubject === 'books' && (
+                            <label className="flex items-center gap-2 cursor-pointer text-sm">
+                                <input type="checkbox" checked={includePlot} onChange={() => setIncludePlot(!includePlot)} className="accent-terminal-accent" />
+                                <span className="text-terminal-text/80">Včetně děje</span>
+                            </label>
+                        )}
+                    </div>
+
+                    {/* Subject Selection */}
+                    <div>
+                        <div className="text-xs text-terminal-text/60 mb-2 uppercase tracking-wider">Předmět</div>
+                        <div className="flex flex-wrap gap-1">
                             {subjects.map(sub => (
                                 <button
                                     key={sub.id}
                                     onClick={() => setSelectedSubject(sub.id)}
-                                    className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${selectedSubject === sub.id
-                                        ? frutigerAero ? 'bg-gradient-to-r from-[#00a2ff] to-[#0066cc] text-white shadow-md' : 'bg-red-500 text-white'
-                                        : frutigerAero ? 'bg-white/50 hover:bg-white/80' : 'bg-[#222] hover:bg-[#333]'
+                                    className={`px-3 py-1 text-xs border transition-colors ${selectedSubject === sub.id
+                                        ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent'
+                                        : 'border-terminal-border/30 text-terminal-text/60 hover:border-terminal-text/30'
                                         }`}
                                 >
-                                    <span>{sub.icon}</span>
+                                    <span className="mr-1">{sub.icon}</span>
                                     {sub.name}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    <div className="mb-8">
-                        <div className="flex items-center justify-between mb-3 border-b border-black/10 dark:border-white/10 pb-2">
-                            <h3 className="text-lg font-bold">2. Výběr materiálů</h3>
-                            <div className="flex gap-4">
-                                <button onClick={() => handleSelectAll(true)} className="text-sm text-blue-500 hover:underline">Vybrat vše</button>
-                                <button onClick={() => handleSelectAll(false)} className="text-sm text-blue-500 hover:underline">Zrušit výběr</button>
+                    {/* Material Selection */}
+                    <div>
+                        <div className="flex items-center justify-between mb-2 border-b border-terminal-border/20 pb-1">
+                            <span className="text-xs text-terminal-text/60 uppercase tracking-wider">Materiály</span>
+                            <div className="flex gap-3">
+                                <button onClick={() => handleSelectAll(true)} className="text-xs text-terminal-accent hover:underline">Vybrat vše</button>
+                                <button onClick={() => handleSelectAll(false)} className="text-xs text-terminal-accent hover:underline">Zrušit</button>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-h-60 overflow-y-auto pr-2">
                             {allSubItems.map((subId, idx) => (
-                                <label key={idx} className={`flex items-center gap-3 p-2 rounded-md cursor-pointer transition-colors ${frutigerAero ? 'hover:bg-[#00a2ff]/10' : 'hover:bg-white/5'
-                                    }`}>
+                                <label key={idx} className="flex items-center gap-2 p-1.5 cursor-pointer text-sm hover:bg-terminal-border/10 transition-colors">
                                     <input
                                         type="checkbox"
                                         checked={selectedSubItems.includes(subId)}
                                         onChange={() => handleSubItemToggle(subId)}
-                                        className={`w-4 h-4 ${frutigerAero ? 'accent-[#00a2ff]' : 'accent-red-500'}`}
+                                        className="accent-terminal-accent"
                                     />
-                                    <span className="truncate">{getSubItemLabel(subId)}</span>
+                                    <span className="text-terminal-text/80 truncate">{getSubItemLabel(subId)}</span>
                                 </label>
                             ))}
                         </div>
                     </div>
 
-                    <div className="flex justify-center mt-8">
+                    {/* Start Button */}
+                    <div className="flex justify-center pt-4 border-t border-terminal-border/20">
                         <button
                             onClick={handleStart}
-                            className={`flex items-center gap-3 px-8 py-4 rounded-xl text-xl font-bold transition-all hover:scale-105 ${frutigerAero
-                                ? 'bg-gradient-to-b from-green-400 to-green-600 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]'
-                                : 'bg-red-600 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)]'
-                                }`}
+                            className="flex items-center gap-2 px-6 py-3 bg-terminal-accent text-terminal-bg font-bold text-lg transition-all hover:scale-105"
                         >
                             <FaPlay />
-                            SPUSTIT ČTENÍ ({selectedSubItems.length})
+                            SPUSTIT ({selectedSubItems.length})
                         </button>
                     </div>
                 </div>
@@ -379,45 +830,45 @@ const AutoscrollPage = () => {
         );
     }
 
+    // ═══════════════════════════════════════════
+    // PLAYER SCREEN — Terminal style
+    // ═══════════════════════════════════════════
     return (
-        <div className={`fixed inset-0 z-50 flex flex-col ${frutigerAero ? 'bg-gradient-to-b from-[#d4f0ff] to-[#f0f8ff] text-[#005580]' : 'bg-[#111] text-gray-200'}`}>
-            <div className={`flex-none p-3 flex items-center justify-between shadow-md z-10 ${frutigerAero ? 'bg-white/80 backdrop-blur-md border-b border-[#00a2ff]/20' : 'bg-[#1a1a1a] border-b border-[#333]'}`}>
+        <div className="fixed inset-0 z-50 flex flex-col bg-terminal-bg text-terminal-text">
+            {/* Top Bar */}
+            <div className="flex-none p-3 flex items-center justify-between border-b border-terminal-border/30 bg-terminal-dim">
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button
-                        onClick={stopAndExit}
-                        className={`p-2 rounded-full transition-colors ${frutigerAero ? 'hover:bg-[#00a2ff]/10' : 'hover:bg-[#333]'}`}
-                        title="Zpět na výběr"
-                    >
+                    <button onClick={stopAndExit} className="icon-btn" title="Zpět na výběr">
                         <FaArrowLeft />
                     </button>
                     <div className="hidden md:block">
-                        <span className="font-bold mr-2 uppercase text-sm">
+                        <span className="font-bold mr-2 uppercase text-xs text-terminal-accent">
                             {subjects.find(s => s.id === selectedSubject)?.name}
                         </span>
-                        <span className="text-xs opacity-60">({itemsToScroll.length} položek)</span>
+                        <span className="text-xs text-terminal-text/50">({itemsToScroll.length} položek)</span>
                     </div>
                 </div>
 
                 <div className="flex items-center gap-1 md:gap-3">
                     <button
                         onClick={() => setIsLooping(!isLooping)}
-                        className={`p-2 rounded transition-colors ${isLooping ? 'text-green-500' : 'opacity-50'}`}
+                        className={`icon-btn ${isLooping ? 'active' : ''}`}
                         title="Opakovat"
                     >
                         <FaSyncAlt />
                     </button>
                     <button
                         onClick={toggleTTS}
-                        className={`p-2 rounded transition-colors ${isTTS ? 'text-blue-500' : 'opacity-50'}`}
+                        className={`icon-btn ${isTTS ? 'active' : ''}`}
                         title={isTTS ? "Vypnout čtení" : "Zapnout čtení"}
                     >
                         {isTTS ? <FaVolumeUp /> : <FaVolumeMute />}
                     </button>
 
-                    <div className="w-px h-6 bg-gray-500/30 mx-1 md:mx-2"></div>
+                    <div className="w-px h-6 bg-terminal-border/30 mx-1 md:mx-2"></div>
 
-                    <div className="flex items-center gap-2 text-xs md:text-sm px-2">
-                        <span>Rychlost:</span>
+                    <div className="flex items-center gap-2 text-xs px-2">
+                        <span className="text-terminal-text/60">Rychlost:</span>
                         <input
                             type="range"
                             min="0.1"
@@ -425,25 +876,23 @@ const AutoscrollPage = () => {
                             step="0.1"
                             value={scrollSpeed}
                             onChange={(e) => setScrollSpeed(parseFloat(e.target.value))}
-                            className={`w-16 md:w-24 ${frutigerAero ? 'accent-[#00a2ff]' : 'accent-red-500'}`}
+                            className="w-16 md:w-24"
                         />
-                        <span className="w-8 text-right tabular-nums">{scrollSpeed.toFixed(1)}x</span>
+                        <span className="w-8 text-right tabular-nums text-terminal-text/80">{scrollSpeed.toFixed(1)}x</span>
                     </div>
 
-                    <div className="w-px h-6 bg-gray-500/30 mx-1 md:mx-2"></div>
+                    <div className="w-px h-6 bg-terminal-border/30 mx-1 md:mx-2"></div>
 
                     <button
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className={`flex items-center justify-center w-10 h-10 rounded-full transition-transform hover:scale-105 ${frutigerAero
-                            ? 'bg-gradient-to-b from-[#00a2ff] to-[#0066cc] text-white shadow-md'
-                            : 'bg-red-500 text-white'
-                            }`}
+                        className="icon-btn active flex items-center justify-center w-10 h-10"
                     >
-                        {isPlaying ? <FaPause /> : <FaPlay className="ml-1" />}
+                        {isPlaying ? <FaPause /> : <FaPlay className="ml-0.5" />}
                     </button>
                 </div>
             </div>
 
+            {/* Scrolling Content */}
             <div
                 ref={scrollContainerRef}
                 onWheel={handleUserInteraction}
@@ -452,24 +901,61 @@ const AutoscrollPage = () => {
                 className="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-8"
                 style={{ scrollBehavior: 'auto' }}
             >
-                <div className="max-w-3xl mx-auto pb-[80vh]">
-                    {itemsToScroll.map((item, index) => (
-                        <div
-                            key={item.id}
-                            className={`autoscroll-item mb-12 p-6 rounded-xl border ${frutigerAero ? 'bg-white/70 border-white shadow-sm' : 'bg-[#1a1a1a] border-[#333]'}`}
-                        >
-                            <h2 className="text-2xl font-bold mb-4 border-b border-black/10 dark:border-white/10 pb-3">
-                                {item.title}
-                            </h2>
-                            <div className="whitespace-pre-line leading-relaxed text-lg opacity-90 font-mono">
-                                {item.content}
+                <div className="max-w-4xl mx-auto pb-[80vh]">
+                    {itemsToScroll.map((item, index) => {
+                        const color = getItemColor(item.colorIndex ?? index);
+                        return (
+                            <div key={item.id} className="autoscroll-item mb-10">
+                                {/* Stylized Divider Header */}
+                                <div
+                                    className="relative mb-1 py-6 px-6 flex flex-col items-center justify-center text-center"
+                                    style={{
+                                        background: `linear-gradient(135deg, ${color}15 0%, transparent 60%)`,
+                                        borderLeft: `4px solid ${color}`,
+                                        borderTop: `1px solid ${color}30`,
+                                        borderBottom: `1px solid ${color}30`,
+                                    }}
+                                >
+                                    {/* Item number badge */}
+                                    <div
+                                        className="absolute top-3 right-4 text-xs font-mono px-2 py-0.5 rounded-sm"
+                                        style={{ color: color, border: `1px solid ${color}40`, background: `${color}10` }}
+                                    >
+                                        {index + 1} / {itemsToScroll.length}
+                                    </div>
+                                    <h2
+                                        className="text-2xl md:text-3xl font-black tracking-tight mb-1"
+                                        style={{ color: color }}
+                                    >
+                                        {item.title}
+                                    </h2>
+                                    {item.subtitle && (
+                                        <p className="text-lg text-gray-300 font-light">{item.subtitle}</p>
+                                    )}
+                                    {item.meta && (
+                                        <p className="text-xs mt-2 tracking-wider uppercase" style={{ color: `${color}99` }}>
+                                            {item.meta}
+                                        </p>
+                                    )}
+                                    {/* Decorative line */}
+                                    <div className="mt-4 w-24 h-0.5" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+                                </div>
+
+                                {/* Content Card */}
+                                <div
+                                    className="terminal-card"
+                                    style={{ borderLeft: `3px solid ${color}40` }}
+                                >
+                                    <AutoscrollContent item={item} type={selectedSubject} includePlot={includePlot} />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
 
-            <div className={`h-16 absolute bottom-0 left-0 right-0 pointer-events-none ${frutigerAero ? 'bg-gradient-to-t from-[#d4f0ff]/90 to-transparent' : 'bg-gradient-to-t from-[#111] to-transparent'}`}></div>
+            {/* Bottom fade */}
+            <div className="h-16 absolute bottom-0 left-0 right-0 pointer-events-none bg-gradient-to-t from-terminal-bg to-transparent"></div>
         </div>
     );
 };
