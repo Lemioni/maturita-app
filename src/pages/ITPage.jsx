@@ -68,19 +68,21 @@ const ITPage = () => {
         </div>
 
         {/* Subject Filter */}
-        <div className="flex flex-wrap gap-2 pt-2 border-t border-terminal-border/20">
-          {subjects.map((s) => (
-            <button
-              key={s}
-              onClick={() => setSubjectFilter(s)}
-              className={`px-3 py-1 text-xs border transition-colors ${subjectFilter === s
-                ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent'
-                : 'border-terminal-border/30 text-terminal-text/60 hover:border-terminal-text/30'
-                }`}
-            >
-              {s === 'all' ? 'Všechny předměty' : s}
-            </button>
-          ))}
+        <div className="overflow-x-auto scrollbar-hide pt-2 border-t border-terminal-border/20">
+          <div className="flex gap-2 min-w-max pb-1">
+            {subjects.map((s) => (
+              <button
+                key={s}
+                onClick={() => setSubjectFilter(s)}
+                className={`px-3 py-1.5 text-xs border transition-colors whitespace-nowrap ${subjectFilter === s
+                  ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent'
+                  : 'border-terminal-border/30 text-terminal-text/60 hover:border-terminal-text/30'
+                  }`}
+              >
+                {s === 'all' ? 'Všechny předměty' : s}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

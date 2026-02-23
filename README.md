@@ -5,6 +5,7 @@ Webová aplikace pro přípravu na maturitu z IT a Češtiny.
 ## 🚀 Funkce
 
 ### IT Otázky (47 otázek)
+
 - **3 režimy učení:**
   - Seznam otázek - klasické prohlížení s rozbalením odpovědí
   - Flashcard režim - kartičky s otočením
@@ -20,11 +21,13 @@ Webová aplikace pro přípravu na maturitu z IT a Češtiny.
   - Automatické ukládání pokroku do localStorage
 
 ### Čeština
+
 - Připraveno na rozbory knih z milujemecestinu
 - Strukturované zobrazení rozborů
 - (Čeká na data)
 
 ### Další funkce
+
 - **Dashboard** - přehled pokroku
 - **Progress tracking** - detailní statistiky, grafy
 - **Vyhledávání** - fulltextové vyhledávání (Fuse.js)
@@ -54,6 +57,9 @@ npm run build
 
 # Preview produkčního buildu
 npm run preview
+
+# Vygenerování klíčových termínů pro knihy (offline)
+npm run generate:book-terms
 ```
 
 Aplikace poběží na `http://localhost:5173`
@@ -61,6 +67,7 @@ Aplikace poběží na `http://localhost:5173`
 ## 🌐 Deploy na Vercel
 
 ### Varianta 1: Přes Vercel CLI
+
 ```bash
 # Instalace Vercel CLI (globálně)
 npm i -g vercel
@@ -73,6 +80,7 @@ vercel --prod
 ```
 
 ### Varianta 2: Přes GitHub
+
 1. Push projektu do GitHub repository
 2. Přihlaš se na [vercel.com](https://vercel.com)
 3. Import projektu z GitHubu
@@ -94,7 +102,8 @@ maturita-app/
 │   ├── pages/              # Stránky (Home, IT, CJ, Progress, Search)
 │   ├── data/
 │   │   ├── it-questions.json  # 47 IT otázek
-│   │   └── cj-books.json      # Rozbory knih (prázdné)
+│   │   ├── cj-books.json      # Rozbory knih
+│   │   └── cj-book-terms.generated.json # Vygenerované klíčové termíny pro zvýraznění
 │   ├── hooks/              # Custom React hooks
 │   └── utils/              # Pomocné funkce
 ├── public/                 # Statické soubory
@@ -104,6 +113,7 @@ maturita-app/
 ## 🔄 Přidávání materiálů
 
 ### IT otázky - přidání odpovědí
+
 Otevři `src/data/it-questions.json` a u každé otázky doplň pole `answer`:
 
 ```json
@@ -116,6 +126,7 @@ Otevři `src/data/it-questions.json` a u každé otázky doplň pole `answer`:
 ```
 
 ### ČJ - přidání rozborů knih
+
 Otevři `src/data/cj-books.json` a přidej knihy:
 
 ```json
@@ -136,6 +147,12 @@ Otevři `src/data/cj-books.json` a přidej knihy:
   ]
 }
 ```
+
+### ČJ - generování klíčových termínů
+
+- Po změně knih nebo slovníku spusť `npm run generate:book-terms`.
+- Skript vygeneruje `src/data/cj-book-terms.generated.json`.
+- Tyto termíny se pak používají pro zvýraznění v textu + tooltip s odkazem do slovníku.
 
 ## 💾 Data persistence
 
@@ -163,6 +180,7 @@ Otevři `src/data/cj-books.json` a přidej knihy:
 ## 🐛 Problémy?
 
 Pokud narazíš na problém:
+
 1. Zkontroluj konzoli v prohlížeči (F12)
 2. Zkus smazat `node_modules` a `package-lock.json` a znovu `npm install`
 3. Ujisti se, že máš aktuální verzi Node.js (v18+)

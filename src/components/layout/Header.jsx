@@ -49,17 +49,23 @@ const Header = () => {
   return (
     <header className="bg-terminal-bg border-b border-terminal-border/20 sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-14 gap-3 relative">
-          {/* Streak Counter - Left */}
+        <div className="flex items-center h-12 md:h-14 gap-3 relative">
+          {/* App title - mobile only */}
+          <span className="md:hidden text-xs tracking-widest text-terminal-text/40 font-bold uppercase">
+            MATURITA
+          </span>
+
+          {/* Streak Counter */}
           {currentStreak > 0 && (
             <div className="flex items-center gap-1 px-2 py-1 bg-orange-500/10 border border-orange-500/20 rounded" title={`Nejdelší série: ${longestStreak} dní`}>
               <FaFire className="text-orange-500 text-sm" />
               <span className="text-sm font-bold text-orange-400 tabular-nums">{currentStreak}</span>
             </div>
           )}
-          {/* Countdown - Left on mobile, Center on desktop */}
+
+          {/* Countdown - Center on desktop, right-aligned on mobile */}
           <div
-            className="cursor-pointer group md:absolute md:left-1/2 md:-translate-x-1/2"
+            className="cursor-pointer group ml-auto md:ml-0 md:absolute md:left-1/2 md:-translate-x-1/2"
             onClick={() => !isEditing && setIsEditing(true)}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -76,40 +82,21 @@ const Header = () => {
               />
             ) : (
               <div className="flex items-center gap-2">
-                {/* Fire icons on hover */}
-                <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                <div className={`transition-all duration-300 hidden md:block ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
                   <FaFire className="text-orange-500 animate-pulse" />
                 </div>
-
-                {/* Plain text display */}
                 <div className="flex items-baseline gap-1">
                   <span className="text-xl font-bold text-terminal-text tabular-nums">
                     {daysLeft}
                   </span>
                   <span className="text-xs text-terminal-text/50">dní</span>
                 </div>
-
-                {/* Fire icons on hover */}
-                <div className={`transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                <div className={`transition-all duration-300 hidden md:block ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
                   <FaFire className="text-orange-500 animate-pulse" />
                 </div>
               </div>
             )}
           </div>
-
-          {/* Mobile Navigation - Right, scrollable */}
-          <nav className="md:hidden flex items-center gap-1 ml-auto overflow-x-auto max-w-[60vw] scrollbar-hide">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`icon-btn flex-shrink-0 ${isActive(item.path) ? 'active' : ''}`}
-                title={item.label}
-              >
-                <item.icon className="text-xs" />
-              </Link>
-            ))}
-          </nav>
 
           {/* Desktop Navigation - Right */}
           <nav className="hidden md:flex space-x-2 items-center ml-auto">

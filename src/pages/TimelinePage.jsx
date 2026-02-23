@@ -2,6 +2,12 @@ import { useState, useMemo } from 'react';
 import { FaClock, FaBook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import cjBooks from '../data/cj-books.json';
+import dictionaryData from '../data/dictionary.json';
+import generatedBookTermsData from '../data/cj-book-terms.generated.json';
+import TermAnnotatedText from '../components/common/TermAnnotatedText';
+import { buildBookTerms } from '../utils/bookTerms';
+
+const generatedTermsByBookId = new Map((generatedBookTermsData?.books || []).map((entry) => [entry.id, entry.terms || []]));
 
 // Color palette for movements
 const MOVEMENT_COLORS = {
@@ -63,6 +69,10 @@ const TimelinePage = () => {
     const yearRange = maxYear - minYear;
 
     const getPosition = (year) => ((year - minYear) / yearRange) * 100;
+    const selectedBookTerms = useMemo(
+        () => (selectedBook ? buildBookTerms(selectedBook, dictionaryData.terms, generatedTermsByBookId.get(selectedBook.id)) : []),
+        [selectedBook]
+    );
 
     return (
         <div className="max-w-6xl mx-auto mt-4">
@@ -143,15 +153,15 @@ const TimelinePage = () => {
                 <div className="terminal-card mt-4 border-l-2" style={{ borderLeftColor: getColor(selectedBook.movement) }}>
                     <div className="flex items-start justify-between">
                         <div>
-                            <h3 className="text-sm font-bold text-terminal-accent">{selectedBook.title}</h3>
-                            <p className="text-xs text-terminal-text/60">{selectedBook.author} · {selectedBook.year}</p>
+                            <h3 className="text-sm font-bold text-terminal-accent"><TermAnnotatedText text={selectedBook.title} terms={selectedBookTerms} /></h3>
+                            <p className="text-xs text-terminal-text/60"><TermAnnotatedText text={selectedBook.author} terms={selectedBookTerms} /> · {selectedBook.year}</p>
                             <div className="flex gap-2 mt-2">
                                 <span className="compact-pill">{selectedBook.genre}</span>
                                 <span className="compact-pill">{selectedBook.movement}</span>
                                 <span className="compact-pill">{selectedBook.literaryForm}</span>
                             </div>
                             {selectedBook.analysis?.themes?.main && (
-                                <p className="text-xs text-terminal-text/70 mt-2">{selectedBook.analysis.themes.main}</p>
+                                <p className="text-xs text-terminal-text/70 mt-2"><TermAnnotatedText text={selectedBook.analysis.themes.main} terms={selectedBookTerms} /></p>
                             )}
                         </div>
                         <Link to={`/cj/book/${selectedBook.id}`} className="px-3 py-1 text-xs bg-terminal-accent text-terminal-bg font-bold rounded hover:opacity-90">

@@ -7,7 +7,6 @@ import { extractHeadings } from '../utils/markdownComponents';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
-import StructuredContent from '../components/common/StructuredContent';
 import CompactContent from '../components/common/CompactContent';
 import IsoOsiModal from '../components/common/IsoOsiModal';
 import { FaLayerGroup } from 'react-icons/fa';
@@ -31,7 +30,7 @@ const QuestionDetailPage = () => {
   // We only need to strip the redundant title since the content is now pre-formatted Markdown
   const formattedAnswer = useMemo(() => {
     if (!question) return '';
-    let answerText = question.answer;
+    let answerText = question.answer || '';
 
     // Get the first line and normalize it for comparison
     const firstLineMatch = answerText.match(/^([^\n]+)/);
@@ -167,20 +166,15 @@ const QuestionDetailPage = () => {
           </div>
         </div>
 
-        {/* Table of Contents - only for markdown content in full mode */}
-        {!isCompactMode && !question.content && tableOfContents.length > 0 && (
+        {/* Table of Contents */}
+        {!isCompactMode && tableOfContents.length > 0 && (
           <TableOfContents sections={tableOfContents} />
         )}
 
-        {/* Render content - compact, structured, or markdown */}
+        {/* Render content */}
         {isCompactMode && question.compactContent ? (
           <CompactContent
             content={question.compactContent}
-            keywords={question.keywords}
-          />
-        ) : question.content ? (
-          <StructuredContent
-            content={question.content}
             keywords={question.keywords}
           />
         ) : (

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:book-terms": "node scripts/generate_book_terms.js"
   },
   "dependencies": {
     "docx-preview": "^0.3.7",

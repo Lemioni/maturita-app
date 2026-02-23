@@ -6,6 +6,11 @@ import remarkGfm from 'remark-gfm';
 import itQuestions from '../data/it-questions.json';
 import cjBooks from '../data/cj-books.json';
 import dictionaryData from '../data/dictionary.json';
+import generatedBookTermsData from '../data/cj-book-terms.generated.json';
+import TermAnnotatedText from '../components/common/TermAnnotatedText';
+import { buildBookTerms } from '../utils/bookTerms';
+
+const generatedTermsByBookId = new Map((generatedBookTermsData?.books || []).map((entry) => [entry.id, entry.terms || []]));
 
 // ═══════════════════════════════════════════
 // Autoscroll content renderer with memory-optimized colors
@@ -39,6 +44,11 @@ const autoscrollMdComponents = {
 // ═══════════════════════════════════════
 const BookAutoscrollContent = ({ book, includePlot }) => {
     const analysis = book.analysis;
+    const bookTerms = useMemo(
+        () => buildBookTerms(book, dictionaryData.terms, generatedTermsByBookId.get(book?.id)),
+        [book]
+    );
+
     if (!analysis) return <p className="text-sm text-terminal-text/50 italic">Rozbor zatím není k dispozici.</p>;
 
     return (
@@ -53,7 +63,9 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                 {analysis.titleAnalysis && (
                     <div className="mb-2">
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">📌</span><span>Analýza názvu díla</span></h3>
-                        <div className="text-xs text-terminal-text/85 pl-3 border-l-2 border-terminal-accent/30">{analysis.titleAnalysis}</div>
+                        <div className="text-xs text-terminal-text/85 pl-3 border-l-2 border-terminal-accent/30">
+                            <TermAnnotatedText text={analysis.titleAnalysis} terms={bookTerms} />
+                        </div>
                     </div>
                 )}
 
@@ -61,7 +73,7 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                     <div className="mb-2">
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaBook className="text-sm" /><span>Děj</span></h3>
                         <div className="whitespace-pre-line leading-relaxed pl-3 border-l-2 border-terminal-border/20 text-xs text-terminal-text/85">
-                            {analysis.plot.split('\\n').join('\n')}
+                            <TermAnnotatedText text={analysis.plot.split('\n').join('\n')} terms={bookTerms} />
                         </div>
                     </div>
                 )}
@@ -70,7 +82,7 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                     <div className="mb-2">
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">💡</span><span>Téma a motivy</span></h3>
                         <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1">
-                            <p className="text-xs text-terminal-text/85">{analysis.themes.main}</p>
+                            <p className="text-xs text-terminal-text/85"><TermAnnotatedText text={analysis.themes.main} terms={bookTerms} /></p>
                             <div className="flex flex-wrap gap-1 mt-1">
                                 {analysis.themes.motifs?.map((motif, i) => (
                                     <span key={i} className="compact-pill">{motif}</span>
@@ -84,8 +96,8 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                     <div className="mb-2">
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">🌍</span><span>Časoprostor</span></h3>
                         <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
-                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Místo:</span><span className="text-terminal-text/85 ml-1">{analysis.setting.place}</span></div>
-                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Čas:</span><span className="text-terminal-text/85 ml-1">{analysis.setting.time}</span></div>
+                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Místo:</span><span className="text-terminal-text/85 ml-1"><TermAnnotatedText text={analysis.setting.place} terms={bookTerms} /></span></div>
+                            <div className="text-xs"><span className="text-terminal-accent/70 font-medium">Čas:</span><span className="text-terminal-text/85 ml-1"><TermAnnotatedText text={analysis.setting.time} terms={bookTerms} /></span></div>
                         </div>
                     </div>
                 )}
@@ -134,7 +146,7 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                             {analysis.characters.map((char, i) => (
                                 <div key={i} className={`p-2 border ${char.isMain ? 'border-terminal-accent/40 bg-terminal-accent/5' : 'border-terminal-border/20 bg-terminal-bg/50'}`}>
                                     <div className="flex items-center gap-1 mb-0.5">
-                                        <span className={`font-bold text-xs ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>{char.name}</span>
+                                        <span className={`font-bold text-xs ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}><TermAnnotatedText text={char.name} terms={bookTerms} /></span>
                                         {char.isMain && <span className="text-terminal-accent text-[10px]">★</span>}
                                     </div>
                                     {char.traits ? (
@@ -142,12 +154,12 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                                             {Object.entries(char.traits).map(([key, value], j) => (
                                                 <div key={j} className="text-[11px] leading-tight">
                                                     <span className="text-terminal-accent/60 font-medium">{key}:</span>
-                                                    <span className="text-terminal-text/70 ml-1">{value}</span>
+                                                    <span className="text-terminal-text/70 ml-1"><TermAnnotatedText text={String(value)} terms={bookTerms} /></span>
                                                 </div>
                                             ))}
                                         </div>
                                     ) : (
-                                        <p className="text-terminal-text/70 text-[11px]">{char.description}</p>
+                                        <p className="text-terminal-text/70 text-[11px]"><TermAnnotatedText text={char.description} terms={bookTerms} /></p>
                                     )}
                                 </div>
                             ))}
@@ -160,12 +172,12 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><span className="text-sm">📜</span><span>Ukázka z textu</span></h3>
                         <div className="pl-3 border-l-2 border-terminal-accent/50 space-y-2">
                             <div className="bg-terminal-bg/50 p-2 border border-terminal-border/30 font-mono text-xs whitespace-pre-line leading-relaxed text-terminal-text/85">
-                                {analysis.excerpt.text.split('\\n').join('\n')}
+                                <TermAnnotatedText text={analysis.excerpt.text.split('\n').join('\n')} terms={bookTerms} />
                             </div>
                             {analysis.excerpt.context && (
                                 <div>
                                     <span className="text-[10px] uppercase text-terminal-text/50">KONTEXT:</span>
-                                    <p className="text-terminal-text/80 mt-0.5 text-xs">{analysis.excerpt.context}</p>
+                                    <p className="text-terminal-text/80 mt-0.5 text-xs"><TermAnnotatedText text={analysis.excerpt.context} terms={bookTerms} /></p>
                                 </div>
                             )}
                         </div>
@@ -220,21 +232,21 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                         <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                             <div className="space-y-1">
                                 {analysis.authorContext.shortBio ? (
-                                    <p className="text-terminal-accent font-bold text-xs">{analysis.authorContext.shortBio.name}</p>
+                                    <p className="text-terminal-accent font-bold text-xs"><TermAnnotatedText text={analysis.authorContext.shortBio.name} terms={bookTerms} /></p>
                                 ) : (
-                                    <p className="text-terminal-text/90 text-xs">{analysis.authorContext.bio}</p>
+                                    <p className="text-terminal-text/90 text-xs"><TermAnnotatedText text={analysis.authorContext.bio} terms={bookTerms} /></p>
                                 )}
                                 {analysis.authorContext.shortBio?.info && (
                                     <ul className="space-y-0">
                                         {analysis.authorContext.shortBio.info.map((item, i) => (
-                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={item} terms={bookTerms} /></li>
                                         ))}
                                     </ul>
                                 )}
                                 {analysis.authorContext.life && (
                                     <ul className="space-y-0 mt-1">
                                         {analysis.authorContext.life.map((item, i) => (
-                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={item} terms={bookTerms} /></li>
                                         ))}
                                     </ul>
                                 )}
@@ -246,8 +258,8 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                                     <div className="mt-0.5 space-y-1">
                                         {analysis.authorContext.creationPeriods.map((period, i) => (
                                             <div key={i} className="text-[11px] border-l border-terminal-accent/30 pl-2">
-                                                <span className="text-terminal-accent font-bold">{period.name}</span>
-                                                <p className="text-terminal-text/70 leading-snug">{period.description}</p>
+                                                <span className="text-terminal-accent font-bold"><TermAnnotatedText text={period.name} terms={bookTerms} /></span>
+                                                <p className="text-terminal-text/70 leading-snug"><TermAnnotatedText text={period.description} terms={bookTerms} /></p>
                                             </div>
                                         ))}
                                     </div>
@@ -257,7 +269,7 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                             {analysis.authorContext.workPosition && (
                                 <div className="bg-terminal-accent/10 p-2 border border-terminal-accent/20">
                                     <span className="text-terminal-accent text-[10px]">ZAŘAZENÍ DÍLA:</span>
-                                    <p className="text-terminal-text/85 text-xs mt-0.5">{analysis.authorContext.workPosition}</p>
+                                    <p className="text-terminal-text/85 text-xs mt-0.5"><TermAnnotatedText text={analysis.authorContext.workPosition} terms={bookTerms} /></p>
                                 </div>
                             )}
 
@@ -266,7 +278,7 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                                     <span className="text-terminal-text/50 text-[10px]">DALŠÍ DÍLA:</span>
                                     <div className="mt-1 flex flex-wrap gap-1">
                                         {analysis.authorContext.otherWorks.map((work, i) => (
-                                            <span key={i} className="compact-pill text-terminal-accent">{work.title}</span>
+                                            <span key={i} className="compact-pill text-terminal-accent"><TermAnnotatedText text={work.title} terms={bookTerms} /></span>
                                         ))}
                                     </div>
                                 </div>
@@ -280,16 +292,16 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                         <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs"><FaGlobe className="text-sm" /><span>Literární a kulturní kontext</span></h3>
                         <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                             <div>
-                                <span className="text-terminal-accent text-sm font-bold">{analysis.literaryContext.movement}</span>
+                                <span className="text-terminal-accent text-sm font-bold"><TermAnnotatedText text={analysis.literaryContext.movement} terms={bookTerms} /></span>
                                 <span className="text-terminal-text/50 text-[11px]"> {analysis.literaryContext.period && `(${analysis.literaryContext.period})`}</span>
-                                {analysis.literaryContext.description && <p className="text-terminal-text/75 text-[11px] leading-snug">{analysis.literaryContext.description}</p>}
+                                {analysis.literaryContext.description && <p className="text-terminal-text/75 text-[11px] leading-snug"><TermAnnotatedText text={analysis.literaryContext.description} terms={bookTerms} /></p>}
                             </div>
                             {analysis.literaryContext.characteristics && (
                                 <div>
                                     <span className="text-terminal-text/50 text-[10px]">CHARAKTERISTIKA:</span>
                                     <ul className="mt-0.5 space-y-0">
                                         {analysis.literaryContext.characteristics.map((char, i) => (
-                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {char}</li>
+                                            <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={char} terms={bookTerms} /></li>
                                         ))}
                                     </ul>
                                 </div>
@@ -301,14 +313,14 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
                                         {analysis.literaryContext.otherAuthors.map((author, i) => (
                                             <div key={i} className="text-[11px] border-l border-terminal-text/10 pl-2">
                                                 <div>
-                                                    <span className="text-terminal-accent font-bold">{author.name}</span>
+                                                    <span className="text-terminal-accent font-bold"><TermAnnotatedText text={author.name} terms={bookTerms} /></span>
                                                     <span className="text-terminal-text/50"> {author.years && `(${author.years})`}</span>
                                                 </div>
-                                                {author.note && <p className="text-terminal-text/60 text-[10px]">{author.note}</p>}
+                                                {author.note && <p className="text-terminal-text/60 text-[10px]"><TermAnnotatedText text={author.note} terms={bookTerms} /></p>}
                                                 {author.works && (
                                                     <div className="flex flex-wrap gap-1 mt-0.5">
                                                         {author.works.map((work, j) => (
-                                                            <span key={j} className="text-[10px] px-1 border border-terminal-border/20 text-terminal-text/70">{work}</span>
+                                                            <span key={j} className="text-[10px] px-1 border border-terminal-border/20 text-terminal-text/70"><TermAnnotatedText text={work} terms={bookTerms} /></span>
                                                         ))}
                                                     </div>
                                                 )}

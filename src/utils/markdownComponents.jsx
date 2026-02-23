@@ -112,13 +112,13 @@ export const createMarkdownComponents = (keywords = []) => {
   };
 
   return {
-    // Headings with IDs for TOC navigation
+    // Headings — amber autoscroll style with IDs for TOC
     h1: ({ children }) => {
       const text = typeof children === 'string' ? children :
         Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
-        <h1 id={id} className="text-2xl font-bold mt-8 mb-4 text-terminal-accent scroll-mt-20 border-b border-terminal-border/30 pb-2">
+        <h1 id={id} className="text-xl font-bold text-amber-400 mt-6 mb-2 pb-1 border-b border-amber-400/30 scroll-mt-20">
           {children}
         </h1>
       );
@@ -128,7 +128,7 @@ export const createMarkdownComponents = (keywords = []) => {
         Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
-        <h2 id={id} className="text-xl font-bold mt-6 mb-3 text-terminal-accent scroll-mt-20">
+        <h2 id={id} className="text-lg font-bold text-amber-400 mt-5 mb-2 pb-1 border-b border-amber-400/20 scroll-mt-20">
           {children}
         </h2>
       );
@@ -138,20 +138,20 @@ export const createMarkdownComponents = (keywords = []) => {
         Array.isArray(children) ? children.join('') : '';
       const id = generateSectionId(text);
       return (
-        <h3 id={id} className="text-lg font-semibold mt-5 mb-2 text-terminal-text scroll-mt-20">
+        <h3 id={id} className="text-base font-bold text-amber-300 mt-4 mb-1 scroll-mt-20">
           {children}
         </h3>
       );
     },
     h4: ({ children }) => (
-      <h4 className="text-base font-semibold mt-4 mb-2 text-terminal-text/90">
+      <h4 className="text-sm font-bold text-amber-300/90 mt-3 mb-1">
         {children}
       </h4>
     ),
 
     // Paragraphs
     p: ({ children }) => (
-      <p className="mb-3 text-terminal-text leading-relaxed">
+      <p className="text-sm leading-relaxed text-gray-200 mb-2">
         {Array.isArray(children) ? children.map((child, i) =>
           typeof child === 'string' ? highlightKeywords(child) : child
         ) : highlightKeywords(children)}
@@ -160,31 +160,31 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Lists
     ul: ({ children }) => (
-      <ul className="list-disc ml-6 mb-4 space-y-1.5 text-terminal-text">
+      <ul className="mb-3 space-y-0.5">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="list-decimal ml-6 mb-4 space-y-1.5 text-terminal-text">
+      <ol className="mb-3 list-decimal ml-4 space-y-0.5">
         {children}
       </ol>
     ),
     li: ({ children }) => (
-      <li className="leading-relaxed text-terminal-text">
+      <li className="text-sm text-gray-200 mb-0.5 ml-4 list-disc leading-relaxed">
         {children}
       </li>
     ),
 
     // Strong/Bold
     strong: ({ children }) => (
-      <strong className="font-bold text-terminal-accent">
+      <strong className="text-amber-300 font-bold">
         {children}
       </strong>
     ),
 
     // Emphasis/Italic
     em: ({ children }) => (
-      <em className="italic text-terminal-text/80">
+      <em className="text-amber-200/80 italic">
         {children}
       </em>
     ),
@@ -193,7 +193,7 @@ export const createMarkdownComponents = (keywords = []) => {
     code: ({ inline, className, children }) => {
       if (inline) {
         return (
-          <code className="px-1.5 py-0.5 bg-terminal-dim border border-terminal-border/30 rounded text-sm font-mono text-terminal-accent">
+          <code className="text-amber-300 bg-amber-400/10 px-1 rounded text-xs font-mono">
             {children}
           </code>
         );
@@ -207,16 +207,13 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Code blocks
     pre: ({ children }) => (
-      <pre className="bg-terminal-bg border border-terminal-border/30 rounded p-4 my-4 overflow-x-auto">
-        <code className="text-sm font-mono text-terminal-text/90">
-          {children}
-        </code>
+      <pre className="bg-black/40 border border-amber-400/20 p-3 rounded text-xs text-gray-300 overflow-x-auto mb-2">
+        {children}
       </pre>
     ),
 
     // Blockquotes (with alert support)
     blockquote: ({ children }) => {
-      // Check for alert syntax
       const alertInfo = parseAlertType(children?.props?.children || children);
 
       if (alertInfo) {
@@ -228,7 +225,7 @@ export const createMarkdownComponents = (keywords = []) => {
       }
 
       return (
-        <blockquote className="border-l-4 border-terminal-border pl-4 my-4 text-terminal-text/80 italic">
+        <blockquote className="border-l-2 border-amber-400/50 pl-3 my-2 text-gray-300 italic">
           {children}
         </blockquote>
       );
@@ -236,14 +233,14 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Tables
     table: ({ children }) => (
-      <div className="overflow-x-auto my-4">
-        <table className="min-w-full border-collapse border border-terminal-border/30">
+      <div className="overflow-x-auto my-3">
+        <table className="w-full text-sm border-collapse">
           {children}
         </table>
       </div>
     ),
     thead: ({ children }) => (
-      <thead className="bg-terminal-border/10">
+      <thead>
         {children}
       </thead>
     ),
@@ -253,17 +250,17 @@ export const createMarkdownComponents = (keywords = []) => {
       </tbody>
     ),
     tr: ({ children }) => (
-      <tr className="border-b border-terminal-border/20 hover:bg-terminal-border/5 transition-colors">
+      <tr className="border-b border-gray-700/50">
         {children}
       </tr>
     ),
     th: ({ children }) => (
-      <th className="border border-terminal-border/30 px-4 py-2 text-left font-semibold text-terminal-accent">
+      <th className="text-left text-amber-400 text-xs uppercase border-b border-amber-400/30 pb-1 pr-3 py-1">
         {children}
       </th>
     ),
     td: ({ children }) => (
-      <td className="border border-terminal-border/30 px-4 py-2 text-terminal-text">
+      <td className="text-gray-200 py-1 pr-3 border-b border-gray-700/50 text-sm">
         {children}
       </td>
     ),
@@ -272,7 +269,7 @@ export const createMarkdownComponents = (keywords = []) => {
     a: ({ href, children }) => (
       <a
         href={href}
-        className="text-terminal-accent underline hover:text-terminal-glow transition-colors"
+        className="text-amber-300 underline hover:text-amber-200 transition-colors"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -282,7 +279,7 @@ export const createMarkdownComponents = (keywords = []) => {
 
     // Horizontal rule
     hr: () => (
-      <hr className="my-6 border-terminal-border/30" />
+      <hr className="border-gray-700 my-4" />
     ),
   };
 };

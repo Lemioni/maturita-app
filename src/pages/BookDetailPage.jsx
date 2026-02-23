@@ -2,32 +2,125 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaBook, FaUser, FaMapMarkerAlt, FaClock, FaTheaterMasks, FaPen, FaGlobe, FaChevronDown, FaChevronUp, FaListUl, FaFileAlt, FaCheck } from 'react-icons/fa';
 import { useEffect, useMemo, useState } from 'react';
 import cjBooksData from '../data/bookData.js';
+import dictionaryData from '../data/dictionary.json';
+import generatedBookTermsData from '../data/cj-book-terms.generated.json';
 import useLocalStorage from '../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
+import TermAnnotatedText from '../components/common/TermAnnotatedText';
+import { buildBookTerms } from '../utils/bookTerms';
 
-// Small inline checkbox for section-level knowledge tracking
-const SectionCheck = ({ bookId, section }) => {
-    const key = 'maturita-section-knowledge';
-    const [known, setKnown] = useState(() => {
-        try {
-            const data = JSON.parse(localStorage.getItem(key) || '{}');
-            return data[bookId]?.[section] || false;
-        } catch { return false; }
+const generatedTermsByBookId = new Map((generatedBookTermsData?.books || []).map((entry) => [entry.id, entry.terms || []]));
+
+const SECTION_KNOWLEDGE_KEY = 'maturita-section-knowledge';
+
+const BOOK_SECTIONS = [
+    { key: 'nazev',      label: 'Analýza názvu',         emoji: '📌', check: (a) => !!a?.titleAnalysis },
+    { key: 'dej',        label: 'Děj',                   emoji: '📖', check: (a) => !!a?.plot },
+    { key: 'tema',       label: 'Téma a motivy',         emoji: '💡', check: (a) => !!a?.themes },
+    { key: 'casoprostor',label: 'Časoprostor',           emoji: '🌍', check: (a) => !!a?.setting },
+    { key: 'kompozice',  label: 'Kompozice',             emoji: '🏗️', check: (a) => !!a?.composition },
+    { key: 'druh',       label: 'Druh a žánr',           emoji: '📚', check: () => true },
+    { key: 'vypravec',   label: 'Vypravěč',              emoji: '🎭', check: (a) => !!a?.narration },
+    { key: 'postavy',    label: 'Postavy',               emoji: '👥', check: (a) => a?.characters?.length > 0 },
+    { key: 'jazyk',      label: 'Jazykové prostředky',   emoji: '✏️', check: (a) => a?.languageDevices?.length > 0 },
+    { key: 'autor',      label: 'Kontext autora',        emoji: '👤', check: (a) => !!a?.authorContext },
+    { key: 'kontext',    label: 'Literární kontext',     emoji: '🌐', check: (a) => !!a?.literaryContext },
+];
+
+const SectionKnowledgePanel = ({ bookId, analysis, isOpen, onToggle }) => {
+    const [allData, setAllData] = useState(() => {
+        try { return JSON.parse(localStorage.getItem(SECTION_KNOWLEDGE_KEY) || '{}'); }
+        catch { return {}; }
     });
-    const toggle = () => {
-        const data = JSON.parse(localStorage.getItem(key) || '{}');
-        if (!data[bookId]) data[bookId] = {};
-        data[bookId][section] = !known;
-        localStorage.setItem(key, JSON.stringify(data));
-        setKnown(!known);
+
+    const bookSections = allData[bookId] || {};
+
+    const toggleSection = (sectionKey) => {
+        setAllData(prev => {
+            const updated = {
+                ...prev,
+                [bookId]: { ...(prev[bookId] || {}), [sectionKey]: !(prev[bookId]?.[sectionKey]) },
+            };
+            try { localStorage.setItem(SECTION_KNOWLEDGE_KEY, JSON.stringify(updated)); } catch {}
+            return updated;
+        });
     };
+
+    const visibleSections = BOOK_SECTIONS.filter(s => s.check(analysis));
+    const knownCount = visibleSections.filter(s => bookSections[s.key]).length;
+    const total = visibleSections.length;
+
     return (
-        <button onClick={toggle} title={known ? 'Umím ✓' : 'Označit jako naučené'}
-            className={`ml-auto w-5 h-5 rounded border text-[10px] flex items-center justify-center transition-all ${known ? 'bg-green-500/20 border-green-500/50 text-green-400' : 'border-terminal-border/30 text-transparent hover:border-terminal-text/30 hover:text-terminal-text/30'
-                }`}>
-            <FaCheck />
-        </button>
+        <>
+            {/* Right-edge toggle tab — always visible */}
+            <button
+                onClick={onToggle}
+                className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-1 px-1.5 py-3 bg-terminal-dim border border-r-0 border-terminal-border/40 text-terminal-accent hover:bg-terminal-accent/10 transition-colors"
+                title="Pokrok po sekcích"
+            >
+                <span className="text-[9px] font-bold tabular-nums">{knownCount}/{total}</span>
+                <div className="flex flex-col gap-0.5">
+                    {visibleSections.slice(0, 7).map(s => (
+                        <div
+                            key={s.key}
+                            className={`w-2.5 h-2.5 border transition-colors ${bookSections[s.key] ? 'bg-green-500/60 border-green-500/50' : 'border-terminal-border/40 bg-transparent'}`}
+                        />
+                    ))}
+                    {visibleSections.length > 7 && (
+                        <div className="text-[8px] text-terminal-text/30 text-center">···</div>
+                    )}
+                </div>
+            </button>
+
+            {/* Backdrop */}
+            {isOpen && (
+                <div onClick={onToggle} className="fixed inset-0 z-40 bg-black/30" />
+            )}
+
+            {/* Sliding panel */}
+            <div
+                className={`fixed right-0 top-0 h-full z-50 flex flex-col bg-terminal-dim border-l border-terminal-border/40 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+                style={{ width: '13rem' }}
+            >
+                <div className="flex items-center justify-between p-3 border-b border-terminal-border/20">
+                    <div>
+                        <div className="text-xs text-terminal-accent font-bold tracking-wider">SEKCE</div>
+                        <div className="text-[10px] text-terminal-text/50">{knownCount}/{total} naučeno</div>
+                    </div>
+                    <button onClick={onToggle} className="text-terminal-text/40 hover:text-terminal-accent text-xl leading-none">×</button>
+                </div>
+
+                <div className="flex-1 overflow-y-auto p-1.5 space-y-1">
+                    {visibleSections.map(s => {
+                        const known = !!bookSections[s.key];
+                        return (
+                            <button
+                                key={s.key}
+                                onClick={() => toggleSection(s.key)}
+                                className={`w-full flex items-center gap-2 px-2 py-2 text-left transition-all border ${known ? 'bg-green-500/10 border-green-500/30 text-green-300' : 'border-terminal-border/20 text-terminal-text/70 hover:border-terminal-text/30'}`}
+                            >
+                                <div className={`w-4 h-4 border flex-shrink-0 flex items-center justify-center transition-all ${known ? 'bg-green-500/20 border-green-500/50' : 'border-terminal-border/40'}`}>
+                                    {known && <FaCheck className="text-green-400 text-[8px]" />}
+                                </div>
+                                <span className="text-xs leading-tight">{s.emoji} {s.label}</span>
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Progress bar */}
+                <div className="p-2 border-t border-terminal-border/20">
+                    <div className="w-full bg-terminal-border/20 h-1.5 rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-green-500/60 transition-all duration-500"
+                            style={{ width: total > 0 ? `${(knownCount / total) * 100}%` : '0%' }}
+                        />
+                    </div>
+                    <div className="text-[9px] text-terminal-text/30 text-center mt-1">{Math.round(total > 0 ? (knownCount / total) * 100 : 0)}%</div>
+                </div>
+            </div>
+        </>
     );
 };
 
@@ -37,6 +130,7 @@ const BookDetailPage = () => {
     const [progress, setProgress] = useLocalStorage('maturita-progress', {});
     const [isPlotExpanded, setIsPlotExpanded] = useState(false);
     const [isShortVersion, setIsShortVersion] = useLocalStorage('maturita-short-version', false);
+    const [isPanelOpen, setIsPanelOpen] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -124,14 +218,21 @@ const BookDetailPage = () => {
         return rawAnalysis;
     }, [rawAnalysis, selectedStoryIndex]);
 
+    const bookTerms = useMemo(
+        () => buildBookTerms(book, dictionaryData.terms, generatedTermsByBookId.get(book?.id)),
+        [book]
+    );
+
     return (
+        <>
         <div className="max-w-5xl mx-auto space-y-4 compact-mode">
             {/* Back Button */}
             <button
                 onClick={() => navigate('/cj')}
-                className="flex items-center text-terminal-accent hover:text-terminal-border transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-terminal-accent hover:text-terminal-border border border-terminal-accent/30 hover:border-terminal-border/60 transition-all rounded-sm"
             >
                 <FaArrowLeft />
+                <span className="text-xs">Zpět</span>
             </button>
 
             {/* Book Header */}
@@ -147,7 +248,7 @@ const BookDetailPage = () => {
                     <span className="text-xs text-terminal-text/40">{book.year}</span>
                 </div>
 
-                <h1 className="text-2xl font-bold text-terminal-accent">
+                <h1 className="text-xl md:text-2xl font-bold text-terminal-accent">
                     {book.title}
                 </h1>
 
@@ -213,10 +314,9 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">📌</span>
                                         <span>Analýza názvu díla</span>
-                                        <SectionCheck bookId={bookId} section="nazev" />
                                     </h3>
                                     <div className="text-xs text-terminal-text/85 pl-3 border-l-2 border-terminal-accent/30">
-                                        {analysis.titleAnalysis}
+                                        <TermAnnotatedText text={analysis.titleAnalysis} terms={bookTerms} />
                                     </div>
                                 </div>
                             )}
@@ -230,7 +330,6 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-xs">
                                         <FaBook className="text-sm" />
                                         <span>Děj</span>
-                                        <SectionCheck bookId={bookId} section="dej" />
                                     </h3>
                                     <span className="text-xs flex items-center gap-1 text-terminal-text/50">
                                         {isPlotExpanded ? <FaChevronUp /> : <FaChevronDown />}
@@ -239,7 +338,7 @@ const BookDetailPage = () => {
                                 </button>
                                 {isPlotExpanded && (
                                     <div className="whitespace-pre-line leading-relaxed pl-3 border-l-2 border-terminal-border/20 animate-fadeIn text-xs text-terminal-text/85">
-                                        {analysis.plot.split('\\n').join('\n')}
+                                        <TermAnnotatedText text={analysis.plot.split('\n').join('\n')} terms={bookTerms} />
                                     </div>
                                 )}
                                 {!isPlotExpanded && (
@@ -255,10 +354,9 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">💡</span>
                                         <span>Téma a motivy</span>
-                                        <SectionCheck bookId={bookId} section="tema" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1">
-                                        <p className="text-xs text-terminal-text/85">{analysis.themes.main}</p>
+                                        <p className="text-xs text-terminal-text/85"><TermAnnotatedText text={analysis.themes.main} terms={bookTerms} /></p>
                                         <div className="flex flex-wrap gap-1 mt-1">
                                             {analysis.themes.motifs?.map((motif, i) => (
                                                 <span key={i} className="compact-pill">
@@ -276,16 +374,15 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🌍</span>
                                         <span>Časoprostor</span>
-                                        <SectionCheck bookId={bookId} section="casoprostor" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
                                         <div className="text-xs">
                                             <span className="text-terminal-accent/70 font-medium">Místo:</span>
-                                            <span className="text-terminal-text/85 ml-1">{analysis.setting.place}</span>
+                                            <span className="text-terminal-text/85 ml-1"><TermAnnotatedText text={analysis.setting.place} terms={bookTerms} /></span>
                                         </div>
                                         <div className="text-xs">
                                             <span className="text-terminal-accent/70 font-medium">Čas:</span>
-                                            <span className="text-terminal-text/85 ml-1">{analysis.setting.time}</span>
+                                            <span className="text-terminal-text/85 ml-1"><TermAnnotatedText text={analysis.setting.time} terms={bookTerms} /></span>
                                         </div>
                                     </div>
                                 </div>
@@ -297,7 +394,6 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🏗️</span>
                                         <span>Kompozice</span>
-                                        <SectionCheck bookId={bookId} section="kompozice" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 flex flex-wrap gap-1.5">
                                         {analysis.composition.structure && (
@@ -339,7 +435,6 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🎭</span>
                                         <span>Vypravěč a způsob vyprávění</span>
-                                        <SectionCheck bookId={bookId} section="vypravec" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
                                         <p className="text-xs text-terminal-text/85"><strong className="text-terminal-accent/70">Typ:</strong> {analysis.narration.narrator}</p>
@@ -354,7 +449,6 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaUser className="text-sm" />
                                         <span>Postavy</span>
-                                        <SectionCheck bookId={bookId} section="postavy" />
                                     </h3>
                                     <div className="space-y-1.5">
                                         {analysis.characters.map((char, i) => (
@@ -367,7 +461,7 @@ const BookDetailPage = () => {
                                             >
                                                 <div className="flex items-center gap-1 mb-0.5">
                                                     <span className={`font-bold text-xs ${char.isMain ? 'text-terminal-accent' : 'text-terminal-text'}`}>
-                                                        {char.name}
+                                                        <TermAnnotatedText text={char.name} terms={bookTerms} />
                                                     </span>
                                                     {char.isMain && <span className="text-terminal-accent text-[10px]">★</span>}
                                                 </div>
@@ -376,12 +470,12 @@ const BookDetailPage = () => {
                                                         {Object.entries(char.traits).map(([key, value], j) => (
                                                             <div key={j} className="text-[11px] leading-tight">
                                                                 <span className="text-terminal-accent/60 font-medium">{key}:</span>
-                                                                <span className="text-terminal-text/70 ml-1">{value}</span>
+                                                                <span className="text-terminal-text/70 ml-1"><TermAnnotatedText text={String(value)} terms={bookTerms} /></span>
                                                             </div>
                                                         ))}
                                                     </div>
                                                 ) : (
-                                                    <p className="text-terminal-text/70 text-[11px]">{char.description}</p>
+                                                    <p className="text-terminal-text/70 text-[11px]"><TermAnnotatedText text={char.description} terms={bookTerms} /></p>
                                                 )}
                                             </div>
                                         ))}
@@ -398,11 +492,11 @@ const BookDetailPage = () => {
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-accent/50 space-y-2">
                                         <div className="bg-terminal-bg/50 p-2 border border-terminal-border/30 font-mono text-xs whitespace-pre-line leading-relaxed text-terminal-text/85">
-                                            {analysis.excerpt.text.split('\\n').join('\n')}
+                                            <TermAnnotatedText text={analysis.excerpt.text.split('\n').join('\n')} terms={bookTerms} />
                                         </div>
                                         <div>
                                             <span className="text-[10px] uppercase text-terminal-text/50">KONTEXT:</span>
-                                            <p className="text-terminal-text/80 mt-0.5 text-xs">{analysis.excerpt.context}</p>
+                                            <p className="text-terminal-text/80 mt-0.5 text-xs"><TermAnnotatedText text={analysis.excerpt.context} terms={bookTerms} /></p>
                                         </div>
                                     </div>
                                 </div>
@@ -422,7 +516,6 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaPen className="text-sm" />
                                         <span>Jazykové prostředky</span>
-                                        <SectionCheck bookId={bookId} section="jazyk" />
                                     </h3>
                                     <ul className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5 mt-1">
                                         {analysis.languageDevices.map((device, i) => (
@@ -467,23 +560,22 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaUser className="text-sm" />
                                         <span>Kontext autorovy tvorby</span>
-                                        <SectionCheck bookId={bookId} section="autor" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                                         {/* ŽIVOT a BIO*/}
                                         <div className="space-y-1">
                                             {/* Name or bio */}
                                             {analysis.authorContext.shortBio ? (
-                                                <p className="text-terminal-accent font-bold text-xs">{analysis.authorContext.shortBio.name}</p>
+                                                <p className="text-terminal-accent font-bold text-xs"><TermAnnotatedText text={analysis.authorContext.shortBio.name} terms={bookTerms} /></p>
                                             ) : (
-                                                <p className="text-terminal-text/90 text-xs">{analysis.authorContext.bio}</p>
+                                                <p className="text-terminal-text/90 text-xs"><TermAnnotatedText text={analysis.authorContext.bio} terms={bookTerms} /></p>
                                             )}
 
                                             {/* Short bio info */}
                                             {analysis.authorContext.shortBio?.info && (
                                                 <ul className="space-y-0">
                                                     {analysis.authorContext.shortBio.info.map((item, i) => (
-                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={item} terms={bookTerms} /></li>
                                                     ))}
                                                 </ul>
                                             )}
@@ -492,7 +584,7 @@ const BookDetailPage = () => {
                                             {analysis.authorContext.life && (
                                                 <ul className="space-y-0 mt-1">
                                                     {analysis.authorContext.life.map((item, i) => (
-                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {item}</li>
+                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={item} terms={bookTerms} /></li>
                                                     ))}
                                                 </ul>
                                             )}
@@ -505,8 +597,8 @@ const BookDetailPage = () => {
                                                 <div className="mt-0.5 space-y-1">
                                                     {analysis.authorContext.creationPeriods.map((period, i) => (
                                                         <div key={i} className="text-[11px] border-l border-terminal-accent/30 pl-2">
-                                                            <span className="text-terminal-accent font-bold">{period.name}</span>
-                                                            <p className="text-terminal-text/70 leading-snug">{period.description}</p>
+                                                            <span className="text-terminal-accent font-bold"><TermAnnotatedText text={period.name} terms={bookTerms} /></span>
+                                                            <p className="text-terminal-text/70 leading-snug"><TermAnnotatedText text={period.description} terms={bookTerms} /></p>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -517,7 +609,7 @@ const BookDetailPage = () => {
                                         {analysis.authorContext.workPosition && (
                                             <div className="bg-terminal-accent/10 p-2 border border-terminal-accent/20">
                                                 <span className="text-terminal-accent text-[10px]">ZAŘAZENÍ DÍLA:</span>
-                                                <p className="text-terminal-text/85 text-xs mt-0.5">{analysis.authorContext.workPosition}</p>
+                                                <p className="text-terminal-text/85 text-xs mt-0.5"><TermAnnotatedText text={analysis.authorContext.workPosition} terms={bookTerms} /></p>
                                             </div>
                                         )}
 
@@ -528,7 +620,7 @@ const BookDetailPage = () => {
                                                 <div className="mt-1 flex flex-wrap gap-1">
                                                     {analysis.authorContext.otherWorks.map((work, i) => (
                                                         <span key={i} className="compact-pill text-terminal-accent">
-                                                            {work.title}
+                                                            <TermAnnotatedText text={work.title} terms={bookTerms} />
                                                         </span>
                                                     ))}
                                                 </div>
@@ -544,13 +636,12 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaGlobe className="text-sm" />
                                         <span>Literární a kulturní kontext</span>
-                                        <SectionCheck bookId={bookId} section="kontext" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                                         <div>
-                                            <span className="text-terminal-accent text-sm font-bold">{analysis.literaryContext.movement}</span>
+                                            <span className="text-terminal-accent text-sm font-bold"><TermAnnotatedText text={analysis.literaryContext.movement} terms={bookTerms} /></span>
                                             <span className="text-terminal-text/50 text-[11px]"> {analysis.literaryContext.period && `(${analysis.literaryContext.period})`}</span>
-                                            {analysis.literaryContext.description && <p className="text-terminal-text/75 text-[11px] leading-snug">{analysis.literaryContext.description}</p>}
+                                            {analysis.literaryContext.description && <p className="text-terminal-text/75 text-[11px] leading-snug"><TermAnnotatedText text={analysis.literaryContext.description} terms={bookTerms} /></p>}
                                         </div>
 
                                         {analysis.literaryContext.characteristics && (
@@ -558,7 +649,7 @@ const BookDetailPage = () => {
                                                 <span className="text-terminal-text/50 text-[10px]">CHARAKTERISTIKA:</span>
                                                 <ul className="mt-0.5 space-y-0">
                                                     {analysis.literaryContext.characteristics.map((char, i) => (
-                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• {char}</li>
+                                                        <li key={i} className="text-terminal-text/80 text-[11px] leading-snug">• <TermAnnotatedText text={char} terms={bookTerms} /></li>
                                                     ))}
                                                 </ul>
                                             </div>
@@ -571,15 +662,15 @@ const BookDetailPage = () => {
                                                     {analysis.literaryContext.otherAuthors.map((author, i) => (
                                                         <div key={i} className="text-[11px] border-l border-terminal-text/10 pl-2">
                                                             <div>
-                                                                <span className="text-terminal-accent font-bold">{author.name}</span>
+                                                                <span className="text-terminal-accent font-bold"><TermAnnotatedText text={author.name} terms={bookTerms} /></span>
                                                                 <span className="text-terminal-text/50"> {author.years && `(${author.years})`}</span>
                                                             </div>
-                                                            {author.note && <p className="text-terminal-text/60 text-[10px]">{author.note}</p>}
+                                                            {author.note && <p className="text-terminal-text/60 text-[10px]"><TermAnnotatedText text={author.note} terms={bookTerms} /></p>}
                                                             {author.works && (
                                                                 <div className="flex flex-wrap gap-1 mt-0.5">
                                                                     {author.works.map((work, j) => (
                                                                         <span key={j} className="text-[10px] px-1 border border-terminal-border/20 text-terminal-text/70">
-                                                                            {work}
+                                                                            <TermAnnotatedText text={work} terms={bookTerms} />
                                                                         </span>
                                                                     ))}
                                                                 </div>
@@ -759,7 +850,18 @@ const BookDetailPage = () => {
                     <div></div>
                 )}
             </div>
-        </div >
+        </div>
+
+        {/* Section knowledge panel — slides from right */}
+        {analysis && (
+            <SectionKnowledgePanel
+                bookId={bookId}
+                analysis={analysis}
+                isOpen={isPanelOpen}
+                onToggle={() => setIsPanelOpen(v => !v)}
+            />
+        )}
+        </>
     );
 };
 

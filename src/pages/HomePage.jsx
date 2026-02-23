@@ -28,7 +28,7 @@ const HomePage = () => {
         <h2 className="text-sm text-terminal-text/60 mb-3 tracking-wider">
           STUDIJNÍ NÁSTROJE
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {studyTools.map(tool => (
             <Link
               key={tool.path}

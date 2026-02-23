@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import Header from './Header';
+import BottomNav from './BottomNav';
 import ExperimentalMenu from '../experimental/ExperimentalMenu';
 import MiniPlayer from '../podcast/MiniPlayer';
 import FrutigerSidebar from '../experimental/FrutigerSidebar';
+import MiniTamagotchi from '../common/MiniTamagotchi';
 import { useExperimental } from '../../context/ExperimentalContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -42,6 +44,7 @@ const Layout = ({ children }) => {
 
                 <ExperimentalMenu />
                 <MiniPlayer />
+                <MiniTamagotchi />
             </>
         );
     }
@@ -49,16 +52,18 @@ const Layout = ({ children }) => {
     return (
         <div className="min-h-screen bg-terminal-bg">
             <Header />
-            <main className="container mx-auto px-4 py-6 pb-20">
+            <main className="container mx-auto px-3 md:px-4 py-4 md:py-6 pb-24 md:pb-8">
                 {children}
             </main>
-            <footer className="border-t border-terminal-border/20 mt-12">
+            <footer className="hidden md:block border-t border-terminal-border/20 mt-12">
                 <div className="container mx-auto px-4 py-4 text-center text-terminal-text/40 text-xs">
                     <p>MATURITA.APP © 2026</p>
                 </div>
             </footer>
+            <BottomNav />
             <ExperimentalMenu />
             <MiniPlayer />
+            <MiniTamagotchi />
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { FaBookOpen, FaSearch } from 'react-icons/fa';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { FaArrowLeft, FaBookOpen, FaSearch } from 'react-icons/fa';
 import dictionaryData from '../data/dictionary.json';
 
 const sections = [
@@ -9,7 +10,12 @@ const sections = [
 ];
 
 const DictionaryPage = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchParams] = useSearchParams();
+    const location = useLocation();
+    const initialTerm = searchParams.get('term') || '';
+    const [searchTerm, setSearchTerm] = useState(initialTerm);
+    const fromPath = location.state?.from || null;
+    const fromLabel = location.state?.fromLabel || 'zpět';
 
     const filteredBySection = useMemo(() => {
         const result = {};
@@ -29,6 +35,16 @@ const DictionaryPage = () => {
 
     return (
         <div className="max-w-7xl mx-auto space-y-4">
+            {fromPath && (
+                <div>
+                    <Link
+                        to={fromPath}
+                        className="inline-flex items-center gap-2 text-xs text-terminal-accent hover:underline"
+                    >
+                        <FaArrowLeft /> {fromLabel}
+                    </Link>
+                </div>
+            )}
             {/* Header */}
             <div className="border-b border-terminal-border/20 pb-3">
                 <h1 className="text-xl text-terminal-accent tracking-wider flex items-center gap-2">

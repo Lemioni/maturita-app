@@ -1,0 +1,3055 @@
+{
+  "generatedAt": "2026-02-23T19:20:52.709Z",
+  "books": [
+    {
+      "id": 1,
+      "title": "Lakomec",
+      "author": "Molière",
+      "terms": [
+        {
+          "term": "Jean de La Fontaine",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Pierre Corneille",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Zdravý nemocný",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "klasicismus",
+          "termId": "klasicismus",
+          "priority": "author"
+        },
+        {
+          "term": "Jean Racine",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Misantrop",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Tartuffe",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Don Juan",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Molière",
+          "termId": "moliere",
+          "priority": "author"
+        },
+        {
+          "term": "Slovní hříčky a dvojsmysly",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "francouzská literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "touha po penězích",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "konflikt generací",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "pokrytectví",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "lakomství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Harpagon",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kleantes",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Tragédie",
+          "termId": "tragedie",
+          "priority": "work"
+        },
+        {
+          "term": "Lakomec",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Komedie",
+          "termId": "komedie",
+          "priority": "work"
+        },
+        {
+          "term": "divadlo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Anselmo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Mariana",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "satira",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Eliška",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Drama",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Valér",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Romeo a Julie",
+      "author": "William Shakespeare",
+      "terms": [
+        {
+          "term": "William Shakespeare (1564–1616)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Renesance a humanismus",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Sen noci svatojánské",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "William Shakespeare",
+          "termId": "shakespeare",
+          "priority": "author"
+        },
+        {
+          "term": "Miguel de Cervantes",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Giovanni Boccaccio",
+          "termId": "boccaccio",
+          "priority": "author"
+        },
+        {
+          "term": "Dante Alighieri",
+          "termId": "alighieri",
+          "priority": "author"
+        },
+        {
+          "term": "Francois Villon",
+          "termId": "villon",
+          "priority": "author"
+        },
+        {
+          "term": "Humanismus",
+          "termId": "humanismus",
+          "priority": "author"
+        },
+        {
+          "term": "renesance",
+          "termId": "renesance",
+          "priority": "author"
+        },
+        {
+          "term": "Král Lear",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Othello",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Macbeth",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Hamlet",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Bouře",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "láska na první pohled",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "anglická literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Julie Kapuletová",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "světlo a hvězdy",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Romeo a Julie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "nenávist rodů",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Otec Vavřinec",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kníže Eskalus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Romeo Montek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "tajemství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "noc a tma",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Tragédie",
+          "termId": "tragedie",
+          "priority": "work"
+        },
+        {
+          "term": "Merkucio",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Benvolio",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "divadlo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Romance",
+          "termId": "romance",
+          "priority": "work"
+        },
+        {
+          "term": "Komedie",
+          "termId": "komedie",
+          "priority": "work"
+        },
+        {
+          "term": "Tybalt",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pověst",
+          "termId": "povest",
+          "priority": "work"
+        },
+        {
+          "term": "Drama",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "láska",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Paris",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Chůva",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Sonet",
+          "termId": "sonet",
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Král Lávra",
+      "author": "Karel Havlíček Borovský",
+      "terms": [
+        {
+          "term": "Karel Havlíček Borovský (1821–1856)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Národní obrození, počátky realismu",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Havlíček Borovský",
+          "termId": "borovsky",
+          "priority": "author"
+        },
+        {
+          "term": "Křest svatého Vladimíra",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Jaromír Erben",
+          "termId": "erben",
+          "priority": "author"
+        },
+        {
+          "term": "Josef Kajetán Tyl",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Tyrolské elegie",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Božena Němcová",
+          "termId": "nemcova",
+          "priority": "author"
+        },
+        {
+          "term": "Obrazy z Rus",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Realismus",
+          "termId": "realismus",
+          "priority": "author"
+        },
+        {
+          "term": "Epigramy",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Knižní výrazy – 'povolán ku králi'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Archaismy – 'baldachýn', 'smlčíš'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Familiární oslovení – 'synu'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Muzikant Červíček",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kukulínova matka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Satirická báseň",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Přímá řeč krále",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "moc a tyranie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Lidová mluva",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Král Lávra",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Poustevník",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "tajemství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "alegorie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "politika",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "oslí uši",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "šibenice",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kukulín",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Epigram",
+          "termId": "epigram",
+          "priority": "work"
+        },
+        {
+          "term": "Poezie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "satira",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pověst",
+          "termId": "povest",
+          "priority": "work"
+        },
+        {
+          "term": "holič",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Píseň",
+          "termId": "pisen",
+          "priority": "work"
+        },
+        {
+          "term": "vrba",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "basa",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Povídky a básně",
+      "author": "Edgar Allan Poe",
+      "terms": [
+        {
+          "term": "Edgar Allan Poe (1809–1849)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Romantismus / Symbolismus",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Vraždy v ulici Morgue",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Charles Baudelaire",
+          "termId": "baudelaire",
+          "priority": "author"
+        },
+        {
+          "term": "Zánik domu Usherů",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Edgar Allan Poe",
+          "termId": "poe",
+          "priority": "author"
+        },
+        {
+          "term": "romantismus",
+          "termId": "romantismus",
+          "priority": "author"
+        },
+        {
+          "term": "symbolismus",
+          "termId": "symbolismus",
+          "priority": "author"
+        },
+        {
+          "term": "Oscar Wilde",
+          "termId": "wilde",
+          "priority": "author"
+        },
+        {
+          "term": "Zlatý brouk",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "americká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídka / Poezie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídky a básně",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza / Poezie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídka",
+          "termId": "povidka",
+          "priority": "work"
+        },
+        {
+          "term": "horor",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Tyrolské elegie",
+      "author": "Karel Havlíček Borovský",
+      "terms": [
+        {
+          "term": "Karel Havlíček Borovský (1821–1856)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Národní obrození, počátky realismu",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Havlíček Borovský",
+          "termId": "borovsky",
+          "priority": "author"
+        },
+        {
+          "term": "Křest svatého Vladimíra",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Jaromír Erben",
+          "termId": "erben",
+          "priority": "author"
+        },
+        {
+          "term": "Josef Kajetán Tyl",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Božena Němcová",
+          "termId": "nemcova",
+          "priority": "author"
+        },
+        {
+          "term": "Obrazy z Rus",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Král Lávra",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Realismus",
+          "termId": "realismus",
+          "priority": "author"
+        },
+        {
+          "term": "Epigramy",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Nespisovná slova – 'policajti', 'škarpa', 'čerstvěj'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Archaismy – 'pravím', 'svěřiti', 'resignace'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Slova cizího původu – 'ekypáž' (kočár)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Přechodník minulý – 'vyrazivše'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Vulgarismus – 'v hubě'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "cesta do vyhnanství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Postmistr Dahrupp",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Tyrolské elegie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Satirická báseň",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "splašení koně",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "policajti",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "alegorie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "politika",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "svoboda",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Epigram",
+          "termId": "epigram",
+          "priority": "work"
+        },
+        {
+          "term": "Poezie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "satira",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Brixen",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "rodina",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Dedera",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pověst",
+          "termId": "povest",
+          "priority": "work"
+        },
+        {
+          "term": "vláda",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Alpy",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Stařec a moře",
+      "author": "Ernest Hemingway",
+      "terms": [
+        {
+          "term": "Ernest Hemingway (1899–1961)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Erich Maria Remarque",
+          "termId": "remarque",
+          "priority": "author"
+        },
+        {
+          "term": "Ernest Hemingway",
+          "termId": "hemingway",
+          "priority": "author"
+        },
+        {
+          "term": "William Faulkner",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Komu zvoní hrana",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Romain Rolland",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "John Steinbeck",
+          "termId": "steinbeck",
+          "priority": "author"
+        },
+        {
+          "term": "Sbohem, armádo",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Pátá kolona",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Odborný výraz – 'harpuna', 'plachta', 'stěžeň'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Onomatopie – 'cvaknutí', 'zadrnčel'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "americká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "ztracená generace",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Stařec Santiago",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Chlapec Manolin",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Stařec a moře",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "symbolismus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "vytrvalost",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "rybaření",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídka",
+          "termId": "povidka",
+          "priority": "work"
+        },
+        {
+          "term": "Novela",
+          "termId": "novela",
+          "priority": "work"
+        },
+        {
+          "term": "žralok",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "stařec",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "hrdost",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "moře",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "maso",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "krev",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "ryba",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Malý princ",
+      "author": "Antoine de Saint-Exupéry",
+      "terms": [
+        {
+          "term": "Antoine de Saint-Exupéry (1900–1944)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Francouzská próza mezi válkami",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Antoine de Saint-Exupéry",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Romain Rolland",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Anatole France",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Henri Barbusse",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Kurýr na jih",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Humanismus",
+          "termId": "humanismus",
+          "priority": "author"
+        },
+        {
+          "term": "Noční let",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Země lidí",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Zdrobnělina – 'beránka', 'človíčku'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pohádka / Filosofická próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "francouzská literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Letec (vypravěč)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Malý princ",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "přátelství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "filozofie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "pohádka",
+          "termId": "pohadka",
+          "priority": "work"
+        },
+        {
+          "term": "planeta",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "beránek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "letadlo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "létání",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "snění",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "liška",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "děti",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "růže",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "had",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Petr a Lucie",
+      "author": "Romain Rolland",
+      "terms": [
+        {
+          "term": "První světová válka ve světové literatuře",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Romain Rolland (1866–1944)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Dobrý člověk ještě žije",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Erich Maria Remarque",
+          "termId": "remarque",
+          "priority": "author"
+        },
+        {
+          "term": "Ernest Hemingway",
+          "termId": "hemingway",
+          "priority": "author"
+        },
+        {
+          "term": "Romain Rolland",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Henri Barbusse",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Okouzlená duše",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Arnold Zweig",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jan Kryštof",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Přechodník – 'maje', 'trnouc', 'nemajíc'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Zdrobnělina – 'tvářičce', 'klubíčko'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "protiválečná literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "francouzská literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "první světová válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Petr a Lucie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "bombardování",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "rusovláska",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Novela",
+          "termId": "novela",
+          "priority": "work"
+        },
+        {
+          "term": "pohled",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "láska",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "pilíř",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "srdce",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Lucie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Filip",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Petr",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Na západní frontě klid",
+      "author": "Erich Maria Remarque",
+      "terms": [
+        {
+          "term": "Ztracená generace, protiválečná literatura",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Erich Maria Remarque (1898–1970)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Erich Maria Remarque",
+          "termId": "remarque",
+          "priority": "author"
+        },
+        {
+          "term": "Čas žít, čas umírat",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Ernest Hemingway",
+          "termId": "hemingway",
+          "priority": "author"
+        },
+        {
+          "term": "Romain Rolland",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Henri Barbusse",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Vítězný oblouk",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Arnold Zweig",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Cesta zpátky",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Tři kamarádi",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Vojenský slang  lazaret, sál, svrchnice",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Nespisovné slovo  baráku, saniťák",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "protiválečná literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Vulgarismus  držel hubu",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Na západní frontě klid",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Zdrobnělina  Frantíku",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Stanislav Katczinský",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "první světová válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "František Kemmerich",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "německá literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "ztracená generace",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pavel Bäumer",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Albert Kropp",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Himmelstoss",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "přátelství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kantorek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "hodinky",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "karbol",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "zákopy",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Müller",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "úsměv",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "noha",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Velký Gatsby",
+      "author": "Francis Scott Fitzgerald",
+      "terms": [
+        {
+          "term": "Francis Scott Fitzgerald (1896–1940)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Francis Scott Fitzgerald",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Erich Maria Remarque",
+          "termId": "remarque",
+          "priority": "author"
+        },
+        {
+          "term": "Krásní a prokletí",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Ernest Hemingway",
+          "termId": "hemingway",
+          "priority": "author"
+        },
+        {
+          "term": "William Faulkner",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Poslední magnát",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "John Steinbeck",
+          "termId": "steinbeck",
+          "priority": "author"
+        },
+        {
+          "term": "Na prahu ráje",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Něžná je noc",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Zdrobnělina  figurku",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "americká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "ztracená generace",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Přezdívka  Gatsby",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Daisy Buchananová",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Myrtle Wilsonová",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Jordan Bakerová",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Západní vejce",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Nick Carraway",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Velký Gatsby",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Tom Buchanan",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "jazzový věk",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sousedství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Jay Gatsby",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "bohatství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "večírky",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "svíčky",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "láska",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Farma zvířat",
+      "author": "George Orwell",
+      "terms": [
+        {
+          "term": "Antiutopie, meziválečná anglická próza",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "George Orwell (1903–1950)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Na dně v Paříži a Londýně",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Edgar Rice Burroughs",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jevgenij Zamjatin",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "George Orwell",
+          "termId": "orwell",
+          "priority": "author"
+        },
+        {
+          "term": "Barmské dny",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "1984",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Hypokoristika (domácí jména)  Bára, Janina",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Nomen omen  hřebec Boxer",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Zdrobnělina  zvířátkům",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "anglická literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Alegorický román",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "totalitarismus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Spisovný jazyk",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Farma zvířat",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "antiutopie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "alegorie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "revoluce",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "pravidla",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Napoleon",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Benjamin",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "stodola",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "satira",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pištík",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "kanec",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "farma",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sláma",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kuliš",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Major",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Boxer",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Píseň",
+          "termId": "pisen",
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "sen",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "moc",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Vražda v Orient Expresu",
+      "author": "Agatha Christie",
+      "terms": [
+        {
+          "term": "Agatha Christie (1890–1976)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Robert Louis Stevenson",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Záhada na zámku Styles",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Deset malých černoušků",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Detektivní literatura",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Vraždy podle abecedy",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Arthur Conan Doyle",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Agatha Christie",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Edgar Allan Poe",
+          "termId": "poe",
+          "priority": "author"
+        },
+        {
+          "term": "Svědek obžaloby",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Smrt na Nilu",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Past na myši",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Oscar Wilde",
+          "termId": "wilde",
+          "priority": "author"
+        },
+        {
+          "term": "Archaická větná vazba – 'užívá čističe'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Francouzské slovo – 'monsieur'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Slovo zdrobnělé – 'kapesníček'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Vražda v Orient Expresu",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "anglická literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Ratchett (Cassetti)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Lékař Constantine",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Detektivní román",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "čistič na lulku",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Hercule Poirot",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "12 cestujících",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Monsieur Bouc",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "detektivka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "kapesníček",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "kimono",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Němá barikáda",
+      "author": "Jan Drda",
+      "terms": [
+        {
+          "term": "Jan Drda (1915–1970)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Hrátky s čertem",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "České pohádky",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jiří Weil",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jan Drda",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Zdrobněliny – 's lopatkou a kbelíčkem'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Hypokoristikon – 'Helenka'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Citoslovce – 'ratatata'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Zákeřník (Walter)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Němá barikáda",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pan Martínek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "povstání",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídka",
+          "termId": "povidka",
+          "priority": "work"
+        },
+        {
+          "term": "Helenka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "hrůza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pásmo",
+          "termId": "pasmo",
+          "priority": "work"
+        },
+        {
+          "term": "děti",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "krev",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "O myších a lidech",
+      "author": "John Steinbeck",
+      "terms": [
+        {
+          "term": "Americký realismus, Lost generation",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "John Steinbeck (1902–1968)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Na východ od ráje",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Ernest Hemingway",
+          "termId": "hemingway",
+          "priority": "author"
+        },
+        {
+          "term": "John Steinbeck",
+          "termId": "steinbeck",
+          "priority": "author"
+        },
+        {
+          "term": "Hrozny hněvu",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Realismus",
+          "termId": "realismus",
+          "priority": "author"
+        },
+        {
+          "term": "Slang a hovorový jazyk farmářů",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "americká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "O myších a lidech",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Citoslovce – 'jé'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sociální román",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Curleyova žena",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "George Milton",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Lennie Small",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "přátelství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "králíci",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Kronika",
+          "termId": "kronika",
+          "priority": "work"
+        },
+        {
+          "term": "Novela",
+          "termId": "novela",
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "vlasy",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "zbraň",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "ruce",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sen",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Smrt krásných srnců",
+      "author": "Ota Pavel",
+      "terms": [
+        {
+          "term": "Česká literatura po roce 1945",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Ota Pavel (1930–1973)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Dukla mezi mrakodrapy",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jak jsem potkal ryby",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Bohumil Hrabal",
+          "termId": "hrabal",
+          "priority": "author"
+        },
+        {
+          "term": "Arnošt Lustig",
+          "termId": "lustig",
+          "priority": "author"
+        },
+        {
+          "term": "Ota Pavel",
+          "termId": "pavel",
+          "priority": "author"
+        },
+        {
+          "term": "Zdrobnělina – 'tatínek', 'maminka'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Expresivní slovo – 'chlap'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Hovorové slovo – 'cesťák'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Tatínek (Leo Popper)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Smrt krásných srnců",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Maminka (Hermína)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Ota (vypravěč)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "autobiografie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Povídka",
+          "termId": "povidka",
+          "priority": "work"
+        },
+        {
+          "term": "příroda",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "tatínek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "rodina",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "odvaha",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "smutek",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "ryby",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Ostře sledované vlaky",
+      "author": "Bohumil Hrabal",
+      "terms": [
+        {
+          "term": "Obsluhoval jsem anglického krále",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Bohumil Hrabal (1914–1997)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Příliš hlučná samota",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Perlička na dně",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Bohumil Hrabal",
+          "termId": "hrabal",
+          "priority": "author"
+        },
+        {
+          "term": "Milan Kundera",
+          "termId": "kundera",
+          "priority": "author"
+        },
+        {
+          "term": "Ota Pavel",
+          "termId": "pavel",
+          "priority": "author"
+        },
+        {
+          "term": "Profesní mluva – 'výpravčí', 'perón', 'vagón'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Hovorová mluva – 'jinačího'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Dlouhá přetížená souvětí",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Ostře sledované vlaky",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Ladislav Hubička",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Viktoria Freie",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "postmoderna",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Miloš Hrma",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "hrdinství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "panictví",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "razítka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Novela",
+          "termId": "novela",
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "film",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "vlak",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "smrt",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Bylo nás pět",
+      "author": "Karel Poláček",
+      "terms": [
+        {
+          "term": "Humanistická demokratická literatura",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Poláček (1892–1945)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Edudant a Francimor",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Muži v ofsajdu",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Poláček",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Eduard Bass",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Čapek",
+          "termId": "capek",
+          "priority": "author"
+        },
+        {
+          "term": "Nespisovný výraz – 'jináč', 'brejle'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Nářečí – 'prauda', 'porád'",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Zilvar z chudobince",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "klukovská parta",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Eduard Kemlink",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Antonín Bejval",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Bylo nás pět",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Čeněk Jirsák",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Petr Bajza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "maloměsto",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Pan Fajst",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "dětství",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "cirkus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "obchod",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "humor",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "nemoc",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Bílá Nemoc",
+      "author": "Karel Čapek",
+      "terms": [
+        {
+          "term": "Karel Čapek (1890–1938)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Expresionismus",
+          "termId": "expresionismus",
+          "priority": "author"
+        },
+        {
+          "term": "Karel Poláček",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Válka s mloky",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Čapek",
+          "termId": "capek",
+          "priority": "author"
+        },
+        {
+          "term": "Josef Čapek",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Krakatit",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Matka",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Dvorní rada Sigelius",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "antifašismus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Bílá Nemoc",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "humanismus",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Baron Krüg",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "diktátor",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "divadlo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Maršál",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Drama",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "nemoc",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "válka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "lék",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "dav",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "R.U.R.",
+      "author": "Karel Čapek",
+      "terms": [
+        {
+          "term": "Karel Čapek (1890–1938)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Expresionismus",
+          "termId": "expresionismus",
+          "priority": "author"
+        },
+        {
+          "term": "Karel Poláček",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Válka s mloky",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Karel Čapek",
+          "termId": "capek",
+          "priority": "author"
+        },
+        {
+          "term": "Josef Čapek",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Bílá nemoc",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Krakatit",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Neologismus – 'Robot' (vytvořil Josef Čapek)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Stavitel Alquist",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Řečnická otázka",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Helena Gloryová",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Primus a Helena",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Harry Domin",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "divadlo",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "vzpoura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sci-fi",
+          "termId": "sci-fi",
+          "priority": "work"
+        },
+        {
+          "term": "Drama",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "robot",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "práce",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "láska",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        },
+        {
+          "term": "duše",
+          "termId": null,
+          "priority": "work"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Saturnin",
+      "author": "Zdeněk Jirotka",
+      "terms": [
+        {
+          "term": "Profesor biologie na žebříku",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Zdeněk Jirotka (1911–2003)",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Humoristická literatura",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Vladislav Vančura",
+          "termId": "vancura",
+          "priority": "author"
+        },
+        {
+          "term": "Zdeněk Jirotka",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Jaroslav Žák",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Muž se psem",
+          "termId": null,
+          "priority": "author"
+        },
+        {
+          "term": "Přísloví (nadměrné užívání tetou)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Anglický suchý humor",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Humoristický román",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "česká literatura",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Vypravěč (Jiří)",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Teta Kateřina",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Saturnin",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "přísloví",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "koblihy",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "hausbót",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Dědeček",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Milouš",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Próza",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "humor",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "sluha",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "červy",
+          "termId": null,
+          "priority": "work"
+        },
+        {
+          "term": "Román",
+          "termId": "roman",
+          "priority": "work"
+        }
+      ]
+    }
+  ]
+}

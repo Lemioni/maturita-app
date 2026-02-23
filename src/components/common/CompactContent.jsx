@@ -16,13 +16,19 @@ const CompactContent = ({ content, keywords = [] }) => {
     const highlightKeywords = (text) => {
         if (!keywords.length || !text) return text;
 
-        const regex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'gi');
+        const escapedKeywords = keywords
+            .filter(Boolean)
+            .map((keyword) => keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+
+        if (!escapedKeywords.length) return text;
+
+        const regex = new RegExp(`\\b(${escapedKeywords.join('|')})\\b`, 'gi');
         const parts = text.split(regex);
 
         return parts.map((part, i) => {
             if (keywords.some(k => k.toLowerCase() === part.toLowerCase())) {
                 return (
-                    <span key={i} className="text-terminal-accent font-semibold">
+                    <span key={i} className="text-terminal-accent font-semibold bg-terminal-accent/15 px-0.5 rounded-sm">
                         {part}
                     </span>
                 );
@@ -31,12 +37,52 @@ const CompactContent = ({ content, keywords = [] }) => {
         });
     };
 
+    const renderSmartInline = (text) => {
+        if (typeof text !== 'string') return text;
+
+        const headingLike = text.match(/^([A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ0-9\s\/().,+-]{3,80}):$/);
+        if (headingLike) {
+            return <strong className="text-terminal-accent/90">{headingLike[1]}</strong>;
+        }
+
+        const termDefinition = text.match(/^([^:]{2,80})\s[–-]\s(.+)$/);
+        if (termDefinition) {
+            return (
+                <>
+                    <strong className="text-terminal-accent">{termDefinition[1].trim()}</strong>
+                    <span className="text-terminal-text/75"> – {highlightKeywords(termDefinition[2].trim())}</span>
+                </>
+            );
+        }
+
+        return highlightKeywords(text);
+    };
+
+    const isMarkerItem = (value) => {
+        if (typeof value !== 'string') return false;
+        const trimmed = value.trim();
+        if (!trimmed) return false;
+
+        const withYearOrParens = /^[A-Z0-9ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][A-Z0-9ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s./+-]{1,50}\s*\([^)]{2,24}\)$/.test(trimmed);
+        const shortUpperMarker = /^[A-Z0-9][A-Z0-9./+-]{1,12}$/.test(trimmed);
+
+        return withYearOrParens || shortUpperMarker;
+    };
+
     // Render compact list item
     const renderCompactItem = (item, index) => {
         if (typeof item === 'string') {
+            if (isMarkerItem(item)) {
+                return (
+                    <li key={index} className="list-none mt-2 mb-1 -ml-1 pl-1.5 border-l-2 border-terminal-accent/40 text-terminal-accent font-semibold tracking-wide text-xs">
+                        {highlightKeywords(item)}
+                    </li>
+                );
+            }
+
             return (
                 <li key={index} className="text-xs leading-tight">
-                    {highlightKeywords(item)}
+                    {renderSmartInline(item)}
                 </li>
             );
         }
@@ -67,7 +113,7 @@ const CompactContent = ({ content, keywords = [] }) => {
 
                 {section.text && (
                     <p className="text-xs text-terminal-text/80 mb-1 leading-tight">
-                        {highlightKeywords(section.text)}
+                        {renderSmartInline(section.text)}
                     </p>
                 )}
 
@@ -80,7 +126,7 @@ const CompactContent = ({ content, keywords = [] }) => {
                 {section.numberedItems && section.numberedItems.length > 0 && (
                     <ol className="list-decimal list-inside space-y-0 text-terminal-text/80 ml-1">
                         {section.numberedItems.map((item, i) => (
-                            <li key={i} className="text-xs leading-tight">{item}</li>
+                            <li key={i} className="text-xs leading-tight">{renderSmartInline(item)}</li>
                         ))}
                     </ol>
                 )}
@@ -92,10 +138,22 @@ const CompactContent = ({ content, keywords = [] }) => {
                                 {sub.title}:
                             </span>
                         )}
+                        {sub.text && (
+                            <p className="text-xs text-terminal-text/70 mb-1 leading-tight">
+                                {renderSmartInline(sub.text)}
+                            </p>
+                        )}
                         {sub.items && sub.items.length > 0 && (
                             <ul className="list-disc list-inside space-y-0 text-terminal-text/70 ml-1">
                                 {sub.items.map(renderCompactItem)}
                             </ul>
+                        )}
+                        {sub.numberedItems && sub.numberedItems.length > 0 && (
+                            <ol className="list-decimal list-inside space-y-0 text-terminal-text/70 ml-1">
+                                {sub.numberedItems.map((item, i) => (
+                                    <li key={i} className="text-xs leading-tight">{renderSmartInline(item)}</li>
+                                ))}
+                            </ol>
                         )}
                     </div>
                 ))}

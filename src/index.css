@@ -6,7 +6,19 @@
     body {
         @apply font-mono bg-terminal-bg text-terminal-text transition-colors;
         overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
     }
+
+    /* Better touch targets */
+    button, a {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Safe area for bottom navigation (iPhone notch etc.) */
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Hide scrollbar for navigation */
@@ -29,7 +41,7 @@
     }
 
     .icon-btn {
-        @apply p-2 border border-terminal-text/20 hover:border-terminal-border/60 rounded-sm transition-all duration-200 hover:shadow-glow-green;
+        @apply p-2 border border-terminal-text/20 hover:border-terminal-border/60 rounded-sm transition-all duration-200 hover:shadow-glow-green min-w-[36px] min-h-[36px] flex items-center justify-center;
     }
 
     .icon-btn.active {
