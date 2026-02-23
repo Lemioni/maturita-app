@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaRocket, FaScroll, FaBookOpen } from 'react-icons/fa';
+import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaRocket, FaScroll, FaBookOpen, FaBolt, FaTrophy, FaBrain, FaGamepad } from 'react-icons/fa';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import useStreak from '../../hooks/useStreak';
 
 const Header = () => {
   const location = useLocation();
@@ -9,6 +10,7 @@ const Header = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [daysLeft, setDaysLeft] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const { currentStreak, longestStreak } = useStreak();
 
   useEffect(() => {
     const calculateDays = () => {
@@ -39,6 +41,7 @@ const Header = () => {
     { path: '/cj', icon: FaBook, label: 'CJ' },
     { path: '/autoscroll', icon: FaScroll, label: 'ASCR' },
     { path: '/dictionary', icon: FaBookOpen, label: 'SLVN' },
+    { path: '/drill', icon: FaBolt, label: 'DRILL' },
     { path: '/dopamine', icon: FaRocket, label: 'DOPA' },
     { path: '/search', icon: FaSearch, label: 'SRCH' },
   ];
@@ -47,6 +50,13 @@ const Header = () => {
     <header className="bg-terminal-bg border-b border-terminal-border/20 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 gap-3 relative">
+          {/* Streak Counter - Left */}
+          {currentStreak > 0 && (
+            <div className="flex items-center gap-1 px-2 py-1 bg-orange-500/10 border border-orange-500/20 rounded" title={`Nejdelší série: ${longestStreak} dní`}>
+              <FaFire className="text-orange-500 text-sm" />
+              <span className="text-sm font-bold text-orange-400 tabular-nums">{currentStreak}</span>
+            </div>
+          )}
           {/* Countdown - Left on mobile, Center on desktop */}
           <div
             className="cursor-pointer group md:absolute md:left-1/2 md:-translate-x-1/2"
@@ -87,16 +97,16 @@ const Header = () => {
             )}
           </div>
 
-          {/* Mobile Navigation - Right */}
-          <nav className="md:hidden flex space-x-2 ml-auto">
+          {/* Mobile Navigation - Right, scrollable */}
+          <nav className="md:hidden flex items-center gap-1 ml-auto overflow-x-auto max-w-[60vw] scrollbar-hide">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`icon-btn ${isActive(item.path) ? 'active' : ''}`}
+                className={`icon-btn flex-shrink-0 ${isActive(item.path) ? 'active' : ''}`}
                 title={item.label}
               >
-                <item.icon className="text-sm" />
+                <item.icon className="text-xs" />
               </Link>
             ))}
           </nav>

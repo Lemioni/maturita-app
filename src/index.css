@@ -5,7 +5,18 @@
 @layer base {
     body {
         @apply font-mono bg-terminal-bg text-terminal-text transition-colors;
+        overflow-x: hidden;
     }
+}
+
+/* Hide scrollbar for navigation */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 @layer components {

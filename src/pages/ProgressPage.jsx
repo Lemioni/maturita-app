@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
-import { FaCheck, FaTimes, FaClock } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaClock, FaFire, FaTrophy, FaCalendarCheck, FaLightbulb } from 'react-icons/fa';
 import itQuestionsData from '../data/it-questions.json';
+import cjBooks from '../data/cj-books.json';
 import { useExperimental } from '../context/ExperimentalContext';
+import useStreak from '../hooks/useStreak';
+
+const SECTION_KEYS = ['nazev', 'dej', 'tema', 'casoprostor', 'kompozice', 'vypravec', 'postavy', 'jazyk', 'autor', 'kontext'];
+const SECTION_LABELS = ['Název', 'Děj', 'Téma', 'Čas', 'Komp', 'Vypr', 'Post', 'Jaz', 'Autor', 'Kont'];
 
 const ProgressPage = () => {
   const { frutigerAero } = useExperimental();
+  const { currentStreak, longestStreak, totalDaysActive } = useStreak();
   const [stats, setStats] = useState({
     itTotal: 47,
     itKnown: 0,
@@ -77,6 +83,37 @@ const ProgressPage = () => {
         <div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">Tvůj pokrok</h1>
           <p className="text-gray-600 dark:text-gray-400">Sleduj, jak se zlepšuješ</p>
+        </div>
+      </div>
+
+      {/* Streak Stats */}
+      <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className={frutigerAero ? 'terminal-card' : 'bg-white dark:bg-gray-800 rounded-xl shadow-md p-4'}>
+          <div className="flex items-center gap-2">
+            <FaFire className="text-2xl text-orange-500" />
+            <div>
+              <div className="text-2xl font-bold text-orange-500">{currentStreak}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Aktuální série</div>
+            </div>
+          </div>
+        </div>
+        <div className={frutigerAero ? 'terminal-card' : 'bg-white dark:bg-gray-800 rounded-xl shadow-md p-4'}>
+          <div className="flex items-center gap-2">
+            <FaTrophy className="text-2xl text-yellow-500" />
+            <div>
+              <div className="text-2xl font-bold text-yellow-500">{longestStreak}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Nejdelší série</div>
+            </div>
+          </div>
+        </div>
+        <div className={frutigerAero ? 'terminal-card' : 'bg-white dark:bg-gray-800 rounded-xl shadow-md p-4'}>
+          <div className="flex items-center gap-2">
+            <FaCalendarCheck className="text-2xl text-green-500" />
+            <div>
+              <div className="text-2xl font-bold text-green-500">{totalDaysActive}</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">Celkem dní</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -209,8 +246,8 @@ const ProgressPage = () => {
                   </div>
                 </div>
                 <div className={`ml-4 px-3 py-1 rounded-full text-sm font-medium ${activity.known
-                    ? (frutigerAero ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300')
-                    : (frutigerAero ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300')
+                  ? (frutigerAero ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300')
+                  : (frutigerAero ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300')
                   }`}>
                   {activity.known ? 'Znám' : 'Neznám'}
                 </div>
@@ -219,6 +256,90 @@ const ProgressPage = () => {
           </div>
         </div>
       )}
+
+      {/* Knowledge Heatmap */}
+      <div className={frutigerAero ? 'terminal-card mb-8' : 'bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8'}>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Heatmapa znalostí – Knihy</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-[10px]">
+            <thead>
+              <tr>
+                <th className="text-left text-terminal-text/50 pb-2 pr-2 whitespace-nowrap">Kniha</th>
+                {SECTION_LABELS.map((l, i) => (
+                  <th key={i} className="text-center text-terminal-text/50 pb-2 px-0.5" title={SECTION_KEYS[i]}>{l}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {cjBooks.books.map(b => {
+                const sectionData = JSON.parse(localStorage.getItem('maturita-section-knowledge') || '{}');
+                const bookSections = sectionData[b.id] || {};
+                return (
+                  <tr key={b.id} className="border-t border-terminal-border/10">
+                    <td className="py-1 pr-2 text-terminal-text/70 whitespace-nowrap max-w-[120px] truncate" title={b.title}>
+                      {b.title.length > 18 ? b.title.substring(0, 18) + '…' : b.title}
+                    </td>
+                    {SECTION_KEYS.map((s, i) => (
+                      <td key={i} className="text-center py-1 px-0.5">
+                        <div className={`w-4 h-4 mx-auto rounded-sm ${bookSections[s] ? 'bg-green-500/60' : 'bg-red-500/30'
+                          }`} />
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="flex gap-4 mt-3 text-[10px] text-terminal-text/40">
+          <span className="flex items-center gap-1"><div className="w-3 h-3 bg-green-500/60 rounded-sm" /> Umím</span>
+          <span className="flex items-center gap-1"><div className="w-3 h-3 bg-red-500/30 rounded-sm" /> Neumím / Neoznačeno</span>
+        </div>
+      </div>
+
+      {/* Smart Recommendations */}
+      {(() => {
+        const sectionData = JSON.parse(localStorage.getItem('maturita-section-knowledge') || '{}');
+        const weakSections = {};
+        SECTION_KEYS.forEach(s => { weakSections[s] = { total: 0, unknown: 0 }; });
+        cjBooks.books.forEach(b => {
+          const bs = sectionData[b.id] || {};
+          SECTION_KEYS.forEach(s => {
+            weakSections[s].total++;
+            if (!bs[s]) weakSections[s].unknown++;
+          });
+        });
+        const sorted = Object.entries(weakSections)
+          .map(([key, val]) => ({ key, ...val, pct: Math.round((val.unknown / val.total) * 100) }))
+          .filter(s => s.unknown > 0)
+          .sort((a, b) => b.pct - a.pct)
+          .slice(0, 3);
+        const labelMap = { nazev: 'Analýza názvu', dej: 'Děj', tema: 'Téma a motivy', casoprostor: 'Časoprostor', kompozice: 'Kompozice', vypravec: 'Vypravěč', postavy: 'Postavy', jazyk: 'Jazykové prostředky', autor: 'Kontext autora', kontext: 'Literární kontext' };
+
+        if (sorted.length === 0) return null;
+        return (
+          <div className={frutigerAero ? 'terminal-card mb-8' : 'bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8'}>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+              <FaLightbulb className="text-yellow-500" /> Doporučení
+            </h2>
+            <div className="space-y-3">
+              {sorted.map(s => (
+                <div key={s.key} className="flex items-center gap-3">
+                  <div className="flex-1">
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Zaměř se na: {labelMap[s.key]}</span>
+                      <span className="text-xs text-red-400">{s.unknown}/{s.total} knih</span>
+                    </div>
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
+                      <div className="bg-red-500 h-1.5 rounded-full" style={{ width: `${s.pct}%` }} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 };

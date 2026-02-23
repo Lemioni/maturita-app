@@ -12,6 +12,14 @@ import ChatPage from './pages/ChatPage';
 import PresentationsPage from './pages/PresentationsPage';
 import AutoscrollPage from './pages/AutoscrollPage';
 import DictionaryPage from './pages/DictionaryPage';
+import RandomDrillPage from './pages/RandomDrillPage';
+import AchievementsPage from './pages/AchievementsPage';
+import SpacedRepetitionPage from './pages/SpacedRepetitionPage';
+import BookComparatorPage from './pages/BookComparatorPage';
+
+import SimulatorPage from './pages/SimulatorPage';
+import SpeechPracticePage from './pages/SpeechPracticePage';
+import BingoPage from './pages/BingoPage';
 
 import { ExperimentalProvider } from './context/ExperimentalContext';
 import { PodcastProvider } from './context/PodcastContext';
@@ -35,6 +43,14 @@ function App() {
               <Route path="/presentations" element={<PresentationsPage />} />
               <Route path="/autoscroll" element={<AutoscrollPage />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
+              <Route path="/drill" element={<RandomDrillPage />} />
+              <Route path="/achievements" element={<AchievementsPage />} />
+              <Route path="/srs" element={<SpacedRepetitionPage />} />
+              <Route path="/compare" element={<BookComparatorPage />} />
+
+              <Route path="/simulator" element={<SimulatorPage />} />
+              <Route path="/speech" element={<SpeechPracticePage />} />
+              <Route path="/bingo" element={<BingoPage />} />
             </Routes>
           </Layout>
         </Router>

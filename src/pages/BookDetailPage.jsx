@@ -1,10 +1,35 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaBook, FaUser, FaMapMarkerAlt, FaClock, FaTheaterMasks, FaPen, FaGlobe, FaChevronDown, FaChevronUp, FaListUl, FaFileAlt } from 'react-icons/fa';
+import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaBook, FaUser, FaMapMarkerAlt, FaClock, FaTheaterMasks, FaPen, FaGlobe, FaChevronDown, FaChevronUp, FaListUl, FaFileAlt, FaCheck } from 'react-icons/fa';
 import { useEffect, useMemo, useState } from 'react';
 import cjBooksData from '../data/bookData.js';
 import useLocalStorage from '../hooks/useLocalStorage';
 import KnowledgeCheckbox from '../components/common/KnowledgeCheckbox';
 import TableOfContents from '../components/common/TableOfContents';
+
+// Small inline checkbox for section-level knowledge tracking
+const SectionCheck = ({ bookId, section }) => {
+    const key = 'maturita-section-knowledge';
+    const [known, setKnown] = useState(() => {
+        try {
+            const data = JSON.parse(localStorage.getItem(key) || '{}');
+            return data[bookId]?.[section] || false;
+        } catch { return false; }
+    });
+    const toggle = () => {
+        const data = JSON.parse(localStorage.getItem(key) || '{}');
+        if (!data[bookId]) data[bookId] = {};
+        data[bookId][section] = !known;
+        localStorage.setItem(key, JSON.stringify(data));
+        setKnown(!known);
+    };
+    return (
+        <button onClick={toggle} title={known ? 'Umím ✓' : 'Označit jako naučené'}
+            className={`ml-auto w-5 h-5 rounded border text-[10px] flex items-center justify-center transition-all ${known ? 'bg-green-500/20 border-green-500/50 text-green-400' : 'border-terminal-border/30 text-transparent hover:border-terminal-text/30 hover:text-terminal-text/30'
+                }`}>
+            <FaCheck />
+        </button>
+    );
+};
 
 const BookDetailPage = () => {
     const { id } = useParams();
@@ -188,6 +213,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">📌</span>
                                         <span>Analýza názvu díla</span>
+                                        <SectionCheck bookId={bookId} section="nazev" />
                                     </h3>
                                     <div className="text-xs text-terminal-text/85 pl-3 border-l-2 border-terminal-accent/30">
                                         {analysis.titleAnalysis}
@@ -204,6 +230,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-xs">
                                         <FaBook className="text-sm" />
                                         <span>Děj</span>
+                                        <SectionCheck bookId={bookId} section="dej" />
                                     </h3>
                                     <span className="text-xs flex items-center gap-1 text-terminal-text/50">
                                         {isPlotExpanded ? <FaChevronUp /> : <FaChevronDown />}
@@ -228,6 +255,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">💡</span>
                                         <span>Téma a motivy</span>
+                                        <SectionCheck bookId={bookId} section="tema" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1">
                                         <p className="text-xs text-terminal-text/85">{analysis.themes.main}</p>
@@ -248,6 +276,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🌍</span>
                                         <span>Časoprostor</span>
+                                        <SectionCheck bookId={bookId} section="casoprostor" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
                                         <div className="text-xs">
@@ -268,6 +297,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🏗️</span>
                                         <span>Kompozice</span>
+                                        <SectionCheck bookId={bookId} section="kompozice" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 flex flex-wrap gap-1.5">
                                         {analysis.composition.structure && (
@@ -309,6 +339,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <span className="text-sm">🎭</span>
                                         <span>Vypravěč a způsob vyprávění</span>
+                                        <SectionCheck bookId={bookId} section="vypravec" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5">
                                         <p className="text-xs text-terminal-text/85"><strong className="text-terminal-accent/70">Typ:</strong> {analysis.narration.narrator}</p>
@@ -323,6 +354,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaUser className="text-sm" />
                                         <span>Postavy</span>
+                                        <SectionCheck bookId={bookId} section="postavy" />
                                     </h3>
                                     <div className="space-y-1.5">
                                         {analysis.characters.map((char, i) => (
@@ -390,6 +422,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaPen className="text-sm" />
                                         <span>Jazykové prostředky</span>
+                                        <SectionCheck bookId={bookId} section="jazyk" />
                                     </h3>
                                     <ul className="pl-3 border-l-2 border-terminal-border/20 space-y-0.5 mt-1">
                                         {analysis.languageDevices.map((device, i) => (
@@ -434,6 +467,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaUser className="text-sm" />
                                         <span>Kontext autorovy tvorby</span>
+                                        <SectionCheck bookId={bookId} section="autor" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                                         {/* ŽIVOT a BIO*/}
@@ -510,6 +544,7 @@ const BookDetailPage = () => {
                                     <h3 className="flex items-center gap-2 text-terminal-accent mb-1 text-xs">
                                         <FaGlobe className="text-sm" />
                                         <span>Literární a kulturní kontext</span>
+                                        <SectionCheck bookId={bookId} section="kontext" />
                                     </h3>
                                     <div className="pl-3 border-l-2 border-terminal-border/20 space-y-1.5">
                                         <div>
@@ -627,6 +662,41 @@ const BookDetailPage = () => {
                                             </ul>
                                         </div>
                                     )}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* MATURITNÍ OSNOVA */}
+                        {analysis && (
+                            <div className="terminal-card">
+                                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
+                                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">OSNOVA</span>
+                                    MATURITNÍ ODPOVĚĎ
+                                </div>
+                                <div className="space-y-2 text-xs">
+                                    {[
+                                        { time: '1 min', label: '1. Název, autor, období, žánr, druh', detail: `${book.title} — ${book.author} — ${book.period || ''} — ${book.genre || ''} — ${book.literaryForm || ''}` },
+                                        { time: '2 min', label: '2. Analýza názvu + zasazení', detail: analysis.titleAnalysis || '' },
+                                        { time: '3 min', label: '3. Děj (stručně)', detail: 'Hlavní zápletka, klíčové momenty, rozuzlení' },
+                                        { time: '2 min', label: '4. Postavy', detail: analysis.characters?.map(c => `${c.name}${c.isMain ? ' ★' : ''}`).join(', ') || '' },
+                                        { time: '1 min', label: '5. Vypravěč + kompozice', detail: `${analysis.narration?.narrator || ''} · ${analysis.composition?.structure || ''}` },
+                                        { time: '1 min', label: '6. Téma a motivy', detail: analysis.themes?.main || '' },
+                                        { time: '2 min', label: '7. Jazykové prostředky + tropy', detail: `${analysis.languageDevices?.slice(0, 3).join(', ') || ''} · ${analysis.literaryDevices?.slice(0, 2).map(d => d.name).join(', ') || ''}` },
+                                        { time: '2 min', label: '8. Ukázka — přečíst + analyzovat', detail: 'Jazykové prostředky v ukázce' },
+                                        { time: '2 min', label: '9. Kontext autora', detail: analysis.authorContext?.workPosition || analysis.authorContext?.shortBio?.name || '' },
+                                        { time: '1 min', label: '10. Literární kontext + směr', detail: `${analysis.literaryContext?.movement || ''} ${analysis.literaryContext?.period ? `(${analysis.literaryContext.period})` : ''}` },
+                                    ].map((step, i) => (
+                                        <div key={i} className="flex gap-3 items-start pl-2 border-l-2 border-terminal-border/20">
+                                            <span className="text-terminal-accent/50 font-mono text-[10px] w-10 flex-shrink-0 pt-0.5">{step.time}</span>
+                                            <div>
+                                                <div className="text-terminal-text/80 font-medium">{step.label}</div>
+                                                {step.detail && <div className="text-terminal-text/40 text-[10px] leading-snug mt-0.5">{step.detail}</div>}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="mt-3 pt-2 border-t border-terminal-border/10 text-[10px] text-terminal-text/30">
+                                    Celkem ~17 minut · Přizpůsob délku otázek komise
                                 </div>
                             </div>
                         )}

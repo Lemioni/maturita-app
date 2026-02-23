@@ -752,20 +752,28 @@ const AutoscrollPage = () => {
                     {/* Options Row */}
                     <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-terminal-border/20">
                         <label className="flex items-center gap-2 cursor-pointer text-sm">
-                            <input type="checkbox" checked={isLooping} onChange={() => setIsLooping(!isLooping)} className="accent-terminal-accent" />
-                            <span className="text-terminal-text/80">Loop</span>
+                            <div className={`w-4 h-4 border rounded-sm flex items-center justify-center transition-all ${isLooping ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                {isLooping && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                            </div>
+                            <span className="text-terminal-text/80" onClick={() => setIsLooping(!isLooping)}>Loop</span>
                         </label>
-                        <label className="flex items-center gap-2 cursor-pointer text-sm">
-                            <input type="checkbox" checked={isRandom} onChange={() => setIsRandom(!isRandom)} className="accent-terminal-accent" />
+                        <label className="flex items-center gap-2 cursor-pointer text-sm" onClick={() => setIsRandom(!isRandom)}>
+                            <div className={`w-4 h-4 border rounded-sm flex items-center justify-center transition-all ${isRandom ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                {isRandom && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                            </div>
                             <span className="text-terminal-text/80">Náhodné pořadí</span>
                         </label>
-                        <label className="flex items-center gap-2 cursor-pointer text-sm" title="Text-to-Speech">
-                            <input type="checkbox" checked={isTTS} onChange={toggleTTS} className="accent-terminal-accent" />
+                        <label className="flex items-center gap-2 cursor-pointer text-sm" onClick={toggleTTS} title="Text-to-Speech">
+                            <div className={`w-4 h-4 border rounded-sm flex items-center justify-center transition-all ${isTTS ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                {isTTS && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                            </div>
                             <span className="text-terminal-text/80 flex items-center gap-1">TTS <FaVolumeUp className="opacity-60" /></span>
                         </label>
                         {selectedSubject === 'books' && (
-                            <label className="flex items-center gap-2 cursor-pointer text-sm">
-                                <input type="checkbox" checked={includePlot} onChange={() => setIncludePlot(!includePlot)} className="accent-terminal-accent" />
+                            <label className="flex items-center gap-2 cursor-pointer text-sm" onClick={() => setIncludePlot(!includePlot)}>
+                                <div className={`w-4 h-4 border rounded-sm flex items-center justify-center transition-all ${includePlot ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                    {includePlot && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                                </div>
                                 <span className="text-terminal-text/80">Včetně děje</span>
                             </label>
                         )}
@@ -802,13 +810,10 @@ const AutoscrollPage = () => {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-h-60 overflow-y-auto pr-2">
                             {allSubItems.map((subId, idx) => (
-                                <label key={idx} className="flex items-center gap-2 p-1.5 cursor-pointer text-sm hover:bg-terminal-border/10 transition-colors">
-                                    <input
-                                        type="checkbox"
-                                        checked={selectedSubItems.includes(subId)}
-                                        onChange={() => handleSubItemToggle(subId)}
-                                        className="accent-terminal-accent"
-                                    />
+                                <label key={idx} className="flex items-center gap-2 p-1.5 cursor-pointer text-sm hover:bg-terminal-border/10 transition-colors" onClick={() => handleSubItemToggle(subId)}>
+                                    <div className={`w-4 h-4 border rounded-sm flex-shrink-0 flex items-center justify-center transition-all ${selectedSubItems.includes(subId) ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                        {selectedSubItems.includes(subId) && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                                    </div>
                                     <span className="text-terminal-text/80 truncate">{getSubItemLabel(subId)}</span>
                                 </label>
                             ))}

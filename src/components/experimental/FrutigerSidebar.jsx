@@ -42,6 +42,19 @@ const FrutigerSidebar = () => {
             ]
         },
         {
+            label: 'Study Tools',
+            items: [
+                { path: '/drill', imgSrc: '/aero-icons/vista_search_globe.ico', label: 'Random Drill' },
+                { path: '/srs', imgSrc: '/aero-icons/vista_cal_1.ico', label: 'Kartičky (SRS)' },
+                { path: '/compare', imgSrc: '/aero-icons/vista_info.ico', label: 'Porovnávač' },
+                { path: '/timeline', imgSrc: '/aero-icons/vista_cal_1.ico', label: 'Časová osa' },
+                { path: '/simulator', imgSrc: '/aero-icons/vista_perf_center.ico', label: 'Simulátor' },
+                { path: '/speech', imgSrc: '/aero-icons/vista_media_player.ico', label: 'Mluvení' },
+                { path: '/bingo', imgSrc: '/aero-icons/roblox1.ico', label: 'Bingo' },
+                { path: '/achievements', imgSrc: '/aero-icons/vista_firewall_status_1.ico', label: 'Achievementy' },
+            ]
+        },
+        {
             label: 'Community',
             items: [
                 { path: '/chat', imgSrc: '/aero-icons/vista_messenger.ico', label: 'Live Chat' },
