@@ -12,7 +12,7 @@ import ChatPage from './pages/ChatPage';
 import PresentationsPage from './pages/PresentationsPage';
 import AutoscrollPage from './pages/AutoscrollPage';
 import DictionaryPage from './pages/DictionaryPage';
-import RandomDrillPage from './pages/RandomDrillPage';
+
 import AchievementsPage from './pages/AchievementsPage';
 import SpacedRepetitionPage from './pages/SpacedRepetitionPage';
 import BookComparatorPage from './pages/BookComparatorPage';
@@ -43,7 +43,7 @@ function App() {
               <Route path="/presentations" element={<PresentationsPage />} />
               <Route path="/autoscroll" element={<AutoscrollPage />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
-              <Route path="/drill" element={<RandomDrillPage />} />
+
               <Route path="/achievements" element={<AchievementsPage />} />
               <Route path="/srs" element={<SpacedRepetitionPage />} />
               <Route path="/compare" element={<BookComparatorPage />} />

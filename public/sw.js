@@ -1,4 +1,4 @@
-const CACHE_NAME = 'maturita-v1';
+const CACHE_NAME = 'maturita-v2';
 const URLS_TO_CACHE = [
     '/',
     '/index.html',
@@ -21,18 +21,49 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+    const url = new URL(event.request.url);
+
+    // Navigation requests (HTML pages) — network-first so the app always loads fresh
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+                    return response;
+                })
+                .catch(() => caches.match('/index.html'))
+        );
+        return;
+    }
+
+    // Static assets with hash in filename — cache-first (immutable)
+    if (url.pathname.startsWith('/assets/')) {
+        event.respondWith(
+            caches.match(event.request).then((cached) => {
+                if (cached) return cached;
+                return fetch(event.request).then((response) => {
+                    if (response.status === 200) {
+                        const clone = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+                    }
+                    return response;
+                });
+            })
+        );
+        return;
+    }
+
+    // Everything else — network-first with cache fallback
     event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request).then((fetchResponse) => {
-                // Cache successful GET requests
-                if (event.request.method === 'GET' && fetchResponse.status === 200) {
-                    const responseClone = fetchResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseClone);
-                    });
+        fetch(event.request)
+            .then((response) => {
+                if (event.request.method === 'GET' && response.status === 200) {
+                    const clone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
                 }
-                return fetchResponse;
-            });
-        }).catch(() => caches.match('/index.html'))
+                return response;
+            })
+            .catch(() => caches.match(event.request))
     );
 });

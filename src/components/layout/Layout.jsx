@@ -4,7 +4,6 @@ import BottomNav from './BottomNav';
 import ExperimentalMenu from '../experimental/ExperimentalMenu';
 import MiniPlayer from '../podcast/MiniPlayer';
 import FrutigerSidebar from '../experimental/FrutigerSidebar';
-import MiniTamagotchi from '../common/MiniTamagotchi';
 import { useExperimental } from '../../context/ExperimentalContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
@@ -44,7 +43,6 @@ const Layout = ({ children }) => {
 
                 <ExperimentalMenu />
                 <MiniPlayer />
-                <MiniTamagotchi />
             </>
         );
     }
@@ -63,7 +61,6 @@ const Layout = ({ children }) => {
             <BottomNav />
             <ExperimentalMenu />
             <MiniPlayer />
-            <MiniTamagotchi />
         </div>
     );
 };

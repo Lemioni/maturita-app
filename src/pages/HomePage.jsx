@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { FaBolt, FaTrophy, FaBrain, FaBalanceScale, FaGraduationCap, FaMicrophone, FaGamepad } from 'react-icons/fa';
+import { FaTrophy, FaBrain, FaBalanceScale, FaGraduationCap, FaMicrophone, FaGamepad } from 'react-icons/fa';
 import QuestionGrid from '../components/dashboard/QuestionGrid';
 
 const studyTools = [
-  { path: '/drill', icon: FaBolt, label: 'Random Drill', desc: 'Kvíz z knih + IT', color: '#f59e0b' },
   { path: '/srs', icon: FaBrain, label: 'Kartičky', desc: 'Spaced Repetition', color: '#8b5cf6' },
   { path: '/simulator', icon: FaGraduationCap, label: 'Simulátor', desc: 'Losování + příprava', color: '#ef4444' },
   { path: '/speech', icon: FaMicrophone, label: 'Mluvení', desc: 'Speech-to-Text', color: '#ec4899' },

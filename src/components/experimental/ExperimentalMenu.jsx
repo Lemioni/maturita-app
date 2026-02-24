@@ -12,7 +12,7 @@ const ExperimentalMenu = () => {
     if (playerVisible) return null;
 
     return (
-        <div className="fixed bottom-0 right-16 z-50 flex flex-col items-end">
+        <div className="fixed bottom-16 md:bottom-0 right-16 z-50 flex flex-col items-end">
             {/* Menu Content */}
             {isOpen && (
                 <div className="bg-terminal-card border border-terminal-accent/30 rounded-lg p-3 shadow-lg shadow-terminal-accent/10 mb-2 w-48 animate-in slide-in-from-bottom-2 fade-in duration-200">

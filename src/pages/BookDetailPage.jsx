@@ -53,26 +53,6 @@ const SectionKnowledgePanel = ({ bookId, analysis, isOpen, onToggle }) => {
 
     return (
         <>
-            {/* Right-edge toggle tab — always visible */}
-            <button
-                onClick={onToggle}
-                className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-1 px-1.5 py-3 bg-terminal-dim border border-r-0 border-terminal-border/40 text-terminal-accent hover:bg-terminal-accent/10 transition-colors"
-                title="Pokrok po sekcích"
-            >
-                <span className="text-[9px] font-bold tabular-nums">{knownCount}/{total}</span>
-                <div className="flex flex-col gap-0.5">
-                    {visibleSections.slice(0, 7).map(s => (
-                        <div
-                            key={s.key}
-                            className={`w-2.5 h-2.5 border transition-colors ${bookSections[s.key] ? 'bg-green-500/60 border-green-500/50' : 'border-terminal-border/40 bg-transparent'}`}
-                        />
-                    ))}
-                    {visibleSections.length > 7 && (
-                        <div className="text-[8px] text-terminal-text/30 text-center">···</div>
-                    )}
-                </div>
-            </button>
-
             {/* Backdrop */}
             {isOpen && (
                 <div onClick={onToggle} className="fixed inset-0 z-40 bg-black/30" />
@@ -131,6 +111,7 @@ const BookDetailPage = () => {
     const [isPlotExpanded, setIsPlotExpanded] = useState(false);
     const [isShortVersion, setIsShortVersion] = useLocalStorage('maturita-short-version', false);
     const [isPanelOpen, setIsPanelOpen] = useState(false);
+    const [isOsnovaExpanded, setIsOsnovaExpanded] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -760,11 +741,22 @@ const BookDetailPage = () => {
                         {/* MATURITNÍ OSNOVA */}
                         {analysis && (
                             <div className="terminal-card">
-                                <div className="text-xs text-terminal-accent mb-3 pb-2 border-b border-terminal-border/20 flex items-center gap-2">
-                                    <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">OSNOVA</span>
-                                    MATURITNÍ ODPOVĚĎ
-                                </div>
-                                <div className="space-y-2 text-xs">
+                                <button
+                                    onClick={() => setIsOsnovaExpanded(!isOsnovaExpanded)}
+                                    className="w-full text-xs text-terminal-accent pb-2 border-b border-terminal-border/20 flex items-center justify-between hover:opacity-80 transition-opacity"
+                                >
+                                    <div className="flex items-center gap-2">
+                                        <span className="px-2 py-0.5 bg-terminal-accent/20 border border-terminal-accent/30">OSNOVA</span>
+                                        MATURITNÍ ODPOVĚĎ
+                                    </div>
+                                    <span className="flex items-center gap-1 text-terminal-text/50">
+                                        {isOsnovaExpanded ? <FaChevronUp /> : <FaChevronDown />}
+                                        <span>{isOsnovaExpanded ? 'Skrýt' : 'Zobrazit'}</span>
+                                    </span>
+                                </button>
+                                {isOsnovaExpanded && (
+                                    <>
+                                <div className="space-y-2 text-xs mt-3">
                                     {[
                                         { time: '1 min', label: '1. Název, autor, období, žánr, druh', detail: `${book.title} — ${book.author} — ${book.period || ''} — ${book.genre || ''} — ${book.literaryForm || ''}` },
                                         { time: '2 min', label: '2. Analýza názvu + zasazení', detail: analysis.titleAnalysis || '' },
@@ -789,6 +781,8 @@ const BookDetailPage = () => {
                                 <div className="mt-3 pt-2 border-t border-terminal-border/10 text-[10px] text-terminal-text/30">
                                     Celkem ~17 minut · Přizpůsob délku otázek komise
                                 </div>
+                                    </>
+                                )}
                             </div>
                         )}
                     </>

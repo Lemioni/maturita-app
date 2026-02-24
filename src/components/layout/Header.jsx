@@ -41,7 +41,6 @@ const Header = () => {
     { path: '/cj', icon: FaBook, label: 'CJ' },
     { path: '/autoscroll', icon: FaScroll, label: 'ASCR' },
     { path: '/dictionary', icon: FaBookOpen, label: 'SLVN' },
-    { path: '/drill', icon: FaBolt, label: 'DRILL' },
     { path: '/dopamine', icon: FaRocket, label: 'DOPA' },
     { path: '/search', icon: FaSearch, label: 'SRCH' },
   ];

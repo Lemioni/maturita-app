@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  FaHome, FaLaptopCode, FaBook, FaSearch, FaBolt,
+  FaHome, FaLaptopCode, FaBook, FaSearch,
   FaRocket, FaScroll, FaBookOpen, FaTimes, FaBars,
   FaBrain, FaGraduationCap, FaBalanceScale, FaMicrophone,
   FaGamepad, FaTrophy
@@ -11,7 +11,7 @@ const primaryNav = [
   { path: '/', icon: FaHome, label: 'Domů' },
   { path: '/it', icon: FaLaptopCode, label: 'IT' },
   { path: '/cj', icon: FaBook, label: 'Lit' },
-  { path: '/drill', icon: FaBolt, label: 'Drill' },
+  { path: '/autoscroll', icon: FaScroll, label: 'Scroll' },
   { path: '/search', icon: FaSearch, label: 'Hledat' },
 ];
 

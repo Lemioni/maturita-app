@@ -44,7 +44,6 @@ const FrutigerSidebar = () => {
         {
             label: 'Study Tools',
             items: [
-                { path: '/drill', imgSrc: '/aero-icons/vista_search_globe.ico', label: 'Random Drill' },
                 { path: '/srs', imgSrc: '/aero-icons/vista_cal_1.ico', label: 'Kartičky (SRS)' },
                 { path: '/compare', imgSrc: '/aero-icons/vista_info.ico', label: 'Porovnávač' },
                 { path: '/timeline', imgSrc: '/aero-icons/vista_cal_1.ico', label: 'Časová osa' },

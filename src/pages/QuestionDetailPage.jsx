@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaCompress, FaExpand } from 'react-icons/fa';
+import { FaArrowLeft, FaChevronLeft, FaChevronRight, FaCompress, FaExpand, FaBook } from 'react-icons/fa';
 import { useEffect, useMemo, useState } from 'react';
 import itQuestionsData from '../data/it-questions.json';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -17,14 +17,21 @@ const QuestionDetailPage = () => {
   const [progress, setProgress] = useLocalStorage('maturita-progress', {});
   const [isCompactMode, setIsCompactMode] = useLocalStorage('compact-mode', false);
   const [isIsoModalOpen, setIsIsoModalOpen] = useState(false);
+  const [readerMode, setReaderMode] = useLocalStorage('reader-mode', false);
+
+  const questionId = parseInt(id);
+  const question = itQuestionsData.questions.find(q => q.id === questionId);
+
+  // PSI questions (11-20) default to compact mode
+  const isPsi = questionId >= 11 && questionId <= 20;
+  const effectiveCompact = question?.compactContent
+    ? (isPsi ? !isCompactMode : isCompactMode)
+    : false;
 
   // Scroll to top when component mounts or ID changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
-
-  const questionId = parseInt(id);
-  const question = itQuestionsData.questions.find(q => q.id === questionId);
 
   // Format the answer
   // We only need to strip the redundant title since the content is now pre-formatted Markdown
@@ -150,39 +157,55 @@ const QuestionDetailPage = () => {
               </button>
             )}
 
+            {/* Reader mode toggle */}
+            <button
+              onClick={() => setReaderMode(!readerMode)}
+              className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded border transition-all ${
+                readerMode
+                  ? 'bg-terminal-accent/20 text-terminal-accent border-terminal-accent/50'
+                  : 'text-terminal-text/60 border-terminal-border/30 hover:border-terminal-accent/50'
+              }`}
+              title={readerMode ? 'Terminál mód' : 'Čtecí mód'}
+            >
+              <FaBook className="w-3 h-3" />
+              <span className="hidden sm:inline">{readerMode ? 'Terminál' : 'Čtení'}</span>
+            </button>
+
             {/* Compact mode toggle - only for questions with compactContent */}
             {question.compactContent && (
               <button
                 onClick={() => setIsCompactMode(!isCompactMode)}
-                className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded border transition-all ${isCompactMode
+                className={`flex items-center gap-1.5 px-2 py-1 text-xs rounded border transition-all ${effectiveCompact
                   ? 'bg-terminal-accent/20 text-terminal-accent border-terminal-accent/50'
                   : 'text-terminal-text/60 border-terminal-border/30 hover:border-terminal-accent/50'
                   }`}
               >
-                {isCompactMode ? <FaExpand className="w-3 h-3" /> : <FaCompress className="w-3 h-3" />}
-                {isCompactMode ? 'Plná verze' : 'Zkrátit'}
+                {effectiveCompact ? <FaExpand className="w-3 h-3" /> : <FaCompress className="w-3 h-3" />}
+                {effectiveCompact ? 'Plná verze' : 'Zkrátit'}
               </button>
             )}
           </div>
         </div>
 
-        {/* Table of Contents */}
-        {!isCompactMode && tableOfContents.length > 0 && (
-          <TableOfContents sections={tableOfContents} />
-        )}
+        {/* Content wrapper with optional reader mode */}
+        <div className={readerMode ? 'reader-mode rounded-lg p-4 -mx-1' : ''}>
+          {/* Table of Contents */}
+          {!effectiveCompact && tableOfContents.length > 0 && (
+            <TableOfContents sections={tableOfContents} />
+          )}
 
-        {/* Render content */}
-        {isCompactMode && question.compactContent ? (
-          <CompactContent
-            content={question.compactContent}
-            keywords={question.keywords}
-          />
-        ) : (
-          <MarkdownRenderer
-            content={formattedAnswer}
-            keywords={question.keywords}
-          />
-        )}
+          {/* Render content */}
+          {effectiveCompact && question.compactContent ? (
+            <CompactContent
+              content={question.compactContent}
+            />
+          ) : (
+            <MarkdownRenderer
+              content={formattedAnswer}
+              keywords={question.keywords}
+            />
+          )}
+        </div>
 
         {/* Keywords */}
         {question.keywords && question.keywords.length > 0 && (

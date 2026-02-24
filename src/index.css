@@ -95,6 +95,54 @@
     }
 }
 
+/* Reader mode - black on white for comfortable reading */
+.reader-mode {
+    background-color: #fafaf9;
+    color: #1a1a1a;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.reader-mode h2,
+.reader-mode h3 {
+    color: #111 !important;
+    border-color: #d4d4d4 !important;
+}
+
+.reader-mode strong {
+    color: #1a1a1a !important;
+}
+
+.reader-mode p,
+.reader-mode li,
+.reader-mode span {
+    color: #333 !important;
+}
+
+.reader-mode ul,
+.reader-mode ol {
+    color: #333 !important;
+}
+
+.reader-mode a {
+    color: #2563eb !important;
+}
+
+.reader-mode code {
+    background-color: #e5e5e5 !important;
+    color: #1a1a1a !important;
+}
+
+.reader-mode blockquote {
+    border-color: #a3a3a3 !important;
+    background-color: #f0f0f0 !important;
+    color: #444 !important;
+}
+
+.reader-mode .keyword-highlight {
+    background-color: #fef08a !important;
+    color: #1a1a1a !important;
+}
+
 .compact-mode .compact-section {
     @apply mb-2;
 }

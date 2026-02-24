@@ -9,6 +9,7 @@ import dictionaryData from '../data/dictionary.json';
 import generatedBookTermsData from '../data/cj-book-terms.generated.json';
 import TermAnnotatedText from '../components/common/TermAnnotatedText';
 import { buildBookTerms } from '../utils/bookTerms';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const generatedTermsByBookId = new Map((generatedBookTermsData?.books || []).map((entry) => [entry.id, entry.terms || []]));
 
@@ -491,8 +492,8 @@ const chunkTextForTTS = (text, maxLen = 250) => {
 
 const AutoscrollPage = () => {
     const [mode, setMode] = useState('selection');
-    const [selectedSubject, setSelectedSubject] = useState('it');
-    const [selectedSubItems, setSelectedSubItems] = useState([]);
+    const [selectedSubject, setSelectedSubject] = useLocalStorage('autoscroll-subject', 'it');
+    const [selectedSubItems, setSelectedSubItems] = useLocalStorage('autoscroll-subitems', []);
     const [itemsToScroll, setItemsToScroll] = useState([]);
 
     // Player State
@@ -510,6 +511,7 @@ const AutoscrollPage = () => {
     const userScrollTimeoutRef = useRef(null);
     const currentSpokenItemIndexRef = useRef(-1);
     const ttsQueueRef = useRef([]);
+    const prevSubjectRef = useRef(selectedSubject);
 
     const subjects = [
         { id: 'it', name: 'IT Otázky', icon: '💻' },
@@ -518,12 +520,16 @@ const AutoscrollPage = () => {
     ];
 
     useEffect(() => {
-        if (selectedSubject === 'it') {
-            setSelectedSubItems(itQuestions.categories || []);
-        } else if (selectedSubject === 'books') {
-            setSelectedSubItems(cjBooks.books.map(b => b.id.toString()));
-        } else if (selectedSubject === 'dictionary') {
-            setSelectedSubItems(['epochy', 'autori', 'zanry']);
+        // Only reset sub-items when the subject actually changes, not on initial mount
+        if (prevSubjectRef.current !== selectedSubject) {
+            prevSubjectRef.current = selectedSubject;
+            if (selectedSubject === 'it') {
+                setSelectedSubItems(itQuestions.categories || []);
+            } else if (selectedSubject === 'books') {
+                setSelectedSubItems(cjBooks.books.map(b => b.id.toString()));
+            } else if (selectedSubject === 'dictionary') {
+                setSelectedSubItems(['epochy', 'autori', 'zanry']);
+            }
         }
     }, [selectedSubject]);
 

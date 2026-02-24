@@ -234,7 +234,16 @@
       "compactContent": {
         "sections": [
           {
-            "title": "Dělení sítí podle velikosti",
+            "title": "Princip činnosti sítí",
+            "items": [
+              {
+                "term": "Počítačová síť",
+                "definition": "Propojuje zařízení (počítače, servery, tiskárny) pomocí přenosových médií (kabely, Wi-Fi). Umožňuje sdílení zdrojů, komunikaci a přístup k internetu."
+              }
+            ]
+          },
+          {
+            "title": "Dělení podle velikosti",
             "items": [
               {
                 "term": "LAN (Local Area Network)",
@@ -246,29 +255,29 @@
               },
               {
                 "term": "WAN (Wide Area Network)",
-                "definition": "Globální síť – největší je Internet."
+                "definition": "Globální síť, jako Internet."
               }
             ]
           },
           {
-            "title": "Dělení sítí podle topologie",
+            "title": "Dělení podle topologie",
             "items": [
               {
                 "term": "Sběrnicová (Bus)",
-                "definition": "Zařízení na jednom kabelu. + jednoduchost, − kolize (CSMA/CD), výpadek kabelu = pád sítě."
+                "definition": "Zařízení připojená k 1 kabelu (sběrnici). + rozšíření, kabeláž, kontrola nad průtokem sítě. − kolize, řeší přístupová metoda CSMA/CD, kolize vzniká když 2 počítače vysílají zároveň. Výpadek kabelu = pád sítě."
               },
               {
                 "term": "Hvězdicová (Star)",
-                "definition": "Vše do centrálního prvku (Switch). + ostatní přežijí výpadek 1 stanice, − závislost na centru. Dnes nejběžnější."
+                "definition": "Vše do centrálního prvku (Switch). + ostatní přežijí výpadek 1 stanice. − závislost na centru, kabeláž. Dnes nejběžnější."
               },
               {
                 "term": "Kruhová (Ring)",
-                "definition": "Data putují v okruhu jedním směrem. − výpadek = celá síť nefunguje."
+                "definition": "Data putují v okruhu jedním směrem. − výpadek = celá síť nefunguje, je dobré použít záložní UPS."
               }
             ]
           },
           {
-            "title": "Dělení sítí podle řízení",
+            "title": "Dělení podle řízení",
             "items": [
               {
                 "term": "Peer-to-Peer (P2P)",
@@ -281,7 +290,7 @@
             ]
           },
           {
-            "title": "Internet a správa",
+            "title": "Internet",
             "items": [
               {
                 "term": "1969 – ARPANET",
@@ -290,6 +299,15 @@
               {
                 "term": "1983 – TCP/IP",
                 "definition": "Přechod ARPANETu na TCP/IP = základ moderního internetu."
+              }
+            ]
+          },
+          {
+            "title": "Správa internetu",
+            "items": [
+              {
+                "term": "Decentralizovaná správa",
+                "definition": "Internet nemá jednoho správce."
               },
               {
                 "term": "IANA / ICANN",
@@ -306,23 +324,27 @@
             "items": [
               {
                 "term": "ARPANET (1969–1990)",
-                "definition": "První paketová síť, protokol NCP → TCP/IP. Základ internetu."
+                "definition": "První síť přepojování paketů, z protokolu NCP → TCP/IP (1983). Základ internetu."
               },
               {
                 "term": "CYCLADES (1972)",
-                "definition": "Francouzská experimentální síť. Inovace: end-to-end komunikace. Inspirace pro TCP/IP."
+                "definition": "Francouzská experimentální síť. Inovace: end-to-end komunikace, spolehlivost na konečném zařízení. Inspirace pro TCP/IP."
               },
               {
                 "term": "X.25 (1970)",
-                "definition": "Mezinárodní standard přepojování paketů. Využití: bankomaty, telekomunikace."
+                "definition": "Mezinárodní standard přepojování paketů. Využití: bankomaty, telekomunikace. Definoval: fyzickou, linkovou a síťovou vrstvu. Význam: základem pro protokol jako Frame Relay (telekomunikační služba)."
               },
               {
                 "term": "USENET (1979)",
-                "definition": "Distribuovaná diskusní síť (newsgroups). Předchůdce moderních fór."
+                "definition": "Distribuovaná síť zaměřená na diskusní skupiny (newsgroups). Technologie: Protokol UUCP (Unix-to-Unix Copy) pro přenos souborů a zpráv. Předchůdce dnešních internetových fór a sociálních sítí."
+              },
+              {
+                "term": "BITNET (1981)",
+                "definition": "Síť propojující americké a evropské univerzity (\"Because It's Time Network\"). Funkce: Primitivní e-mail a sdílení souborů mezi akademiky. Masové rozšíření elektronické komunikace ve vědecké komunitě."
               },
               {
                 "term": "NSFNET (1986–1995)",
-                "definition": "Akademická páteřní síť USA. Základ dnešní internetové infrastruktury."
+                "definition": "Vysokorychlostní akademická síť financovaná NSF (USA). Sloužila jako hlavní páteřní síť (backbone) internetu postavená na TCP/IP. Nahradila ARPANET a umožnila transformaci vědecké sítě na globální komerční infrastrukturu."
               }
             ]
           }
@@ -334,7 +356,7 @@
       "exam": "IKT1",
       "question": "Fyzická vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "## 12. Fyzická vrstva modelu ISO/OSI (Physical Layer)\n\n### Pozice v modelu ISO/OSI\n* Fyzická vrstva je první a nejnižší vrstva sedmivrstvého modelu ISO/OSI. \n* **Hl. Funkce:** je zodpovědná za přenos dat ve formě signálů mezi síťovými zařízeními.\n\n### Funkce:\n1. Převod dat na signály – Tato vrstva převádí digitální data na fyzické signály (elektrické, optické, či rádiové)\n2. Definice přenosových médií – Stanovuje, jaké typy kabelů nebo bezdrátových médií budou použity,\n3. Synchronizace bitů – Zajišťuje správnou synchronizaci při přenosu dat, aby přijímač vědel kde datový bit začíná a kde končí.\n4. Přenosová rychlost – Určuje maximální rychlost přenosu dat v síti\n5. Fyzická topologie – Řídí uspořádání připojení mezi zařízenímí (např. hvězda, sběrnice, kruh) – zde lze popsat jednotlivé topologie\n\n### Druhy Kabeláže:\n1. Kroucená dvojlinka (Twisted Pair)\n    * Složení: Páry měděných vodičů kroucených do spirály, které minimalizují elektromagnetické rušení.\n    * A. UTP (Unshielded Twisted Pair): bez stínění, vhodné pro kancelářské a domácí sítě\n    * B. STP (Shielded Twisted Pair): S ochranou proti rušení, vhodné pro průmyslové prostředí.\n    * Maximální rychlost: až 10 Gbps na krátké vzdálenosti\n2. Koaxiální kabel (Coaxial Cable):\n    * Složení: Centrální vodič obklopený izolací, stíněním a pláštěm.\n    * Použití: Kabelové televize a starší sítě.\n    * Výhody: Odolnost proti rušení\n    * Nevýhody: Omezená flexibilita.\n3. Optické vlákno (Fiber Optic Cable):\n    * Přenáší data skrz světelné pulzy.\n    * Typy:\n        * Single-mode: Přenos na dlouhé vzdálenosti (páteřní sítě)\n        * Multi-mode: Kratší vzdálenost, datové centra\n    * Výhody: Vysoká přenosová rychlost, nízké zpoždění\n    * Nevýhody: Vyšší cena, náročnější instalace.\n\n### Druhy Konektorů:\n1. RJ-45\n    * Použití: s kroucenou dvojlinkou pro Ethernet\n    * Přenosová rychlost: od 10 Mbps do 10 Gbps\n2. BNC\n    * Použití: s koaxiálním kabelem, CCTV či starší sítě\n3. SC, LC, ST\n    * Použití: s optickými vlákny, rozdíly v konstrukci a velikosti konektorů\n\n### Vlastnosti přenosových médií:\n1. Šírka pásma – Max. kapacita přenosu dat, např. 1 Gbps u měděného kabelu, 100 Gbps u optického vlákna\n2. Rušení (EMI/RFI): Elektrická a rádiová interference, která může narušit přenos\n3. Vzdálenost: Omezená délkou kabelu (dvoulinka do 100 m, optické vlákno až stovky km)\n4. Latence: Doba zpoždení signálu mezi odesláním a přijetím (odezva)\n\n### Typy přenosů:\n1. Simplexní\n    * Data proudí jedním směrem (např. vysílání rádia)\n2. Half-Duplex\n    * Data mohou proudit oběma směry, ale ne současně (např. vysílačky)\n3. Plný duplex:\n    * Obousměrná komunikace v reálném čase (např. telefonní hovory)\n\n### Analogové sítě:\n* Přenos: plynulé signály, např. zvuk telefonních hovorů\n* Používají amplitudu (výška sinusiody) a frekvenci (na ose x) pro přenos dat\n\n### Digitální sítě:\n* Přenos: diskrétní signály (1 a 0)\n* Výhody: nižší šum, vyšší spolehlivost\n\n### Kódování:\n* Definice: Převod digitálních dat na signály.\n* Typy:\n    1. NRZ (Non return to Zero): Jednoduché kódování binárních hodnot.\n    2. Manchester: Data kódována s vloženými hodinami.\n\n### Modulace:\n* Funkce: Přízpůsobuje signál přenosovému médiu:\n    1. AM (Amplitudová modulace): Změna amplitudy signálu.\n    2. FM (Frekvenční modulace): Změna frekvence signálu.\n    3. QAM (Kvadraturní amplitudová modulace): Změny amplitudy a fáze\n\n### Síťové prvky a jejich funkce:\n1. Repeater (Opakovač) – Zesiluje signál a prodlužuje dosah sítě.\n2. Hub (Rozbočovač) – Přeposílá data všem zařízením v síti bez ohledu na cíl.\n3. Switch (Linková vrstva) - Inteligentně přeposílá data pouze cílovému zařízení.\n4. Router (Síťová vrstva) – Směruje datové pakety mezi různými sítěmi.\n5. Modem – Převádí digitální data na analogový signál a naopak.\n6. Přístupový bod (Access Point) – Slouží k propojení bezdrátových zařízení s kabelovou sítí.",
+      "answer": "## 12. Fyzická vrstva modelu ISO/OSI (Physical Layer)\n\n### Pozice v modelu ISO/OSI\nFyzická vrstva je **1. (nejnižší) vrstva** sedmivrstvého modelu ISO/OSI. Je zodpovědná za přenos dat ve formě signálů (elektrických, optických, rádiových) mezi síťovými zařízeními.\n\n### Funkce fyzické vrstvy\n- **Převod dat na signály** – Převádí digitální data na fyzické signály (elektrické, optické, rádiové)\n- **Definice přenosových médií** – Stanovuje typy kabelů nebo bezdrátových médií\n- **Synchronizace bitů** – Zajišťuje, aby přijímač věděl, kde bit začíná a končí\n- **Přenosová rychlost** – Určuje maximální rychlost přenosu dat v síti\n- **Fyzická topologie** – Řídí uspořádání připojení mezi zařízeními (hvězda, sběrnice, kruh)\n\n### Druhy kabeláže\n\n**1. Kroucená dvojlinka (Twisted Pair)**\n- Páry měděných vodičů kroucených do spirály – minimalizují EMI rušení\n- **UTP** (Unshielded Twisted Pair) – bez stínění, kanceláře a domácnosti\n- **STP** (Shielded Twisted Pair) – se stíněním, průmyslové prostředí\n- Rychlost až **10 Gbps** na krátké vzdálenosti\n\n**2. Koaxiální kabel (Coaxial Cable)**\n- Centrální vodič obklopený izolací, stíněním a pláštěm\n- Použití: kabelová TV, starší sítě\n- Výhody: odolnost proti rušení | Nevýhody: omezená flexibilita\n\n**3. Optické vlákno (Fiber Optic)**\n- Přenáší data světelnými pulzy\n- **Single-mode** – dlouhé vzdálenosti (páteřní sítě)\n- **Multi-mode** – kratší vzdálenosti (datová centra)\n- Výhody: vysoká rychlost, nízké zpoždění | Nevýhody: vyšší cena, náročnější instalace\n\n### Druhy konektorů\n- **RJ-45** – s kroucenou dvojlinkou pro Ethernet, rychlost 10 Mbps – 10 Gbps\n- **BNC** – s koaxiálním kabelem, CCTV, starší sítě\n- **SC, LC, ST** – s optickými vlákny, rozdíly v konstrukci a velikosti\n\n### Vlastnosti přenosových médií\n- **Šířka pásma** – Maximální kapacita přenosu dat (1 Gbps měděný, 100 Gbps optika)\n- **Rušení (EMI/RFI)** – Elektrická a rádiová interference narušující přenos\n- **Vzdálenost** – Dvojlinka do 100 m, optické vlákno až stovky km\n- **Latence** – Doba zpoždění signálu mezi odesláním a přijetím\n\n### Typy přenosů\n- **Simplexní** – Data jedním směrem (vysílání rádia)\n- **Half-Duplex** – Oběma směry, ale ne současně (vysílačky)\n- **Full-Duplex** – Obousměrná komunikace v reálném čase (telefon, moderní Ethernet)\n\n### Analogové vs. digitální sítě\n- **Analogové sítě** – Přenos plynulými signály (zvuk tel. hovorů). Používají amplitudu a frekvenci.\n- **Digitální sítě** – Přenos diskrétními signály (1 a 0). Výhody: nižší šum, vyšší spolehlivost.\n\n### Kódování\n- **NRZ (Non-Return to Zero)** – Jednoduché kódování: 0 = nízký signál, 1 = vysoký\n- **Manchester kódování** – Každý bit = přechod signálu → synchronizace. Používá **10BASE-T** Ethernet.\n\n### Modulace\n- **AM (Amplitudová modulace)** – Změna amplitudy signálu\n- **FM (Frekvenční modulace)** – Změna frekvence signálu\n- **QAM (Kvadraturní amplitudová modulace)** – Změny amplitudy a fáze, využíváno u Wi-Fi\n\n### Síťové prvky a jejich funkce\n- **Repeater (Opakovač)** – Zesiluje signál a prodlužuje dosah sítě\n- **Hub (Rozbočovač)** – Přeposílá data všem zařízením bez ohledu na cíl\n- **Switch** (Linková vrstva) – Inteligentně přeposílá data pouze cílovému zařízení\n- **Router** (Síťová vrstva) – Směruje datové pakety mezi různými sítěmi\n- **Modem** – Převádí digitální data na analogový signál a naopak\n- **Přístupový bod (Access Point)** – Propojuje bezdrátová zařízení s kabelovou sítí",
       "keywords": [
         "ISO/OSI",
         "fyzická vrstva",
@@ -351,45 +373,70 @@
         "sections": [
           {
             "title": "Fyzická vrstva – přehled",
-            "text": "1. vrstva ISO/OSI. Přenáší data jako fyzické signály (elektrické, optické, rádiové). Nestará se o obsah – jen o bity.",
+            "text": "1. (nejnižší) vrstva sedmivrstvého modelu ISO/OSI. Zodpovědná za přenos dat ve formě signálů (elektrických, optických, rádiových) mezi síťovými zařízeními."
+          },
+          {
+            "title": "Funkce fyzické vrstvy",
+            "items": [
+              "Převod dat na signály – Převádí digitální data na fyzické signály (elektrické, optické, rádiové).",
+              "Definice přenosových médií – Stanovuje typy kabelů nebo bezdrátových médií.",
+              "Synchronizace bitů – Zajišťuje, aby přijímač věděl, kde bit začíná a končí.",
+              "Přenosová rychlost – Určuje maximální rychlost přenosu dat v síti.",
+              "Fyzická topologie – Řídí uspořádání připojení mezi zařízeními (hvězda, sběrnice, kruh)."
+            ]
+          },
+          {
+            "title": "Druhy kabeláže",
             "items": [
               {
-                "term": "Hlavní funkce",
-                "definition": "Převod bitů na signály, definice médií, synchronizace bitů, přenosová rychlost, fyzická topologie."
+                "term": "Kroucená dvojlinka (Twisted Pair)",
+                "definition": "Páry měděných vodičů kroucených do spirály (minimalizují EMI rušení). UTP = bez stínění (kanceláře, domácnosti). STP = se stíněním (průmysl). Rychlost až 10 Gbps na krátké vzdálenosti."
+              },
+              {
+                "term": "Koaxiální kabel (Coaxial Cable)",
+                "definition": "Centrální vodič obklopený izolací, stíněním a pláštěm. Použití: kabelová TV, starší sítě. + Odolnost proti rušení, − omezená flexibilita."
+              },
+              {
+                "term": "Optické vlákno (Fiber Optic)",
+                "definition": "Přenáší data světelnými pulzy. Single-mode = dlouhé vzdálenosti (páteřní sítě). Multi-mode = kratší vzdálenosti (datová centra). + Vysoká rychlost, nízké zpoždění. − Vyšší cena, náročnější instalace."
               }
             ]
           },
           {
-            "title": "Typy kabeláže",
-            "items": [
-              {
-                "term": "Kroucená dvojlinka UTP/STP",
-                "definition": "Nejběžnější Ethernet kabel. UTP = bez stínění (kanceláře), STP = stíněný (průmysl). Rychlost až 10 Gbps."
-              },
-              {
-                "term": "Koaxiální kabel",
-                "definition": "Centrální vodič + stínění. Kabelová TV, starší sítě. Odolný vůči rušení."
-              },
-              {
-                "term": "Optické vlákno",
-                "definition": "Přenos světelnými pulzy. Single-mode (dlouhé vzdálenosti), Multi-mode (datová centra). Velmi rychlé, ale drahé."
-              }
-            ]
-          },
-          {
-            "title": "Typy konektorů",
+            "title": "Druhy konektorů",
             "items": [
               {
                 "term": "RJ-45",
-                "definition": "Kroucená dvojlinka, Ethernet. 10 Mbps – 10 Gbps."
+                "definition": "S kroucenou dvojlinkou pro Ethernet. Rychlost 10 Mbps – 10 Gbps."
               },
               {
                 "term": "BNC",
-                "definition": "Koaxiální kabel. CCTV, starší sítě."
+                "definition": "S koaxiálním kabelem. CCTV, starší sítě."
               },
               {
-                "term": "SC / LC / ST",
-                "definition": "Optická vlákna. Různé velikosti a konstrukce konektoru."
+                "term": "SC, LC, ST",
+                "definition": "S optickými vlákny. Rozdíly v konstrukci a velikosti konektorů."
+              }
+            ]
+          },
+          {
+            "title": "Vlastnosti přenosových médií",
+            "items": [
+              {
+                "term": "Šířka pásma",
+                "definition": "Maximální kapacita přenosu dat – např. 1 Gbps (měděný kabel), 100 Gbps (optické vlákno)."
+              },
+              {
+                "term": "Rušení (EMI/RFI)",
+                "definition": "Elektrická a rádiová interference, která může narušit přenos."
+              },
+              {
+                "term": "Vzdálenost",
+                "definition": "Omezená délkou kabelu – dvojlinka do 100 m, optické vlákno až stovky km."
+              },
+              {
+                "term": "Latence",
+                "definition": "Doba zpoždění signálu mezi odesláním a přijetím (odezva)."
               }
             ]
           },
@@ -397,38 +444,64 @@
             "title": "Typy přenosů",
             "items": [
               {
-                "term": "Simplex",
-                "definition": "Pouze jeden směr. Příklad: rádio, TV."
+                "term": "Simplexní",
+                "definition": "Data proudí jedním směrem (např. vysílání rádia)."
               },
               {
                 "term": "Half-Duplex",
-                "definition": "Oba směry, ale ne současně. Příklad: vysílačka."
+                "definition": "Data oběma směry, ale ne současně (např. vysílačky)."
               },
               {
-                "term": "Full-Duplex",
-                "definition": "Oba směry současně. Příklad: telefon, moderní Ethernet."
+                "term": "Plný duplex (Full-Duplex)",
+                "definition": "Obousměrná komunikace v reálném čase (např. telefonní hovory, moderní Ethernet)."
               }
             ]
           },
           {
-            "title": "Kódování a modulace",
+            "title": "Analogové vs. digitální sítě",
+            "items": [
+              {
+                "term": "Analogové sítě",
+                "definition": "Přenos plynulými signály (zvuk telefonních hovorů). Používají amplitudu (výška sinusoidy) a frekvenci pro přenos dat."
+              },
+              {
+                "term": "Digitální sítě",
+                "definition": "Přenos diskrétními signály (1 a 0). + Nižší šum, vyšší spolehlivost."
+              }
+            ]
+          },
+          {
+            "title": "Kódování",
             "items": [
               {
                 "term": "NRZ (Non-Return to Zero)",
-                "definition": "Jednoduché binární kódování, 0 = nízký signál, 1 = vysoký."
+                "definition": "Jednoduché kódování binárních hodnot. 0 = nízký signál, 1 = vysoký."
               },
               {
                 "term": "Manchester kódování",
-                "definition": "Každý bit = přechod signálu → synchronizace hodin. Používá 10BASE-T."
-              },
-              {
-                "term": "AM / FM / QAM",
-                "definition": "Modulační metody: AM = amplituda, FM = frekvence, QAM = amplituda + fáze (Wi-Fi)."
+                "definition": "Data kódována s vloženými hodinami – každý bit = přechod signálu → synchronizace. Používá 10BASE-T Ethernet."
               }
             ]
           },
           {
-            "title": "Síťové prvky fyzické vrstvy",
+            "title": "Modulace",
+            "items": [
+              {
+                "term": "AM (Amplitudová modulace)",
+                "definition": "Změna amplitudy signálu."
+              },
+              {
+                "term": "FM (Frekvenční modulace)",
+                "definition": "Změna frekvence signálu."
+              },
+              {
+                "term": "QAM (Kvadraturní amplitudová modulace)",
+                "definition": "Změny amplitudy a fáze. Využíváno u Wi-Fi."
+              }
+            ]
+          },
+          {
+            "title": "Síťové prvky a jejich funkce",
             "items": [
               {
                 "term": "Repeater (Opakovač)",
@@ -436,11 +509,23 @@
               },
               {
                 "term": "Hub (Rozbočovač)",
-                "definition": "Přeposílá data všem zařízením bez ohledu na cíl."
+                "definition": "Přeposílá data všem zařízením v síti bez ohledu na cíl."
+              },
+              {
+                "term": "Switch (Linková vrstva)",
+                "definition": "Inteligentně přeposílá data pouze cílovému zařízení."
+              },
+              {
+                "term": "Router (Síťová vrstva)",
+                "definition": "Směruje datové pakety mezi různými sítěmi."
               },
               {
                 "term": "Modem",
-                "definition": "Převádí digitální signál ↔ analogový."
+                "definition": "Převádí digitální data na analogový signál a naopak."
+              },
+              {
+                "term": "Přístupový bod (Access Point)",
+                "definition": "Propojuje bezdrátová zařízení s kabelovou sítí."
               }
             ]
           }
@@ -464,12 +549,16 @@
         "sections": [
           {
             "title": "Linková vrstva – přehled",
-            "text": "2. vrstva ISO/OSI. Spolehlivá komunikace v lokální síti. Organizuje bity do rámců, řídí přístup k médiu.",
+            "text": "2. vrstva modelu ISO/OSI (mezi fyzickou a síťovou). Zajišťuje spolehlivou komunikaci mezi zařízeními v lokální síti, organizuje bity z fyzické vrstvy do rámců."
+          },
+          {
+            "title": "Funkce linkové vrstvy",
             "items": [
-              {
-                "term": "Hlavní funkce",
-                "definition": "Rámcování, řízení přístupu (MAC), detekce chyb (CRC), řízení toku, adresace MAC adresami."
-              }
+              "Rámcování (Framing) – Rozděluje data na bloky zvané rámce (hlavička + data + trailer).",
+              "Řízení přístupu k médiu (MAC) – Zajišťuje zařízením přístup k přenosovému médiu bez konfliktů.",
+              "Detekce chyb (Error Detection) – Identifikuje chyby při přenosu pomocí CRC (kontrolní součet).",
+              "Řízení toku dat (Flow Control) – Zabraňuje zahlcení zařízení rychlým přenosem.",
+              "Adresace – Používá fyzické adresy (MAC adresy) k identifikaci zařízení v síti."
             ]
           },
           {
@@ -477,45 +566,29 @@
             "items": [
               {
                 "term": "MAC (Media Access Control)",
-                "definition": "Fyzická adresace (48-bit MAC adresy), řízení kolizí (CSMA/CD), přenos v LAN."
+                "definition": "Spravuje přístup k fyzickému médiu. Fyzická adresace (48bit MAC adresy), řízení kolizí (CSMA/CD), přenos dat v lokální síti."
               },
               {
                 "term": "LLC (Logical Link Control)",
-                "definition": "Rozhraní k vyšším vrstvám. Multiplexování protokolů, detekce chyb."
+                "definition": "Rozhraní mezi linkovou vrstvou a vyššími vrstvami. Multiplexování protokolů, detekce chyb pomocí kontrolních součtů."
               }
             ]
           },
           {
             "title": "MAC adresa",
+            "text": "Unikátní identifikátor síťového zařízení, 48 bitů, používá se pro směrování rámců v LAN.",
             "items": [
               {
-                "term": "OUI (prvních 24 bitů)",
-                "definition": "Identifikuje výrobce. Přiděluje IEEE. Příklad: 00:1A:2B"
+                "term": "OUI (prefix)",
+                "definition": "Prvních 24 bitů – identifikátor výrobce (např. 00:1A:2B)."
               },
               {
-                "term": "NIC (posledních 24 bitů)",
-                "definition": "Jedinečné číslo přidělené výrobcem konkrétnímu zařízení."
+                "term": "NIC (suffix)",
+                "definition": "Zbývajících 24 bitů – jedinečné číslo přidělené výrobcem."
               },
               {
                 "term": "Formát",
-                "definition": "6 skupin po 2 hexadecimálních číslicích, např. 00:1A:2B:3C:4D:5E"
-              }
-            ]
-          },
-          {
-            "title": "Přístupové metody",
-            "items": [
-              {
-                "term": "CSMA/CD",
-                "definition": "Ethernet. Naslouchá médiu → vysílá → při kolizi přeruší, čeká náhodnou dobu, zkouší znovu."
-              },
-              {
-                "term": "CSMA/CA",
-                "definition": "Wi-Fi. Kolizím předchází – zařízení rezervuje médium před odesláním dat."
-              },
-              {
-                "term": "Token Passing",
-                "definition": "Token Ring. Zařízení potřebuje token (speciální rámec) k zahájení přenosu."
+                "definition": "6 dvojic hexadecimálních číslic oddělených dvojtečkou (např. 00:1A:2B:3C:4D:5E)."
               }
             ]
           },
@@ -524,15 +597,36 @@
             "items": [
               {
                 "term": "Ethernet (IEEE 802.3)",
-                "definition": "Standard pro drátové LAN sítě. Nejrozšířenější."
+                "definition": "Standardizuje přenosové technologie v LAN."
+              },
+              {
+                "term": "PPP (Point-to-Point Protocol)",
+                "definition": "Přímé přepojení mezi dvěma zařízeními."
+              },
+              {
+                "term": "HDLC",
+                "definition": "Protokol pro sériové linky."
               },
               {
                 "term": "Wi-Fi (IEEE 802.11)",
-                "definition": "Bezdrátové připojení v LAN."
+                "definition": "Bezdrátové připojení v lokálních sítích."
+              }
+            ]
+          },
+          {
+            "title": "Přístupové metody",
+            "items": [
+              {
+                "term": "CSMA/CD",
+                "definition": "Ethernet – zařízení naslechne médium, při kolizi přenos přeruší a po náhodné prodlevě opakuje."
               },
               {
-                "term": "PPP (Point-to-Point)",
-                "definition": "Přímé propojení dvou zařízení."
+                "term": "CSMA/CA",
+                "definition": "Wi-Fi – zabraňuje kolizím rezervací přenosového média před odesláním dat."
+              },
+              {
+                "term": "Token Passing",
+                "definition": "Token Ring – speciální rámec (token) potřebný pro zahájení přenosu."
               }
             ]
           },
@@ -541,11 +635,11 @@
             "items": [
               {
                 "term": "Switch (Přepínač)",
-                "definition": "Přeposílá rámce na základě MAC adres cílovému zařízení. Eliminuje kolize."
+                "definition": "Přeposílá rámce na základě MAC adres cílovému zařízení."
               },
               {
                 "term": "Bridge (Most)",
-                "definition": "Propojuje segmenty sítě, filtruje provoz podle MAC adres."
+                "definition": "Propojuje různé segmenty sítě a filtruje data dle MAC adres."
               },
               {
                 "term": "Access Point (AP)",
@@ -553,7 +647,7 @@
               },
               {
                 "term": "NIC (Síťová karta)",
-                "definition": "Fyzická komunikace počítač ↔ síť. Obsahuje MAC adresu."
+                "definition": "Zprostředkovává komunikaci mezi počítačem a sítí, obsahuje MAC adresu."
               }
             ]
           }
@@ -577,36 +671,41 @@
         "sections": [
           {
             "title": "Síťová vrstva – přehled",
-            "text": "3. vrstva ISO/OSI. Směrování paketů mezi sítěmi. Logická adresace (IPv4/IPv6).",
+            "text": "3. vrstva modelu ISO/OSI. Směruje data mezi různými sítěmi pomocí logických adres (IP). Pracuje s pakety."
+          },
+          {
+            "title": "Funkce síťové vrstvy",
             "items": [
-              {
-                "term": "Hlavní funkce",
-                "definition": "Směrování, logická adresace, fragmentace paketů, detekce přetížení, přenos mezi různými sítěmi."
-              }
+              "Směrování (Routing) – Určuje nejvhodnější cestu pro přenos dat.",
+              "Logická adresace – Přiděluje síťové adresy zařízením (IPv4, IPv6).",
+              "Fragmentace a sestavení paketů – Rozděluje data na pakety a zpětně je skládá.",
+              "Detekce a řízení přetížení – Sleduje zatížení sítě a minimalizuje přetížení.",
+              "Přenos mezi různými sítěmi – Zajišťuje kompatibilitu mezi odlišnými technologiemi."
             ]
           },
           {
-            "title": "IPv4 adresa",
+            "title": "IPv4 adresy",
+            "text": "32bitová adresa, 4 oktety oddělené tečkami (např. 192.168.1.1). Celkem ~4,3 miliardy unikátních adres.",
             "items": [
               {
-                "term": "Formát",
-                "definition": "32 bitů, 4 oktety oddělené tečkami. Příklad: 192.168.1.1"
-              },
-              {
                 "term": "Třída A",
-                "definition": "0.0.0.0 – 127.255.255.255, maska /8. Velké sítě."
+                "definition": "0.0.0.0 – 127.x.x.x, maska /8, velké sítě."
               },
               {
                 "term": "Třída B",
-                "definition": "128.0.0.0 – 191.255.255.255, maska /16. Střední sítě."
+                "definition": "128.0.0.0 – 191.x.x.x, maska /16, středně velké sítě."
               },
               {
                 "term": "Třída C",
-                "definition": "192.0.0.0 – 223.255.255.255, maska /24. Malé sítě."
+                "definition": "192.0.0.0 – 223.x.x.x, maska /24, malé sítě."
               },
               {
-                "term": "Třída D / E",
-                "definition": "D = Multicast (224–239), E = Experimentální (240–255)."
+                "term": "Třída D",
+                "definition": "224.0.0.0 – 239.x.x.x, multicast."
+              },
+              {
+                "term": "Třída E",
+                "definition": "240.0.0.0 – 255.x.x.x, experimentální."
               }
             ]
           },
@@ -614,37 +713,55 @@
             "title": "Typy IPv4 adres",
             "items": [
               {
-                "term": "Veřejné",
-                "definition": "Globálně unikátní, směrovatelné na internetu."
+                "term": "Veřejné adresy",
+                "definition": "Globálně unikátní a směrovatelné na internetu."
               },
               {
-                "term": "Soukromé (privátní)",
-                "definition": "10.x / 172.16–31.x / 192.168.x – pouze pro LAN, neprojdou na internet."
+                "term": "Soukromé adresy",
+                "definition": "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 – pouze pro lokální sítě."
               },
               {
-                "term": "Loopback",
-                "definition": "127.0.0.1 – testovací adresa samotného zařízení."
+                "term": "Broadcast adresy",
+                "definition": "Adresace všech zařízení v síti (např. 192.168.1.255)."
               },
               {
-                "term": "Broadcast",
-                "definition": "Adresace všech zařízení v síti. Příklad: 192.168.1.255"
+                "term": "Loopback adresa",
+                "definition": "127.0.0.1 – testovací adresa zařízení."
               }
             ]
           },
           {
             "title": "IPv6",
+            "text": "128bitová adresa, 8 bloků po 16 bitech (např. 2001:0db8:85a3::8a2e:0370:7334). Prefix místo masky (např. /64).",
             "items": [
               {
-                "term": "Formát",
-                "definition": "128 bitů, 8 skupin po 4 hex číslicích. Příklad: 2001:0db8::1"
+                "term": "Unicast",
+                "definition": "Identifikace jednoho zařízení (2001::/16)."
               },
               {
-                "term": "Unicast / Multicast / Anycast",
-                "definition": "Unicast = 1 zařízení, Multicast = skupina, Anycast = nejbližší zařízení ve skupině."
+                "term": "Multicast",
+                "definition": "Adresace skupiny zařízení (FF00::/8)."
               },
               {
-                "term": "Link-Local adresy",
-                "definition": "FE80::/10 – pouze lokální komunikace v segmentu."
+                "term": "Anycast",
+                "definition": "Adresuje nejbližší zařízení ve skupině."
+              },
+              {
+                "term": "Link-Local",
+                "definition": "FE80::/10 – pouze lokální komunikace."
+              }
+            ]
+          },
+          {
+            "title": "Pakety (PDU síťové vrstvy)",
+            "items": [
+              {
+                "term": "Hlavička",
+                "definition": "Zdrojová a cílová IP adresa, délka paketu, kontrolní součet."
+              },
+              {
+                "term": "Data",
+                "definition": "Užitečná data přenášená z vyšších vrstev."
               }
             ]
           },
@@ -653,19 +770,19 @@
             "items": [
               {
                 "term": "IP (Internet Protocol)",
-                "definition": "Základní protokol – směrování a doručení paketů přes sítě."
+                "definition": "Směrování a doručení paketů na základě IP adres."
               },
               {
                 "term": "ICMP",
-                "definition": "Diagnostika a hlášení chyb. Příkaz: ping."
+                "definition": "Diagnostika a hlášení chyb v síti (příkaz ping)."
               },
               {
                 "term": "ARP",
-                "definition": "Překlad IP adresy → MAC adresa."
+                "definition": "Převod IP adres na MAC adresy."
               },
               {
                 "term": "NAT",
-                "definition": "Překlad soukromých IP adres na veřejnou (router)."
+                "definition": "Překlad privátních IP adres na veřejné."
               }
             ]
           },
@@ -674,15 +791,19 @@
             "items": [
               {
                 "term": "Router (Směrovač)",
-                "definition": "Směruje pakety mezi sítěmi na základě IP adres a směrovacích tabulek."
+                "definition": "Směruje pakety mezi sítěmi, analyzuje IP adresy, určuje nejlepší cestu."
               },
               {
                 "term": "Firewall",
-                "definition": "Filtruje síťový provoz podle bezpečnostních pravidel."
+                "definition": "Chrání síť před neoprávněnými přístupy, filtruje provoz dle pravidel."
+              },
+              {
+                "term": "Gateway (Brána)",
+                "definition": "Překlad protokolů mezi různými sítěmi."
               },
               {
                 "term": "Layer 3 Switch",
-                "definition": "Kombinace switch + router. Přepíná data na základě IP adres."
+                "definition": "Kombinace switche a routeru, přepíná data na základě IP adres."
               }
             ]
           }
@@ -706,18 +827,19 @@
         "sections": [
           {
             "title": "Adresace – základy",
+            "text": "Identifikace zařízení v síti pomocí adres. PC generuje/přijímá data, Switch přepíná dle MAC adres (2. vrstva), Router směruje dle IP adres (3. vrstva).",
             "items": [
               {
                 "term": "Síťová část adresy",
-                "definition": "Identifikuje síť (např. 192.168.1.0/24 = síť)."
+                "definition": "Identifikace sítě (např. 192.168.1.0/24)."
               },
               {
                 "term": "Hostitelská část",
-                "definition": "Identifikuje konkrétní zařízení v síti."
+                "definition": "Identifikace konkrétního zařízení v síti."
               },
               {
                 "term": "Maska podsítě",
-                "definition": "Odděluje síťovou a hostitelskou část. /24 = 255.255.255.0"
+                "definition": "Odděluje síťovou a hostitelskou část (např. 255.255.255.0 = /24)."
               }
             ]
           },
@@ -726,15 +848,15 @@
             "items": [
               {
                 "term": "Subnetting",
-                "definition": "Rozdělení sítě na menší podsítě. Příklad: 192.168.1.0/26 = 64 adres, 62 hostitelů."
+                "definition": "Rozdělení jedné sítě na menší podsítě pomocí masky. Příklad: 192.168.1.0/26 = 64 adres, 62 hostitelů."
               },
               {
                 "term": "VLSM",
-                "definition": "Variable Length Subnet Masking – různě dlouhé masky v jedné síti. Efektivní využití adresního prostoru."
+                "definition": "Variable Length Subnet Masking – různě dlouhé masky v jedné síti pro efektivní využití adres."
               },
               {
                 "term": "CIDR",
-                "definition": "Classless Inter-Domain Routing. Zápis: adresa/prefix. Nahrazuje třídy A/B/C."
+                "definition": "Nahrazuje třídní adresování (A/B/C). Zápis: síťová adresa/prefix (192.168.1.0/24). Umožňuje subnetting i supernetting."
               }
             ]
           },
@@ -743,15 +865,15 @@
             "items": [
               {
                 "term": "Počet hostitelů",
-                "definition": "2^(32 – prefix) – 2. Příklad: /24 → 2^8 – 2 = 254 hostitelů."
+                "definition": "2^(32−prefix) − 2. Příklad: /24 → 2^8 − 2 = 254 hostitelů."
               },
               {
-                "term": "Broadcast adresa",
-                "definition": "Poslední adresa podsítě. Příklad: 192.168.1.255 pro /24."
+                "term": "Rozsah adres",
+                "definition": "Od první adresy sítě (192.168.1.0) po broadcast (192.168.1.255)."
               },
               {
-                "term": "Masky",
-                "definition": "/24 = 255.255.255.0 | /26 = 255.255.255.192 | /28 = 255.255.255.240"
+                "term": "Příklady masek",
+                "definition": "/24 = 255.255.255.0, /26 = 255.255.255.192, /28 = 255.255.255.240."
               }
             ]
           },
@@ -760,32 +882,32 @@
             "items": [
               {
                 "term": "Statické směrování",
-                "definition": "Administrátor ručně nastaví trasy. Vhodné pro malé sítě. Není flexibilní."
+                "definition": "Administrátor ručně nastaví cesty. Jednoduché pro malé sítě, ale není flexibilní."
               },
               {
                 "term": "Dynamické směrování",
-                "definition": "Routery automaticky aktualizují tabulky. Protokoly: RIP, OSPF, BGP."
+                "definition": "Směrovače automaticky upravují tabulky dle topologie. Používají protokoly (OSPF, RIP)."
               }
             ]
           },
           {
-            "title": "Směrovací protokoly",
+            "title": "Směrovací tabulka a metrika",
             "items": [
               {
-                "term": "RIP",
-                "definition": "Metrika = počet skoků (max 15). Jednoduchý, pomalý. Vhodný pro malé sítě."
+                "term": "Směrovací tabulka",
+                "definition": "Záznamy o cestách k cílovým sítím: cílová síť, maska, next hop, metrika."
               },
               {
-                "term": "OSPF",
-                "definition": "Link-state protokol. Metrika = šířka pásma. Rychlé a přesné. Vhodné pro velké sítě."
+                "term": "Počet skoků (Hop Count)",
+                "definition": "Počet routerů na cestě k cíli."
               },
               {
-                "term": "BGP",
-                "definition": "Směrování mezi autonomními systémy (internet). Klíčový protokol pro globální routing."
+                "term": "Šířka pásma",
+                "definition": "Rychlost dostupného spojení."
               },
               {
-                "term": "EIGRP",
-                "definition": "Cisco protokol. Rychlejší než RIP, méně náročný než OSPF."
+                "term": "Zpoždění",
+                "definition": "Čas potřebný pro přenos dat."
               }
             ]
           },
@@ -794,15 +916,36 @@
             "items": [
               {
                 "term": "Unicast",
-                "definition": "Přenos mezi dvěma konkrétními zařízeními."
+                "definition": "Přenos mezi dvěma zařízeními (1:1)."
               },
               {
                 "term": "Multicast",
-                "definition": "Přenos z jednoho zdroje na skupinu zařízení."
+                "definition": "Přenos z jednoho zařízení na skupinu (1:N)."
               },
               {
                 "term": "Broadcast",
-                "definition": "Přenos na všechna zařízení v síti."
+                "definition": "Přenos na všechna zařízení v síti (1:všichni)."
+              }
+            ]
+          },
+          {
+            "title": "Směrovací protokoly",
+            "items": [
+              {
+                "term": "RIP",
+                "definition": "Metoda počtu skoků, max 15 hopů. Jednoduchý, ale pomalý."
+              },
+              {
+                "term": "OSPF",
+                "definition": "Link-state protokol, SPF algoritmus. Používá metriku šířky pásma. Rychlé a přesné."
+              },
+              {
+                "term": "BGP",
+                "definition": "Směrování mezi autonomními systémy (internet). Klíčový pro globální směrování."
+              },
+              {
+                "term": "EIGRP",
+                "definition": "Cisco protokol. Rychlejší než RIP, méně náročný než OSPF."
               }
             ]
           }
@@ -814,7 +957,7 @@
       "exam": "IKT1",
       "question": "Transportní, relační a prezentační vrstva modelu ISO/OSI",
       "category": "Počítačové sítě",
-      "answer": "## 16. Transportní, relační a prezentační vrstva modelu ISO/OSI\n\n### Transportní Vrstva (4. vrstva ISO/OSI)\n* Pozice: Nachází se mezi síťovou vrstvou (3. vrstva) a relační vrstvou (5. vrstva).\n* Funkce:\n    1. Spolehlivost – Zajišťuje, že jsou data doručena bez chyb, v pořadí a kompletní.\n    2. Segmentace a rekonstrukce – Rozděluje data na segmenty a zajišťuje jejich sprvné sestavení na straně příjemce.\n    3. Řízení toku – Zabraňuje zahlcení příjemce daty (flow control).\n    4. Detekce a oprava chyb – Identifikuje chyby během přenosu a provádí opakované přenosy.\n* Bloky dat (PDU): Data přenášená transportní vrstvou jsou označována jako segmenty.\n* Identifikace: Segment obsahuje 3 části.\n    1. Čísla portů – Určují, která aplikace na zařízení je zdrojem a cílem dat, např. port 80 pro http, port 443 pro HTTPS.\n    2. Sekvenční čísla – Zajišťují doručení dat ve správném pořadí.\n    3. Kontrolní součet (checksum) – Slouží k detekci chyb.\n* Protokoly:\n    1. TCP (Transmission Control Protocol)\n        * Účel: Spolehlivý, orientovaný na připojení.\n        * Funkce: Potvrzování, řízení toku a sekvenční číslování, detekce a oprava chyb\n        * Struktura segmentu TCP: Hlavička obsahuje čísla portů, sekvenční číslo, potvrzovací číslo, kontrolní součet.\n    2. UDP (User Datagram Protocol):\n        * Účel: Nespojovaný, lehký protokol.\n        * Funkce: Rychlý přenos dat bez potvrzování, vhodný pro streaming, online hry\n        * Struktura datagramu UDP: Jednodušší hlavička než TCP, zahrnuje pouze čísla portů, délku a kontrolní součet.\n* Zabezpečení spolehlivé komunikace:\n    1. Potvrzování (ACK) – Odesílatel očekává potvrzení přijetí dat.\n    2. Opakovaný přenos – Pokud potvrzení nepřijde, data jsou znovu odeslána.\n    3. Kontrola toku – Příjemce reguluje množství dat, která může přijmout.\n\n### Relační vrstva (5. vrstva ISO/OSI)\n* Pozice: Nachází se nad transportní vrstvou a pod prezentační vrstvou.\n* Funkce: \n    1. Správa relací – Zahájení, udržování a ukončení relací mezi aplikacemi.\n    2. Synchronizace – Synchronizační body, umožňují přenosu pokračovat po přerušení.\n    3. Řízení komunikace – Určuje, která strana může aktuálně posílat či přijímat data.\n\n### Prezentační Vrstva (6. vrstva ISO/OSI)\n* Pozice: Nachází se nad relační vrstvou a pod aplikační vrstvou.\n* Funkce:\n    1. Kódování a dekódování – Převod mezi různými datovými formáty (ASCII, Unicode).\n    2. Komprese dat – Snižuje velikost dat pro rychlejší přenos.\n    3. Šifrování a dešifrování – Zvyšuje bezpečnost přenosu.\n* Protokoly:\n    1. TLS (Transport Layer Security) – Šifruje komunikaci a oveřuje identitu stran.\n    2. SSL (Secure Sockets Layer) – Předchůdce TLS, dnes méně používaný.\n    3. JPEG, GIF, MP3 – Standardy pro formátování dat (obrázky, audio)\n* Tabulky znaků: ASCII, Unicode, EBCDIC\n* Bezpečnostní Funkce:\n    1. Šifrování dat – Např. algoritmy AES, RSA (Symetrické a asymetrické)\n<details>\n<summary><strong>Klikni pro vysvětlení: Symetrické vs. Asymetrické</strong></summary>\n<p>Symetrické šifrování používá jeden sdílený klíč pro šifrování i dešifrování, což zajišťuje vysokou rychlost, ale vyžaduje bezpečné předání klíče. Asymetrické šifrování (veřejný klíč k zašifrování, soukromý k rozšifrování) je pomalejší, ale bezpečnější pro přenos dat, neboť soukromý klíč nikam neposíláte.</p>\n</details>\n    2. Ochrana integrity – Kontrola, zda se data během přenosu nezměnila.\n* Rozšíření elektronické pošty:\n    * MIME – Umožňuje posílat ne-textové formáty (obrázky, zvuk)\n* Typy kódování:\n    1. Base64 – Kódování binárních dat do textového formátu.\n    2. Quoted-Printable – Umožňuje přenos znaků mimo ASCII.",
+      "answer": "## 16. Transportní, relační a prezentační vrstva modelu ISO/OSI\n\n### Transportní vrstva (4. vrstva ISO/OSI)\nNachází se mezi síťovou vrstvou (3.) a relační vrstvou (5.). PDU = **segmenty**.\n\n#### Funkce transportní vrstvy\n- **Spolehlivost** – Zajišťuje doručení dat bez chyb, v pořadí a kompletní\n- **Segmentace a rekonstrukce** – Rozděluje data na segmenty a zajišťuje jejich správné sestavení na straně příjemce\n- **Řízení toku** – Zabraňuje zahlcení příjemce daty (flow control)\n- **Detekce a oprava chyb** – Identifikuje chyby během přenosu a provádí opakované přenosy\n\n#### Identifikace segmentu\nSegment obsahuje 3 klíčové části:\n- **Čísla portů** – Určují aplikaci na zařízení (port 80 = HTTP, port 443 = HTTPS)\n- **Sekvenční čísla** – Zajišťují doručení dat ve správném pořadí\n- **Kontrolní součet (checksum)** – Slouží k detekci chyb\n\n#### Protokoly transportní vrstvy\n\n**TCP (Transmission Control Protocol)**\n- Spolehlivý, orientovaný na připojení\n- Potvrzování (ACK), řízení toku, sekvenční číslování, detekce a oprava chyb\n- Hlavička: čísla portů, sekvenční číslo, potvrzovací číslo, kontrolní součet\n\n**UDP (User Datagram Protocol)**\n- Nespojovaný, lehký protokol\n- Rychlý přenos bez potvrzování – vhodný pro streaming, online hry\n- Jednodušší hlavička: čísla portů, délka, kontrolní součet\n\n#### Zabezpečení spolehlivé komunikace\n- **Potvrzování (ACK)** – Odesílatel očekává potvrzení přijetí dat\n- **Opakovaný přenos** – Pokud potvrzení nepřijde, data jsou znovu odeslána\n- **Kontrola toku** – Příjemce reguluje množství dat, která může přijmout\n\n---\n\n### Relační vrstva (5. vrstva ISO/OSI)\nNachází se nad transportní vrstvou a pod prezentační vrstvou.\n\n#### Funkce relační vrstvy\n- **Správa relací** – Zahájení, udržování a ukončení relací mezi aplikacemi\n- **Synchronizace** – Synchronizační body umožňují přenosu pokračovat po přerušení\n- **Řízení komunikace** – Určuje, která strana může aktuálně posílat či přijímat data\n\n---\n\n### Prezentační vrstva (6. vrstva ISO/OSI)\nNachází se nad relační vrstvou a pod aplikační vrstvou.\n\n#### Funkce prezentační vrstvy\n- **Kódování a dekódování** – Převod mezi různými datovými formáty (ASCII, Unicode, EBCDIC)\n- **Komprese dat** – Snižuje velikost dat pro rychlejší přenos\n- **Šifrování a dešifrování** – Zvyšuje bezpečnost přenosu\n\n#### Protokoly a formáty\n- **TLS (Transport Layer Security)** – Šifruje komunikaci a ověřuje identitu stran\n- **SSL (Secure Sockets Layer)** – Předchůdce TLS, dnes méně používaný\n- **JPEG, GIF, MP3** – Standardy pro formátování dat (obrázky, audio)\n\n#### Bezpečnostní funkce\n- **Šifrování dat** – Algoritmy AES (symetrické – jeden sdílený klíč, rychlé) a RSA (asymetrické – veřejný + soukromý klíč, bezpečnější)\n- **Ochrana integrity** – Kontrola, zda se data během přenosu nezměnila\n\n#### Rozšíření a kódování\n- **MIME** – Umožňuje posílat ne-textové formáty v e-mailech (obrázky, zvuk)\n- **Base64** – Kódování binárních dat do textového formátu\n- **Quoted-Printable** – Umožňuje přenos znaků mimo ASCII",
       "keywords": [
         "ISO/OSI",
         "TCP",
@@ -826,67 +969,105 @@
         "sections": [
           {
             "title": "Transportní vrstva (4. vrstva)",
-            "text": "Zajišťuje spolehlivý přenos dat mezi aplikacemi. PDU = segment.",
+            "text": "Mezi síťovou (3.) a relační (5.) vrstvou. Zajišťuje spolehlivé doručení dat, segmentaci a řízení toku. PDU = segmenty."
+          },
+          {
+            "title": "Funkce transportní vrstvy",
+            "items": [
+              "Spolehlivost – Zajišťuje doručení dat bez chyb, v pořadí a kompletní.",
+              "Segmentace a rekonstrukce – Rozděluje data na segmenty a skládá je zpět.",
+              "Řízení toku – Zabraňuje zahlcení příjemce daty (flow control).",
+              "Detekce a oprava chyb – Identifikuje chyby a provádí opakované přenosy."
+            ]
+          },
+          {
+            "title": "TCP vs. UDP",
             "items": [
               {
                 "term": "TCP (Transmission Control Protocol)",
-                "definition": "Spolehlivý, spojovaný. Potvrzování, sekvenční čísla, detekce chyb. Vhodné pro web, e-mail."
+                "definition": "Spolehlivý, orientovaný na připojení. Potvrzování (ACK), řízení toku, sekvenční číslování. Pro web, e-mail, přenos souborů."
               },
               {
                 "term": "UDP (User Datagram Protocol)",
-                "definition": "Nespolehlivý, rychlý, bez potvrzování. Vhodné pro streaming, online hry, DNS."
+                "definition": "Nespojovaný, rychlý. Bez potvrzování. Pro streaming, online hry, VoIP."
+              }
+            ]
+          },
+          {
+            "title": "Porty a segmenty",
+            "items": [
+              {
+                "term": "Čísla portů",
+                "definition": "Určují aplikaci – port 80 (HTTP), 443 (HTTPS), 25 (SMTP), 53 (DNS)."
               },
               {
-                "term": "Porty",
-                "definition": "Identifikují aplikaci. HTTP = 80, HTTPS = 443, FTP = 21, DNS = 53."
+                "term": "Sekvenční čísla",
+                "definition": "Zajišťují doručení dat ve správném pořadí."
               },
               {
-                "term": "Řízení toku",
-                "definition": "Příjemce reguluje množství přijímaných dat – zabraňuje zahlcení."
+                "term": "Kontrolní součet",
+                "definition": "Detekce chyb v přeneseném segmentu."
+              }
+            ]
+          },
+          {
+            "title": "Řízení spolehlivé komunikace",
+            "items": [
+              {
+                "term": "Potvrzování (ACK)",
+                "definition": "Odesílatel očekává potvrzení přijetí dat."
+              },
+              {
+                "term": "Opakovaný přenos",
+                "definition": "Pokud potvrzení nepřijde, data jsou znovu odeslána."
+              },
+              {
+                "term": "Kontrola toku",
+                "definition": "Příjemce reguluje množství dat, která může přijmout."
               }
             ]
           },
           {
             "title": "Relační vrstva (5. vrstva)",
-            "text": "Správa relací (sessions) mezi aplikacemi.",
+            "text": "Nad transportní, pod prezentační vrstvou.",
             "items": [
               {
                 "term": "Správa relací",
-                "definition": "Zahájení, udržování a ukončení komunikačních relací."
+                "definition": "Zahájení, udržování a ukončení relací mezi aplikacemi."
               },
               {
                 "term": "Synchronizace",
-                "definition": "Synchronizační body – přenos může pokračovat po přerušení od checkpointu."
+                "definition": "Synchronizační body umožňují pokračovat po přerušení."
               },
               {
                 "term": "Řízení komunikace",
-                "definition": "Určuje, která strana aktuálně vysílá nebo přijímá."
+                "definition": "Určuje, která strana může aktuálně posílat/přijímat data."
               }
             ]
           },
           {
             "title": "Prezentační vrstva (6. vrstva)",
-            "text": "Převod dat do formátu srozumitelného aplikaci. Šifrování, komprese.",
+            "text": "Nad relační, pod aplikační vrstvou.",
             "items": [
               {
-                "term": "Kódování / Dekódování",
-                "definition": "Převod mezi datovými formáty: ASCII ↔ Unicode, binární ↔ textový."
+                "term": "Kódování/dekódování",
+                "definition": "Převod mezi formáty (ASCII, Unicode, EBCDIC)."
               },
               {
-                "term": "Komprese",
-                "definition": "Snižuje velikost dat pro rychlejší přenos (JPEG, MP3, GIF)."
+                "term": "Komprese dat",
+                "definition": "Snižuje velikost dat pro rychlejší přenos."
               },
               {
                 "term": "Šifrování",
-                "definition": "TLS/SSL – zabezpečení přenosu. AES (symetrické), RSA (asymetrické)."
+                "definition": "TLS/SSL – šifruje komunikaci. AES (symetrické), RSA (asymetrické)."
               },
               {
-                "term": "TLS / SSL",
-                "definition": "TLS šifruje komunikaci a ověřuje identitu. SSL = starší předchůdce TLS."
+                "term": "MIME",
+                "definition": "Umožňuje posílat ne-textové formáty (obrázky, zvuk) v e-mailech."
               },
               {
                 "term": "Base64",
-                "definition": "Kóduje binární data do textového formátu (přílohy e-mailů)."
+                "definition": "Kódování binárních dat do textového formátu."
               }
             ]
           }
@@ -910,70 +1091,95 @@
         "sections": [
           {
             "title": "Aplikační vrstva – přehled",
-            "text": "7. (nejvyšší) vrstva ISO/OSI. Rozhraní pro uživatelské aplikace. Sbírá a připravuje data k přenosu.",
-            "items": []
-          },
-          {
-            "title": "Web a HTTP",
-            "items": [
-              {
-                "term": "HTTP (HyperText Transfer Protocol)",
-                "definition": "Přenos webových stránek. Klient → GET/POST požadavek, server → HTML odpověď."
-              },
-              {
-                "term": "HTTPS",
-                "definition": "HTTP + TLS šifrování. Bezpečný přenos (port 443)."
-              },
-              {
-                "term": "URL",
-                "definition": "Protokol + doména + cesta + parametry. Příklad: https://google.com/search?q=test"
-              },
-              {
-                "term": "Stavové kódy HTTP",
-                "definition": "200 OK | 404 Not Found | 500 Internal Server Error | 301 Redirect"
-              }
-            ]
+            "text": "7. (nejvyšší) vrstva modelu ISO/OSI. Poskytuje rozhraní pro aplikace ke komunikaci přes síť. Sbírá, zpracovává data a řídí komunikaci mezi aplikacemi."
           },
           {
             "title": "DNS systém",
             "items": [
               {
-                "term": "DNS (Domain Name System)",
-                "definition": "Překlad doménového jména → IP adresa. Hierarchická struktura: .com → google.com → www.google.com"
+                "term": "Účel",
+                "definition": "Překlad doménových jmen na IP adresy (např. google.com → 142.250.x.x)."
               },
               {
-                "term": "Princip DNS dotazu",
-                "definition": "Klient → DNS server → IP adresa. Pokud lokální cache neví, ptá se nadřazeného serveru."
+                "term": "Struktura",
+                "definition": "Hierarchická – nejvyšší úroveň (.com, .org), název domény, subdomény."
+              },
+              {
+                "term": "Princip",
+                "definition": "Zadání jména → DNS dotaz na server → odpověď s IP adresou."
               }
             ]
           },
           {
-            "title": "Přenos souborů",
+            "title": "WWW a URL",
             "items": [
               {
-                "term": "FTP (File Transfer Protocol)",
-                "definition": "Upload/download souborů. Dva kanály: příkaz (port 21) + data. Nešifrovaný."
+                "term": "WWW",
+                "definition": "Vyhledávání a zobrazení dokumentů (HTML) pomocí prohlížeče přes HTTP/HTTPS."
               },
               {
-                "term": "SFTP / FTPS",
-                "definition": "Bezpečné varianty FTP se šifrováním."
+                "term": "Protokol v URL",
+                "definition": "HTTP, HTTPS, FTP – určuje způsob komunikace."
+              },
+              {
+                "term": "Doménové jméno",
+                "definition": "Určuje server (např. www.google.com)."
+              },
+              {
+                "term": "Cesta a parametry",
+                "definition": "Konkrétní stránka (/about) a parametry (?id=123)."
+              }
+            ]
+          },
+          {
+            "title": "HTTP protokol",
+            "items": [
+              {
+                "term": "Účel",
+                "definition": "Přenos hypertextových dokumentů mezi serverem a klientem."
+              },
+              {
+                "term": "Metody",
+                "definition": "GET (načtení), POST (odeslání), PUT (aktualizace), DELETE (smazání)."
+              },
+              {
+                "term": "Stavové kódy",
+                "definition": "200 OK, 404 Not Found, 500 Internal Server Error."
+              }
+            ]
+          },
+          {
+            "title": "FTP (File Transfer Protocol)",
+            "items": [
+              {
+                "term": "Účel",
+                "definition": "Přenos souborů mezi klientem a serverem."
+              },
+              {
+                "term": "Funkce",
+                "definition": "Nahrávání, stahování, přejmenovávání, mazání souborů na serveru."
               }
             ]
           },
           {
             "title": "Elektronická pošta",
+            "text": "Odesílání a přijímání zpráv a příloh mezi zařízeními.",
             "items": [
               {
                 "term": "SMTP",
-                "definition": "Odesílání emailů. Server → server přenos. Port 25 / 587."
+                "definition": "Odesílání e-mailů ze serveru na server."
               },
               {
                 "term": "POP3",
-                "definition": "Stažení emailů ze serveru na klienta. Zprávy se smažou ze serveru. Port 110."
+                "definition": "Stahování e-mailů ze serveru na klienta (zprávy obvykle smazány ze serveru)."
               },
               {
                 "term": "IMAP",
-                "definition": "Přístup k emailům na serveru bez stahování – zprávy zůstávají na serveru. Port 143."
+                "definition": "Přístup k e-mailům uloženým na serveru bez stahování. Možnost třídění a správy."
+              },
+              {
+                "term": "Princip komunikace",
+                "definition": "Odesílatel → SMTP → server příjemce → POP3/IMAP → příjemce."
               }
             ]
           }
@@ -1000,23 +1206,23 @@
             "items": [
               {
                 "term": "Hub (Rozbočovač)",
-                "definition": "1. vrstva. Posílá data na všechny porty bez ohledu na cíl. Zastaralý, způsobuje kolize."
+                "definition": "Přeposílá data na všechny porty bez rozlišení cíle. Menší, nezabezpečené sítě."
               },
               {
                 "term": "Switch (Přepínač)",
-                "definition": "2. vrstva. Směruje rámce podle MAC adres. Eliminuje kolize. Dnes standard v LAN."
+                "definition": "2. vrstva ISO/OSI. Směruje rámce dle MAC adres, efektivně minimalizuje kolize."
               },
               {
                 "term": "Router (Směrovač)",
-                "definition": "3. vrstva. Propojuje různé sítě, směruje pakety podle IP adres."
-              },
-              {
-                "term": "Bridge (Most)",
-                "definition": "2. vrstva. Propojuje segmenty sítě, filtruje provoz. Dnes nahrazen switchem."
+                "definition": "3. vrstva ISO/OSI. Směruje pakety mezi sítěmi dle IP adres."
               },
               {
                 "term": "Firewall",
-                "definition": "Filtruje síťový provoz podle bezpečnostních pravidel. HW nebo SW."
+                "definition": "Filtruje síťovou komunikaci dle bezpečnostních pravidel. Ochrana před neoprávněným přístupem."
+              },
+              {
+                "term": "Bridge (Most)",
+                "definition": "Propojuje síťové segmenty na linkové vrstvě, snižuje kolize."
               }
             ]
           },
@@ -1025,37 +1231,62 @@
             "items": [
               {
                 "term": "Switch",
-                "definition": "Čtverec s porty nebo obdélník s šipkami."
+                "definition": "Čtvercová ikona s porty."
               },
               {
                 "term": "Router",
-                "definition": "Kruh se šipkami označujícími směrování."
+                "definition": "Čtverec s ikonou směrování / trojúhelník."
+              },
+              {
+                "term": "Hub",
+                "definition": "Malé zařízení s porty, bez pokročilých funkcí."
               },
               {
                 "term": "Firewall",
-                "definition": "Zařízení s ikonou plamenu nebo zámku."
+                "definition": "Ikona s ochranným zámkem."
               },
               {
-                "term": "Access Point",
-                "definition": "Antény vyzařující vlny."
+                "term": "Modem",
+                "definition": "Dvě připojení – PC + telefonní linka."
               }
             ]
           },
           {
             "title": "Strukturovaná kabeláž",
-            "text": "Způsob organizace a instalace kabelů pro snadnou správu, údržbu a rozšiřování sítě.",
+            "text": "Standardizovaný způsob uspořádání a instalace kabelů. Umožňuje snadnou údržbu, flexibilitu a správu sítě.",
             "items": [
               {
-                "term": "Patch kabel",
-                "definition": "Krátký kabel pro propojení zařízení s patch panelem nebo switchem."
+                "term": "Kabely",
+                "definition": "Kroucená dvojlinka, optické vlákno – podle potřeby."
               },
               {
-                "term": "Patch panel",
-                "definition": "Organizační panel s konektory RJ-45. Centralizuje zapojení."
+                "term": "Racks",
+                "definition": "19\" rack pro uložení síťových zařízení, až 42U jednotek výšky."
               },
               {
-                "term": "Rack (19\")",
-                "definition": "Stojan pro síťová zařízení. Standard 19\", až 42U výška. Chlazení + správa kabelů."
+                "term": "Patch panely a kabely",
+                "definition": "Organizace připojení, krátké propojovací kabely mezi zařízeními."
+              },
+              {
+                "term": "Jacks a zásuvky",
+                "definition": "Připojení koncových zařízení k síťové infrastruktuře."
+              }
+            ]
+          },
+          {
+            "title": "Topologie",
+            "items": [
+              {
+                "term": "Hvězdicová",
+                "definition": "Všechna zařízení připojena k centrálnímu prvku (switch/hub). Nejčastější pro LAN."
+              },
+              {
+                "term": "Sběrnicová",
+                "definition": "Zařízení na jednom kabelu (sběrnici). Starší Ethernet sítě."
+              },
+              {
+                "term": "Kruhová",
+                "definition": "Zařízení propojena do kruhu, data putují jedním směrem."
               }
             ]
           },
@@ -1064,19 +1295,19 @@
             "items": [
               {
                 "term": "Cat 5e",
-                "definition": "Až 1 Gbps, 100 MHz. Nejrozšířenější pro Gigabit Ethernet."
+                "definition": "Rychlost až 1 Gbps (1000BASE-T). Běžné místní sítě."
               },
               {
                 "term": "Cat 6",
-                "definition": "Až 10 Gbps na kratší vzdálenosti (55 m). 250 MHz."
+                "definition": "Až 10 Gbps na kratší vzdálenosti. Vylepšená verze."
               },
               {
                 "term": "Cat 6a",
-                "definition": "Až 10 Gbps na 100 m. 500 MHz. Pro profesionální sítě."
+                "definition": "10 Gbps na delší vzdálenosti. Datová centra."
               },
               {
                 "term": "Cat 7 / Cat 8",
-                "definition": "Datová centra, velmi vysoké rychlosti (40–100 Gbps)."
+                "definition": "Nejvyšší přenosové rychlosti a šířka pásma. Profesionální aplikace."
               }
             ]
           }
@@ -1095,250 +1326,26 @@
       ],
       "difficulty": "střední",
       "sourceFile": "/materialy/ICT1/PSI/19. Ethernet.odt",
-      "content": {
-        "sections": [
-          {
-            "title": "Historie a vývoj, značení, kabeláž",
-            "subsections": [
-              {
-                "title": "Historie a vývoj",
-                "text": "Ethernet byl vyvinut v roce 1973 skupinou inženýrů vedenou Robertem Metcalfem ve společnosti Xerox PARC. První verze fungovala na rychlosti 2,94 Mbps. V roce 1980 byl standard IEEE 802.3 oficiálně uznán.",
-                "items": [
-                  {
-                    "term": "Ethernet 2",
-                    "definition": "Rychlost 10 Mbps (10BASE-T)."
-                  },
-                  {
-                    "term": "Fast Ethernet (1995)",
-                    "definition": "Rychlost 100 Mbps (100BASE-TX)."
-                  },
-                  {
-                    "term": "Gigabit Ethernet",
-                    "definition": "Rychlost 1 Gbps (1000BASE-T)."
-                  },
-                  {
-                    "term": "10 Gigabit Ethernet",
-                    "definition": "Rychlost 10 Gbps."
-                  }
-                ]
-              },
-              {
-                "title": "Značení Ethernetu",
-                "items": [
-                  {
-                    "term": "10BASE-T",
-                    "definition": "10 Mbps přes kroucenou dvojlinku."
-                  },
-                  {
-                    "term": "100BASE-TX",
-                    "definition": "100 Mbps přes kroucenou dvojlinku."
-                  },
-                  {
-                    "term": "1000BASE-T",
-                    "definition": "1 Gbps přes kroucenou dvojlinku."
-                  },
-                  {
-                    "term": "10GBASE-T",
-                    "definition": "10 Gbps přes kroucenou dvojlinku."
-                  },
-                  {
-                    "term": "100BASE-FX",
-                    "definition": "100 Mbps přes optické vlákno."
-                  },
-                  {
-                    "term": "1000BASE-SX",
-                    "definition": "1 Gbps přes optické vlákno."
-                  }
-                ]
-              },
-              {
-                "title": "Kabeláž",
-                "items": [
-                  {
-                    "term": "Kroucená dvojlinka (UTP/STP)",
-                    "definition": "Nejčastější kabeláž, páry vodičů jsou kroucené pro minimalizaci rušení."
-                  },
-                  {
-                    "term": "Cat 5e",
-                    "definition": "Podporuje 1 Gbps."
-                  },
-                  {
-                    "term": "Cat 6",
-                    "definition": "Podporuje až 10 Gbps na kratší vzdálenosti."
-                  },
-                  {
-                    "term": "Optické vlákno",
-                    "definition": "Pro vyšší rychlosti a delší vzdálenosti (100BASE-FX, 1000BASE-SX)."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Bloky dat, princip činnosti, řešení kolizí",
-            "subsections": [
-              {
-                "title": "Ethernet rámec (Ethernet frame)",
-                "items": [
-                  {
-                    "term": "Preámbule",
-                    "definition": "Synchronizace zařízení na začátku rámce (7 bajtů)."
-                  },
-                  {
-                    "term": "Destinační adresa",
-                    "definition": "MAC adresa příjemce (6 bajtů)."
-                  },
-                  {
-                    "term": "Zdrojová adresa",
-                    "definition": "MAC adresa odesílatele (6 bajtů)."
-                  },
-                  {
-                    "term": "Typ/Délka",
-                    "definition": "Identifikuje protokol vyšší vrstvy nebo velikost dat (2 bajty)."
-                  },
-                  {
-                    "term": "Data (Payload)",
-                    "definition": "Skutečná data (max. 1500 bajtů)."
-                  },
-                  {
-                    "term": "FCS",
-                    "definition": "Kontrolní součet pro detekci chyb (4 bajty)."
-                  }
-                ]
-              },
-              {
-                "title": "Princip činnosti",
-                "text": "Zařízení používají MAC adresy k identifikaci. Rámce jsou směrovány na základě této adresy. Všechna zařízení sdílejí společný přenosový kanál, dokud není připojen switch."
-              },
-              {
-                "title": "Řešení kolizí - CSMA/CD",
-                "items": [
-                  {
-                    "term": "Carrier Sense",
-                    "definition": "Zařízení 'poslouchá' kanál, zda je volný."
-                  },
-                  {
-                    "term": "Multiple Access",
-                    "definition": "Všechna zařízení mohou přistupovat k médiu."
-                  },
-                  {
-                    "term": "Collision Detection",
-                    "definition": "Při kolizi oba odesílatelé zastaví vysílání a po náhodné prodlevě znovu pošlou data."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "10/100/1000 Ethernet",
-            "subsections": [
-              {
-                "title": "10BASE-T (10 Mbps)",
-                "items": [
-                  {
-                    "term": "Popis",
-                    "definition": "Nejstarší standard, rychlost až 10 Mbps."
-                  },
-                  {
-                    "term": "Kabeláž",
-                    "definition": "Kroucená dvojlinka (Cat 3 nebo Cat 5)."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Menší a starší sítě, dnes zastaralý."
-                  }
-                ]
-              },
-              {
-                "title": "100BASE-TX (Fast Ethernet)",
-                "items": [
-                  {
-                    "term": "Popis",
-                    "definition": "Rychlost až 100 Mbps."
-                  },
-                  {
-                    "term": "Kabeláž",
-                    "definition": "Kroucená dvojlinka (Cat 5e nebo vyšší)."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Nejčastěji pro domácí a malé firemní sítě."
-                  }
-                ]
-              },
-              {
-                "title": "1000BASE-T (Gigabit Ethernet)",
-                "items": [
-                  {
-                    "term": "Popis",
-                    "definition": "Rychlost až 1 Gbps."
-                  },
-                  {
-                    "term": "Kabeláž",
-                    "definition": "Kroucená dvojlinka (Cat 5e a vyšší)."
-                  },
-                  {
-                    "term": "Použití",
-                    "definition": "Větší sítě, kancelářské budovy, datacentra."
-                  }
-                ]
-              },
-              {
-                "title": "Přenos a kódování dat",
-                "items": [
-                  {
-                    "term": "Manchester kódování",
-                    "definition": "Synchronizace hodinového signálu, každý bit reprezentován přechodem."
-                  },
-                  {
-                    "term": "4B/5B kódování",
-                    "definition": "Používá se ve Fast Ethernetu pro lepší signálový poměr."
-                  },
-                  {
-                    "term": "PAM-5",
-                    "definition": "Používá se v Gigabit Ethernetu, 5 různých hodnot signálu."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Ethernet je klíčový protokol pro vytváření a správu počítačových sítí. Od původního 10BASE-T až po moderní 10GBASE-T se stal základem pro většinu LAN sítí a umožnil rychlý přenos dat mezi zařízeními."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
             "title": "Ethernet – přehled",
-            "text": "Nejrozšířenější standard pro drátové LAN sítě. Definuje přenos pomocí MAC adres a rámců.",
-            "items": []
+            "text": "Nejrozšířenější standard pro lokální sítě (LAN). Definuje komunikaci zařízení přes sdílené médium pomocí MAC adres a rámců dat. Standard IEEE 802.3."
           },
           {
-            "title": "Historie)",
+            "title": "Historie a vývoj",
             "items": [
-              {
-                "term": "1973 – Xerox PARC",
-                "definition": "Robert Metcalfe vytvořil první Ethernet (2,94 Mbps)."
-              },
-              {
-                "term": "1980 – IEEE 802.3",
-                "definition": "Oficializace standardu."
-              },
-              {
-                "term": "1995 – Fast Ethernet",
-                "definition": "100BASE-TX, 100 Mbps."
-              },
-              {
-                "term": "Gigabit / 10G Ethernet",
-                "definition": "1000BASE-T = 1 Gbps | 10GBASE-T = 10 Gbps."
-              }
+              "1973 – Robert Metcalfe (Xerox PARC) vytvořil první Ethernet (2,94 Mbps).",
+              "1980 – Standard IEEE 802.3 – oficiální uznání jako LAN standard.",
+              "Ethernet 2 – 10 Mbps (10BASE-T).",
+              "Fast Ethernet (1995) – 100 Mbps (100BASE-TX).",
+              "Gigabit Ethernet – 1 Gbps (1000BASE-T).",
+              "10 Gigabit Ethernet – 10 Gbps (10GBASE-T)."
             ]
           },
           {
             "title": "Značení standardů",
-            "text": "Formát: rychlost + BASE + médium. Příklad: 1000BASE-T = 1 Gbps, kroucená dvojlinka.",
+            "text": "Formát: rychlost + BASE + médium (např. 1000BASE-T = 1 Gbps přes kroucenou dvojlinku).",
             "items": [
               {
                 "term": "10BASE-T",
@@ -1346,15 +1353,19 @@
               },
               {
                 "term": "100BASE-TX",
-                "definition": "100 Mbps, kroucená dvojlinka. Fast Ethernet."
+                "definition": "100 Mbps, kroucená dvojlinka."
               },
               {
                 "term": "1000BASE-T",
-                "definition": "1 Gbps, kroucená dvojlinka. Gigabit Ethernet."
+                "definition": "1 Gbps, kroucená dvojlinka."
               },
               {
                 "term": "10GBASE-T",
-                "definition": "10 Gbps, kroucená dvojlinka. Datová centra."
+                "definition": "10 Gbps, kroucená dvojlinka."
+              },
+              {
+                "term": "100BASE-FX",
+                "definition": "100 Mbps, optické vlákno."
               },
               {
                 "term": "1000BASE-SX",
@@ -1363,48 +1374,96 @@
             ]
           },
           {
+            "title": "Kabeláž",
+            "items": [
+              {
+                "term": "Kroucená dvojlinka (UTP/STP)",
+                "definition": "Nejčastější kabeláž pro Ethernet."
+              },
+              {
+                "term": "Cat 5e",
+                "definition": "Podporuje až 1 Gbps."
+              },
+              {
+                "term": "Cat 6 / Cat 6a",
+                "definition": "Podporuje až 10 Gbps (Cat 6a na delší vzdálenosti)."
+              },
+              {
+                "term": "Optické vlákno",
+                "definition": "Pro vyšší rychlosti a delší vzdálenosti (100BASE-FX, 1000BASE-SX)."
+              }
+            ]
+          },
+          {
             "title": "Ethernet rámec",
+            "text": "Každý přenos probíhá v rámcích. Struktura:",
             "items": [
               {
                 "term": "Preámbule (7 B)",
-                "definition": "Synchronizace přijímače na začátku rámce."
+                "definition": "Synchronizace na začátku rámce."
               },
               {
-                "term": "Cílová / Zdrojová MAC (6+6 B)",
-                "definition": "Adresy příjemce a odesílatele."
+                "term": "Destinační MAC (6 B)",
+                "definition": "Adresa příjemce."
               },
               {
-                "term": "Typ / Délka (2 B)",
+                "term": "Zdrojová MAC (6 B)",
+                "definition": "Adresa odesílatele."
+              },
+              {
+                "term": "Typ/Délka (2 B)",
                 "definition": "Protokol vyšší vrstvy (IP, ARP…)."
               },
               {
-                "term": "Data / Payload (až 1500 B)",
-                "definition": "Přenášená data."
+                "term": "Data/Payload (až 1500 B)",
+                "definition": "Skutečně přenášená data."
               },
               {
-                "term": "FCS – kontrolní součet (4 B)",
-                "definition": "Detekce chyb v rámci."
+                "term": "FCS (4 B)",
+                "definition": "Kontrolní součet – detekce chyb."
               }
             ]
           },
           {
             "title": "CSMA/CD",
+            "text": "Carrier Sense Multiple Access with Collision Detection – metoda přístupu k médiu v Ethernetu.",
             "items": [
               {
                 "term": "Carrier Sense",
-                "definition": "Zařízení naslouchá → vysílá jen pokud je médium volné."
+                "definition": "Zařízení naslouchá, zda je kanál volný."
               },
               {
                 "term": "Multiple Access",
-                "definition": "Všechna zařízení sdílejí médium."
+                "definition": "Všechna zařízení sdílejí společné médium."
               },
               {
                 "term": "Collision Detection",
-                "definition": "Při kolizi obě stanice přeruší, počkají náhodnou dobu, zkouší znovu."
+                "definition": "Při kolizi obě zařízení přestanou vysílat, počkají náhodnou dobu a vysílají znovu."
               },
               {
-                "term": "Switch vs. Hub",
-                "definition": "Switch = každý port má vlastní kolizní doménu → žádné kolize."
+                "term": "Switch",
+                "definition": "Eliminuje kolize – každý port má svou kolizní doménu."
+              }
+            ]
+          },
+          {
+            "title": "Varianty Ethernetu",
+            "items": [
+              {
+                "term": "10BASE-T (10 Mbps)",
+                "definition": "Nejstarší standard, dnes zastaralý. Kabeláž Cat 3/5."
+              },
+              {
+                "term": "100BASE-TX – Fast Ethernet",
+                "definition": "100 Mbps. Domácnosti a malé firmy. Cat 5e+."
+              },
+              {
+                "term": "1000BASE-T – Gigabit Ethernet",
+                "definition": "1 Gbps. Nejrozšířenější pro moderní LAN. Cat 5e+."
+              },
+              {
+                "term": "10GBASE-T",
+                "definition": "10 Gbps. Datová centra a páteřní sítě. Cat 6a."
               }
             ]
           },
@@ -1413,15 +1472,15 @@
             "items": [
               {
                 "term": "Manchester kódování",
-                "definition": "10 Mbps Ethernet. Přechod signálu = 1 bit → synchronizace."
+                "definition": "Každý bit = přechod signálu → synchronizace. Používá 10BASE-T."
               },
               {
                 "term": "4B/5B kódování",
-                "definition": "Fast Ethernet (100BASE-TX). Lepší efektivita signálu."
+                "definition": "Fast Ethernet (100BASE-TX). Lepší signál, nižší chybovost."
               },
               {
                 "term": "PAM-5",
-                "definition": "Gigabit Ethernet. 5 úrovní signálu přes 4 páry vodičů."
+                "definition": "Gigabit Ethernet. 5 úrovní amplitudy přes 4 páry vodičů."
               }
             ]
           }
@@ -1440,249 +1499,124 @@
       ],
       "difficulty": "střední",
       "sourceFile": "/materialy/ICT1/PSI/20. Bezdrátové síťové technologie.odt",
-      "content": {
-        "sections": [
-          {
-            "title": "Elektromagnetická vlna a spektrum",
-            "subsections": [
-              {
-                "title": "Elektromagnetická vlna",
-                "text": "Oscilující elektrická a magnetická pole, která se šíří prostorem a přenášejí energii. Jsou vyzařovány anténami a mohou cestovat vzduchem."
-              },
-              {
-                "title": "Spektrum",
-                "items": [
-                  {
-                    "term": "Nízké frekvence (30 Hz - 300 Hz)",
-                    "definition": "Používají se pro dlouhé vzdálenosti (např. AM rádio)."
-                  },
-                  {
-                    "term": "VHF a UHF (30 MHz - 3 GHz)",
-                    "definition": "Televize, mobilní telefony, Wi-Fi."
-                  },
-                  {
-                    "term": "Mikrovlny (1 GHz - 300 GHz)",
-                    "definition": "Wi-Fi, Bluetooth, satelitní komunikace, radarové systémy."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Datové přenosy a základní metody přenosu",
-            "items": [
-              {
-                "term": "Frekvenční modulace (FM)",
-                "definition": "Přenos informací změnou frekvence nosné vlny."
-              },
-              {
-                "term": "Amplitudová modulace (AM)",
-                "definition": "Mění amplitudu nosné vlny podle přenášených dat."
-              },
-              {
-                "term": "Fázová modulace (PM)",
-                "definition": "Moduluje fázi nosné vlny k přenosu dat."
-              },
-              {
-                "term": "Digitální modulace (QAM)",
-                "definition": "Vyšší datové rychlosti využitím různých amplitud a fází."
-              }
-            ]
-          },
-          {
-            "title": "Bluetooth",
-            "subsections": [
-              {
-                "title": "Účel a parametry",
-                "items": [
-                  "Bezdrátová technologie pro krátké vzdálenosti (obvykle do 100 m).",
-                  {
-                    "term": "Frekvenční pásmo",
-                    "definition": "2.4 GHz (ISM pásmo)."
-                  },
-                  {
-                    "term": "Přenosová rychlost",
-                    "definition": "Až 3 Mbps (Bluetooth 5)."
-                  },
-                  {
-                    "term": "Rozsah",
-                    "definition": "Od několika centimetrů po 100 metrů."
-                  }
-                ]
-              },
-              {
-                "title": "Princip činnosti",
-                "text": "Používá FHSS (Frequency Hopping Spread Spectrum) - data přenášena na různých frekvencích pro minimalizaci rušení."
-              },
-              {
-                "title": "Topologie sítě",
-                "items": [
-                  {
-                    "term": "Piconet",
-                    "definition": "Síť s jedním master zařízením a několika slave zařízeními."
-                  },
-                  {
-                    "term": "Scatternet",
-                    "definition": "Skupina více piconetů propojených mezi sebou."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Wi-Fi",
-            "subsections": [
-              {
-                "title": "Účel a parametry",
-                "items": [
-                  "Standard pro bezdrátové LAN (WLAN), připojení k internetu bez kabelů.",
-                  {
-                    "term": "Frekvenční pásmo",
-                    "definition": "2.4 GHz, 5 GHz, Wi-Fi 6 může využívat 6 GHz."
-                  },
-                  {
-                    "term": "Přenosová rychlost",
-                    "definition": "Wi-Fi 6 až 9.6 Gbps."
-                  },
-                  {
-                    "term": "Rozsah",
-                    "definition": "Kolem 100 m (2.4 GHz), 50 m (5 GHz) v otevřeném prostoru."
-                  }
-                ]
-              },
-              {
-                "title": "Princip činnosti",
-                "items": [
-                  {
-                    "term": "OFDM",
-                    "definition": "Orthogonal Frequency Division Multiplexing - rozdělení signálu na více nosných frekvencí."
-                  },
-                  {
-                    "term": "802.11a/b/g/n/ac/ax",
-                    "definition": "Různé verze Wi-Fi standardů s vylepšením rychlosti a pokrytí."
-                  },
-                  {
-                    "term": "MIMO",
-                    "definition": "Multiple Input Multiple Output - více antén pro vyšší rychlost."
-                  }
-                ]
-              },
-              {
-                "title": "Topologie a antény",
-                "items": [
-                  {
-                    "term": "Topologie",
-                    "definition": "Hvězdicová - zařízení komunikují přes Access Point (AP)."
-                  },
-                  {
-                    "term": "Omnidirekcionální antény",
-                    "definition": "Vyzařují signál rovnoměrně ve všech směrech."
-                  },
-                  {
-                    "term": "Direkcionální antény",
-                    "definition": "Soustředí signál do konkrétního směru pro větší dosah."
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "title": "Přehled dalších technologií",
-            "items": [
-              {
-                "term": "ZigBee",
-                "definition": "Nízká spotřeba energie, krátké vzdálenosti. IoT, chytré domácnosti, senzory."
-              },
-              {
-                "term": "Z-Wave",
-                "definition": "Podobné ZigBee, pro chytré domácnosti."
-              },
-              {
-                "term": "NFC",
-                "definition": "Near Field Communication - velmi krátká vzdálenost (do 10 cm). Bezkontaktní platby, připojování."
-              },
-              {
-                "term": "LoRa",
-                "definition": "Long Range - velmi dlouhé vzdálenosti, nízká spotřeba. IoT, senzory na rozsáhlých územích."
-              }
-            ]
-          },
-          {
-            "title": "Shrnutí",
-            "text": "Bezdrátové síťové technologie jsou základem moderní komunikace. Bluetooth a Wi-Fi jsou nejběžnější pro osobní a podnikové sítě, ZigBee a LoRa rozšiřují možnosti v IoT. S rostoucí poptávkou se tyto technologie neustále vyvíjejí."
-          }
-        ]
-      },
       "compactContent": {
         "sections": [
           {
-            "title": "Přenos a spektrum",
+            "title": "Bezdrátové sítě – přehled",
+            "text": "Přenos dat pomocí elektromagnetických vln bez fyzického kabelu. Využití: domácnosti, firmy, mobilní sítě, IoT."
+          },
+          {
+            "title": "Elektromagnetické spektrum",
             "items": [
               {
-                "term": "Elektromagnetické spektrum",
-                "definition": "Pásma podle frekvence. VHF/UHF (30 MHz–3 GHz) = TV, mobily, Wi-Fi. Mikrovlny (1–300 GHz) = Wi-Fi, BT, radar."
+                "term": "30 Hz – 300 Hz (VLF)",
+                "definition": "Velmi nízké frekvence, AM rádio, dlouhé vzdálenosti."
               },
               {
+                "term": "30 MHz – 3 GHz (VHF/UHF)",
+                "definition": "Televize, mobilní sítě, Wi-Fi."
+              },
+              {
+                "term": "1 GHz – 300 GHz (mikrovlny)",
+                "definition": "Wi-Fi, Bluetooth, satelity, radar."
+              }
+            ]
+          },
+          {
+            "title": "Metody modulace",
+            "items": [
+              {
                 "term": "AM (Amplitudová modulace)",
-                "definition": "Mění amplitudu nosné vlny. Rádio, jednoduché přenosy."
+                "definition": "Mění amplitudu nosné vlny podle dat."
               },
               {
                 "term": "FM (Frekvenční modulace)",
-                "definition": "Mění frekvenci nosné vlny. Odolnější vůči rušení."
+                "definition": "Mění frekvenci nosné vlny."
+              },
+              {
+                "term": "PM (Fázová modulace)",
+                "definition": "Mění fázi nosné vlny."
               },
               {
                 "term": "QAM",
-                "definition": "Kombinuje amplitudu i fázi → vysoké rychlosti. Používá Wi-Fi."
+                "definition": "Kombinuje amplitudu i fázi. Vysoké rychlosti (Wi-Fi)."
               }
             ]
           },
           {
             "title": "Bluetooth",
+            "text": "Krátká vzdálenost, propojení osobních zařízení (PAN). Frekvenční pásmo 2,4 GHz (ISM).",
             "items": [
               {
-                "term": "Účel",
-                "definition": "PAN – propojení osobních zařízení na krátkou vzdálenost (sluchátka, klávesnice, telefon)."
+                "term": "Rychlost",
+                "definition": "Až 3 Mbps (Bluetooth 5: až 50 Mbps)."
               },
               {
-                "term": "Frekvence / rychlost",
-                "definition": "2,4 GHz (ISM pásmo). Až 3 Mbps (BT 5: až 50 Mbps). Dosah 1–100 m."
+                "term": "Dosah",
+                "definition": "1–100 m (závisí na verzi a výkonu)."
               },
               {
                 "term": "FHSS",
-                "definition": "Frequency Hopping Spread Spectrum – přenos skáče mezi 79 kanály → odolnost vůči rušení."
+                "definition": "Frequency Hopping Spread Spectrum – přenos skáče mezi frekvencemi, odolnost vůči rušení."
               },
               {
-                "term": "Piconet / Scatternet",
-                "definition": "Piconet = 1 master + 7 slave. Scatternet = propojení více piconetů."
+                "term": "Piconet",
+                "definition": "1 master + až 7 aktivních slave zařízení."
+              },
+              {
+                "term": "Scatternet",
+                "definition": "Propojení více piconetů dohromady."
               }
             ]
           },
           {
-            "title": "Wi-Fi (IEEE 802.11)",
+            "title": "Wi-Fi standardy (IEEE 802.11)",
+            "text": "Bezdrátová lokální síť (WLAN). Přístup k internetu bez kabelů.",
             "items": [
               {
-                "term": "802.11b/g",
-                "definition": "11 / 54 Mbps, 2,4 GHz. Starší standardy."
+                "term": "802.11b",
+                "definition": "11 Mbps, 2,4 GHz."
+              },
+              {
+                "term": "802.11g",
+                "definition": "54 Mbps, 2,4 GHz."
               },
               {
                 "term": "802.11n (Wi-Fi 4)",
-                "definition": "600 Mbps, 2,4 / 5 GHz. Zavedlo MIMO."
+                "definition": "600 Mbps, 2,4 / 5 GHz."
               },
               {
                 "term": "802.11ac (Wi-Fi 5)",
-                "definition": "3,5 Gbps, pouze 5 GHz. MU-MIMO."
+                "definition": "3,5 Gbps, 5 GHz."
               },
               {
                 "term": "802.11ax (Wi-Fi 6)",
-                "definition": "9,6 Gbps, 2,4 / 5 / 6 GHz. OFDMA, nejefektivnější."
-              },
+                "definition": "9,6 Gbps, 2,4 / 5 / 6 GHz."
+              }
+            ]
+          },
+          {
+            "title": "Wi-Fi technologie a topologie",
+            "items": [
               {
                 "term": "OFDM",
-                "definition": "Signál rozdělen na více nosných frekvencí → vyšší rychlost, odolnost vůči rušení."
+                "definition": "Signál rozdělen na více nosných frekvencí – vyšší rychlost a odolnost vůči rušení."
               },
               {
                 "term": "MIMO",
-                "definition": "Multiple Input Multiple Output – více antén současně → daleko větší kapacita."
+                "definition": "Více antén současně – větší kapacita a rychlost."
+              },
+              {
+                "term": "Topologie",
+                "definition": "Hvězdicová – klienti komunikují přes Access Point (AP) připojený k routeru."
+              },
+              {
+                "term": "Omnidirekcionální antény",
+                "definition": "Vyzařují signál rovnoměrně do všech směrů."
+              },
+              {
+                "term": "Direkcionální antény",
+                "definition": "Soustředí signál do jednoho směru, větší dosah."
               }
             ]
           },
@@ -1691,19 +1625,19 @@
             "items": [
               {
                 "term": "ZigBee",
-                "definition": "Nízká spotřeba, 10–100 m. IoT senzory, chytré domácnosti."
+                "definition": "Nízká spotřeba, 10–100 m. IoT senzory a chytré domácnosti."
               },
               {
                 "term": "Z-Wave",
-                "definition": "Chytré domácnosti, ~30 m. Podobné ZigBee."
+                "definition": "Podobné ZigBee, chytré domácnosti a automatizace (~30 m)."
               },
               {
                 "term": "NFC",
-                "definition": "Do 10 cm. Bezkontaktní platby, přihlašování, sdílení."
+                "definition": "Near Field Communication – do 10 cm. Bezkontaktní platby a přihlašování."
               },
               {
                 "term": "LoRa",
-                "definition": "Long Range – km dosah při nízké spotřebě. IoT monitoring na velkých územích."
+                "definition": "Long Range – velmi dlouhé vzdálenosti (km) při nízké spotřebě. Monitoring IoT."
               }
             ]
           }

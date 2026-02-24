@@ -1,9 +1,8 @@
 /**
- * CompactContent - Renders ultra-compact mobile-first content 
- * Optimized for minimal scrolling on mobile devices
- * Uses bullet points, bold terms, short lines
+ * CompactContent - Renders compact structured content
+ * Uses same visual style as StructuredContent (full version)
  */
-const CompactContent = ({ content, keywords = [] }) => {
+const CompactContent = ({ content }) => {
     if (!content || !content.sections) {
         return (
             <div className="text-terminal-text/50 italic text-sm">
@@ -12,87 +11,33 @@ const CompactContent = ({ content, keywords = [] }) => {
         );
     }
 
-    // Highlight keywords in text
-    const highlightKeywords = (text) => {
-        if (!keywords.length || !text) return text;
-
-        const escapedKeywords = keywords
-            .filter(Boolean)
-            .map((keyword) => keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-
-        if (!escapedKeywords.length) return text;
-
-        const regex = new RegExp(`\\b(${escapedKeywords.join('|')})\\b`, 'gi');
-        const parts = text.split(regex);
-
-        return parts.map((part, i) => {
-            if (keywords.some(k => k.toLowerCase() === part.toLowerCase())) {
-                return (
-                    <span key={i} className="text-terminal-accent font-semibold bg-terminal-accent/15 px-0.5 rounded-sm">
-                        {part}
-                    </span>
-                );
-            }
-            return part;
-        });
-    };
-
-    const renderSmartInline = (text) => {
-        if (typeof text !== 'string') return text;
-
-        const headingLike = text.match(/^([A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ0-9\s\/().,+-]{3,80}):$/);
-        if (headingLike) {
-            return <strong className="text-terminal-accent/90">{headingLike[1]}</strong>;
-        }
-
-        const termDefinition = text.match(/^([^:]{2,80})\s[–-]\s(.+)$/);
-        if (termDefinition) {
-            return (
-                <>
-                    <strong className="text-terminal-accent">{termDefinition[1].trim()}</strong>
-                    <span className="text-terminal-text/75"> – {highlightKeywords(termDefinition[2].trim())}</span>
-                </>
-            );
-        }
-
-        return highlightKeywords(text);
-    };
-
-    const isMarkerItem = (value) => {
-        if (typeof value !== 'string') return false;
-        const trimmed = value.trim();
-        if (!trimmed) return false;
-
-        const withYearOrParens = /^[A-Z0-9ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][A-Z0-9ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ\s./+-]{1,50}\s*\([^)]{2,24}\)$/.test(trimmed);
-        const shortUpperMarker = /^[A-Z0-9][A-Z0-9./+-]{1,12}$/.test(trimmed);
-
-        return withYearOrParens || shortUpperMarker;
-    };
-
     // Render compact list item
     const renderCompactItem = (item, index) => {
         if (typeof item === 'string') {
-            if (isMarkerItem(item)) {
+            // Term – definition pattern
+            const termDef = item.match(/^([^:]{2,80})\s[–-]\s(.+)$/);
+            if (termDef) {
                 return (
-                    <li key={index} className="list-none mt-2 mb-1 -ml-1 pl-1.5 border-l-2 border-terminal-accent/40 text-terminal-accent font-semibold tracking-wide text-xs">
-                        {highlightKeywords(item)}
+                    <li key={index} className="mb-1 text-sm leading-relaxed">
+                        <strong className="text-terminal-accent">{termDef[1].trim()}</strong>
+                        <span className="text-terminal-text/80"> – {termDef[2].trim()}</span>
                     </li>
                 );
             }
 
             return (
-                <li key={index} className="text-xs leading-tight">
-                    {renderSmartInline(item)}
+                <li key={index} className="mb-1 text-sm leading-relaxed text-terminal-text/85">
+                    {item}
                 </li>
             );
         }
 
         if (item.term) {
             return (
-                <li key={index} className="text-xs leading-tight">
+                <li key={index} className="mb-1 text-sm leading-relaxed">
                     <strong className="text-terminal-accent">{item.term}</strong>
                     {item.definition && (
-                        <span className="text-terminal-text/70"> – {highlightKeywords(item.definition)}</span>
+                        <span className="text-terminal-text/80"> – {item.definition}</span>
                     )}
                 </li>
             );
@@ -104,68 +49,65 @@ const CompactContent = ({ content, keywords = [] }) => {
     // Render compact section
     const renderSection = (section, index) => {
         return (
-            <div key={index} className="mb-3">
+            <section key={index} className="mb-5" id={section.title?.toLowerCase().replace(/\s+/g, '-')}>
                 {section.title && (
-                    <h3 className="text-xs font-bold text-terminal-accent mb-1 uppercase tracking-wide">
+                    <h2 className="text-sm font-bold text-terminal-accent mb-2 pb-1 border-b border-terminal-border/30">
                         {section.title}
-                    </h3>
+                    </h2>
                 )}
 
                 {section.text && (
-                    <p className="text-xs text-terminal-text/80 mb-1 leading-tight">
-                        {renderSmartInline(section.text)}
+                    <p className="text-sm text-terminal-text/90 mb-2 leading-relaxed">
+                        {section.text}
                     </p>
                 )}
 
                 {section.items && section.items.length > 0 && (
-                    <ul className="list-disc list-inside space-y-0 text-terminal-text/80 ml-1">
+                    <ul className="list-disc list-inside space-y-0.5 mb-2 text-sm text-terminal-text/85 ml-1">
                         {section.items.map(renderCompactItem)}
                     </ul>
                 )}
 
                 {section.numberedItems && section.numberedItems.length > 0 && (
-                    <ol className="list-decimal list-inside space-y-0 text-terminal-text/80 ml-1">
+                    <ol className="list-decimal list-inside space-y-0.5 mb-2 text-sm text-terminal-text/85 ml-1">
                         {section.numberedItems.map((item, i) => (
-                            <li key={i} className="text-xs leading-tight">{renderSmartInline(item)}</li>
+                            <li key={i} className="mb-1 text-sm leading-relaxed text-terminal-text/85">{item}</li>
                         ))}
                     </ol>
                 )}
 
                 {section.subsections && section.subsections.map((sub, subIndex) => (
-                    <div key={subIndex} className="ml-2 mt-1">
+                    <div key={subIndex} className="ml-2 mb-3" id={sub.title?.toLowerCase().replace(/\s+/g, '-')}>
                         {sub.title && (
-                            <span className="text-xs font-semibold text-terminal-text/90">
-                                {sub.title}:
-                            </span>
+                            <h3 className="text-sm font-semibold text-terminal-accent/90 mb-1">
+                                {sub.title}
+                            </h3>
                         )}
                         {sub.text && (
-                            <p className="text-xs text-terminal-text/70 mb-1 leading-tight">
-                                {renderSmartInline(sub.text)}
+                            <p className="text-sm text-terminal-text/80 mb-1 leading-relaxed">
+                                {sub.text}
                             </p>
                         )}
                         {sub.items && sub.items.length > 0 && (
-                            <ul className="list-disc list-inside space-y-0 text-terminal-text/70 ml-1">
+                            <ul className="list-disc list-inside space-y-0.5 text-terminal-text/80 ml-1">
                                 {sub.items.map(renderCompactItem)}
                             </ul>
                         )}
                         {sub.numberedItems && sub.numberedItems.length > 0 && (
-                            <ol className="list-decimal list-inside space-y-0 text-terminal-text/70 ml-1">
+                            <ol className="list-decimal list-inside space-y-0.5 text-terminal-text/80 ml-1">
                                 {sub.numberedItems.map((item, i) => (
-                                    <li key={i} className="text-xs leading-tight">{renderSmartInline(item)}</li>
+                                    <li key={i} className="mb-1 text-sm leading-relaxed text-terminal-text/80">{item}</li>
                                 ))}
                             </ol>
                         )}
                     </div>
                 ))}
-            </div>
+            </section>
         );
     };
 
     return (
-        <div className="compact-content text-xs space-y-2">
-            <div className="text-[10px] text-terminal-accent/60 uppercase tracking-widest mb-2 pb-1 border-b border-terminal-border/20">
-                📱 Mobilní zkrácená verze
-            </div>
+        <div className="space-y-1">
             {content.sections.map(renderSection)}
         </div>
     );

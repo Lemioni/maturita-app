@@ -53,7 +53,7 @@ const MiniPlayer = () => {
         return (
             <button
                 onClick={() => setPlayerVisible(true)}
-                className="fixed bottom-0 right-4 z-50 flex items-center gap-1.5 px-3 py-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors backdrop-blur-md"
+                className="fixed bottom-16 md:bottom-0 right-4 z-50 flex items-center gap-1.5 px-3 py-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors backdrop-blur-md"
                 style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
             >
                 <FaChevronUp className="text-[10px]" />
@@ -62,7 +62,7 @@ const MiniPlayer = () => {
     }
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-50">
+        <div className="fixed bottom-16 md:bottom-0 left-0 right-0 z-50">
             {/* Podcast list dropdown */}
             {showList && (
                 <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-72 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>
