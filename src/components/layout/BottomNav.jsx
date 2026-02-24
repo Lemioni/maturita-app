@@ -4,7 +4,7 @@ import {
   FaHome, FaLaptopCode, FaBook, FaSearch,
   FaDice, FaScroll, FaBookOpen, FaTimes, FaBars,
   FaBrain, FaGraduationCap, FaBalanceScale, FaMicrophone,
-  FaGamepad, FaTrophy
+  FaGamepad, FaTrophy, FaChevronUp, FaChevronDown
 } from 'react-icons/fa';
 
 const primaryNav = [
@@ -27,9 +27,16 @@ const moreNav = [
   { path: '/achievements', icon: FaTrophy, label: 'Odznaky' },
 ];
 
+// Routes where bottom nav is hidden by default
+const hiddenNavRoutes = ['/exam-practice'];
+
 const BottomNav = () => {
   const location = useLocation();
   const [showMore, setShowMore] = useState(false);
+  const [forceShow, setForceShow] = useState(false);
+
+  const isHiddenRoute = hiddenNavRoutes.some(r => location.pathname === r || location.pathname.startsWith(r + '/'));
+  const navHidden = isHiddenRoute && !forceShow;
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
@@ -37,6 +44,22 @@ const BottomNav = () => {
   };
 
   const isMoreActive = moreNav.some(item => isActive(item.path));
+
+  // Hidden mode: show a small pull-up tab
+  if (navHidden) {
+    return (
+      <button
+        onClick={() => setForceShow(true)}
+        className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 md:hidden
+          flex items-center gap-1.5 px-4 py-1.5 bg-terminal-bg/90 backdrop-blur-sm
+          border border-b-0 border-terminal-border/30 rounded-t-lg
+          text-terminal-text/40 hover:text-terminal-accent transition-all"
+      >
+        <FaChevronUp className="text-[10px]" />
+        <span className="text-[10px] tracking-wide">Menu</span>
+      </button>
+    );
+  }
 
   return (
     <>
@@ -105,6 +128,18 @@ const BottomNav = () => {
             {showMore ? <FaTimes className="text-lg" /> : <FaBars className="text-lg" />}
             <span className="text-[9px] tracking-wider">Více</span>
           </button>
+
+          {/* Hide nav button — only on hidden routes when force-shown */}
+          {isHiddenRoute && forceShow && (
+            <button
+              onClick={() => { setForceShow(false); setShowMore(false); }}
+              className="flex-1 flex flex-col items-center justify-center gap-1 transition-all active:bg-terminal-border/10
+                text-terminal-text/50 border-t-2 border-transparent"
+            >
+              <FaChevronDown className="text-lg" />
+              <span className="text-[9px] tracking-wider">Skrýt</span>
+            </button>
+          )}
         </div>
       </nav>
     </>

@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { FaFlask, FaTimes, FaHighlighter, FaCloudSun } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 import { useExperimental } from '../../context/ExperimentalContext';
 import { usePodcast } from '../../context/PodcastContext';
+
+const hiddenNavRoutes = ['/exam-practice'];
 
 const ExperimentalMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { highlighterActive, toggleHighlighter, frutigerAero, toggleFrutigerAero } = useExperimental();
     const { playerVisible } = usePodcast();
+    const location = useLocation();
+    const navHidden = hiddenNavRoutes.includes(location.pathname);
 
     // Only show when podcast player is collapsed
     if (playerVisible) return null;
 
     return (
-        <div className="fixed bottom-16 md:bottom-0 right-16 z-50 flex flex-col items-end">
+        <div className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 right-16 z-50 flex flex-col items-end`}>
             {/* Menu Content */}
             {isOpen && (
                 <div className="bg-terminal-card border border-terminal-accent/30 rounded-lg p-3 shadow-lg shadow-terminal-accent/10 mb-2 w-48 animate-in slide-in-from-bottom-2 fade-in duration-200">

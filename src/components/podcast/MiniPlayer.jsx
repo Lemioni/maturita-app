@@ -1,9 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { usePodcast } from '../../context/PodcastContext';
 import { FaPlay, FaPause, FaChevronDown, FaChevronUp, FaSpinner, FaMusic, FaVolumeUp, FaVolumeDown, FaVolumeMute, FaRedo, FaStepForward, FaNetworkWired, FaBook } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 import { books } from '../../data/bookData';
 import { hasPodcast, psiPodcastIds, psiQuestionTitles } from '../../data/podcastData';
 import { useExperimental } from '../../context/ExperimentalContext';
+
+const hiddenNavRoutes = ['/exam-practice'];
 
 const formatTime = (seconds) => {
     if (!seconds || isNaN(seconds)) return '0:00';
@@ -48,12 +51,15 @@ const MiniPlayer = () => {
 
     const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
+    const location = useLocation();
+    const navHidden = hiddenNavRoutes.includes(location.pathname);
+
     // Collapsed: just a small tab to reopen
     if (!playerVisible) {
         return (
             <button
                 onClick={() => setPlayerVisible(true)}
-                className="fixed bottom-16 md:bottom-0 right-4 z-30 flex items-center gap-1.5 px-3 py-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors backdrop-blur-md"
+                className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 right-4 z-30 flex items-center gap-1.5 px-3 py-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors backdrop-blur-md`}
                 style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
             >
                 <FaChevronUp className="text-[10px]" />
@@ -62,7 +68,7 @@ const MiniPlayer = () => {
     }
 
     return (
-        <div className="fixed bottom-16 md:bottom-0 left-0 right-0 z-30">
+        <div className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 left-0 right-0 z-30`}>
             {/* Podcast list dropdown */}
             {showList && (
                 <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-72 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>

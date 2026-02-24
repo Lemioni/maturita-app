@@ -1,8 +1,10 @@
-import { useState, useCallback, useMemo, useRef } from 'react';
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { FaDice, FaEye, FaEyeSlash, FaRedo, FaEraser, FaClipboardList, FaBook, FaLaptopCode, FaArrowLeft, FaListUl, FaFileAlt, FaNetworkWired } from 'react-icons/fa';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
 import cjBooks from '../data/cj-books.json';
 import itQuestions from '../data/it-questions.json';
+
+const STORAGE_KEY = 'exam-practice-session';
 
 // PSI = questions 11–20
 const PSI_IDS = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
@@ -84,7 +86,16 @@ const generateITKeyPoints = (question) => {
 };
 
 const ExamPracticePage = () => {
-  const [phase, setPhase] = useState('select');
+  // Restore saved session from localStorage
+  const savedSession = useMemo(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch {}
+    return null;
+  }, []);
+
+  const [phase, setPhase] = useState(savedSession?.phase || 'select');
 
   // Selection — sources are multi-select now
   const [sources, setSources] = useState({ it: true, psi: true, cj: true });
@@ -93,11 +104,44 @@ const ExamPracticePage = () => {
   const [showITPicker, setShowITPicker] = useState(false);
   const [showBookPicker, setShowBookPicker] = useState(false);
 
-  // Practice state
-  const [currentQuestion, setCurrentQuestion] = useState(null);
+  // Practice state — restore from saved session
+  const [currentQuestion, setCurrentQuestion] = useState(() => {
+    if (!savedSession?.question) return null;
+    const q = savedSession.question;
+    if (q.type === 'it') {
+      const found = itQuestions.questions.find(x => x.id === q.id);
+      return found ? { type: 'it', data: found } : null;
+    }
+    if (q.type === 'cj') {
+      const found = cjBooks.books.find(x => x.id === q.id);
+      return found ? { type: 'cj', data: found } : null;
+    }
+    return null;
+  });
   const [isRevealed, setIsRevealed] = useState(false);
-  const [notepadContent, setNotepadContent] = useState('');
+  const [notepadContent, setNotepadContent] = useState(savedSession?.notepad || '');
   const notepadRef = useRef(null);
+
+  // Auto-save session to localStorage whenever practice state changes
+  useEffect(() => {
+    if (phase === 'practice' && currentQuestion) {
+      const session = {
+        phase: 'practice',
+        question: {
+          type: currentQuestion.type,
+          id: currentQuestion.data.id,
+        },
+        notepad: notepadContent,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    }
+  }, [phase, currentQuestion, notepadContent]);
+
+  // Clear saved session when going back to select
+  const goToSelect = useCallback(() => {
+    localStorage.removeItem(STORAGE_KEY);
+    setPhase('select');
+  }, []);
 
   const toggleSource = (key) => {
     setSources(prev => ({ ...prev, [key]: !prev[key] }));
@@ -366,7 +410,7 @@ const ExamPracticePage = () => {
       {/* Top bar */}
       <div className="flex-none bg-terminal-bg border-b border-terminal-border/20 px-4 py-2">
         <div className="flex items-center gap-3 flex-wrap">
-          <button onClick={() => setPhase('select')}
+          <button onClick={goToSelect}
             className="text-terminal-text/50 hover:text-terminal-accent transition p-1">
             <FaArrowLeft />
           </button>
