@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   FaHome, FaLaptopCode, FaBook, FaSearch,
-  FaRocket, FaScroll, FaBookOpen, FaTimes, FaBars,
+  FaDice, FaScroll, FaBookOpen, FaTimes, FaBars,
   FaBrain, FaGraduationCap, FaBalanceScale, FaMicrophone,
   FaGamepad, FaTrophy
 } from 'react-icons/fa';
@@ -20,7 +20,7 @@ const moreNav = [
   { path: '/simulator', icon: FaGraduationCap, label: 'Simulátor' },
   { path: '/autoscroll', icon: FaScroll, label: 'Autoscroll' },
   { path: '/dictionary', icon: FaBookOpen, label: 'Slovník' },
-  { path: '/dopamine', icon: FaRocket, label: 'Dopamin' },
+  { path: '/exam-practice', icon: FaDice, label: 'Zkouška' },
   { path: '/compare', icon: FaBalanceScale, label: 'Porovnat' },
   { path: '/speech', icon: FaMicrophone, label: 'Mluvení' },
   { path: '/bingo', icon: FaGamepad, label: 'Bingo' },

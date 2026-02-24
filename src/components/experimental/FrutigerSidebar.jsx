@@ -38,7 +38,7 @@ const FrutigerSidebar = () => {
         {
             label: 'Entertainment',
             items: [
-                { path: '/dopamine', imgSrc: '/aero-icons/roblox1.ico', label: 'Dopamine' },
+                { path: '/exam-practice', imgSrc: '/aero-icons/vista_perf_center.ico', label: 'Zkouška' },
             ]
         },
         {

@@ -1,11 +1,11 @@
 /**
  * CompactContent - Renders compact structured content
- * Uses same visual style as StructuredContent (full version)
+ * Ultra-compact mobile-first layout with text-xs
  */
 const CompactContent = ({ content }) => {
     if (!content || !content.sections) {
         return (
-            <div className="text-terminal-text/50 italic text-sm">
+            <div className="text-terminal-text/50 italic text-xs">
                 Zkrácená verze není k dispozici
             </div>
         );
@@ -18,7 +18,7 @@ const CompactContent = ({ content }) => {
             const termDef = item.match(/^([^:]{2,80})\s[–-]\s(.+)$/);
             if (termDef) {
                 return (
-                    <li key={index} className="mb-1 text-sm leading-relaxed">
+                    <li key={index} className="mb-0.5 text-xs leading-snug">
                         <strong className="text-terminal-accent">{termDef[1].trim()}</strong>
                         <span className="text-terminal-text/80"> – {termDef[2].trim()}</span>
                     </li>
@@ -26,7 +26,7 @@ const CompactContent = ({ content }) => {
             }
 
             return (
-                <li key={index} className="mb-1 text-sm leading-relaxed text-terminal-text/85">
+                <li key={index} className="mb-0.5 text-xs leading-snug text-terminal-text/85">
                     {item}
                 </li>
             );
@@ -34,7 +34,7 @@ const CompactContent = ({ content }) => {
 
         if (item.term) {
             return (
-                <li key={index} className="mb-1 text-sm leading-relaxed">
+                <li key={index} className="mb-0.5 text-xs leading-snug">
                     <strong className="text-terminal-accent">{item.term}</strong>
                     {item.definition && (
                         <span className="text-terminal-text/80"> – {item.definition}</span>
@@ -49,54 +49,54 @@ const CompactContent = ({ content }) => {
     // Render compact section
     const renderSection = (section, index) => {
         return (
-            <section key={index} className="mb-5" id={section.title?.toLowerCase().replace(/\s+/g, '-')}>
+            <section key={index} className="mb-3" id={section.title?.toLowerCase().replace(/\s+/g, '-')}>
                 {section.title && (
-                    <h2 className="text-sm font-bold text-terminal-accent mb-2 pb-1 border-b border-terminal-border/30">
+                    <h2 className="text-xs font-bold text-terminal-accent mb-1 pb-0.5 border-b border-terminal-border/30 uppercase tracking-wide">
                         {section.title}
                     </h2>
                 )}
 
                 {section.text && (
-                    <p className="text-sm text-terminal-text/90 mb-2 leading-relaxed">
+                    <p className="text-xs text-terminal-text/90 mb-1 leading-snug">
                         {section.text}
                     </p>
                 )}
 
                 {section.items && section.items.length > 0 && (
-                    <ul className="list-disc list-inside space-y-0.5 mb-2 text-sm text-terminal-text/85 ml-1">
+                    <ul className="list-disc list-inside space-y-0 mb-1 text-xs text-terminal-text/85 ml-1">
                         {section.items.map(renderCompactItem)}
                     </ul>
                 )}
 
                 {section.numberedItems && section.numberedItems.length > 0 && (
-                    <ol className="list-decimal list-inside space-y-0.5 mb-2 text-sm text-terminal-text/85 ml-1">
+                    <ol className="list-decimal list-inside space-y-0 mb-1 text-xs text-terminal-text/85 ml-1">
                         {section.numberedItems.map((item, i) => (
-                            <li key={i} className="mb-1 text-sm leading-relaxed text-terminal-text/85">{item}</li>
+                            <li key={i} className="mb-0.5 text-xs leading-snug text-terminal-text/85">{item}</li>
                         ))}
                     </ol>
                 )}
 
                 {section.subsections && section.subsections.map((sub, subIndex) => (
-                    <div key={subIndex} className="ml-2 mb-3" id={sub.title?.toLowerCase().replace(/\s+/g, '-')}>
+                    <div key={subIndex} className="ml-2 mb-2" id={sub.title?.toLowerCase().replace(/\s+/g, '-')}>
                         {sub.title && (
-                            <h3 className="text-sm font-semibold text-terminal-accent/90 mb-1">
+                            <h3 className="text-xs font-semibold text-terminal-accent/90 mb-0.5">
                                 {sub.title}
                             </h3>
                         )}
                         {sub.text && (
-                            <p className="text-sm text-terminal-text/80 mb-1 leading-relaxed">
+                            <p className="text-xs text-terminal-text/80 mb-0.5 leading-snug">
                                 {sub.text}
                             </p>
                         )}
                         {sub.items && sub.items.length > 0 && (
-                            <ul className="list-disc list-inside space-y-0.5 text-terminal-text/80 ml-1">
+                            <ul className="list-disc list-inside space-y-0 text-terminal-text/80 ml-1">
                                 {sub.items.map(renderCompactItem)}
                             </ul>
                         )}
                         {sub.numberedItems && sub.numberedItems.length > 0 && (
-                            <ol className="list-decimal list-inside space-y-0.5 text-terminal-text/80 ml-1">
+                            <ol className="list-decimal list-inside space-y-0 text-terminal-text/80 ml-1">
                                 {sub.numberedItems.map((item, i) => (
-                                    <li key={i} className="mb-1 text-sm leading-relaxed text-terminal-text/80">{item}</li>
+                                    <li key={i} className="mb-0.5 text-xs leading-snug text-terminal-text/80">{item}</li>
                                 ))}
                             </ol>
                         )}
@@ -107,7 +107,7 @@ const CompactContent = ({ content }) => {
     };
 
     return (
-        <div className="space-y-1">
+        <div className="space-y-0.5">
             {content.sections.map(renderSection)}
         </div>
     );

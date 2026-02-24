@@ -8,6 +8,7 @@ import cjBooks from '../data/cj-books.json';
 import dictionaryData from '../data/dictionary.json';
 import generatedBookTermsData from '../data/cj-book-terms.generated.json';
 import TermAnnotatedText from '../components/common/TermAnnotatedText';
+import CompactContent from '../components/common/CompactContent';
 import { buildBookTerms } from '../utils/bookTerms';
 import useLocalStorage from '../hooks/useLocalStorage';
 
@@ -403,8 +404,12 @@ const BookAutoscrollContent = ({ book, includePlot }) => {
 };
 
 // Component for rendering autoscroll item content
-const AutoscrollContent = ({ item, type, includePlot }) => {
+const AutoscrollContent = ({ item, type, includePlot, useCompact }) => {
     if (type === 'it') {
+        // If compact mode and the question has compactContent
+        if (useCompact && item.compactContent) {
+            return <CompactContent content={item.compactContent} />;
+        }
         return (
             <div className="autoscroll-md">
                 <ReactMarkdown
@@ -503,6 +508,7 @@ const AutoscrollPage = () => {
     const [isRandom, setIsRandom] = useState(false);
     const [isTTS, setIsTTS] = useState(false);
     const [includePlot, setIncludePlot] = useState(true);
+    const [useCompact, setUseCompact] = useLocalStorage('autoscroll-compact', false);
 
     const scrollContainerRef = useRef(null);
     const requestRef = useRef();
@@ -566,6 +572,7 @@ const AutoscrollPage = () => {
                     title: `Otázka ${q.id}: ${q.question}`,
                     subtitle: q.category,
                     content: q.answer,
+                    compactContent: q.compactContent || null,
                     colorIndex: idx
                 }));
         } else if (selectedSubject === 'books') {
@@ -795,6 +802,14 @@ const AutoscrollPage = () => {
                                 <span className="text-terminal-text/80">Včetně děje</span>
                             </label>
                         )}
+                        {selectedSubject === 'it' && (
+                            <label className="flex items-center gap-2 cursor-pointer text-sm" onClick={() => setUseCompact(!useCompact)}>
+                                <div className={`w-4 h-4 border rounded-sm flex items-center justify-center transition-all ${useCompact ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
+                                    {useCompact && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                                </div>
+                                <span className="text-terminal-text/80">Zkrácená verze</span>
+                            </label>
+                        )}
                     </div>
 
                     {/* Subject Selection */}
@@ -969,7 +984,7 @@ const AutoscrollPage = () => {
                                     className="terminal-card"
                                     style={{ borderLeft: `3px solid ${color}40` }}
                                 >
-                                    <AutoscrollContent item={item} type={selectedSubject} includePlot={includePlot} />
+                                    <AutoscrollContent item={item} type={selectedSubject} includePlot={includePlot} useCompact={useCompact} />
                                 </div>
                             </div>
                         );

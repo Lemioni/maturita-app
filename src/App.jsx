@@ -7,7 +7,7 @@ import ProgressPage from './pages/ProgressPage';
 import SearchPage from './pages/SearchPage';
 import QuestionDetailPage from './pages/QuestionDetailPage';
 import BookDetailPage from './pages/BookDetailPage';
-import DopaminePage from './pages/DopaminePage';
+import ExamPracticePage from './pages/ExamPracticePage';
 import ChatPage from './pages/ChatPage';
 import PresentationsPage from './pages/PresentationsPage';
 import AutoscrollPage from './pages/AutoscrollPage';
@@ -37,7 +37,7 @@ function App() {
               <Route path="/cj" element={<CJPage />} />
               <Route path="/cj/book/:id" element={<BookDetailPage />} />
               <Route path="/progress" element={<ProgressPage />} />
-              <Route path="/dopamine" element={<DopaminePage />} />
+              <Route path="/exam-practice" element={<ExamPracticePage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/chat" element={<ChatPage />} />
               <Route path="/presentations" element={<PresentationsPage />} />

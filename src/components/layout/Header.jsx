@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaRocket, FaScroll, FaBookOpen, FaBolt, FaTrophy, FaBrain, FaGamepad } from 'react-icons/fa';
+import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaDice, FaScroll, FaBookOpen, FaBolt, FaTrophy, FaBrain, FaGamepad } from 'react-icons/fa';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import useStreak from '../../hooks/useStreak';
 
@@ -41,7 +41,7 @@ const Header = () => {
     { path: '/cj', icon: FaBook, label: 'CJ' },
     { path: '/autoscroll', icon: FaScroll, label: 'ASCR' },
     { path: '/dictionary', icon: FaBookOpen, label: 'SLVN' },
-    { path: '/dopamine', icon: FaRocket, label: 'DOPA' },
+    { path: '/exam-practice', icon: FaDice, label: 'ZKŠK' },
     { path: '/search', icon: FaSearch, label: 'SRCH' },
   ];
 
