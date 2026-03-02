@@ -3,6 +3,7 @@ import Header from './Header';
 import BottomNav from './BottomNav';
 import ExperimentalMenu from '../experimental/ExperimentalMenu';
 import MiniPlayer from '../podcast/MiniPlayer';
+import PiPLauncher from '../pip/PiPLauncher';
 import FrutigerSidebar from '../experimental/FrutigerSidebar';
 import { useExperimental } from '../../context/ExperimentalContext';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -43,6 +44,7 @@ const Layout = ({ children }) => {
 
                 <ExperimentalMenu />
                 <MiniPlayer />
+                <PiPLauncher />
             </>
         );
     }
@@ -61,6 +63,7 @@ const Layout = ({ children }) => {
             <BottomNav />
             <ExperimentalMenu />
             <MiniPlayer />
+            <PiPLauncher />
         </div>
     );
 };
