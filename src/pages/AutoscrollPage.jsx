@@ -814,42 +814,82 @@ const AutoscrollPage = () => {
 
                     {/* Subject Selection */}
                     <div>
-                        <div className="text-xs text-terminal-text/60 mb-2 uppercase tracking-wider">Předmět</div>
-                        <div className="flex flex-wrap gap-1">
-                            {subjects.map(sub => (
-                                <button
-                                    key={sub.id}
-                                    onClick={() => setSelectedSubject(sub.id)}
-                                    className={`px-3 py-1 text-xs border transition-colors ${selectedSubject === sub.id
-                                        ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent'
-                                        : 'border-terminal-border/30 text-terminal-text/60 hover:border-terminal-text/30'
-                                        }`}
-                                >
-                                    <span className="mr-1">{sub.icon}</span>
-                                    {sub.name}
-                                </button>
-                            ))}
+                        <div className="text-xs text-terminal-text/60 mb-3 uppercase tracking-wider">Předmět</div>
+                        <div className="grid grid-cols-3 gap-2">
+                            {subjects.map(sub => {
+                                const active = selectedSubject === sub.id;
+                                const subCount = sub.id === 'it' ? `${itQuestions.categories?.length || 0} kategorií`
+                                    : sub.id === 'books' ? `${cjBooks.books.length} knih`
+                                    : '3 kategorie';
+                                return (
+                                    <button
+                                        key={sub.id}
+                                        onClick={() => setSelectedSubject(sub.id)}
+                                        className={`flex flex-col items-center gap-1.5 p-3 border rounded-lg transition-all ${active
+                                            ? 'bg-terminal-accent/10 border-terminal-accent text-terminal-accent shadow-[0_0_16px_rgba(139,92,246,0.08)]'
+                                            : 'border-terminal-border/20 text-terminal-text/50 hover:border-terminal-text/30 hover:bg-terminal-border/5'
+                                            }`}
+                                    >
+                                        <span className="text-2xl">{sub.icon}</span>
+                                        <span className="text-xs font-semibold">{sub.name}</span>
+                                        <span className={`text-[10px] ${active ? 'text-terminal-accent/60' : 'text-terminal-text/30'}`}>
+                                            {subCount}
+                                        </span>
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
 
                     {/* Material Selection */}
                     <div>
                         <div className="flex items-center justify-between mb-2 border-b border-terminal-border/20 pb-1">
-                            <span className="text-xs text-terminal-text/60 uppercase tracking-wider">Materiály</span>
+                            <span className="text-xs text-terminal-text/60 uppercase tracking-wider">
+                                Materiály <span className="text-terminal-accent font-semibold">{selectedSubItems.length}/{allSubItems.length}</span>
+                            </span>
                             <div className="flex gap-3">
                                 <button onClick={() => handleSelectAll(true)} className="text-xs text-terminal-accent hover:underline">Vybrat vše</button>
                                 <button onClick={() => handleSelectAll(false)} className="text-xs text-terminal-accent hover:underline">Zrušit</button>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-1 max-h-60 overflow-y-auto pr-2">
-                            {allSubItems.map((subId, idx) => (
-                                <label key={idx} className="flex items-center gap-2 p-1.5 cursor-pointer text-sm hover:bg-terminal-border/10 transition-colors" onClick={() => handleSubItemToggle(subId)}>
-                                    <div className={`w-4 h-4 border rounded-sm flex-shrink-0 flex items-center justify-center transition-all ${selectedSubItems.includes(subId) ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/30 bg-transparent'}`}>
-                                        {selectedSubItems.includes(subId) && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
-                                    </div>
-                                    <span className="text-terminal-text/80 truncate">{getSubItemLabel(subId)}</span>
-                                </label>
-                            ))}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 max-h-64 overflow-y-auto pr-2">
+                            {allSubItems.map((subId, idx) => {
+                                const isSelected = selectedSubItems.includes(subId);
+                                const label = getSubItemLabel(subId);
+                                const bookData = selectedSubject === 'books' ? cjBooks.books.find(b => b.id.toString() === subId.toString()) : null;
+                                const itCount = selectedSubject === 'it' ? itQuestions.questions.filter(q => q.category === subId).length : 0;
+
+                                return (
+                                    <button
+                                        key={idx}
+                                        onClick={() => handleSubItemToggle(subId)}
+                                        className={`flex items-center gap-2.5 p-2 rounded-lg border text-left transition-all ${
+                                            isSelected
+                                                ? 'bg-terminal-accent/[0.06] border-terminal-accent/30'
+                                                : 'bg-transparent border-terminal-border/10 hover:border-terminal-border/25 hover:bg-terminal-border/5'
+                                        }`}
+                                    >
+                                        <div className={`w-4 h-4 border rounded flex-shrink-0 flex items-center justify-center transition-all ${
+                                            isSelected ? 'bg-terminal-accent border-terminal-accent' : 'border-terminal-text/20 bg-transparent'
+                                        }`}>
+                                            {isSelected && <span className="text-terminal-bg text-[10px] font-bold">✓</span>}
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                            <div className={`text-sm truncate transition-colors ${isSelected ? 'text-terminal-text font-medium' : 'text-terminal-text/60'}`}>
+                                                {label}
+                                            </div>
+                                            {bookData && (
+                                                <div className="text-[10px] text-terminal-text/35 truncate">
+                                                    {bookData.author} · {bookData.year || '?'} · {bookData.genre || '?'}
+                                                </div>
+                                            )}
+                                            {selectedSubject === 'it' && (
+                                                <div className="text-[10px] text-terminal-text/35">{itCount} otázek</div>
+                                            )}
+                                        </div>
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -857,9 +897,14 @@ const AutoscrollPage = () => {
                     <div className="flex justify-center pt-4 border-t border-terminal-border/20">
                         <button
                             onClick={handleStart}
-                            className="flex items-center gap-2 px-6 py-3 bg-terminal-accent text-terminal-bg font-bold text-lg transition-all hover:scale-105"
+                            disabled={selectedSubItems.length === 0}
+                            className={`flex items-center gap-2 px-8 py-3 font-bold text-lg rounded-lg transition-all ${
+                                selectedSubItems.length === 0
+                                    ? 'bg-terminal-border/20 text-terminal-text/30 cursor-not-allowed'
+                                    : 'bg-terminal-accent text-terminal-bg hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]'
+                            }`}
                         >
-                            <FaPlay />
+                            <FaPlay className="text-sm" />
                             SPUSTIT ({selectedSubItems.length})
                         </button>
                     </div>
@@ -915,6 +960,7 @@ const AutoscrollPage = () => {
                             value={scrollSpeed}
                             onChange={(e) => setScrollSpeed(parseFloat(e.target.value))}
                             className="w-16 md:w-24"
+                            aria-label="Rychlost scrollování"
                         />
                         <span className="w-8 text-right tabular-nums text-terminal-text/80">{scrollSpeed.toFixed(1)}x</span>
                     </div>

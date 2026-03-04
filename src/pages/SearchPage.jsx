@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useDeferredValue } from 'react';
 import { FaSearch, FaBook, FaLaptop } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Fuse from 'fuse.js';
@@ -8,6 +8,7 @@ import { useExperimental } from '../context/ExperimentalContext';
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const deferredSearch = useDeferredValue(searchTerm);
   const [results, setResults] = useState([]);
   const [fuseCJ, setFuseCJ] = useState(null);
   const [fuseIT, setFuseIT] = useState(null);
@@ -32,9 +33,9 @@ const SearchPage = () => {
   }, []);
 
   useEffect(() => {
-    if (searchTerm && fuseCJ && fuseIT) {
-      const cjResults = fuseCJ.search(searchTerm).map(r => ({ ...r.item, type: 'cj', score: r.score }));
-      const itResults = fuseIT.search(searchTerm).map(r => ({ ...r.item, type: 'it', score: r.score }));
+    if (deferredSearch && fuseCJ && fuseIT) {
+      const cjResults = fuseCJ.search(deferredSearch).map(r => ({ ...r.item, type: 'cj', score: r.score }));
+      const itResults = fuseIT.search(deferredSearch).map(r => ({ ...r.item, type: 'it', score: r.score }));
 
       // Combine and sort by score
       const combined = [...cjResults, ...itResults].sort((a, b) => a.score - b.score);
@@ -42,7 +43,7 @@ const SearchPage = () => {
     } else {
       setResults([]);
     }
-  }, [searchTerm, fuseCJ, fuseIT]);
+  }, [deferredSearch, fuseCJ, fuseIT]);
 
   return (
     <div className="max-w-4xl mx-auto space-y-4">
@@ -68,6 +69,7 @@ const SearchPage = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Hledej knihy, autory, otázky..."
             className="flex-1 bg-transparent border-none outline-none text-terminal-text placeholder-terminal-text/40"
+            aria-label="Hledat"
             autoFocus
           />
           {searchTerm && (

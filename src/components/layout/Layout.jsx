@@ -1,58 +1,24 @@
-import { useState } from 'react';
 import Header from './Header';
 import BottomNav from './BottomNav';
-import ExperimentalMenu from '../experimental/ExperimentalMenu';
 import MiniPlayer from '../podcast/MiniPlayer';
 import PiPLauncher from '../pip/PiPLauncher';
-import FrutigerSidebar from '../experimental/FrutigerSidebar';
-import { useExperimental } from '../../context/ExperimentalContext';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { usePodcast } from '../../context/PodcastContext';
 
 const Layout = ({ children }) => {
-    const { frutigerAero } = useExperimental();
-    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    const { playerVisible } = usePodcast();
 
-    if (frutigerAero) {
-        return (
-            <>
-                <div id="websiteContainer">
-                    <div className="website-spacers" />
-                    <header id="mainHeader">
-                        <div className="header-logo-text">
-                            <img src="/aero-logo.png" alt="Logo" id="logo" />
-                            <div className="header-text-wrap">
-                                <span className="header-title">Maturita.app</span>
-                                <span className="header-motto">Study smarter, not harder</span>
-                            </div>
-                        </div>
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            className="md:hidden ml-auto mr-2 text-white border border-white/50 rounded px-2 py-1 bg-black/20 hover:bg-black/40 transition-colors"
-                            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-                        >
-                            {isMobileNavOpen ? <FaTimes /> : <FaBars />}
-                        </button>
-                    </header>
-
-                    <div id="navAndContentContainer" className={isMobileNavOpen ? 'mobile-nav-open' : ''}>
-                        <FrutigerSidebar />
-                        <main id="mainContent">
-                            {children}
-                        </main>
-                    </div>
-                </div>
-
-                <ExperimentalMenu />
-                <MiniPlayer />
-                <PiPLauncher />
-            </>
-        );
-    }
+    // Calculate bottom padding based on player visibility
+    const getMainPadding = () => {
+        if (playerVisible) {
+            return 'pb-24 md:pb-20'; // Extra padding when MiniPlayer is visible
+        }
+        return 'pb-24 md:pb-8';
+    };
 
     return (
         <div className="min-h-screen bg-terminal-bg">
             <Header />
-            <main className="container mx-auto px-3 md:px-4 py-4 md:py-6 pb-24 md:pb-8">
+            <main className={`container mx-auto px-3 md:px-4 py-4 md:py-6 ${getMainPadding()}`}>
                 {children}
             </main>
             <footer className="hidden md:block border-t border-terminal-border/20 mt-12">
@@ -61,7 +27,6 @@ const Layout = ({ children }) => {
                 </div>
             </footer>
             <BottomNav />
-            <ExperimentalMenu />
             <MiniPlayer />
             <PiPLauncher />
         </div>

@@ -91,6 +91,21 @@ const QuestionDetailPage = () => {
 
   const isKnown = progress.itQuestions?.[questionId]?.known || false;
 
+  // Mark as viewed when page loads
+  useEffect(() => {
+    setProgress(prev => ({
+      ...prev,
+      itQuestions: {
+        ...(prev.itQuestions || {}),
+        [questionId]: {
+          ...(prev.itQuestions?.[questionId] || {}),
+          viewed: true,
+          lastViewed: new Date().toISOString(),
+        }
+      }
+    }));
+  }, [questionId, setProgress]);
+
   const toggleKnown = (known) => {
     setProgress(prev => ({
       ...prev,

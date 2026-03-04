@@ -169,70 +169,111 @@ const PiPAutoscroll = () => {
     // ═══ SELECTION ═══
     if (phase === 'select') {
         return (
-            <div>
-                {/* Filter tabs */}
+            <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 80px)' }}>
+                {/* Segmented filter tabs */}
                 <div style={{
-                    display: 'flex', gap: '4px', marginBottom: '8px',
-                    padding: '3px', background: 'rgba(15,15,25,0.7)', borderRadius: '8px',
+                    display: 'flex', gap: '2px', marginBottom: '8px',
+                    padding: '3px', background: 'rgba(15,15,25,0.8)', borderRadius: '10px', flexShrink: 0,
                 }}>
                     {[
                         { key: 'cj', label: '📚 Knihy', count: CJ_ITEMS.length },
                         { key: 'it', label: '💻 IT', count: IT_ITEMS.length },
-                        { key: 'all', label: 'Vše', count: ALL_ITEMS.length },
+                        { key: 'all', label: '📋 Vše', count: ALL_ITEMS.length },
                     ].map(f => (
                         <button key={f.key} onClick={() => handleFilterChange(f.key)}
                             style={{
-                                flex: 1, padding: '6px', border: 'none', borderRadius: '6px',
+                                flex: 1, padding: '8px 4px', border: 'none', borderRadius: '8px',
                                 fontSize: '11px', fontWeight: filter === f.key ? '700' : '400',
                                 background: filter === f.key ? 'rgba(139,92,246,0.2)' : 'transparent',
-                                color: filter === f.key ? '#a78bfa' : 'rgba(224,224,224,0.4)',
-                                cursor: 'pointer',
+                                color: filter === f.key ? '#c4b5fd' : 'rgba(224,224,224,0.35)',
+                                cursor: 'pointer', transition: 'all 0.15s',
                             }}
-                        >{f.label} ({f.count})</button>
+                        >{f.label}</button>
                     ))}
                 </div>
 
-                {/* Select all/none */}
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '6px', alignItems: 'center' }}>
+                {/* Select controls */}
+                <div style={{ display: 'flex', gap: '6px', marginBottom: '6px', alignItems: 'center', flexShrink: 0 }}>
                     <button onClick={selectAll} style={chipBtn}>✓ Vše</button>
                     <button onClick={selectNone} style={chipBtn}>✕ Nic</button>
-                    <span style={{ marginLeft: 'auto', fontSize: '10px', color: 'rgba(224,224,224,0.3)' }}>
-                        {selectedCount} vybráno
+                    <span style={{ marginLeft: 'auto', fontSize: '11px', color: 'rgba(224,224,224,0.4)', fontWeight: '600' }}>
+                        {selectedCount} <span style={{ fontWeight: '400', color: 'rgba(224,224,224,0.2)' }}>/ {filteredItems.length}</span>
                     </span>
                 </div>
 
-                {/* Chips */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '10px' }}>
+                {/* Scrollable item list */}
+                <div style={{
+                    flex: 1, overflowY: 'auto', overflowX: 'hidden',
+                    display: 'flex', flexDirection: 'column', gap: '3px',
+                    marginBottom: '10px', paddingRight: '2px',
+                }}>
                     {filteredItems.map(item => {
                         const on = selected.has(item.id);
                         return (
                             <button key={item.id} onClick={() => toggleItem(item.id)}
                                 style={{
-                                    padding: '4px 10px', border: '1px solid',
-                                    borderColor: on ? 'rgba(139,92,246,0.4)' : 'rgba(139,92,246,0.1)',
-                                    borderRadius: '14px',
-                                    background: on ? 'rgba(139,92,246,0.15)' : 'transparent',
-                                    color: on ? '#c4b5fd' : 'rgba(224,224,224,0.35)',
-                                    fontSize: '11px', cursor: 'pointer',
-                                    fontWeight: on ? '600' : '400', whiteSpace: 'nowrap',
+                                    display: 'flex', alignItems: 'center', gap: '8px',
+                                    padding: '7px 10px', border: '1px solid',
+                                    borderColor: on ? 'rgba(139,92,246,0.3)' : 'rgba(139,92,246,0.06)',
+                                    borderRadius: '8px',
+                                    background: on ? 'rgba(139,92,246,0.08)' : 'rgba(15,15,25,0.3)',
+                                    cursor: 'pointer', transition: 'all 0.15s',
+                                    textAlign: 'left', width: '100%', flexShrink: 0,
                                 }}
                             >
-                                {item.type === 'cj' ? item.title : `IT ${item.num}`}
+                                {/* Checkbox */}
+                                <div style={{
+                                    width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0,
+                                    border: '2px solid',
+                                    borderColor: on ? '#7c3aed' : 'rgba(224,224,224,0.15)',
+                                    background: on ? '#7c3aed' : 'transparent',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    transition: 'all 0.15s',
+                                }}>
+                                    {on && <span style={{ color: '#fff', fontSize: '10px', fontWeight: '900', lineHeight: '1' }}>✓</span>}
+                                </div>
+
+                                {/* Type badge */}
+                                <span style={{
+                                    fontSize: '9px', padding: '1px 5px', borderRadius: '6px', fontWeight: '600',
+                                    background: item.type === 'it' ? 'rgba(59,130,246,0.12)' : 'rgba(236,72,153,0.12)',
+                                    color: item.type === 'it' ? '#60a5fa' : '#f472b6',
+                                    flexShrink: 0,
+                                }}>{item.type === 'it' ? 'IT' : 'ČJ'}</span>
+
+                                {/* Title + subtitle */}
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{
+                                        fontSize: '12px', fontWeight: on ? '600' : '400',
+                                        color: on ? '#e0e0e0' : 'rgba(224,224,224,0.45)',
+                                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                        transition: 'color 0.15s',
+                                    }}>
+                                        {item.title}
+                                    </div>
+                                    {item.subtitle && (
+                                        <div style={{
+                                            fontSize: '10px', color: 'rgba(224,224,224,0.25)',
+                                            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                        }}>{item.subtitle}</div>
+                                    )}
+                                </div>
                             </button>
                         );
                     })}
                 </div>
 
-                {/* Start */}
+                {/* Start button */}
                 <button onClick={startPlaying} disabled={selectedCount === 0}
                     style={{
-                        width: '100%', padding: '12px', border: 'none', borderRadius: '8px',
-                        background: selectedCount === 0 ? 'rgba(139,92,246,0.1)' : 'linear-gradient(135deg, #7c3aed, #4f46e5)',
-                        color: selectedCount === 0 ? 'rgba(224,224,224,0.3)' : '#fff',
+                        width: '100%', padding: '12px', border: 'none', borderRadius: '10px',
+                        background: selectedCount === 0 ? 'rgba(139,92,246,0.08)' : 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
+                        color: selectedCount === 0 ? 'rgba(224,224,224,0.25)' : '#fff',
                         fontSize: '14px', fontWeight: '700',
                         cursor: selectedCount === 0 ? 'not-allowed' : 'pointer',
+                        flexShrink: 0, transition: 'all 0.2s',
                     }}
-                >▶ Spustit ({selectedCount})</button>
+                >▶ Spustit čtení ({selectedCount})</button>
             </div>
         );
     }

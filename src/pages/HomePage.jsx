@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
-import { FaTrophy, FaBrain, FaBalanceScale, FaGraduationCap, FaMicrophone, FaGamepad } from 'react-icons/fa';
+import { FaMicrophone, FaCalendarAlt, FaFileAlt } from 'react-icons/fa';
 import QuestionGrid from '../components/dashboard/QuestionGrid';
 
 const studyTools = [
-  { path: '/srs', icon: FaBrain, label: 'Kartičky', desc: 'Spaced Repetition', color: '#8b5cf6' },
-  { path: '/simulator', icon: FaGraduationCap, label: 'Simulátor', desc: 'Losování + příprava', color: '#ef4444' },
+  { path: '/scheduler', icon: FaCalendarAlt, label: 'Plánovač', desc: '15min sessions s prioritami', color: '#10b981' },
+  { path: '/neumelecky', icon: FaFileAlt, label: 'Neumělecký text', desc: 'Funkční styly & slohové útvary', color: '#f59e0b' },
   { path: '/speech', icon: FaMicrophone, label: 'Mluvení', desc: 'Speech-to-Text', color: '#ec4899' },
-  { path: '/compare', icon: FaBalanceScale, label: 'Porovnávač', desc: '2–3 knihy vedle sebe', color: '#3b82f6' },
-  { path: '/bingo', icon: FaGamepad, label: 'Bingo', desc: '5×5 literární výzvy', color: '#f97316' },
-  { path: '/achievements', icon: FaTrophy, label: 'Achievementy', desc: 'Odznaky za pokrok', color: '#eab308' },
 ];
 
 const HomePage = () => {
@@ -27,7 +24,7 @@ const HomePage = () => {
         <h2 className="text-sm text-terminal-text/60 mb-3 tracking-wider">
           STUDIJNÍ NÁSTROJE
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {studyTools.map(tool => (
             <Link
               key={tool.path}

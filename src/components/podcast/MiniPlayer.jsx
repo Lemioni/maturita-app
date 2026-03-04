@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { usePodcast } from '../../context/PodcastContext';
+import { usePodcast, usePodcastPlayback } from '../../context/PodcastContext';
 import { FaPlay, FaPause, FaChevronDown, FaChevronUp, FaSpinner, FaMusic, FaVolumeUp, FaVolumeDown, FaVolumeMute, FaRedo, FaStepForward, FaNetworkWired, FaBook } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { books } from '../../data/bookData';
@@ -30,8 +30,6 @@ const MiniPlayer = () => {
         currentTrack,
         isPlaying,
         isLoading,
-        currentTime,
-        duration,
         togglePlayPause,
         play,
         seek,
@@ -45,6 +43,8 @@ const MiniPlayer = () => {
         toggleAutoplay,
     } = usePodcast();
 
+    const { currentTime, duration } = usePodcastPlayback();
+
     const { frutigerAero } = useExperimental();
     const [showList, setShowList] = useState(false);
     const [listTab, setListTab] = useState('knizky'); // 'knizky' | 'psi'
@@ -54,21 +54,38 @@ const MiniPlayer = () => {
     const location = useLocation();
     const navHidden = hiddenNavRoutes.includes(location.pathname);
 
-    // Collapsed: just a small tab to reopen
+    // Collapsed: improved visibility with music icon and pulse indicator
     if (!playerVisible) {
         return (
             <button
                 onClick={() => setPlayerVisible(true)}
-                className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 right-4 z-30 flex items-center gap-1.5 px-3 py-1.5 bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent hover:bg-terminal-accent/10 transition-colors backdrop-blur-md`}
+                className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 right-4 z-40 flex items-center gap-2 px-4 py-2 
+                    bg-terminal-bg/95 border border-b-0 border-terminal-border/30 text-terminal-accent 
+                    hover:bg-terminal-accent/10 transition-colors backdrop-blur-md pb-safe
+                    shadow-lg shadow-black/20`}
                 style={{ borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
             >
-                <FaChevronUp className="text-[10px]" />
+                <div className="flex items-center gap-2">
+                    {isPlaying && (
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terminal-accent opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-terminal-accent"></span>
+                        </span>
+                    )}
+                    <FaMusic className={`text-sm ${isPlaying ? 'animate-pulse' : ''}`} />
+                    {currentTrack && (
+                        <span className="text-xs font-mono truncate max-w-[120px] hidden sm:inline">
+                            {currentTrack.title}
+                        </span>
+                    )}
+                </div>
+                <FaChevronUp className="text-xs" />
             </button>
         );
     }
 
     return (
-        <div className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 left-0 right-0 z-30`}>
+        <div className={`fixed ${navHidden ? 'bottom-0' : 'bottom-16'} md:bottom-0 left-0 right-0 z-40`}>
             {/* Podcast list dropdown */}
             {showList && (
                 <div className={`bg-terminal-bg/98 backdrop-blur-md border-t border-x border-terminal-border/30 max-h-72 overflow-y-auto custom-scrollbar ${frutigerAero ? 'bg-[#c0c0c0] border-gray-400 text-black' : ''}`}>
@@ -194,30 +211,41 @@ const MiniPlayer = () => {
                 </div>
             )}
 
-            <div className={`relative bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10 ${frutigerAero ? 'bg-[#d4d0c8] border-t-2 border-white border-b-2 border-[#808080] p-1' : ''}`}>
-                {/* Global Mobile Progress Bar - Shown only on mobile screens */}
+            <div className={`relative bg-terminal-bg/95 backdrop-blur-md border-t border-terminal-border/10 pb-safe ${frutigerAero ? 'bg-[#d4d0c8] border-t-2 border-white border-b-2 border-[#808080] p-1' : ''}`}>
+                {/* Global Mobile Progress Bar - Improved with visible thumb */}
                 {currentTrack && !frutigerAero && (
-                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-terminal-border/20 sm:hidden cursor-pointer"
+                    <div className="absolute top-0 left-0 right-0 h-[6px] bg-terminal-border/20 sm:hidden cursor-pointer group"
                         onClick={(e) => {
-                            e.stopPropagation();
                             const rect = e.currentTarget.getBoundingClientRect();
                             const pos = (e.clientX - rect.left) / rect.width;
                             seek(pos * duration);
                         }}>
-                        <div className="h-full bg-terminal-accent relative" style={{ width: `${progress}%` }}></div>
+                        <div className="h-full bg-terminal-accent relative" style={{ width: `${progress}%` }}>
+                            {/* Visible thumb indicator */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-terminal-accent rounded-full shadow-md border-2 border-terminal-bg"></div>
+                        </div>
                     </div>
                 )}
 
                 <div
-                    className="container mx-auto px-2 sm:px-4 py-1.5 sm:py-1 flex items-center gap-2 sm:gap-3"
-                    onClick={frutigerAero ? undefined : () => setShowList(!showList)}
+                    className="container mx-auto px-2 sm:px-4 py-1.5 sm:py-1 flex items-center gap-2 sm:gap-3 pt-3 sm:pt-1.5"
                 >
                     {/* Integrated Slider & Info */}
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
-                        {/* Title Row */}
-                        <div className="flex items-center justify-between mb-1" onClick={() => setShowList(!showList)}>
+                        {/* Title Row - clickable to toggle list */}
+                        <div className="flex items-center justify-between mb-1">
                             {currentTrack ? (
-                                <div className="flex items-baseline gap-2 cursor-pointer">
+                                <div 
+                                    className="flex items-baseline gap-2 cursor-pointer"
+                                    onClick={() => setShowList(!showList)}
+                                >
+                                    {/* Track type icon */}
+                                    {!frutigerAero && currentTrack.type === 'psi' && (
+                                        <FaNetworkWired className="text-[10px] text-terminal-accent/60" />
+                                    )}
+                                    {!frutigerAero && currentTrack.type === 'book' && (
+                                        <FaBook className="text-[10px] text-terminal-accent/60" />
+                                    )}
                                     {!frutigerAero && currentTrack.type === 'psi' && (
                                         <span className="text-[9px] text-terminal-accent/60 bg-terminal-accent/10 px-1.5 py-0.5 rounded font-mono uppercase tracking-wider">PSI</span>
                                     )}
@@ -231,7 +259,10 @@ const MiniPlayer = () => {
                                     )}
                                 </div>
                             ) : (
-                                <p className={`text-xs cursor-pointer ${frutigerAero ? 'text-blue-800 underline font-serif' : 'text-terminal-text/40'}`}>
+                                <p 
+                                    className={`text-xs cursor-pointer ${frutigerAero ? 'text-blue-800 underline font-serif' : 'text-terminal-text/40'}`}
+                                    onClick={() => setShowList(!showList)}
+                                >
                                     {frutigerAero ? 'Vybrat...' : 'Vyber podcast k poslechu'}
                                 </p>
                             )}
@@ -254,6 +285,7 @@ const MiniPlayer = () => {
                                 className="hidden sm:block w-full h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
                                 style={{ accentColor: frutigerAero ? '#008000' : 'var(--color-terminal-accent, #8b5cf6)', height: frutigerAero ? '2px' : '4px' }}
                                 onClick={e => e.stopPropagation()}
+                                aria-label="Přetočit"
                             />
                         )}
                     </div>
@@ -263,7 +295,7 @@ const MiniPlayer = () => {
                         <div className="flex items-center gap-1" onClick={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}>
                             <button
                                 onClick={togglePlayPause}
-                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); togglePlayPause(); }}
+                                onTouchEnd={(e) => { e.preventDefault(); togglePlayPause(); }}
                                 className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all ${frutigerAero
                                         ? 'text-black border border-gray-400 bg-[#e0e0e0]'
                                         : isPlaying
@@ -282,7 +314,7 @@ const MiniPlayer = () => {
                             </button>
                             <button
                                 onClick={toggleLoop}
-                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); toggleLoop(); }}
+                                onTouchEnd={(e) => { e.preventDefault(); toggleLoop(); }}
                                 className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${loopEnabled
                                     ? (frutigerAero ? 'text-black bg-white border border-gray-400' : 'text-terminal-accent bg-terminal-accent/15 border border-terminal-accent/30')
                                     : (frutigerAero ? 'text-black opacity-40' : 'text-terminal-text/30 hover:text-terminal-text/50 hover:bg-terminal-border/10')
@@ -294,7 +326,7 @@ const MiniPlayer = () => {
                             </button>
                             <button
                                 onClick={toggleAutoplay}
-                                onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); toggleAutoplay(); }}
+                                onTouchEnd={(e) => { e.preventDefault(); toggleAutoplay(); }}
                                 className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${autoplayEnabled
                                     ? (frutigerAero ? 'text-black bg-white border border-gray-400' : 'text-terminal-accent bg-terminal-accent/15 border border-terminal-accent/30')
                                     : (frutigerAero ? 'text-black opacity-40' : 'text-terminal-text/30 hover:text-terminal-text/50 hover:bg-terminal-border/10')
@@ -328,6 +360,7 @@ const MiniPlayer = () => {
                                 onChange={(e) => setVolume(parseFloat(e.target.value))}
                                 className="w-16 h-1 accent-terminal-accent bg-terminal-border/20 rounded appearance-none cursor-pointer"
                                 style={{ accentColor: frutigerAero ? '#008000' : 'var(--color-terminal-accent, #8b5cf6)' }}
+                                aria-label="Hlasitost"
                             />
                         </div>
                     )}
@@ -335,7 +368,7 @@ const MiniPlayer = () => {
                     {/* Collapse button */}
                     <button
                         onClick={(e) => { e.stopPropagation(); setPlayerVisible(false); setShowList(false); }}
-                        onTouchEnd={(e) => { e.preventDefault(); e.stopPropagation(); setPlayerVisible(false); setShowList(false); }}
+                        onTouchEnd={(e) => { e.preventDefault(); setPlayerVisible(false); setShowList(false); }}
                         className={`w-8 h-8 flex items-center justify-center rounded transition-colors ${frutigerAero ? 'text-black' : 'text-terminal-text/30 hover:text-terminal-text/60 hover:bg-terminal-border/10'}`}
                         aria-label="Skrýt přehrávač"
                     >

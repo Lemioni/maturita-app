@@ -107,22 +107,80 @@ const PiPExam = () => {
     if (phase === 'select') {
         return (
             <div>
-                <div style={s.sectionLabel}>Zdroj otázek</div>
-                <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginBottom: '8px' }}>
-                    {[
-                        { key: 'it', label: '💻 IT', count: itQuestions.questions.filter(q => !PSI_IDS.has(q.id)).length },
-                        { key: 'psi', label: '🌐 PSI', count: itQuestions.questions.filter(q => PSI_IDS.has(q.id)).length },
-                        { key: 'cj', label: '📚 Knihy', count: cjBooks.books.length },
-                    ].map(src => (
-                        <button key={src.key} style={s.selectBtn(sources[src.key])}
-                            onClick={() => setSources(p => ({ ...p, [src.key]: !p[src.key] }))}>
-                            {src.label} ({src.count})
-                        </button>
-                    ))}
+                <div style={{ fontSize: '11px', color: 'rgba(224,224,224,0.45)', marginBottom: '10px', textAlign: 'center', letterSpacing: '0.5px' }}>
+                    Vyber zdroje a losuj otázku
                 </div>
+
+                {/* Source cards */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
+                    {[
+                        { key: 'it', emoji: '💻', label: 'IT Otázky', count: itQuestions.questions.filter(q => !PSI_IDS.has(q.id)).length, desc: 'Hardware, software, sítě…' },
+                        { key: 'psi', emoji: '🌐', label: 'PSI Otázky', count: itQuestions.questions.filter(q => PSI_IDS.has(q.id)).length, desc: 'Programování, databáze…' },
+                        { key: 'cj', emoji: '📚', label: 'Knihy', count: cjBooks.books.length, desc: 'Povinná četba + rozbory' },
+                    ].map(src => {
+                        const on = sources[src.key];
+                        return (
+                            <button key={src.key}
+                                onClick={() => setSources(p => ({ ...p, [src.key]: !p[src.key] }))}
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: '10px',
+                                    padding: '10px 12px', border: '1px solid',
+                                    borderColor: on ? 'rgba(139,92,246,0.4)' : 'rgba(139,92,246,0.08)',
+                                    borderRadius: '10px',
+                                    background: on ? 'rgba(139,92,246,0.08)' : 'rgba(15,15,25,0.5)',
+                                    cursor: 'pointer', transition: 'all 0.2s', textAlign: 'left', width: '100%',
+                                }}
+                            >
+                                <span style={{ fontSize: '22px', filter: on ? 'none' : 'grayscale(0.8) opacity(0.5)', transition: 'filter 0.2s' }}>{src.emoji}</span>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                    <div style={{ fontSize: '13px', fontWeight: '600', color: on ? '#e0e0e0' : 'rgba(224,224,224,0.4)', transition: 'color 0.15s' }}>
+                                        {src.label}
+                                    </div>
+                                    <div style={{ fontSize: '10px', color: 'rgba(224,224,224,0.3)', marginTop: '1px' }}>{src.desc}</div>
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                                    <span style={{
+                                        fontSize: '11px', fontWeight: '700', padding: '2px 8px', borderRadius: '10px',
+                                        background: on ? 'rgba(139,92,246,0.2)' : 'rgba(224,224,224,0.05)',
+                                        color: on ? '#c4b5fd' : 'rgba(224,224,224,0.25)', transition: 'all 0.15s',
+                                    }}>{src.count}</span>
+                                    <div style={{
+                                        width: '34px', height: '18px', borderRadius: '9px',
+                                        background: on ? 'rgba(124,58,237,0.8)' : 'rgba(224,224,224,0.1)',
+                                        position: 'relative', transition: 'background 0.2s', flexShrink: 0,
+                                    }}>
+                                        <div style={{
+                                            width: '14px', height: '14px', borderRadius: '50%',
+                                            background: on ? '#fff' : 'rgba(224,224,224,0.3)',
+                                            position: 'absolute', top: '2px',
+                                            left: on ? '18px' : '2px', transition: 'left 0.2s, background 0.2s',
+                                        }} />
+                                    </div>
+                                </div>
+                            </button>
+                        );
+                    })}
+                </div>
+
+                {/* Pool counter */}
+                <div style={{
+                    textAlign: 'center', padding: '14px 12px',
+                    background: 'rgba(139,92,246,0.04)', borderRadius: '10px',
+                    border: '1px solid rgba(139,92,246,0.1)', marginBottom: '10px',
+                }}>
+                    <div style={{
+                        fontSize: '30px', fontWeight: '800', letterSpacing: '-1px',
+                        color: pool.length > 0 ? '#a78bfa' : 'rgba(224,224,224,0.12)',
+                        lineHeight: '1', transition: 'color 0.2s',
+                    }}>{pool.length}</div>
+                    <div style={{ fontSize: '10px', color: 'rgba(224,224,224,0.35)', marginTop: '4px', letterSpacing: '0.3px' }}>
+                        otázek v losovacím fondu
+                    </div>
+                </div>
+
                 <button style={{ ...s.drawBtn, opacity: pool.length === 0 ? 0.3 : 1 }}
                     onClick={draw} disabled={pool.length === 0}>
-                    🎲 Losovat ({pool.length})
+                    🎲 Losovat otázku
                 </button>
             </div>
         );

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useCallback, useRef, useEffect } from 'react';
+// Lazy-load the module components (only fetched when PiP is actually opened)
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect, lazy, Suspense } from 'react';
 import { createPortal } from 'react-dom';
 
 const PiPContext = createContext();
@@ -136,12 +137,12 @@ export const PiPProvider = ({ children }) => {
     );
 };
 
-// Lazy-load the module components
-import PiPFlashcards from '../components/pip/PiPFlashcards';
-import PiPQuiz from '../components/pip/PiPQuiz';
-import PiPAutoscroll from '../components/pip/PiPAutoscroll';
-import PiPPodcast from '../components/pip/PiPPodcast';
-import PiPExam from '../components/pip/PiPExam';
+// Lazy-load the module components — only fetched when PiP is opened
+const PiPFlashcards = lazy(() => import('../components/pip/PiPFlashcards'));
+const PiPQuiz = lazy(() => import('../components/pip/PiPQuiz'));
+const PiPAutoscroll = lazy(() => import('../components/pip/PiPAutoscroll'));
+const PiPPodcast = lazy(() => import('../components/pip/PiPPodcast'));
+const PiPExam = lazy(() => import('../components/pip/PiPExam'));
 
 const MODULE_COMPONENTS = {
     flashcards: PiPFlashcards,
@@ -178,7 +179,9 @@ const PiPPortal = ({ container, moduleId, switchModule, closePiP }) => {
 
             {/* Module content */}
             <div style={{ flex: 1, overflow: 'auto', padding: '12px', paddingBottom: '60px' }}>
-                {ModuleComponent ? <ModuleComponent /> : <p>Module not found</p>}
+                <Suspense fallback={<p style={{ color: '#a78bfa', textAlign: 'center', marginTop: '40px' }}>Načítání...</p>}>
+                    {ModuleComponent ? <ModuleComponent /> : <p>Module not found</p>}
+                </Suspense>
             </div>
 
             {/* Bottom navigation bar — sleek icon-based */}

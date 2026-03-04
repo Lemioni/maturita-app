@@ -1,0 +1,295 @@
+{
+    "title": "Funkční styly a slohové útvary",
+    "subtitle": "Neumělecký text — ústní zkouška",
+    "source": "Typy.pptx",
+    "stylistika": {
+        "definice": "Stylistika je nauka o slohu (stylu). Zabývá se tvorbou sdělení v různých komunikačních situacích.",
+        "faktory": [
+            "Účel a cíl komunikace",
+            "Adresát (komu je text určen)",
+            "Komunikační situace (veřejná × soukromá, mluvená × psaná)",
+            "Osobnost autora",
+            "Jazykové prostředky a jejich výběr"
+        ]
+    },
+    "slohovePostupy": [
+        {
+            "nazev": "Informační",
+            "popis": "Prostě sděluje fakta, stručně a věcně",
+            "priklad": "zpráva, oznámení, telegram"
+        },
+        {
+            "nazev": "Popisný",
+            "popis": "Zachycuje vlastnosti, znaky a rysy předmětů či jevů",
+            "priklad": "popis osoby, popis postupu, návod"
+        },
+        {
+            "nazev": "Vyprávěcí",
+            "popis": "Podává děj, sled událostí v čase",
+            "priklad": "pohádka, povídka, reportáž"
+        },
+        {
+            "nazev": "Výkladový",
+            "popis": "Vysvětluje příčiny a souvislosti, logické vztahy",
+            "priklad": "výklad, odborný článek, pojednání"
+        },
+        {
+            "nazev": "Úvahový",
+            "popis": "Hodnotí, zamýšlí se, porovnává, vyjadřuje postoj",
+            "priklad": "úvaha, esej, recenze"
+        }
+    ],
+    "funkcniStyley": [
+        {
+            "id": "proste-sdelovaci",
+            "nazev": "Prostě sdělovací styl",
+            "barva": "#22c55e",
+            "funkce": "Běžná denní komunikace, prosté sdělení informací",
+            "znaky": [
+                "Neveřejná, mluvená komunikace",
+                "Spontánnost, nepřipravenost",
+                "Nespisovné výrazy (obecná čeština, hovorové)",
+                "Nespisovné koncovky (-ej, -ama, -ý)",
+                "Citové zabarvení, kontaktové prostředky",
+                "Jednoduché větné stavby, elipsy",
+                "Neverbální prostředky (gesta, intonace)"
+            ],
+            "jazykoveProstredky": [
+                "Obecná čeština",
+                "Hovorový jazyk",
+                "Nespisovné tvary",
+                "Citově zabarvená slova",
+                "Frazémy, přirovnání"
+            ],
+            "slohoveUtvary": [
+                "Soukromý dopis",
+                "E-mail, SMS",
+                "Vzkaz",
+                "Telefonní rozhovor",
+                "Osobní vypravování",
+                "Inzerát"
+            ],
+            "priklad": "Hledám muže na dopisování a později i na seznámení. Je mi 44 let, bydlím v Ostravě."
+        },
+        {
+            "id": "odborny",
+            "nazev": "Odborný styl",
+            "barva": "#3b82f6",
+            "funkce": "Poučit, informovat, předat odborné poznatky",
+            "znaky": [
+                "Veřejná, připravená komunikace",
+                "Objektivní, přesné vyjadřování",
+                "Odborná terminologie",
+                "Spisovný jazyk, složitější souvětí",
+                "Citace, odkazy, poznámky pod čarou",
+                "Grafické prvky (tabulky, grafy, schémata)"
+            ],
+            "jazykoveProstredky": [
+                "Odborné termíny",
+                "Spisovný jazyk",
+                "Pasivní konstrukce",
+                "Složitá souvětí",
+                "Citace a reference"
+            ],
+            "slohoveUtvary": [
+                "Výklad",
+                "Přednáška",
+                "Referát",
+                "Odborný článek",
+                "Učebnice",
+                "Encyklopedie",
+                "Disertační práce"
+            ],
+            "podtypy": [
+                {
+                    "nazev": "Vědecký",
+                    "popis": "Nejpřísnější, pro odborníky"
+                },
+                {
+                    "nazev": "Prakticky odborný",
+                    "popis": "Návody, recepty, příručky"
+                },
+                {
+                    "nazev": "Populárně naučný",
+                    "popis": "Pro laiky, přístupnější jazyk"
+                }
+            ],
+            "priklad": "Ombudsman je označení pro veřejného ochránce práv. První ombudsman byl jmenován ve Švédsku v r. 1809, v Dánsku r. 1955."
+        },
+        {
+            "id": "publicisticky",
+            "nazev": "Publicistický styl",
+            "barva": "#f59e0b",
+            "funkce": "Informovat veřejnost, přesvědčit, zaujmout, pobavit",
+            "znaky": [
+                "Veřejná, masová komunikace",
+                "Aktuálnost, přitažlivost",
+                "Automatizace (ustálené obraty, klišé)",
+                "Aktualizace (oživení, nové výrazy)",
+                "Střídání spisovného a publicistického jazyka",
+                "Titulek, perex, mezititulky"
+            ],
+            "jazykoveProstredky": [
+                "Publicismy (ustálené obraty)",
+                "Metafory, personifikace",
+                "Řečnické otázky",
+                "Expresivní výrazy",
+                "Přejatá slova"
+            ],
+            "slohoveUtvary": [
+                "Zpráva",
+                "Reportáž",
+                "Fejeton",
+                "Komentář",
+                "Úvodník",
+                "Rozhovor (interview)",
+                "Recenze",
+                "Kritika"
+            ],
+            "podtypy": [
+                {
+                    "nazev": "Zpravodajský",
+                    "popis": "Zprávy, informace o událostech"
+                },
+                {
+                    "nazev": "Analytický",
+                    "popis": "Komentáře, úvahy, analýzy"
+                },
+                {
+                    "nazev": "Beletristický",
+                    "popis": "Fejeton, sloupek, reportáž"
+                }
+            ],
+            "priklad": "Korunovační klenoty lákají. Už od časného rána stojí lidé v dešti pod Pražským hradem. Korunovační klenoty bude možné vidět do 19. května ve Vladislavském sále."
+        },
+        {
+            "id": "administrativni",
+            "nazev": "Administrativní styl",
+            "barva": "#ef4444",
+            "funkce": "Řídit, organizovat, regulovat činnost adresáta",
+            "znaky": [
+                "Veřejná, úřední komunikace",
+                "Ustálená forma, šablony",
+                "Neosobní vyjadřování",
+                "Přesnost, jednoznačnost",
+                "Zkratky, zkratková slova, značky",
+                "Heslovitost",
+                "Předtištěné formuláře"
+            ],
+            "jazykoveProstredky": [
+                "Ustálené formulace",
+                "Zkratky a značky",
+                "Neosobní vyjadřování",
+                "Jmenné konstrukce",
+                "Heslovitá vyjádření"
+            ],
+            "slohoveUtvary": [
+                "Žádost",
+                "Životopis",
+                "Úřední dopis",
+                "Protokol",
+                "Smlouva",
+                "Zákon, vyhláška",
+                "Formulář",
+                "Plná moc"
+            ],
+            "priklad": "Žádám o uvolnění z vyučování ve dnech 8.12.–21.12. 2012 z důvodu lyžařského soustředění. Za kladné vyřízení žádosti předem děkuji."
+        },
+        {
+            "id": "umelecky",
+            "nazev": "Umělecký styl",
+            "barva": "#a855f7",
+            "funkce": "Vyvolat u adresáta estetický zážitek, rozvíjet fantazii",
+            "znaky": [
+                "Veřejná, individuální komunikace",
+                "Subjektivní vyjadřování",
+                "Obrazná pojmenování (tropy, figury)",
+                "Využití všech jazykových vrstev",
+                "Originální vyjadřování",
+                "Fikce, umělecká licence"
+            ],
+            "jazykoveProstredky": [
+                "Metafory, personifikace, přirovnání",
+                "Epiteton (básnický přívlastek)",
+                "Symboly, alegorie",
+                "Zvukomalba (onomatopoie)",
+                "Archaismy, neologismy",
+                "Dialekty, argot, slang"
+            ],
+            "slohoveUtvary": [
+                "Román, novela, povídka",
+                "Báseň, sonet, balada",
+                "Dramatický text",
+                "Esej"
+            ],
+            "podtypy": [
+                {
+                    "nazev": "Epika",
+                    "popis": "Vypráví příběh, děj, postavy"
+                },
+                {
+                    "nazev": "Lyrika",
+                    "popis": "Vyjadřuje pocity, nálady, city"
+                },
+                {
+                    "nazev": "Drama",
+                    "popis": "Dialogická forma, předváděno na jevišti"
+                }
+            ],
+            "priklad": "Kdybych ti mohl modré z nebe snést,\nsvit ranní obláčkové látky, červánkový třpyt,\nv nichž se lesknou stehy hvězd –\nušil bych ti šaty z krásných nit."
+        }
+    ],
+    "prirazeniUtvaru": {
+        "popis": "Přiřazení slohových útvarů k funkčním stylům",
+        "mapovani": [
+            {
+                "utvar": "inzerát",
+                "styl": "Prostě sdělovací"
+            },
+            {
+                "utvar": "referát",
+                "styl": "Odborný"
+            },
+            {
+                "utvar": "životopis",
+                "styl": "Administrativní"
+            },
+            {
+                "utvar": "e-mail",
+                "styl": "Prostě sdělovací"
+            },
+            {
+                "utvar": "fejeton",
+                "styl": "Publicistický"
+            },
+            {
+                "utvar": "reportáž",
+                "styl": "Publicistický"
+            },
+            {
+                "utvar": "výklad",
+                "styl": "Odborný"
+            },
+            {
+                "utvar": "osobní dopis",
+                "styl": "Prostě sdělovací"
+            },
+            {
+                "utvar": "vypravování",
+                "styl": "Umělecký"
+            },
+            {
+                "utvar": "žádost",
+                "styl": "Administrativní"
+            },
+            {
+                "utvar": "přednáška",
+                "styl": "Odborný"
+            }
+        ]
+    },
+    "zdroje": [
+        "Typy.pptx (školní materiál)",
+        "DOBEŠOVÁ, Věra. Průvodce českým jazykem. Brno: Didaktis, 2005, ISBN 80-7358-019-5."
+    ]
+}

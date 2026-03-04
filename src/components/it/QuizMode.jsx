@@ -33,7 +33,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
     }
 
     // Shuffle
-    const shuffled = filtered.sort(() => Math.random() - 0.5);
+    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
     setAllQuestions(shuffled);
     resetQuiz(shuffled, questionCount);
   }, [filter, subjectFilter]);

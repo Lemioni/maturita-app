@@ -174,6 +174,21 @@ const BookDetailPage = () => {
 
     const isKnown = progress.cjBooks?.[bookId]?.known || false;
 
+    // Mark as viewed when page loads
+    useEffect(() => {
+        setProgress(prev => ({
+            ...prev,
+            cjBooks: {
+                ...(prev.cjBooks || {}),
+                [bookId]: {
+                    ...(prev.cjBooks?.[bookId] || {}),
+                    viewed: true,
+                    lastViewed: new Date().toISOString(),
+                }
+            }
+        }));
+    }, [bookId, setProgress]);
+
     const toggleKnown = (known) => {
         setProgress(prev => ({
             ...prev,

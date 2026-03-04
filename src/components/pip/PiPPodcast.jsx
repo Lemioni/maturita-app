@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePodcast } from '../../context/PodcastContext';
+import { usePodcast, usePodcastPlayback } from '../../context/PodcastContext';
 import { books } from '../../data/bookData';
 import { hasPodcast, psiPodcastIds, psiQuestionTitles } from '../../data/podcastData';
 
@@ -66,10 +66,12 @@ const s = {
 
 const PiPPodcast = () => {
     const {
-        currentTrack, isPlaying, isLoading, currentTime, duration,
+        currentTrack, isPlaying, isLoading,
         togglePlayPause, play, seek, volume, setVolume,
         loopEnabled, toggleLoop, autoplayEnabled, toggleAutoplay,
     } = usePodcast();
+
+    const { currentTime, duration } = usePodcastPlayback();
 
     const [tab, setTab] = React.useState('knizky');
     const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
@@ -88,6 +90,7 @@ const PiPPodcast = () => {
                             min="0" max={duration || 0} step="1" value={currentTime}
                             onChange={(e) => seek(parseFloat(e.target.value))}
                             style={s.seekBar}
+                            aria-label="Přetočit"
                         />
                         <div style={s.timeRow}>
                             <span>{formatTime(currentTime)}</span>

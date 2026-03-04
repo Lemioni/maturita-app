@@ -3,8 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   FaHome, FaLaptopCode, FaBook, FaSearch,
   FaDice, FaScroll, FaBookOpen, FaTimes, FaBars,
-  FaBrain, FaGraduationCap, FaBalanceScale, FaMicrophone,
-  FaGamepad, FaTrophy, FaChevronUp, FaChevronDown
+  FaMicrophone,
+  FaChevronUp, FaChevronDown,
+  FaCalendarAlt, FaFileAlt, FaUser
 } from 'react-icons/fa';
 
 const primaryNav = [
@@ -16,15 +17,12 @@ const primaryNav = [
 ];
 
 const moreNav = [
-  { path: '/srs', icon: FaBrain, label: 'Kartičky' },
-  { path: '/simulator', icon: FaGraduationCap, label: 'Simulátor' },
-  { path: '/autoscroll', icon: FaScroll, label: 'Autoscroll' },
   { path: '/dictionary', icon: FaBookOpen, label: 'Slovník' },
   { path: '/exam-practice', icon: FaDice, label: 'Zkouška' },
-  { path: '/compare', icon: FaBalanceScale, label: 'Porovnat' },
   { path: '/speech', icon: FaMicrophone, label: 'Mluvení' },
-  { path: '/bingo', icon: FaGamepad, label: 'Bingo' },
-  { path: '/achievements', icon: FaTrophy, label: 'Odznaky' },
+  { path: '/scheduler', icon: FaCalendarAlt, label: 'Plánovač' },
+  { path: '/neumelecky', icon: FaFileAlt, label: 'Neumělecký' },
+  { path: '/login', icon: FaUser, label: 'Přihlášení' },
 ];
 
 // Routes where bottom nav is hidden by default
@@ -77,7 +75,7 @@ const BottomNav = () => {
           showMore ? 'translate-y-0' : 'translate-y-full pointer-events-none'
         }`}
       >
-        <div className="bg-terminal-bg border-t border-terminal-border/30 px-4 py-4">
+        <div className="bg-terminal-bg border-t border-terminal-border/30 px-4 py-4 max-h-[60vh] overflow-y-auto">
           <div className="grid grid-cols-3 gap-3">
             {moreNav.map((item) => (
               <Link

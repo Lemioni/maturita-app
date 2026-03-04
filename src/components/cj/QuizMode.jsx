@@ -149,7 +149,7 @@ const QuizMode = ({ filter }) => {
             : pool.filter(q => q.type !== 'excerpt');
 
         const finalLimit = Math.min(limit, filteredPool.length);
-        const shuffled = filteredPool.sort(() => Math.random() - 0.5).slice(0, finalLimit);
+        const shuffled = [...filteredPool].sort(() => Math.random() - 0.5).slice(0, finalLimit);
 
         setQuestions(shuffled);
         setStage('quiz');

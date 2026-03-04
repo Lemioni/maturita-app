@@ -1,10 +1,14 @@
-import React, { createContext, useContext, useState, useRef, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { getPodcastUrl, hasPodcast, podcastBookIds, getPsiPodcastUrl, hasPsiPodcast, psiPodcastIds, psiQuestionTitles } from '../data/podcastData';
 import { books } from '../data/bookData';
 
 const PodcastContext = createContext();
+// Separate context for frequently-updating playback values (currentTime, duration).
+// Only MiniPlayer subscribes to this — prevents re-rendering the entire app ~4x/sec.
+const PodcastPlaybackContext = createContext();
 
 export const usePodcast = () => useContext(PodcastContext);
+export const usePodcastPlayback = () => useContext(PodcastPlaybackContext);
 
 export const PodcastProvider = ({ children }) => {
     const audioRef = useRef(null);
@@ -248,12 +252,10 @@ export const PodcastProvider = ({ children }) => {
         });
     }, []);
 
-    const value = {
+    const value = useMemo(() => ({
         currentTrack,
         isPlaying,
         isLoading,
-        currentTime,
-        duration,
         play,
         pause,
         resume,
@@ -272,11 +274,18 @@ export const PodcastProvider = ({ children }) => {
         toggleLoop,
         autoplayEnabled,
         toggleAutoplay,
-    };
+    }), [currentTrack, isPlaying, isLoading, play, pause, resume, togglePlayPause, seek, stop, skipForward, skipBackward, playerVisible, volume, setVolume, loopEnabled, toggleLoop, autoplayEnabled, toggleAutoplay]);
+
+    const playbackValue = useMemo(() => ({
+        currentTime,
+        duration,
+    }), [currentTime, duration]);
 
     return (
         <PodcastContext.Provider value={value}>
-            {children}
+            <PodcastPlaybackContext.Provider value={playbackValue}>
+                {children}
+            </PodcastPlaybackContext.Provider>
         </PodcastContext.Provider>
     );
 };

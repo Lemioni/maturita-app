@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaDice, FaScroll, FaBookOpen, FaBolt, FaTrophy, FaBrain, FaGamepad } from 'react-icons/fa';
+import { FaHome, FaLaptopCode, FaBook, FaSearch, FaFire, FaDice, FaScroll, FaBookOpen, FaCalendarAlt, FaFileAlt, FaUser } from 'react-icons/fa';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import useStreak from '../../hooks/useStreak';
+import { useAuth } from '../../context/AuthContext';
+import { useSync } from '../../context/SyncContext';
 
 const Header = () => {
   const location = useLocation();
@@ -11,6 +13,8 @@ const Header = () => {
   const [daysLeft, setDaysLeft] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const { currentStreak, longestStreak } = useStreak();
+  const { user } = useAuth();
+  const { syncStatus } = useSync();
 
   useEffect(() => {
     const calculateDays = () => {
@@ -42,6 +46,8 @@ const Header = () => {
     { path: '/autoscroll', icon: FaScroll, label: 'ASCR' },
     { path: '/dictionary', icon: FaBookOpen, label: 'SLVN' },
     { path: '/exam-practice', icon: FaDice, label: 'ZKŠK' },
+    { path: '/scheduler', icon: FaCalendarAlt, label: 'PLÁN' },
+    { path: '/neumelecky', icon: FaFileAlt, label: 'NUT' },
     { path: '/search', icon: FaSearch, label: 'SRCH' },
   ];
 
@@ -78,6 +84,7 @@ const Header = () => {
                 onBlur={() => setIsEditing(false)}
                 autoFocus
                 className="bg-terminal-dim border border-terminal-accent/50 px-2 py-0.5 text-xs focus:outline-none focus:border-terminal-accent w-28"
+                aria-label="Datum maturity"
               />
             ) : (
               <div className="flex items-center gap-2">
@@ -98,17 +105,42 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation - Right */}
-          <nav className="hidden md:flex space-x-2 items-center ml-auto">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`icon-btn ${isActive(item.path) ? 'active' : ''}`}
-                title={item.label}
-              >
-                <item.icon className="text-lg" />
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center ml-auto">
+            {/* Main nav items */}
+            <div className="flex space-x-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`icon-btn ${isActive(item.path) ? 'active' : ''}`}
+                  title={item.label}
+                >
+                  <item.icon className="text-lg" />
+                </Link>
+              ))}
+            </div>
+
+            {/* Vertical divider */}
+            <div className="w-px h-8 bg-terminal-border/20 mx-3" />
+
+            {/* User Avatar / Login */}
+            <Link
+              to="/login"
+              className={`icon-btn relative ${isActive('/login') ? 'active' : ''}`}
+              title={user ? user.displayName || 'Profil' : 'Přihlásit se'}
+            >
+              {user?.photoURL ? (
+                <img src={user.photoURL} alt="" className="w-6 h-6 rounded-full" />
+              ) : (
+                <FaUser className="text-lg" />
+              )}
+              {user && syncStatus === 'synced' && (
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-400 rounded-full border border-terminal-bg" />
+              )}
+              {user && syncStatus === 'syncing' && (
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-yellow-400 rounded-full border border-terminal-bg animate-pulse" />
+              )}
+            </Link>
           </nav>
         </div>
       </div>

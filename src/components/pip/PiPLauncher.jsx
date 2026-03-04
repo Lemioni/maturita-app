@@ -1,12 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 import { usePiP, PIP_MODULES } from '../../context/PiPContext';
+import { usePodcast } from '../../context/PodcastContext';
 
 const PiPLauncher = () => {
     const { isSupported, isPiPOpen, openPiP, closePiP } = usePiP();
+    const { playerVisible } = usePodcast();
     const [menuOpen, setMenuOpen] = useState(false);
-    const [hoveredItem, setHoveredItem] = useState(null);
     const [hidden, setHidden] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
     const menuRef = useRef(null);
+
+    // Reactive isDesktop with resize listener
+    useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Close menu on outside click
     useEffect(() => {
@@ -20,165 +33,121 @@ const PiPLauncher = () => {
 
     if (!isSupported) return null;
 
-    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
-
     const handleModuleClick = (moduleId) => {
         openPiP(moduleId);
         setMenuOpen(false);
     };
 
-    // Hidden state — show a tiny reveal tab
+    // Calculate bottom position based on player visibility and desktop/mobile
+    const getBottomOffset = () => {
+        if (isDesktop) {
+            return playerVisible ? 'bottom-[60px]' : 'bottom-2';
+        } else {
+            // Mobile: account for BottomNav (64px) and MiniPlayer (~48px)
+            const baseOffset = 80; // bottom-[80px] matches non-hidden state
+            const extraOffset = playerVisible ? 48 : 0;
+            return `bottom-[${baseOffset + extraOffset}px]`;
+        }
+    };
+
+    // Hidden state — slim reveal tab
     if (hidden && !isPiPOpen) {
         return (
             <button
                 onClick={() => setHidden(false)}
-                style={{
-                    position: 'fixed', bottom: isDesktop ? '8px' : '72px', left: '0px', zIndex: 25,
-                    padding: '6px 8px 6px 4px', border: 'none',
-                    borderRadius: '0 8px 8px 0',
-                    background: 'rgba(139,92,246,0.15)',
-                    color: 'rgba(139,92,246,0.5)',
-                    fontSize: '12px', cursor: 'pointer',
-                    backdropFilter: 'blur(8px)',
-                    transition: 'all 0.2s',
-                }}
-                title="Zobrazit Mini Player"
-            >🚀</button>
+                className={`fixed ${isDesktop ? (playerVisible ? 'bottom-[60px]' : 'bottom-2') : (playerVisible ? 'bottom-[128px]' : 'bottom-[80px]')} left-0 z-40 
+                    px-2 py-3 border border-l-0 border-terminal-border/20 
+                    bg-terminal-bg/90 backdrop-blur-sm
+                    text-terminal-accent/40 hover:text-terminal-accent/70 
+                    hover:bg-terminal-accent/5 transition-all
+                    rounded-r-lg font-mono text-xs`}
+                title="Zobrazit PiP"
+            >
+                <div className="flex items-center gap-1">
+                    <FaExternalLinkAlt className="text-[10px]" />
+                    <span className="text-[10px]">PiP</span>
+                </div>
+            </button>
         );
     }
 
     return (
-        <div ref={menuRef} style={{
-            position: 'fixed', bottom: isDesktop ? '12px' : '80px', left: '16px', zIndex: 25,
-            display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '8px',
-        }}>
-            {/* Module selector menu */}
+        <div ref={menuRef} className={`fixed ${isDesktop ? (playerVisible ? 'bottom-[60px]' : 'bottom-3') : (playerVisible ? 'bottom-[128px]' : 'bottom-[80px]')} left-4 z-40 flex flex-col items-start gap-2`}>
+            {/* Terminal-style dropdown menu */}
             {menuOpen && !isPiPOpen && (
-                <div style={{
-                    background: 'linear-gradient(135deg, rgba(15,15,30,0.97) 0%, rgba(20,15,40,0.97) 100%)',
-                    border: '1px solid rgba(139,92,246,0.2)',
-                    borderRadius: '16px', padding: '8px', backdropFilter: 'blur(20px)',
-                    boxShadow: '0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(139,92,246,0.05), inset 0 1px 0 rgba(255,255,255,0.03)',
-                    minWidth: '200px',
-                }}>
+                <div className="bg-terminal-bg/98 backdrop-blur-md border border-terminal-border/30 rounded-md overflow-hidden shadow-lg shadow-black/40 min-w-[200px]">
                     {/* Header */}
-                    <div style={{
-                        padding: '6px 10px 8px', marginBottom: '4px',
-                        borderBottom: '1px solid rgba(139,92,246,0.08)',
-                    }}>
-                        <div style={{
-                            fontSize: '11px', fontWeight: '700', color: '#a78bfa',
-                            letterSpacing: '1.5px', textTransform: 'uppercase',
-                        }}>Mini Player</div>
-                        <div style={{
-                            fontSize: '10px', color: 'rgba(224,224,224,0.3)', marginTop: '2px',
-                        }}>Studuj v plovoucím okně</div>
+                    <div className="px-3 py-1.5 border-b border-terminal-border/20 bg-terminal-accent/5">
+                        <span className="text-[10px] font-mono text-terminal-accent/70 tracking-widest uppercase">
+                            PiP Moduly
+                        </span>
                     </div>
 
                     {/* Module options */}
-                    {Object.values(PIP_MODULES).map(mod => {
-                        const isHovered = hoveredItem === mod.id;
-                        return (
+                    <div className="py-1">
+                        {Object.values(PIP_MODULES).map(mod => (
                             <button
                                 key={mod.id}
                                 onClick={() => handleModuleClick(mod.id)}
-                                onMouseEnter={() => setHoveredItem(mod.id)}
-                                onMouseLeave={() => setHoveredItem(null)}
-                                style={{
-                                    display: 'flex', alignItems: 'center', gap: '12px',
-                                    width: '100%', padding: '10px 12px', border: 'none', borderRadius: '10px',
-                                    background: isHovered
-                                        ? 'linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(99,60,200,0.1) 100%)'
-                                        : 'transparent',
-                                    color: isHovered ? '#c4b5fd' : '#e0e0e0',
-                                    cursor: 'pointer', transition: 'all 0.15s ease', textAlign: 'left',
-                                    transform: isHovered ? 'translateX(3px)' : 'none',
-                                }}
+                                className="w-full text-left px-3 py-2 flex items-center gap-3 
+                                    text-terminal-text/60 hover:text-terminal-accent hover:bg-terminal-accent/5 
+                                    transition-all font-mono text-xs group"
                             >
-                                <div style={{
-                                    width: '32px', height: '32px', borderRadius: '8px',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    background: isHovered ? 'rgba(139,92,246,0.15)' : 'rgba(139,92,246,0.06)',
-                                    fontSize: '16px', transition: 'all 0.15s',
-                                    boxShadow: isHovered ? '0 0 12px rgba(139,92,246,0.2)' : 'none',
-                                }}>{mod.icon}</div>
-                                <div style={{ flex: 1 }}>
-                                    <div style={{
-                                        fontSize: '13px', fontWeight: '500', lineHeight: '1.2',
-                                    }}>{mod.label}</div>
-                                    <div style={{
-                                        fontSize: '10px', color: 'rgba(224,224,224,0.35)', marginTop: '1px',
-                                    }}>{mod.desc}</div>
+                                <span className="text-terminal-accent/30 group-hover:text-terminal-accent transition-colors">{'>'}</span>
+                                <span className="text-sm">{mod.icon}</span>
+                                <div className="flex-1">
+                                    <span className="group-hover:text-terminal-accent">{mod.label}</span>
+                                    <span className="text-[9px] text-terminal-text/25 ml-2">{mod.desc}</span>
                                 </div>
-                                <div style={{
-                                    fontSize: '12px',
-                                    color: isHovered ? 'rgba(139,92,246,0.6)' : 'rgba(224,224,224,0.15)',
-                                    transition: 'all 0.15s',
-                                }}>→</div>
                             </button>
-                        );
-                    })}
+                        ))}
+                    </div>
 
-                    {/* Hide button */}
-                    <button
-                        onClick={() => { setMenuOpen(false); setHidden(true); }}
-                        style={{
-                            width: '100%', padding: '8px', border: 'none', borderRadius: '8px',
-                            background: 'transparent', color: 'rgba(224,224,224,0.25)',
-                            fontSize: '10px', cursor: 'pointer', marginTop: '4px',
-                            borderTop: '1px solid rgba(139,92,246,0.06)',
-                            transition: 'all 0.15s',
-                        }}
-                    >Skrýt tlačítko</button>
+                    {/* Hide option */}
+                    <div className="border-t border-terminal-border/10">
+                        <button
+                            onClick={() => { setMenuOpen(false); setHidden(true); }}
+                            className="w-full text-left px-3 py-1.5 text-[10px] font-mono text-terminal-text/25 hover:text-terminal-text/40 transition-colors"
+                        >
+                            skrýt
+                        </button>
+                    </div>
                 </div>
             )}
 
-            {/* FAB button + hide option */}
-            <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+            {/* Main button — icon style with tooltip */}
+            <div className="flex items-center gap-1.5">
                 <button
                     onClick={() => isPiPOpen ? closePiP() : setMenuOpen(!menuOpen)}
                     title={isPiPOpen ? 'Zavřít PiP' : 'Mini Player'}
-                    style={{
-                        width: '48px', height: '48px', borderRadius: '14px',
-                        background: isPiPOpen
-                            ? 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)'
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md border font-mono text-xs transition-all
+                        ${isPiPOpen
+                            ? 'bg-red-500/10 border-red-500/30 text-red-400 hover:bg-red-500/20'
                             : menuOpen
-                                ? 'linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%)'
-                                : 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
-                        border: 'none', cursor: 'pointer',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '22px', color: '#fff', transition: 'all 0.2s ease',
-                        boxShadow: isPiPOpen
-                            ? '0 4px 20px rgba(239,68,68,0.4), 0 0 0 2px rgba(239,68,68,0.15)'
-                            : '0 4px 20px rgba(139,92,246,0.35), 0 0 0 2px rgba(139,92,246,0.1)',
-                        position: 'relative',
-                        transform: menuOpen && !isPiPOpen ? 'rotate(45deg)' : 'none',
-                    }}
+                                ? 'bg-terminal-accent/15 border-terminal-accent/30 text-terminal-accent'
+                                : 'bg-terminal-bg/90 border-terminal-border/20 text-terminal-text/40 hover:text-terminal-accent hover:border-terminal-accent/30 hover:bg-terminal-accent/5'
+                        } backdrop-blur-sm`}
                 >
-                    {isPiPOpen ? '✕' : '🚀'}
                     {isPiPOpen && (
-                        <div style={{
-                            position: 'absolute', top: '-2px', right: '-2px',
-                            width: '12px', height: '12px', borderRadius: '50%',
-                            background: '#22c55e', border: '2px solid #0a0a0f',
-                            boxShadow: '0 0 6px rgba(34,197,94,0.5)',
-                        }} />
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                     )}
+                    <FaExternalLinkAlt className="text-xs" />
+                    <span className="tracking-wider">
+                        {isPiPOpen ? 'PiP' : 'PiP'}
+                    </span>
                 </button>
 
-                {/* Quick hide on long press / right click context */}
+                {/* Quick hide button */}
                 {!isPiPOpen && !menuOpen && (
                     <button
                         onClick={() => setHidden(true)}
                         title="Skrýt"
-                        style={{
-                            width: '24px', height: '24px', borderRadius: '50%',
-                            border: '1px solid rgba(139,92,246,0.1)', background: 'rgba(15,15,25,0.8)',
-                            color: 'rgba(224,224,224,0.2)', fontSize: '10px', cursor: 'pointer',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            transition: 'all 0.15s',
-                        }}
-                    >✕</button>
+                        className="w-6 h-6 rounded border border-terminal-border/10 bg-terminal-bg/80 
+                            text-terminal-text/25 hover:text-terminal-text/40 
+                            text-xs font-mono flex items-center justify-center transition-all"
+                    >
+                        <FaTimes className="text-xs" />
+                    </button>
                 )}
             </div>
         </div>

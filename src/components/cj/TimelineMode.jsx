@@ -61,7 +61,7 @@ const TimelineMode = ({ filter }) => {
         // 4. Map back to ordered array
         return MOVEMENT_ORDER.map(m => ({
             ...m,
-            books: groups[m.id] ? groups[m.id].sort((a, b) => parseInt(a.year) - parseInt(b.year)) : []
+            books: groups[m.id] ? [...groups[m.id]].sort((a, b) => parseInt(a.year) - parseInt(b.year)) : []
         })).filter(g => g.books.length > 0); // Only show eras with books
 
     }, [filter]);

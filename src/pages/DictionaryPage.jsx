@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useDeferredValue } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { FaArrowLeft, FaBookOpen, FaSearch } from 'react-icons/fa';
 import dictionaryData from '../data/dictionary.json';
@@ -14,6 +14,7 @@ const DictionaryPage = () => {
     const location = useLocation();
     const initialTerm = searchParams.get('term') || '';
     const [searchTerm, setSearchTerm] = useState(initialTerm);
+    const deferredSearch = useDeferredValue(searchTerm);
     const fromPath = location.state?.from || null;
     const fromLabel = location.state?.fromLabel || 'zpět';
 
@@ -23,13 +24,13 @@ const DictionaryPage = () => {
             result[section.id] = dictionaryData.terms.filter(term => {
                 const matchesCategory = term.category === section.id;
                 if (!matchesCategory) return false;
-                if (!searchTerm) return true;
-                const s = searchTerm.toLowerCase();
+                if (!deferredSearch) return true;
+                const s = deferredSearch.toLowerCase();
                 return term.term.toLowerCase().includes(s) || term.definition.toLowerCase().includes(s);
             });
         }
         return result;
-    }, [searchTerm]);
+    }, [deferredSearch]);
 
     const totalResults = Object.values(filteredBySection).reduce((sum, arr) => sum + arr.length, 0);
 
@@ -63,6 +64,7 @@ const DictionaryPage = () => {
                         placeholder="Hledat termín nebo definici..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
+                        aria-label="Hledat v slovníku"
                         className="w-full pl-10 pr-4 py-2.5 bg-terminal-bg border border-terminal-border/30 text-terminal-text placeholder-terminal-text/40 outline-none focus:border-terminal-accent transition-colors text-sm"
                     />
                 </div>
