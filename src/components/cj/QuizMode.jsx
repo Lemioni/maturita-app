@@ -3,6 +3,16 @@ import { FaCheck, FaTimes, FaRedo, FaBook, FaGlobe, FaPlay, FaList, FaQuoteRight
 import cjBooksData from '../../data/bookData.js';
 import { useExperimental } from '../../context/ExperimentalContext';
 
+// Fisher-Yates shuffle — efficient O(n) shuffle
+const fisherYatesShuffle = (arr) => {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
 const QuizMode = ({ filter }) => {
     const { frutigerAero } = useExperimental();
     // Stages: 'selection', 'config', 'quiz', 'result'
@@ -149,7 +159,7 @@ const QuizMode = ({ filter }) => {
             : pool.filter(q => q.type !== 'excerpt');
 
         const finalLimit = Math.min(limit, filteredPool.length);
-        const shuffled = [...filteredPool].sort(() => Math.random() - 0.5).slice(0, finalLimit);
+        const shuffled = fisherYatesShuffle(filteredPool).slice(0, finalLimit);
 
         setQuestions(shuffled);
         setStage('quiz');

@@ -30,6 +30,7 @@ const StudySchedulerPage = lazyRetry(() => import('./pages/StudySchedulerPage'))
 const NeumeleckyTextPage = lazyRetry(() => import('./pages/NeumeleckyTextPage'));
 const LoginPage = lazyRetry(() => import('./pages/LoginPage'));
 
+import NavigationOverlay from './components/common/NavigationOverlay';
 import { ExperimentalProvider } from './context/ExperimentalContext';
 import { PodcastProvider } from './context/PodcastContext';
 import { PiPProvider } from './context/PiPContext';
@@ -49,6 +50,7 @@ const AppRoutes = () => {
   const location = useLocation();
   return (
     <Layout>
+      <NavigationOverlay />
       <ErrorBoundary key={location.pathname}>
         <Suspense fallback={<PageLoader />}>
           <Routes>

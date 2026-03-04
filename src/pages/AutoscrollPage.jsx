@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaPlay, FaPause, FaSyncAlt, FaRandom, FaVolumeUp, FaVolumeMute, FaArrowLeft, FaScroll, FaBook, FaUser, FaPen, FaGlobe, FaTheaterMasks } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -496,6 +497,7 @@ const chunkTextForTTS = (text, maxLen = 250) => {
 };
 
 const AutoscrollPage = () => {
+    const location = useLocation();
     const [mode, setMode] = useState('selection');
     const [selectedSubject, setSelectedSubject] = useLocalStorage('autoscroll-subject', 'it');
     const [selectedSubItems, setSelectedSubItems] = useLocalStorage('autoscroll-subitems', []);
@@ -538,6 +540,30 @@ const AutoscrollPage = () => {
             }
         }
     }, [selectedSubject]);
+
+    // Handle preselect from plan (navigate with state)
+    useEffect(() => {
+        const preselect = location.state?.preselect;
+        if (!preselect) return;
+        if (preselect.type === 'book') {
+            const book = cjBooks.books.find(b => b.id === preselect.bookId);
+            if (!book) return;
+            setSelectedSubject('books');
+            setSelectedSubItems([book.id.toString()]);
+            setItemsToScroll([{ id: `book-${book.id}`, title: book.title, subtitle: book.author, meta: `${book.genre || ''} · ${book.period || ''} · ${book.year || ''}`, bookData: book, content: '', colorIndex: 0 }]);
+            setMode('player');
+            setIsPlaying(true);
+        } else if (preselect.type === 'it') {
+            const q = itQuestions.questions.find(q => q.id === preselect.questionId);
+            if (!q) return;
+            setSelectedSubject('it');
+            setSelectedSubItems([q.category]);
+            setItemsToScroll([{ id: `it-${q.id}`, title: `Otázka ${q.id}: ${q.question}`, subtitle: q.category, content: q.answer, compactContent: q.compactContent || null, colorIndex: 0 }]);
+            setMode('player');
+            setIsPlaying(true);
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handleSubItemToggle = (subItemId) => {
         setSelectedSubItems(prev =>

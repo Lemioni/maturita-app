@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaDice, FaEye, FaEyeSlash, FaRedo, FaEraser, FaClipboardList, FaBook, FaLaptopCode, FaArrowLeft, FaListUl, FaFileAlt, FaNetworkWired } from 'react-icons/fa';
 import MarkdownRenderer from '../components/common/MarkdownRenderer';
 import cjBooks from '../data/cj-books.json';
@@ -86,6 +87,7 @@ const generateITKeyPoints = (question) => {
 };
 
 const ExamPracticePage = () => {
+  const location = useLocation();
   // Restore saved session from localStorage
   const savedSession = useMemo(() => {
     try {
@@ -121,6 +123,28 @@ const ExamPracticePage = () => {
   const [isRevealed, setIsRevealed] = useState(false);
   const [notepadContent, setNotepadContent] = useState(savedSession?.notepad || '');
   const notepadRef = useRef(null);
+
+  // Handle preselect from plan (navigate with state)
+  useEffect(() => {
+    const preselect = location.state?.preselect;
+    if (!preselect) return;
+    if (preselect.type === 'it') {
+      const found = itQuestions.questions.find(q => q.id === preselect.questionId);
+      if (!found) return;
+      setCurrentQuestion({ type: 'it', data: found });
+      setIsRevealed(false);
+      setNotepadContent('');
+      setPhase('practice');
+    } else if (preselect.type === 'cj') {
+      const found = cjBooks.books.find(b => b.id === preselect.bookId);
+      if (!found) return;
+      setCurrentQuestion({ type: 'cj', data: found });
+      setIsRevealed(false);
+      setNotepadContent('');
+      setPhase('practice');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Auto-save session to localStorage whenever practice state changes
   useEffect(() => {

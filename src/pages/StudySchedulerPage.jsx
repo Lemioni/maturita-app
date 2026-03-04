@@ -1,102 +1,397 @@
-import { useState, useMemo, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
-import { FaCalendarAlt, FaClock, FaStar, FaDownload, FaBook, FaNetworkWired, FaCheck, FaTimes, FaForward, FaBolt } from 'react-icons/fa';
+import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaCalendarAlt, FaClock, FaDownload, FaCheck, FaTimes, FaForward, FaPlus, FaTrash, FaRedo, FaMinus } from 'react-icons/fa';
 import { useStudyScheduler } from '../context/StudySchedulerContext';
 import cjBooks from '../data/cj-books.json';
 import itQuestions from '../data/it-questions.json';
 
-const PRIORITY_COLORS = {
-    high: { bg: 'bg-red-500/15', border: 'border-red-500/30', text: 'text-red-400', label: '🔴 Vysoká' },
-    medium: { bg: 'bg-yellow-500/15', border: 'border-yellow-500/30', text: 'text-yellow-400', label: '🟡 Střední' },
-    low: { bg: 'bg-green-500/15', border: 'border-green-500/30', text: 'text-green-400', label: '🟢 Nízká' },
-    skip: { bg: 'bg-terminal-border/10', border: 'border-terminal-border/20', text: 'text-terminal-text/30', label: '⬛ Přeskočit' },
+// ── Daily Plan helpers ───────────────────────────────────────────────────
+const getTodayKey = () => `maturita-daily-plan-${new Date().toISOString().split('T')[0]}`;
+
+const loadDailyPlan = () => {
+    try {
+        const raw = localStorage.getItem(getTodayKey());
+        return raw ? JSON.parse(raw) : null;
+    } catch { return null; }
 };
 
-const PRIORITY_CYCLE = { high: 'medium', medium: 'low', low: 'skip', skip: 'high' };
+const saveDailyPlan = (items) => {
+    try { localStorage.setItem(getTodayKey(), JSON.stringify(items)); } catch {}
+};
 
-// ── Sweep-able Priority Button ──────────────────────────────────────────
-const PriorityButton = ({ topic, priority, onSetPriority, sweepRef }) => {
-    const colors = PRIORITY_COLORS[priority];
-    const btnRef = useRef(null);
+const PLAN_WEIGHTS = { high: 4, medium: 2, low: 1, skip: 0 };
 
-    // Register element for sweep hit-testing
-    const refCallback = useCallback((el) => {
-        btnRef.current = el;
-        if (el) sweepRef.current.set(topic.id, el);
-        else sweepRef.current.delete(topic.id);
-    }, [topic.id, sweepRef]);
+const generatePlan = (bookTopics, allItTopics, priorities, count = 7, customPool = null) => {
+    const pool = (customPool || [...bookTopics, ...allItTopics]).filter(t => {
+        const p = priorities[t.id] || 'medium';
+        return p !== 'skip';
+    });
 
-    const handlePointerDown = (e) => {
-        // Cycle priority on tap
-        const next = PRIORITY_CYCLE[priority];
-        onSetPriority(topic.id, next);
-        // Start sweep painting with this new priority
-        sweepRef.current._painting = true;
-        sweepRef.current._paintPriority = next;
-        sweepRef.current._touched = new Set([topic.id]);
-        e.currentTarget.setPointerCapture?.(e.pointerId);
-        e.preventDefault();
+    // Build weighted pool
+    const weighted = [];
+    pool.forEach(t => {
+        const w = PLAN_WEIGHTS[priorities[t.id] || 'medium'];
+        for (let i = 0; i < w; i++) weighted.push(t);
+    });
+
+    if (weighted.length === 0) return pool.slice(0, count);
+
+    // Pick unique items
+    const picked = [];
+    const seenIds = new Set();
+    const shuffled = [...weighted].sort(() => Math.random() - 0.5);
+    for (const t of shuffled) {
+        if (seenIds.has(t.id)) continue;
+        seenIds.add(t.id);
+        picked.push({ ...t, done: false });
+        if (picked.length >= count) break;
+    }
+    return picked;
+};
+
+const formatTodayDate = () => {
+    return new Date().toLocaleDateString('cs-CZ', { weekday: 'long', day: 'numeric', month: 'long' });
+};
+
+// ── Daily Plan Tab ───────────────────────────────────────────────────────
+const PLAN_GROUPS = [
+    { key: 'books', label: '📚 Knihy', type: 'book' },
+    { key: 'hw',    label: '💻 HW',    type: 'it', groupKey: 'hw' },
+    { key: 'psi',   label: '🌐 PSI',   type: 'it', groupKey: 'psi' },
+    { key: 'os',    label: '🖥️ OS',    type: 'it', groupKey: 'os' },
+    { key: 'prg',   label: '⌨️ PRG',   type: 'it', groupKey: 'prg' },
+    { key: 'db',    label: '🗃️ DB',    type: 'it', groupKey: 'db' },
+];
+
+const DailyPlanTab = ({ bookTopics, allItTopics, priorities, questionGroups }) => {
+    const navigate = useNavigate();
+    const [planItems, setPlanItems] = useState(() => loadDailyPlan() || []);
+    const [showPicker, setShowPicker] = useState(false);
+    const [showFocusFilter, setShowFocusFilter] = useState(false);
+    const [focusGroups, setFocusGroups] = useState(() => new Set(PLAN_GROUPS.map(g => g.key)));
+    const [pickerSearch, setPickerSearch] = useState('');
+    const [pickerFilter, setPickerFilter] = useState('all'); // 'all' | 'book' | 'it'
+
+    const doneCount = planItems.filter(i => i.done).length;
+    const totalCount = planItems.length;
+
+    const updateItems = (items) => {
+        setPlanItems(items);
+        saveDailyPlan(items);
     };
 
-    const handlePointerEnter = (e) => {
-        if (!sweepRef.current._painting) return;
-        if (sweepRef.current._touched?.has(topic.id)) return;
-        sweepRef.current._touched?.add(topic.id);
-        onSetPriority(topic.id, sweepRef.current._paintPriority);
+    // Build pool filtered by focusGroups
+    const getFocusedPool = () => {
+        const itByGroup = {};
+        questionGroups.forEach(g => { itByGroup[g.key] = g.topics; });
+
+        let pool = [];
+        if (focusGroups.has('books')) pool = [...pool, ...bookTopics];
+        PLAN_GROUPS.filter(g => g.type === 'it').forEach(g => {
+            if (focusGroups.has(g.key) && itByGroup[g.key]) {
+                pool = [...pool, ...itByGroup[g.key]];
+            }
+        });
+        return pool.length > 0 ? pool : [...bookTopics, ...allItTopics];
     };
+
+    const handleGenerate = () => {
+        const pool = getFocusedPool();
+        const items = generatePlan(bookTopics, allItTopics, priorities, 7, pool);
+        updateItems(items);
+        setShowPicker(false);
+        setShowFocusFilter(false);
+    };
+
+    const toggleFocusGroup = (key) => {
+        setFocusGroups(prev => {
+            const next = new Set(prev);
+            next.has(key) ? next.delete(key) : next.add(key);
+            return next;
+        });
+    };
+
+    const toggleDone = (id) => {
+        updateItems(planItems.map(item => item.id === id ? { ...item, done: !item.done } : item));
+    };
+
+    const removeItem = (id) => {
+        updateItems(planItems.filter(item => item.id !== id));
+    };
+
+    const addItem = (topic) => {
+        if (planItems.some(i => i.id === topic.id)) return;
+        updateItems([...planItems, { ...topic, done: false }]);
+    };
+
+    const clearDone = () => {
+        updateItems(planItems.filter(i => !i.done));
+    };
+
+    const allTopics = useMemo(() => [...bookTopics, ...allItTopics], [bookTopics, allItTopics]);
+    const notInPlan = useMemo(() => allTopics.filter(t => !planItems.some(p => p.id === t.id)), [allTopics, planItems]);
+
+    const filteredPicker = useMemo(() => {
+        let list = notInPlan;
+        if (pickerFilter === 'book') list = list.filter(t => t.type === 'book');
+        if (pickerFilter === 'it') list = list.filter(t => t.type === 'it');
+        if (pickerSearch.trim()) {
+            const q = pickerSearch.toLowerCase();
+            list = list.filter(t => t.title.toLowerCase().includes(q) || t.subtitle?.toLowerCase().includes(q));
+        }
+        return list;
+    }, [notInPlan, pickerFilter, pickerSearch]);
+
+    const getDetailLink = (item) => {
+        if (item.type === 'book') return `/cj/book/${item.bookId}`;
+        if (item.type === 'it') return `/it/question/${item.questionId}`;
+        return '#';
+    };
+
+    const goAutoscroll = (item) => {
+        if (item.type === 'book') {
+            navigate('/autoscroll', { state: { preselect: { type: 'book', bookId: item.bookId } } });
+        } else {
+            navigate('/autoscroll', { state: { preselect: { type: 'it', questionId: item.questionId } } });
+        }
+    };
+
+    const goExam = (item) => {
+        if (item.type === 'book') {
+            navigate('/exam-practice', { state: { preselect: { type: 'cj', bookId: item.bookId } } });
+        } else {
+            navigate('/exam-practice', { state: { preselect: { type: 'it', questionId: item.questionId } } });
+        }
+    };
+
+    const priorityDot = (id) => {
+        const p = priorities[id] || 'medium';
+        const colors = { high: 'bg-red-400', medium: 'bg-yellow-400', low: 'bg-green-400', skip: 'bg-terminal-border/30' };
+        return <span className={`inline-block w-1.5 h-1.5 rounded-full flex-shrink-0 ${colors[p]}`} />;
+    };
+
+    const allGroupsSelected = focusGroups.size === PLAN_GROUPS.length;
 
     return (
-        <button
-            ref={refCallback}
-            onPointerDown={handlePointerDown}
-            onPointerEnter={handlePointerEnter}
-            className={`flex items-center gap-2 px-3 py-2 rounded border ${colors.bg} ${colors.border} text-left transition-colors select-none touch-none hover:opacity-80`}
-        >
-            <span className={`text-xs font-mono ${colors.text} w-16 flex-shrink-0`}>
-                {colors.label.split(' ')[0]}
-            </span>
-            <div className="flex-1 min-w-0">
-                <p className="text-xs text-terminal-text/80 truncate">{topic.title}</p>
-                <p className="text-[10px] text-terminal-text/40 truncate">{topic.subtitle}</p>
+        <div className="space-y-4">
+            {/* Header row */}
+            <div className="flex items-center justify-between flex-wrap gap-2">
+                <div>
+                    <p className="text-xs text-terminal-text/40 font-mono capitalize">{formatTodayDate()}</p>
+                    {totalCount > 0 && (
+                        <p className="text-[10px] text-terminal-text/30 font-mono mt-0.5">
+                            {doneCount}/{totalCount} splněno
+                        </p>
+                    )}
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                    {doneCount > 0 && (
+                        <button
+                            onClick={clearDone}
+                            className="flex items-center gap-1.5 px-2 py-1 text-[10px] font-mono text-terminal-text/40 border border-terminal-border/20 rounded hover:text-terminal-text/60 hover:border-terminal-border/40 transition-all"
+                        >
+                            <FaTrash className="text-[8px]" /> Smazat hotové
+                        </button>
+                    )}
+                    <button
+                        onClick={() => setShowFocusFilter(v => !v)}
+                        className={`flex items-center gap-1.5 px-2 py-1 text-[10px] font-mono rounded border transition-all ${
+                            allGroupsSelected
+                                ? 'border-terminal-border/20 text-terminal-text/40 hover:border-terminal-border/40'
+                                : 'bg-terminal-accent/10 border-terminal-accent/30 text-terminal-accent'
+                        }`}
+                        title="Zaměření generátoru"
+                    >
+                        🎯 {allGroupsSelected ? 'Vše' : `${focusGroups.size}/${PLAN_GROUPS.length}`}
+                    </button>
+                    <button
+                        onClick={handleGenerate}
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono bg-terminal-accent/10 text-terminal-accent border border-terminal-accent/20 rounded hover:bg-terminal-accent/20 transition-all"
+                    >
+                        <FaRedo className="text-[10px]" /> {planItems.length === 0 ? 'Vygenerovat' : 'Nový plán'}
+                    </button>
+                </div>
             </div>
-        </button>
+
+            {/* Focus filter panel */}
+            {showFocusFilter && (
+                <div className="terminal-card space-y-2">
+                    <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono text-terminal-text/40 uppercase tracking-wider">Zaměření generátoru</span>
+                        <button
+                            onClick={() => setFocusGroups(allGroupsSelected ? new Set() : new Set(PLAN_GROUPS.map(g => g.key)))}
+                            className="text-[10px] font-mono text-terminal-accent/60 hover:text-terminal-accent transition-colors"
+                        >
+                            {allGroupsSelected ? 'Odznačit vše' : 'Vybrat vše'}
+                        </button>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                        {PLAN_GROUPS.map(g => (
+                            <button
+                                key={g.key}
+                                onClick={() => toggleFocusGroup(g.key)}
+                                className={`px-2.5 py-1 text-[11px] font-mono rounded border transition-all ${
+                                    focusGroups.has(g.key)
+                                        ? 'bg-terminal-accent/15 border-terminal-accent/40 text-terminal-accent'
+                                        : 'bg-transparent border-terminal-border/20 text-terminal-text/30 hover:border-terminal-border/40'
+                                }`}
+                            >
+                                {g.label}
+                            </button>
+                        ))}
+                    </div>
+                    <p className="text-[10px] text-terminal-text/20 font-mono">Ovlivní jen generování — ručně přidat lze cokoli</p>
+                </div>
+            )}
+
+            {/* Progress bar */}
+            {totalCount > 0 && (
+                <div className="w-full h-1 bg-terminal-border/20 rounded-full overflow-hidden">
+                    <div
+                        className="h-full bg-terminal-accent transition-all duration-500 rounded-full"
+                        style={{ width: `${totalCount > 0 ? (doneCount / totalCount) * 100 : 0}%` }}
+                    />
+                </div>
+            )}
+
+            {/* Empty state */}
+            {planItems.length === 0 && (
+                <div className="terminal-card text-center py-10">
+                    <p className="text-terminal-text/30 text-sm font-mono">Žádné úkoly na dnes</p>
+                    <p className="text-terminal-text/20 text-xs font-mono mt-1">Klikni "Vygenerovat" nebo přidej témata ručně</p>
+                </div>
+            )}
+
+            {/* Plan list */}
+            {planItems.length > 0 && (
+                <div className="terminal-card p-0 overflow-hidden divide-y divide-terminal-border/10">
+                    {planItems.map((item) => (
+                        <div
+                            key={item.id}
+                            className={`flex items-center gap-2 px-3 py-3 group transition-colors ${item.done ? 'opacity-50' : 'hover:bg-terminal-dim/30'}`}
+                        >
+                            {/* Checkbox */}
+                            <button
+                                onClick={() => toggleDone(item.id)}
+                                className={`w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 transition-all ${
+                                    item.done
+                                        ? 'bg-terminal-accent/20 border-terminal-accent/50'
+                                        : 'border-terminal-border/40 hover:border-terminal-accent/50'
+                                }`}
+                            >
+                                {item.done && <FaCheck className="text-[9px] text-terminal-accent" />}
+                            </button>
+
+                            {/* Priority dot */}
+                            {priorityDot(item.id)}
+
+                            {/* Content */}
+                            <div className="flex-1 min-w-0">
+                                <p className={`text-sm font-mono truncate ${item.done ? 'line-through text-terminal-text/30' : 'text-terminal-text/80'}`}>
+                                    {item.title}
+                                </p>
+                                <p className="text-[10px] text-terminal-text/30 font-mono truncate">{item.subtitle}</p>
+                            </div>
+
+                            {/* Action buttons — show on hover */}
+                            <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-all">
+                                <button
+                                    onClick={() => navigate(getDetailLink(item))}
+                                    className="px-1.5 py-1 text-[9px] font-mono rounded text-terminal-text/40 hover:text-terminal-accent hover:bg-terminal-accent/10 transition-all"
+                                    title="Detail"
+                                >📖</button>
+                                <button
+                                    onClick={() => goAutoscroll(item)}
+                                    className="px-1.5 py-1 text-[9px] font-mono rounded text-terminal-text/40 hover:text-amber-400 hover:bg-amber-400/10 transition-all"
+                                    title="Autoscroll"
+                                >📜</button>
+                                <button
+                                    onClick={() => goExam(item)}
+                                    className="px-1.5 py-1 text-[9px] font-mono rounded text-terminal-text/40 hover:text-purple-400 hover:bg-purple-400/10 transition-all"
+                                    title="Zkouška nanečisto"
+                                >🎲</button>
+                                <button
+                                    onClick={() => removeItem(item.id)}
+                                    className="px-1.5 py-1 text-[9px] font-mono rounded text-terminal-text/20 hover:text-red-400 hover:bg-red-400/10 transition-all ml-1"
+                                    title="Odebrat"
+                                ><FaMinus /></button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            {/* Add topic button */}
+            <button
+                onClick={() => setShowPicker(!showPicker)}
+                className="flex items-center gap-2 text-xs font-mono text-terminal-text/40 hover:text-terminal-accent transition-colors"
+            >
+                <FaPlus className="text-[10px]" />
+                {showPicker ? 'Zavřít výběr' : 'Přidat téma ručně'}
+            </button>
+
+            {/* Topic picker */}
+            {showPicker && (
+                <div className="terminal-card space-y-3">
+                    <div className="flex gap-2 items-center flex-wrap">
+                        <input
+                            type="text"
+                            placeholder="Hledat..."
+                            value={pickerSearch}
+                            onChange={e => setPickerSearch(e.target.value)}
+                            className="flex-1 min-w-0 bg-terminal-dim border border-terminal-border/30 text-terminal-text text-xs px-2 py-1.5 rounded font-mono placeholder-terminal-text/20 focus:outline-none focus:border-terminal-accent/50"
+                        />
+                        {['all', 'book', 'it'].map(f => (
+                            <button
+                                key={f}
+                                onClick={() => setPickerFilter(f)}
+                                className={`px-2 py-1 text-[10px] font-mono rounded border transition-all ${
+                                    pickerFilter === f
+                                        ? 'bg-terminal-accent/15 border-terminal-accent/30 text-terminal-accent'
+                                        : 'border-terminal-border/20 text-terminal-text/40 hover:border-terminal-border/40'
+                                }`}
+                            >
+                                {f === 'all' ? 'Vše' : f === 'book' ? '📚 Knihy' : '💻 IT'}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="max-h-52 overflow-y-auto space-y-1 pr-1">
+                        {filteredPicker.length === 0 && (
+                            <p className="text-xs text-terminal-text/30 font-mono py-2 text-center">Nic nenalezeno</p>
+                        )}
+                        {filteredPicker.map(topic => (
+                            <button
+                                key={topic.id}
+                                onClick={() => addItem(topic)}
+                                className="w-full flex items-center gap-2 px-2 py-1.5 rounded hover:bg-terminal-dim/60 transition-colors text-left"
+                            >
+                                {priorityDot(topic.id)}
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs font-mono text-terminal-text/70 truncate">{topic.title}</p>
+                                    <p className="text-[10px] text-terminal-text/30 font-mono truncate">{topic.subtitle}</p>
+                                </div>
+                                <FaPlus className="text-[9px] text-terminal-accent/50 flex-shrink-0" />
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
+
+
 
 const StudySchedulerPage = () => {
     const {
         settings, updateSettings, sessions,
-        setPriority, cyclePriority, setBulkPriorities, getStats, getNextSession,
+        getStats, getNextSession,
     } = useStudyScheduler();
 
-    const [activeTab, setActiveTab] = useState('schedule');
+    const [activeTab, setActiveTab] = useState('plan');
 
     const stats = getStats();
     const nextSession = getNextSession();
-
-    // Sweep state — shared mutable ref to avoid re-renders during drag
-    const sweepRef = useRef(new Map());
-
-    // Stop painting on pointer-up anywhere
-    const handleGlobalPointerUp = useCallback(() => {
-        sweepRef.current._painting = false;
-        sweepRef.current._paintPriority = null;
-        sweepRef.current._touched = null;
-    }, []);
-
-    // For touch devices — resolve element under finger during move
-    const handleGlobalPointerMove = useCallback((e) => {
-        if (!sweepRef.current._painting) return;
-        const el = document.elementFromPoint(e.clientX, e.clientY);
-        if (!el) return;
-        // Walk up to find the button with data-topic-id
-        const btn = el.closest('[data-topic-id]');
-        if (!btn) return;
-        const topicId = btn.dataset.topicId;
-        if (sweepRef.current._touched?.has(topicId)) return;
-        sweepRef.current._touched?.add(topicId);
-        setPriority(topicId, sweepRef.current._paintPriority);
-    }, [setPriority]);
 
     // Build topic lists
     const bookTopics = useMemo(() =>
@@ -123,7 +418,7 @@ const StudySchedulerPage = () => {
             ...g,
             topics: g.items.map(q => ({
                 id: `it-${q.id}`,
-                title: q.title || `Otázka ${q.id}`,
+                title: q.question || `Otázka ${q.id}`,
                 subtitle: `${g.label.split(' — ')[0]} #${q.id}`,
                 type: 'it',
                 questionId: q.id,
@@ -132,21 +427,6 @@ const StudySchedulerPage = () => {
     }, []);
 
     const allItTopics = useMemo(() => questionGroups.flatMap(g => g.topics), [questionGroups]);
-
-    const handleFocus11 = () => {
-        const mapping = {};
-        bookTopics.forEach((b, i) => { mapping[b.id] = i < 11 ? 'high' : 'skip'; });
-        questionGroups.forEach(g => {
-            g.topics.forEach(t => { mapping[t.id] = g.key === 'psi' ? 'high' : 'medium'; });
-        });
-        setBulkPriorities(mapping);
-    };
-
-    const handleAllHigh = () => {
-        const mapping = {};
-        [...bookTopics, ...allItTopics].forEach(t => { mapping[t.id] = 'high'; });
-        setBulkPriorities(mapping);
-    };
 
     const formatTime = (isoStr) => {
         const d = new Date(isoStr);
@@ -161,30 +441,6 @@ const StudySchedulerPage = () => {
             default: return <FaClock className="text-terminal-text/30" />;
         }
     };
-
-    // Helper to render a priority grid section with sweep support
-    const renderPriorityGrid = (topics) => (
-        <div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-1.5"
-            onPointerUp={handleGlobalPointerUp}
-            onPointerLeave={handleGlobalPointerUp}
-            onPointerMove={handleGlobalPointerMove}
-        >
-            {topics.map(topic => {
-                const priority = settings.priorities[topic.id] || 'medium';
-                return (
-                    <div key={topic.id} data-topic-id={topic.id}>
-                        <PriorityButton
-                            topic={topic}
-                            priority={priority}
-                            onSetPriority={setPriority}
-                            sweepRef={sweepRef}
-                        />
-                    </div>
-                );
-            })}
-        </div>
-    );
 
     return (
         <div className="max-w-4xl mx-auto space-y-6">
@@ -208,8 +464,8 @@ const StudySchedulerPage = () => {
             {/* Tab navigation */}
             <div className="flex gap-1 border-b border-terminal-border/20 pb-0">
                 {[
-                    { id: 'schedule', label: 'Dnešní plán', icon: FaClock },
-                    { id: 'priorities', label: 'Priority', icon: FaStar },
+                    { id: 'plan', label: 'Úkoly', icon: FaCheck },
+                    { id: 'schedule', label: 'Sessions', icon: FaClock },
                     { id: 'setup', label: 'Nastavení', icon: FaCalendarAlt },
                 ].map(tab => (
                     <button
@@ -225,6 +481,16 @@ const StudySchedulerPage = () => {
                     </button>
                 ))}
             </div>
+
+            {/* PLAN TAB */}
+            {activeTab === 'plan' && (
+                <DailyPlanTab
+                    bookTopics={bookTopics}
+                    allItTopics={allItTopics}
+                    priorities={settings.priorities}
+                    questionGroups={questionGroups}
+                />
+            )}
 
             {/* SCHEDULE TAB */}
             {activeTab === 'schedule' && (
@@ -288,49 +554,6 @@ const StudySchedulerPage = () => {
                             })}
                         </div>
                     </div>
-                </div>
-            )}
-
-            {/* PRIORITIES TAB */}
-            {activeTab === 'priorities' && (
-                <div className="space-y-4">
-                    {/* Presets */}
-                    <div className="flex gap-2 flex-wrap">
-                        <button
-                            onClick={handleFocus11}
-                            className="px-3 py-1.5 text-xs font-mono bg-terminal-accent/10 text-terminal-accent border border-terminal-accent/20 rounded hover:bg-terminal-accent/20 transition-all flex items-center gap-1.5"
-                        >
-                            <FaBolt className="text-[10px]" /> Focus 11 knih + PSI
-                        </button>
-                        <button
-                            onClick={handleAllHigh}
-                            className="px-3 py-1.5 text-xs font-mono bg-terminal-border/10 text-terminal-text/50 border border-terminal-border/20 rounded hover:bg-terminal-border/20 transition-all"
-                        >
-                            Vše na vysokou
-                        </button>
-                    </div>
-
-                    <p className="text-[10px] text-terminal-text/30 font-mono">
-                        Klikni pro změnu priority · Drž a táhni pro hromadné nastavení 🖱️
-                    </p>
-
-                    {/* Books */}
-                    <div>
-                        <h3 className="text-sm text-terminal-text/60 font-mono flex items-center gap-1.5 mb-2">
-                            <FaBook className="text-terminal-accent" /> Knihy ({bookTopics.length})
-                        </h3>
-                        {renderPriorityGrid(bookTopics)}
-                    </div>
-
-                    {/* IT Questions — grouped by subject */}
-                    {questionGroups.map(group => (
-                        <div key={group.key}>
-                            <h3 className="text-sm text-terminal-text/60 font-mono flex items-center gap-1.5 mb-2">
-                                <span>{group.icon}</span> {group.label} ({group.topics.length})
-                            </h3>
-                            {renderPriorityGrid(group.topics)}
-                        </div>
-                    ))}
                 </div>
             )}
 

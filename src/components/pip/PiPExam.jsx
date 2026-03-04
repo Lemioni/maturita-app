@@ -1,8 +1,88 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import cjBooks from '../../data/cj-books.json';
 import itQuestions from '../../data/it-questions.json';
+import MarkdownRenderer from '../common/MarkdownRenderer';
 
 const PSI_IDS = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+
+const compactContentToText = (content) => {
+    if (!content) return '';
+    if (typeof content === 'string') return content;
+    if (!Array.isArray(content.sections)) return '';
+
+    const lines = [];
+
+    content.sections.forEach((section) => {
+        if (!section || typeof section !== 'object') return;
+
+        if (section.title) lines.push(String(section.title));
+        if (section.text) lines.push(String(section.text));
+
+        if (Array.isArray(section.items)) {
+            section.items.forEach((item) => {
+                if (!item) return;
+                if (typeof item === 'string') {
+                    lines.push(`• ${item}`);
+                    return;
+                }
+                if (typeof item === 'object') {
+                    if (item.term && item.definition) {
+                        lines.push(`• ${item.term} – ${item.definition}`);
+                        return;
+                    }
+                    if (item.term) {
+                        lines.push(`• ${item.term}`);
+                    }
+                }
+            });
+        }
+
+        if (Array.isArray(section.numberedItems)) {
+            section.numberedItems.forEach((item, index) => {
+                if (!item) return;
+                lines.push(`${index + 1}. ${typeof item === 'string' ? item : String(item)}`);
+            });
+        }
+
+        if (Array.isArray(section.subsections)) {
+            section.subsections.forEach((subsection) => {
+                if (!subsection || typeof subsection !== 'object') return;
+                if (subsection.title) lines.push(subsection.title);
+                if (subsection.text) lines.push(subsection.text);
+
+                if (Array.isArray(subsection.items)) {
+                    subsection.items.forEach((item) => {
+                        if (!item) return;
+                        if (typeof item === 'string') {
+                            lines.push(`• ${item}`);
+                            return;
+                        }
+                        if (typeof item === 'object') {
+                            if (item.term && item.definition) {
+                                lines.push(`• ${item.term} – ${item.definition}`);
+                                return;
+                            }
+                            if (item.term) {
+                                lines.push(`• ${item.term}`);
+                            }
+                        }
+                    });
+                }
+
+                if (Array.isArray(subsection.numberedItems)) {
+                    subsection.numberedItems.forEach((item, index) => {
+                        if (!item) return;
+                        lines.push(`${index + 1}. ${typeof item === 'string' ? item : String(item)}`);
+                    });
+                }
+            });
+        }
+
+        lines.push('');
+    });
+
+    return lines.join('\n').trim();
+};
 
 const s = {
     selectBtn: (active) => ({
@@ -60,7 +140,15 @@ const s = {
 
 const getMaterial = (q) => {
     if (!q) return '';
-    if (q.type === 'it') return q.data.compactContent || q.data.answer || '';
+    if (q.type === 'it') {
+        if (typeof q.data.answer === 'string' && q.data.answer.trim()) return q.data.answer;
+
+        const compactText = compactContentToText(q.data.compactContent);
+        if (compactText) return compactText;
+
+        if (typeof q.data.compactContent === 'string') return q.data.compactContent;
+        return '';
+    }
     const b = q.data;
     const a = b.analysis;
     if (!a) return 'Žádná analýza.';
@@ -217,7 +305,7 @@ const PiPExam = () => {
             </div>
 
             <div style={s.materialBox(revealed)}>
-                {getMaterial(question)}
+                <MarkdownRenderer content={getMaterial(question)} />
             </div>
         </div>
     );

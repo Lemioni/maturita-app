@@ -1,7 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { FaCheck, FaTimes, FaRedo, FaChevronDown, FaRandom, FaMinus, FaPlus } from 'react-icons/fa';
 import itQuestionsData from '../../data/it-questions.json';
 import { useExperimental } from '../../context/ExperimentalContext';
+
+// Fisher-Yates shuffle — efficient O(n) shuffle
+const fisherYatesShuffle = (arr) => {
+  const result = [...arr];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
 
 const QuizMode = ({ filter, subjectFilter }) => {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -14,8 +24,9 @@ const QuizMode = ({ filter, subjectFilter }) => {
   const questionRefs = useRef({});
   const { frutigerAero } = useExperimental();
 
-  useEffect(() => {
-    let filtered = [...itQuestionsData.questions];
+  // Memoize expensive filtering — only recompute when filter/subjectFilter change
+  const filteredQuestions = useMemo(() => {
+    let filtered = itQuestionsData.questions;
 
     // Apply subject filter
     if (subjectFilter && subjectFilter !== 'all') {
@@ -32,11 +43,14 @@ const QuizMode = ({ filter, subjectFilter }) => {
       filtered = filtered.filter(q => !progressData.itQuestions?.[q.id]?.known);
     }
 
-    // Shuffle
-    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-    setAllQuestions(shuffled);
-    resetQuiz(shuffled, questionCount);
+    // Shuffle using efficient Fisher-Yates
+    return fisherYatesShuffle(filtered);
   }, [filter, subjectFilter]);
+
+  useEffect(() => {
+    setAllQuestions(filteredQuestions);
+    resetQuiz(filteredQuestions, questionCount);
+  }, [filteredQuestions, questionCount]);
 
   const resetQuiz = (questions, count) => {
     setQuizQuestions(questions.slice(0, count));
@@ -53,7 +67,7 @@ const QuizMode = ({ filter, subjectFilter }) => {
   };
 
   const handleShuffle = () => {
-    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+    const shuffled = fisherYatesShuffle(allQuestions);
     setAllQuestions(shuffled);
     resetQuiz(shuffled, questionCount);
   };

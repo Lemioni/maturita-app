@@ -141,8 +141,10 @@ export const StudySchedulerProvider = ({ children }) => {
 
     // Snooze a reminder (5 minutes)
     const snoozeReminder = useCallback((sessionId) => {
+        setDismissedReminders(prev => new Set(prev).add(sessionId));
         setActiveReminder(null);
-        // Will re-trigger in ~5 minutes via the check interval
+
+        // Re-enable this reminder after 5 minutes
         setTimeout(() => {
             setDismissedReminders(prev => {
                 const next = new Set(prev);
