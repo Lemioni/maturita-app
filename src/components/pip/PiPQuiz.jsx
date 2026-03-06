@@ -93,6 +93,109 @@ const generateQuizQuestions = () => {
         });
     });
 
+    // ── CJ: Setting place ──
+    const placeBooks = booksArr.filter(b => b.analysis?.setting?.place);
+    placeBooks.forEach(b => {
+        const place = b.analysis.setting.place;
+        const others = [...new Set(placeBooks.filter(x => x.analysis.setting.place !== place).map(x => x.analysis.setting.place))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Kde se odehrává děj "${b.title}"?`,
+            options: [...opts, place].sort(() => Math.random() - 0.5),
+            correct: place, category: 'Místo', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Year of publication ──
+    const yearBooks = booksArr.filter(b => b.year);
+    yearBooks.forEach(b => {
+        const year = b.year.toString();
+        const others = [...new Set(yearBooks.filter(x => x.year?.toString() !== year).map(x => x.year.toString()))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Rok vydání díla "${b.title}"?`,
+            options: [...opts, year].sort(() => Math.random() - 0.5),
+            correct: year, category: 'Rok', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Main character ──
+    booksArr.forEach(b => {
+        const mainChar = b.analysis?.characters?.find(c => c.isMain);
+        if (!mainChar?.name) return;
+        const others = [...new Set(booksArr
+            .flatMap(x => {
+                const mc = x.analysis?.characters?.find(c => c.isMain);
+                return mc?.name && mc.name !== mainChar.name ? [mc.name] : [];
+            }))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Hlavní postava díla "${b.title}"?`,
+            options: [...opts, mainChar.name].sort(() => Math.random() - 0.5),
+            correct: mainChar.name, category: 'Postava', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Composition structure ──
+    const compBooks = booksArr.filter(b => b.analysis?.composition?.structure);
+    compBooks.forEach(b => {
+        const comp = b.analysis.composition.structure;
+        const others = [...new Set(compBooks.filter(x => x.analysis.composition.structure !== comp).map(x => x.analysis.composition.structure))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Kompozice díla "${b.title}"?`,
+            options: [...opts, comp].sort(() => Math.random() - 0.5),
+            correct: comp, category: 'Kompozice', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Which book does a character belong to ──
+    booksArr.forEach(b => {
+        if (!b.analysis?.characters?.length) return;
+        const mainChar = b.analysis.characters.find(c => c.isMain);
+        if (!mainChar?.name) return;
+        const otherTitles = booksArr.filter(x => x.id !== b.id).map(x => x.title);
+        if (otherTitles.length < 3) return;
+        const opts = otherTitles.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `V jakém díle se vyskytuje postava "${mainChar.name}"?`,
+            options: [...opts, b.title].sort(() => Math.random() - 0.5),
+            correct: b.title, category: 'Postava', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Narrator style ──
+    const styleBooks = booksArr.filter(b => b.analysis?.narration?.style);
+    styleBooks.forEach(b => {
+        const style = b.analysis.narration.style;
+        const others = [...new Set(styleBooks.filter(x => x.analysis.narration.style !== style).map(x => x.analysis.narration.style))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Styl vyprávění v "${b.title}"?`,
+            options: [...opts, style].sort(() => Math.random() - 0.5),
+            correct: style, category: 'Styl', cat: 'cj',
+        });
+    });
+
+    // ── CJ: Literary form ──
+    const formBooks = booksArr.filter(b => b.literaryForm);
+    formBooks.forEach(b => {
+        const form = b.literaryForm;
+        const others = [...new Set(formBooks.filter(x => x.literaryForm !== form).map(x => x.literaryForm))];
+        if (others.length < 3) return;
+        const opts = others.sort(() => Math.random() - 0.5).slice(0, 3);
+        questions.push({
+            question: `Literární druh díla "${b.title}"?`,
+            options: [...opts, form].sort(() => Math.random() - 0.5),
+            correct: form, category: 'Druh', cat: 'cj',
+        });
+    });
+
     // ── IT: Category-based matching ──
     if (itQuestions?.questions) {
         const itqs = itQuestions.questions.filter(q => q.question && q.category);
@@ -107,45 +210,57 @@ const generateQuizQuestions = () => {
                 correct: q.category, category: 'IT Kat.', cat: 'it',
             });
         });
+
+        // ── IT: Match question number to title ──
+        itqs.forEach(q => {
+            if (!q.question) return;
+            const otherQuestions = itqs.filter(x => x.id !== q.id && x.question).map(x => x.question);
+            if (otherQuestions.length < 3) return;
+            const opts = otherQuestions.sort(() => Math.random() - 0.5).slice(0, 3);
+            questions.push({
+                question: `Jak se jmenuje IT otázka č.${q.id}?`,
+                options: [...opts, q.question].sort(() => Math.random() - 0.5),
+                correct: q.question, category: 'IT Otázka', cat: 'it',
+            });
+        });
     }
 
     return questions;
 };
 
 const s = {
-    question: { fontSize: '14px', fontWeight: '600', color: '#e0e0e0', marginBottom: '14px', lineHeight: '1.5' },
-    catRow: { display: 'flex', gap: '6px', alignItems: 'center', marginBottom: '10px' },
+    question: { fontSize: '13px', fontWeight: '500', color: '#e0e0e0', marginBottom: '12px', lineHeight: '1.5' },
+    catRow: { display: 'flex', gap: '6px', alignItems: 'center', marginBottom: '8px' },
     category: {
-        fontSize: '9px', color: 'rgba(139,92,246,0.7)', background: 'rgba(139,92,246,0.1)',
-        padding: '2px 8px', borderRadius: '10px', letterSpacing: '1px', textTransform: 'uppercase',
+        fontSize: '9px', color: 'rgba(139,92,246,0.6)',
+        letterSpacing: '1px', textTransform: 'uppercase',
     },
     catBadge: (cat) => ({
-        fontSize: '9px', padding: '2px 8px', borderRadius: '10px',
-        background: cat === 'it' ? 'rgba(59,130,246,0.15)' : 'rgba(236,72,153,0.15)',
-        color: cat === 'it' ? '#60a5fa' : '#f472b6',
+        fontSize: '9px', padding: '1px 4px', borderRadius: '2px',
+        color: cat === 'it' ? 'rgba(96,165,250,0.7)' : 'rgba(244,114,182,0.7)',
     }),
     option: (selected, isCorrect, showResult) => ({
-        width: '100%', padding: '10px 12px', border: '1px solid',
+        width: '100%', padding: '8px 10px', border: '1px solid',
         borderColor: showResult
-            ? (isCorrect ? 'rgba(34,197,94,0.5)' : selected ? 'rgba(239,68,68,0.5)' : 'rgba(139,92,246,0.15)')
-            : 'rgba(139,92,246,0.15)',
-        borderRadius: '6px',
+            ? (isCorrect ? 'rgba(51,255,51,0.25)' : selected ? 'rgba(255,51,51,0.25)' : 'rgba(255,255,255,0.06)')
+            : 'rgba(255,255,255,0.06)',
+        borderRadius: '2px',
         background: showResult
-            ? (isCorrect ? 'rgba(34,197,94,0.1)' : selected ? 'rgba(239,68,68,0.1)' : 'rgba(20,20,30,0.6)')
-            : 'rgba(20,20,30,0.6)',
+            ? (isCorrect ? 'rgba(51,255,51,0.05)' : selected ? 'rgba(255,51,51,0.05)' : 'transparent')
+            : 'transparent',
         color: showResult
-            ? (isCorrect ? '#4ade80' : selected ? '#f87171' : 'rgba(224,224,224,0.7)')
-            : 'rgba(224,224,224,0.8)',
-        fontSize: '12px', textAlign: 'left', cursor: showResult ? 'default' : 'pointer',
-        transition: 'all 0.15s ease', fontWeight: showResult && isCorrect ? '700' : '400',
+            ? (isCorrect ? '#33ff33' : selected ? '#ff3333' : 'rgba(224,224,224,0.5)')
+            : 'rgba(224,224,224,0.7)',
+        fontSize: '11px', textAlign: 'left', cursor: showResult ? 'default' : 'pointer',
+        transition: 'all 0.15s ease', fontWeight: showResult && isCorrect ? '600' : '400',
     }),
-    progress: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', fontSize: '11px', color: 'rgba(224,224,224,0.4)' },
-    progressBar: { height: '3px', background: 'rgba(139,92,246,0.15)', borderRadius: '2px', marginBottom: '14px', overflow: 'hidden' },
-    progressFill: { height: '100%', background: '#8b5cf6', borderRadius: '2px', transition: 'width 0.3s ease' },
-    doneBox: { textAlign: 'center', padding: '24px 16px' },
+    progress: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', fontSize: '10px', color: 'rgba(224,224,224,0.3)' },
+    progressBar: { height: '2px', background: 'rgba(255,255,255,0.04)', marginBottom: '12px', overflow: 'hidden' },
+    progressFill: { height: '100%', background: '#8b5cf6', transition: 'width 0.3s ease' },
+    doneBox: { textAlign: 'center', padding: '32px 16px' },
     retryBtn: {
-        padding: '10px 24px', background: 'rgba(139,92,246,0.2)', border: '1px solid rgba(139,92,246,0.4)',
-        borderRadius: '6px', color: '#a78bfa', fontWeight: '700', fontSize: '13px', cursor: 'pointer',
+        padding: '8px 20px', background: 'transparent', border: '1px solid rgba(255,255,255,0.06)',
+        borderRadius: '2px', color: 'rgba(224,224,224,0.4)', fontWeight: '500', fontSize: '11px', cursor: 'pointer',
     },
 };
 
@@ -186,20 +301,20 @@ const PiPQuiz = () => {
     if (done || questions.length === 0) {
         return (
             <div style={s.doneBox}>
-                <div style={{ fontSize: '40px', marginBottom: '12px' }}>❓</div>
-                <div style={{ fontSize: '18px', fontWeight: '700', color: '#a78bfa', marginBottom: '6px' }}>
+                <div style={{ fontSize: '32px', marginBottom: '12px' }}>❓</div>
+                <div style={{ fontSize: '14px', fontWeight: '500', color: '#8b5cf6', marginBottom: '6px' }}>
                     {questions.length === 0 ? 'Žádné otázky!' : 'Kvíz dokončen!'}
                 </div>
                 {done && (
-                    <div style={{ fontSize: '20px', color: '#e0e0e0', marginBottom: '8px' }}>
-                        <span style={{ color: '#4ade80', fontWeight: '700' }}>{score}</span>
-                        <span style={{ color: 'rgba(224,224,224,0.4)' }}> / {questions.length}</span>
+                    <div style={{ fontSize: '16px', color: '#e0e0e0', marginBottom: '8px' }}>
+                        <span style={{ color: '#33ff33', fontWeight: '600' }}>{score}</span>
+                        <span style={{ color: 'rgba(224,224,224,0.3)' }}> / {questions.length}</span>
                     </div>
                 )}
-                <div style={{ fontSize: '12px', color: 'rgba(224,224,224,0.5)', marginBottom: '16px' }}>
-                    {score >= questions.length * 0.8 ? '🔥 Výborně!' : score >= questions.length * 0.5 ? '👍 Dobrá práce!' : '💪 Příště to bude lepší!'}
+                <div style={{ fontSize: '11px', color: 'rgba(224,224,224,0.3)', marginBottom: '16px' }}>
+                    {score >= questions.length * 0.8 ? 'Výborně!' : score >= questions.length * 0.5 ? 'Dobrá práce!' : 'Příště to bude lepší!'}
                 </div>
-                <button style={s.retryBtn} onClick={startQuiz}>🔄 Nový kvíz</button>
+                <button style={s.retryBtn} onClick={startQuiz}>Nový kvíz</button>
             </div>
         );
     }
@@ -211,7 +326,7 @@ const PiPQuiz = () => {
         <div>
             <div style={s.progress}>
                 <span>{currentIdx + 1} / {questions.length}</span>
-                <span style={{ color: '#4ade80' }}>{score} ✓</span>
+                <span style={{ color: '#33ff33' }}>{score} ✓</span>
             </div>
             <div style={s.progressBar}>
                 <div style={{ ...s.progressFill, width: `${progress}%` }} />

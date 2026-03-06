@@ -1,7 +1,30 @@
 import React, { useState, useCallback, useMemo } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import cjBooks from '../../data/cj-books.json';
 import itQuestions from '../../data/it-questions.json';
-import MarkdownRenderer from '../common/MarkdownRenderer';
+
+// Compact PiP markdown components — much tighter than full-page MarkdownRenderer
+const pipMd = {
+    h1: ({ children }) => <h1 style={{ fontSize: '12px', fontWeight: 700, color: '#fbbf24', margin: '6px 0 2px', paddingBottom: '2px', borderBottom: '1px solid rgba(251,191,36,0.2)' }}>{children}</h1>,
+    h2: ({ children }) => <h2 style={{ fontSize: '11px', fontWeight: 700, color: '#fbbf24', margin: '5px 0 2px', paddingBottom: '1px', borderBottom: '1px solid rgba(251,191,36,0.15)' }}>{children}</h2>,
+    h3: ({ children }) => <h3 style={{ fontSize: '11px', fontWeight: 700, color: '#fcd34d', margin: '4px 0 1px' }}>{children}</h3>,
+    h4: ({ children }) => <h4 style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(252,211,77,0.85)', margin: '3px 0 1px' }}>{children}</h4>,
+    p: ({ children }) => <p style={{ fontSize: '10px', lineHeight: '1.5', color: 'rgba(224,224,224,0.75)', margin: '0 0 3px' }}>{children}</p>,
+    strong: ({ children }) => <strong style={{ color: '#fcd34d', fontWeight: 700 }}>{children}</strong>,
+    em: ({ children }) => <em style={{ color: 'rgba(252,211,77,0.7)', fontStyle: 'italic' }}>{children}</em>,
+    li: ({ children }) => <li style={{ fontSize: '10px', color: 'rgba(224,224,224,0.75)', marginBottom: '1px', marginLeft: '12px', listStyleType: 'disc', lineHeight: '1.4' }}>{children}</li>,
+    ul: ({ children }) => <ul style={{ margin: '0 0 3px' }}>{children}</ul>,
+    ol: ({ children }) => <ol style={{ margin: '0 0 3px', marginLeft: '12px', listStyleType: 'decimal' }}>{children}</ol>,
+    code: ({ inline, children }) => inline
+        ? <code style={{ color: '#fcd34d', background: 'rgba(251,191,36,0.1)', padding: '0 3px', borderRadius: '2px', fontSize: '9px' }}>{children}</code>
+        : <pre style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(251,191,36,0.15)', padding: '4px', borderRadius: '3px', fontSize: '9px', color: 'rgba(224,224,224,0.6)', overflowX: 'auto', margin: '2px 0' }}><code>{children}</code></pre>,
+    table: ({ children }) => <table style={{ width: '100%', fontSize: '10px', margin: '2px 0', borderCollapse: 'collapse' }}>{children}</table>,
+    th: ({ children }) => <th style={{ textAlign: 'left', color: '#fbbf24', fontSize: '9px', borderBottom: '1px solid rgba(251,191,36,0.2)', padding: '2px 4px' }}>{children}</th>,
+    td: ({ children }) => <td style={{ color: 'rgba(224,224,224,0.7)', padding: '2px 4px', borderBottom: '1px solid rgba(100,100,100,0.2)', fontSize: '10px' }}>{children}</td>,
+    blockquote: ({ children }) => <blockquote style={{ borderLeft: '2px solid rgba(251,191,36,0.4)', paddingLeft: '6px', margin: '2px 0', color: 'rgba(224,224,224,0.6)', fontStyle: 'italic' }}>{children}</blockquote>,
+    hr: () => <hr style={{ border: 'none', borderTop: '1px solid rgba(100,100,100,0.3)', margin: '4px 0' }} />,
+};
 
 const PSI_IDS = new Set([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 
@@ -111,10 +134,12 @@ const s = {
     title: { fontSize: '14px', fontWeight: '600', color: '#e0e0e0', marginBottom: '4px' },
     subtitle: { fontSize: '10px', color: 'rgba(224,224,224,0.4)' },
     notepad: {
-        width: '100%', height: '140px', background: 'rgba(10,10,20,0.8)',
-        border: '1px solid rgba(139,92,246,0.15)', borderRadius: '6px',
-        color: '#e0e0e0', fontSize: '11px', padding: '8px', resize: 'none',
-        fontFamily: 'monospace', lineHeight: '1.5', outline: 'none',
+        width: '100%', flex: '0 0 auto', height: '100px',
+        background: 'rgba(10,10,20,0.8)',
+        border: '1px solid rgba(139,92,246,0.15)', borderRadius: '4px',
+        color: '#e0e0e0', fontSize: '10px', padding: '6px', resize: 'vertical',
+        fontFamily: 'monospace', lineHeight: '1.4', outline: 'none',
+        minHeight: '40px', maxHeight: '60vh',
     },
     revealBtn: (revealed) => ({
         padding: '8px 14px', border: '1px solid',
@@ -125,9 +150,8 @@ const s = {
     }),
     materialBox: (revealed) => ({
         background: 'rgba(15,15,25,0.8)', border: '1px solid rgba(139,92,246,0.1)',
-        borderRadius: '6px', padding: '10px', maxHeight: '200px', overflowY: 'auto',
-        fontSize: '11px', color: 'rgba(224,224,224,0.7)', lineHeight: '1.6',
-        whiteSpace: 'pre-wrap', filter: revealed ? 'none' : 'blur(6px)',
+        borderRadius: '4px', padding: '8px', flex: 1, minHeight: 0, overflowY: 'auto',
+        filter: revealed ? 'none' : 'blur(6px)',
         userSelect: revealed ? 'auto' : 'none', transition: 'filter 0.3s',
     }),
     controlRow: { display: 'flex', gap: '6px', marginBottom: '8px' },
@@ -282,30 +306,36 @@ const PiPExam = () => {
         : `${question.data.period} · Kniha ${question.data.id}`;
 
     return (
-        <div>
-            <div style={s.controlRow}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+            {/* Controls + question info in one compact row */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '6px', flexShrink: 0 }}>
                 <button style={s.smallBtn} onClick={() => setPhase('select')}>← Zpět</button>
                 <button style={s.smallBtn} onClick={draw}>🎲 Další</button>
+                <div style={{ flex: 1, minWidth: 0, marginLeft: '4px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{
+                            fontSize: '8px', padding: '1px 5px', borderRadius: '6px',
+                            fontWeight: '700', letterSpacing: '0.5px', textTransform: 'uppercase', flexShrink: 0,
+                            background: question.type === 'it' ? 'rgba(59,130,246,0.15)' : 'rgba(236,72,153,0.15)',
+                            color: question.type === 'it' ? '#60a5fa' : '#f472b6',
+                        }}>{question.type === 'it' ? 'IT' : 'ČJ'}</span>
+                        <span style={{
+                            fontSize: '11px', fontWeight: '600', color: '#e0e0e0',
+                            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                        }}>{title}</span>
+                    </div>
+                    <div style={{ fontSize: '9px', color: 'rgba(224,224,224,0.3)', marginTop: '1px' }}>{sub}</div>
+                </div>
             </div>
 
-            <div style={s.questionBox}>
-                <div style={s.badge(question.type)}>{question.type === 'it' ? 'IT' : 'ČJ'}</div>
-                <div style={s.title}>{title}</div>
-                <div style={s.subtitle}>{sub}</div>
-            </div>
-
-            <div style={s.sectionLabel}>Poznámky</div>
+            <div style={{ ...s.sectionLabel, flexShrink: 0, marginTop: '4px' }}>Poznámky</div>
             <textarea style={s.notepad} value={notepad} onChange={e => setNotepad(e.target.value)}
                 placeholder="Piš si poznámky..." spellCheck={false} />
 
-            <div style={{ display: 'flex', justifyContent: 'center', margin: '10px 0' }}>
-                <button style={s.revealBtn(revealed)} onClick={() => setRevealed(r => !r)}>
-                    {revealed ? '🙈 Skrýt materiál' : '👁 Odkrýt materiál'}
-                </button>
-            </div>
-
-            <div style={s.materialBox(revealed)}>
-                <MarkdownRenderer content={getMaterial(question)} />
+            <div style={{ ...s.materialBox(revealed), cursor: 'pointer' }} onClick={() => setRevealed(r => !r)}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={pipMd}>
+                    {getMaterial(question) || ''}
+                </ReactMarkdown>
             </div>
         </div>
     );

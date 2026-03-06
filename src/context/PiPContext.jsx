@@ -1,6 +1,10 @@
-// Lazy-load the module components (only fetched when PiP is actually opened)
-import React, { createContext, useContext, useState, useCallback, useRef, useEffect, lazy, Suspense } from 'react';
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect, Component } from 'react';
 import { createPortal } from 'react-dom';
+import PiPFlashcards from '../components/pip/PiPFlashcards';
+import PiPQuiz from '../components/pip/PiPQuiz';
+import PiPAutoscroll from '../components/pip/PiPAutoscroll';
+import PiPPodcast from '../components/pip/PiPPodcast';
+import PiPExam from '../components/pip/PiPExam';
 
 const PiPContext = createContext();
 export const usePiP = () => useContext(PiPContext);
@@ -35,17 +39,17 @@ export const PiPProvider = ({ children }) => {
         pipStyle.textContent = `
             *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
             body {
-                font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
-                background: #0a0a0f;
+                font-family: Consolas, Monaco, 'Courier New', monospace;
+                background: #0a0a0a;
                 color: #e0e0e0;
                 overflow-x: hidden;
                 min-height: 100vh;
             }
-            #pip-root { min-height: 100vh; display: flex; flex-direction: column; }
-            button { cursor: pointer; }
-            ::-webkit-scrollbar { width: 4px; }
+            #pip-root { height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+            button { cursor: pointer; font-family: inherit; }
+            ::-webkit-scrollbar { width: 3px; }
             ::-webkit-scrollbar-track { background: transparent; }
-            ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.3); border-radius: 4px; }
+            ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.15); }
         `;
         pipDoc.head.appendChild(pipStyle);
     }, []);
@@ -137,13 +141,6 @@ export const PiPProvider = ({ children }) => {
     );
 };
 
-// Lazy-load the module components — only fetched when PiP is opened
-const PiPFlashcards = lazy(() => import('../components/pip/PiPFlashcards'));
-const PiPQuiz = lazy(() => import('../components/pip/PiPQuiz'));
-const PiPAutoscroll = lazy(() => import('../components/pip/PiPAutoscroll'));
-const PiPPodcast = lazy(() => import('../components/pip/PiPPodcast'));
-const PiPExam = lazy(() => import('../components/pip/PiPExam'));
-
 const MODULE_COMPONENTS = {
     flashcards: PiPFlashcards,
     quiz: PiPQuiz,
@@ -152,83 +149,98 @@ const MODULE_COMPONENTS = {
     exam: PiPExam,
 };
 
+// ── Error Boundary for PiP modules ──
+class PiPErrorBoundary extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false, error: null };
+    }
+    static getDerivedStateFromError(error) {
+        return { hasError: true, error };
+    }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div style={{ padding: '32px 16px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '11px', color: '#ff3333', marginBottom: '8px' }}>Chyba modulu</div>
+                    <div style={{ fontSize: '10px', color: 'rgba(224,224,224,0.2)', marginBottom: '16px', lineHeight: '1.5' }}>
+                        {this.state.error?.message || 'Neznámá chyba'}
+                    </div>
+                    <button
+                        onClick={() => this.setState({ hasError: false, error: null })}
+                        style={{
+                            padding: '6px 16px', background: 'transparent',
+                            border: '1px solid rgba(255,255,255,0.06)', color: 'rgba(224,224,224,0.4)',
+                            fontSize: '10px', cursor: 'pointer', borderRadius: '2px',
+                        }}
+                    >Zkusit znovu</button>
+                </div>
+            );
+        }
+        return this.props.children;
+    }
+}
+
 const PiPPortal = ({ container, moduleId, switchModule, closePiP }) => {
     const ModuleComponent = MODULE_COMPONENTS[moduleId];
     const activeMod = PIP_MODULES[moduleId];
 
     return createPortal(
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: '#0a0a0f' }}>
-            {/* Top header — minimal, shows current module */}
+        <div style={{
+            height: '100vh', display: 'flex', flexDirection: 'column',
+            background: '#0a0a0a', overflow: 'hidden',
+        }}>
+            {/* Header */}
             <div style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 14px', background: 'linear-gradient(180deg, rgba(20,20,35,0.98) 0%, rgba(12,12,20,0.95) 100%)',
-                borderBottom: '1px solid rgba(139,92,246,0.12)', flexShrink: 0,
+                display: 'flex', alignItems: 'center', padding: '8px 12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)', flexShrink: 0,
             }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '16px' }}>{activeMod?.icon}</span>
-                    <span style={{
-                        fontSize: '13px', fontWeight: '600', color: '#a78bfa',
-                        letterSpacing: '0.5px',
-                    }}>{activeMod?.label}</span>
-                    <span style={{
-                        fontSize: '9px', color: 'rgba(224,224,224,0.3)', background: 'rgba(139,92,246,0.08)',
-                        padding: '2px 6px', borderRadius: '8px', letterSpacing: '0.5px',
-                    }}>PiP</span>
-                </div>
+                <span style={{ fontSize: '13px', marginRight: '6px' }}>{activeMod?.icon}</span>
+                <span style={{ fontSize: '11px', fontWeight: '600', color: '#e0e0e0', letterSpacing: '0.3px' }}>
+                    {activeMod?.label}
+                </span>
             </div>
 
-            {/* Module content */}
-            <div style={{ flex: 1, overflow: 'auto', padding: '12px', paddingBottom: '60px' }}>
-                <Suspense fallback={<p style={{ color: '#a78bfa', textAlign: 'center', marginTop: '40px' }}>Načítání...</p>}>
-                    {ModuleComponent ? <ModuleComponent /> : <p>Module not found</p>}
-                </Suspense>
+            {/* Content */}
+            <div style={{
+                flex: 1, padding: '10px', paddingBottom: '48px',
+                display: 'flex', flexDirection: 'column', minHeight: 0,
+            }}>
+                <PiPErrorBoundary key={moduleId}>
+                    {ModuleComponent
+                        ? <ModuleComponent />
+                        : <p style={{ color: 'rgba(224,224,224,0.4)', fontSize: '11px' }}>Modul nenalezen</p>}
+                </PiPErrorBoundary>
             </div>
 
-            {/* Bottom navigation bar — sleek icon-based */}
+            {/* Bottom nav — icons only, underline indicator */}
             <div style={{
                 position: 'fixed', bottom: 0, left: 0, right: 0,
                 display: 'flex', alignItems: 'center', justifyContent: 'space-around',
-                padding: '6px 4px 8px',
-                background: 'linear-gradient(180deg, rgba(15,15,25,0.95) 0%, rgba(8,8,15,0.98) 100%)',
-                borderTop: '1px solid rgba(139,92,246,0.1)',
-                backdropFilter: 'blur(12px)',
-                flexShrink: 0,
+                padding: '6px 0 8px', background: '#0a0a0a',
+                borderTop: '1px solid rgba(255,255,255,0.06)',
             }}>
                 {Object.values(PIP_MODULES).map(mod => {
-                    const isActive = mod.id === moduleId;
+                    const active = mod.id === moduleId;
                     return (
-                        <button
-                            key={mod.id}
-                            onClick={() => switchModule(mod.id)}
-                            title={mod.label}
+                        <button key={mod.id} onClick={() => switchModule(mod.id)} title={mod.label}
                             style={{
                                 display: 'flex', flexDirection: 'column', alignItems: 'center',
-                                gap: '3px', padding: '4px 8px', border: 'none', borderRadius: '8px',
-                                background: isActive ? 'rgba(139,92,246,0.15)' : 'transparent',
-                                cursor: 'pointer', transition: 'all 0.2s ease',
-                                position: 'relative', minWidth: '48px',
+                                padding: '4px 12px', border: 'none', background: 'transparent',
+                                cursor: 'pointer', position: 'relative',
                             }}
                         >
-                            {/* Active glow dot */}
-                            {isActive && (
+                            <span style={{
+                                fontSize: '16px', opacity: active ? 1 : 0.3,
+                                transition: 'opacity 0.15s',
+                            }}>{mod.icon}</span>
+                            {active && (
                                 <div style={{
-                                    position: 'absolute', top: '-3px', left: '50%', transform: 'translateX(-50%)',
-                                    width: '16px', height: '3px', borderRadius: '2px',
-                                    background: 'linear-gradient(90deg, transparent, #8b5cf6, transparent)',
-                                    boxShadow: '0 0 8px rgba(139,92,246,0.6)',
+                                    position: 'absolute', bottom: 0, left: '50%',
+                                    transform: 'translateX(-50%)',
+                                    width: '14px', height: '2px', background: '#8b5cf6',
                                 }} />
                             )}
-                            <span style={{
-                                fontSize: '18px',
-                                filter: isActive ? 'drop-shadow(0 0 4px rgba(139,92,246,0.5))' : 'none',
-                                transition: 'filter 0.2s',
-                            }}>{mod.icon}</span>
-                            <span style={{
-                                fontSize: '9px', fontWeight: isActive ? '700' : '400',
-                                color: isActive ? '#a78bfa' : 'rgba(224,224,224,0.35)',
-                                letterSpacing: '0.3px',
-                                transition: 'color 0.2s',
-                            }}>{mod.label}</span>
                         </button>
                     );
                 })}

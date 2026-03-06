@@ -11,6 +11,7 @@ const buildBookContent = (b) => {
     p.push(`Žánr: ${b.genre || '?'} · Druh: ${b.literaryForm || '?'} · Rok: ${b.year || '?'} · Období: ${b.period || '?'}`);
     p.push('');
     if (a.titleAnalysis) p.push(`📌 Analýza názvu\n${a.titleAnalysis}\n`);
+    if (a.plot) p.push(`📖 Děj\n${a.plot}\n`);
     if (a.themes) {
         p.push(`💡 Téma a motivy\nHlavní téma: ${a.themes.main}`);
         if (a.themes.motifs?.length) p.push(`Motivy: ${a.themes.motifs.join(', ')}`);
@@ -33,7 +34,9 @@ const buildBookContent = (b) => {
         p.push('');
     }
     if (a.excerpt) {
-        p.push(`📜 Ukázka\n"${a.excerpt.text}"`);
+        // Replace literal \n sequences (stored as backslash-n in JSON) with real newlines
+        const excerptText = a.excerpt.text.replace(/\\n/g, '\n');
+        p.push(`📜 Ukázka\n"${excerptText}"`);
         if (a.excerpt.context) p.push(`Kontext: ${a.excerpt.context}`);
         p.push('');
     }
@@ -50,7 +53,7 @@ const buildBookContent = (b) => {
             p.push(a.authorContext.shortBio.name || '');
             if (a.authorContext.shortBio.info) p.push(a.authorContext.shortBio.info.join('\n'));
         }
-        if (a.authorContext.otherWorks?.length) p.push('Další díla: ' + a.authorContext.otherWorks.map(w => w.title).join(', '));
+        if (a.authorContext?.otherWorks?.length) p.push('Další díla: ' + a.authorContext.otherWorks.filter(Boolean).map(w => typeof w === 'string' ? w : w?.title || '?').join(', '));
         p.push('');
     }
     if (a.literaryContext) {
@@ -76,18 +79,42 @@ const IT_ITEMS = (itQuestions?.questions || []).map(q => ({
 const ALL_ITEMS = [...CJ_ITEMS, ...IT_ITEMS];
 
 const SPEEDS = [0.1, 0.2, 0.3, 0.5, 0.8, 1, 1.5];
+const SELECTION_STORAGE_KEY = 'pip-autoscroll-selected';
+
+// ── Theme ──
+const _A = '#8b5cf6';
+const _TX = '#e0e0e0';
+const _TM = 'rgba(224,224,224,0.4)';
+const _TD = 'rgba(224,224,224,0.2)';
+const _B = 'rgba(255,255,255,0.06)';
 
 const PiPAutoscroll = () => {
     const [filter, setFilter] = useState('cj');
-    const [selected, setSelected] = useState(() => new Set(CJ_ITEMS.map(i => i.id)));
+    const [selected, setSelected] = useState(() => {
+        try {
+            const stored = localStorage.getItem(SELECTION_STORAGE_KEY);
+            if (stored) {
+                const arr = JSON.parse(stored);
+                if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
+            }
+        } catch {}
+        return new Set(CJ_ITEMS.map(i => i.id));
+    });
     const [phase, setPhase] = useState('select');
     const [playing, setPlaying] = useState(false);
     const [speedIdx, setSpeedIdx] = useState(5); // default 1×
     const [loop, setLoop] = useState(false);
-    const [currentIdx, setCurrentIdx] = useState(0);
     const [playlist, setPlaylist] = useState([]);
     const scrollRef = useRef(null);
     const intervalRef = useRef(null);
+    const scrollAccRef = useRef(0);
+
+    // Persist selection to localStorage whenever it changes
+    useEffect(() => {
+        try {
+            localStorage.setItem(SELECTION_STORAGE_KEY, JSON.stringify([...selected]));
+        } catch {}
+    }, [selected]);
 
     const filteredItems = useMemo(() => {
         if (filter === 'cj') return CJ_ITEMS;
@@ -124,11 +151,20 @@ const PiPAutoscroll = () => {
         });
     };
 
+    // Build concatenated content from all selected items with separators
+    const combinedContent = useMemo(() => {
+        if (phase !== 'play' || playlist.length === 0) return '';
+        return playlist.map((item, i) => {
+            const separator = i > 0 ? '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' : '';
+            const header = `▸ ${item.title}${item.subtitle ? ` — ${item.subtitle}` : ''}\n\n`;
+            return separator + header + item.content;
+        }).join('\n');
+    }, [playlist, phase]);
+
     const startPlaying = () => {
         const list = filteredItems.filter(i => selected.has(i.id));
         if (list.length === 0) return;
         setPlaylist(list);
-        setCurrentIdx(0);
         setPhase('play');
         setPlaying(true);
     };
@@ -139,121 +175,97 @@ const PiPAutoscroll = () => {
         if (intervalRef.current) clearInterval(intervalRef.current);
     };
 
-    // Auto-scroll with auto-advance
+    // Auto-scroll
     useEffect(() => {
         if (!playing || phase !== 'play') return;
+        scrollAccRef.current = 0;
         intervalRef.current = setInterval(() => {
             const el = scrollRef.current;
             if (!el) return;
-            el.scrollTop += SPEEDS[speedIdx];
+            scrollAccRef.current += SPEEDS[speedIdx];
+            const step = Math.floor(scrollAccRef.current);
+            if (step > 0) {
+                el.scrollTop += step;
+                scrollAccRef.current -= step;
+            }
+            // Reached the end
             if (el.scrollTop + el.clientHeight >= el.scrollHeight - 5) {
-                if (currentIdx + 1 < playlist.length) {
-                    setCurrentIdx(i => i + 1);
-                } else if (loop) {
-                    setCurrentIdx(0);
+                if (loop) {
+                    el.scrollTop = 0;
                 } else {
                     setPlaying(false);
                 }
             }
         }, 50);
         return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-    }, [playing, speedIdx, phase, currentIdx, playlist.length, loop]);
-
-    // Reset scroll on item change
-    useEffect(() => {
-        if (scrollRef.current) scrollRef.current.scrollTop = 0;
-    }, [currentIdx]);
-
-    const currentItem = playlist[currentIdx] || null;
+    }, [playing, speedIdx, phase, loop]);
 
     // ═══ SELECTION ═══
     if (phase === 'select') {
         return (
-            <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 80px)' }}>
-                {/* Segmented filter tabs */}
-                <div style={{
-                    display: 'flex', gap: '2px', marginBottom: '8px',
-                    padding: '3px', background: 'rgba(15,15,25,0.8)', borderRadius: '10px', flexShrink: 0,
-                }}>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+                {/* Tab bar + counter */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px', borderBottom: `1px solid ${_B}`, flexShrink: 0 }}>
                     {[
-                        { key: 'cj', label: '📚 Knihy', count: CJ_ITEMS.length },
-                        { key: 'it', label: '💻 IT', count: IT_ITEMS.length },
-                        { key: 'all', label: '📋 Vše', count: ALL_ITEMS.length },
+                        { key: 'cj', label: 'Knihy' },
+                        { key: 'it', label: 'IT' },
+                        { key: 'all', label: 'Vše' },
                     ].map(f => (
                         <button key={f.key} onClick={() => handleFilterChange(f.key)}
                             style={{
-                                flex: 1, padding: '8px 4px', border: 'none', borderRadius: '8px',
-                                fontSize: '11px', fontWeight: filter === f.key ? '700' : '400',
-                                background: filter === f.key ? 'rgba(139,92,246,0.2)' : 'transparent',
-                                color: filter === f.key ? '#c4b5fd' : 'rgba(224,224,224,0.35)',
+                                padding: '6px 0', border: 'none',
+                                borderBottom: `2px solid ${filter === f.key ? _A : 'transparent'}`,
+                                background: 'transparent',
+                                fontSize: '11px', fontWeight: filter === f.key ? '600' : '400',
+                                color: filter === f.key ? _TX : _TM,
                                 cursor: 'pointer', transition: 'all 0.15s',
                             }}
                         >{f.label}</button>
                     ))}
-                </div>
-
-                {/* Select controls */}
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '6px', alignItems: 'center', flexShrink: 0 }}>
-                    <button onClick={selectAll} style={chipBtn}>✓ Vše</button>
-                    <button onClick={selectNone} style={chipBtn}>✕ Nic</button>
-                    <span style={{ marginLeft: 'auto', fontSize: '11px', color: 'rgba(224,224,224,0.4)', fontWeight: '600' }}>
-                        {selectedCount} <span style={{ fontWeight: '400', color: 'rgba(224,224,224,0.2)' }}>/ {filteredItems.length}</span>
+                    <span style={{ marginLeft: 'auto', fontSize: '10px', color: _TD, paddingBottom: '6px' }}>
+                        {selectedCount}/{filteredItems.length}
                     </span>
                 </div>
 
-                {/* Scrollable item list */}
-                <div style={{
-                    flex: 1, overflowY: 'auto', overflowX: 'hidden',
-                    display: 'flex', flexDirection: 'column', gap: '3px',
-                    marginBottom: '10px', paddingRight: '2px',
-                }}>
+                {/* Ghost select links */}
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '6px', flexShrink: 0 }}>
+                    <button onClick={selectAll} style={_ghost}>vše</button>
+                    <span style={{ color: _TD, fontSize: '10px' }}>·</span>
+                    <button onClick={selectNone} style={_ghost}>nic</button>
+                </div>
+
+                {/* Item list */}
+                <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', minHeight: 0, marginBottom: '8px' }}>
                     {filteredItems.map(item => {
                         const on = selected.has(item.id);
                         return (
                             <button key={item.id} onClick={() => toggleItem(item.id)}
                                 style={{
-                                    display: 'flex', alignItems: 'center', gap: '8px',
-                                    padding: '7px 10px', border: '1px solid',
-                                    borderColor: on ? 'rgba(139,92,246,0.3)' : 'rgba(139,92,246,0.06)',
-                                    borderRadius: '8px',
-                                    background: on ? 'rgba(139,92,246,0.08)' : 'rgba(15,15,25,0.3)',
-                                    cursor: 'pointer', transition: 'all 0.15s',
-                                    textAlign: 'left', width: '100%', flexShrink: 0,
+                                    display: 'flex', alignItems: 'center', gap: '10px',
+                                    padding: '5px 2px', border: 'none',
+                                    borderBottom: `1px solid ${_B}`,
+                                    background: 'transparent',
+                                    cursor: 'pointer', textAlign: 'left', width: '100%',
                                 }}
                             >
-                                {/* Checkbox */}
                                 <div style={{
-                                    width: '16px', height: '16px', borderRadius: '4px', flexShrink: 0,
-                                    border: '2px solid',
-                                    borderColor: on ? '#7c3aed' : 'rgba(224,224,224,0.15)',
-                                    background: on ? '#7c3aed' : 'transparent',
+                                    width: '12px', height: '12px', borderRadius: '2px', flexShrink: 0,
+                                    border: `1.5px solid ${on ? _A : 'rgba(255,255,255,0.1)'}`,
+                                    background: on ? _A : 'transparent',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                                     transition: 'all 0.15s',
                                 }}>
-                                    {on && <span style={{ color: '#fff', fontSize: '10px', fontWeight: '900', lineHeight: '1' }}>✓</span>}
+                                    {on && <span style={{ color: '#fff', fontSize: '7px', fontWeight: '900' }}>✓</span>}
                                 </div>
-
-                                {/* Type badge */}
-                                <span style={{
-                                    fontSize: '9px', padding: '1px 5px', borderRadius: '6px', fontWeight: '600',
-                                    background: item.type === 'it' ? 'rgba(59,130,246,0.12)' : 'rgba(236,72,153,0.12)',
-                                    color: item.type === 'it' ? '#60a5fa' : '#f472b6',
-                                    flexShrink: 0,
-                                }}>{item.type === 'it' ? 'IT' : 'ČJ'}</span>
-
-                                {/* Title + subtitle */}
                                 <div style={{ flex: 1, minWidth: 0 }}>
                                     <div style={{
-                                        fontSize: '12px', fontWeight: on ? '600' : '400',
-                                        color: on ? '#e0e0e0' : 'rgba(224,224,224,0.45)',
+                                        fontSize: '12px', fontWeight: '500',
+                                        color: on ? _TX : _TM,
                                         overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                                        transition: 'color 0.15s',
-                                    }}>
-                                        {item.title}
-                                    </div>
+                                    }}>{item.title}</div>
                                     {item.subtitle && (
                                         <div style={{
-                                            fontSize: '10px', color: 'rgba(224,224,224,0.25)',
+                                            fontSize: '10px', color: _TD,
                                             overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
                                         }}>{item.subtitle}</div>
                                     )}
@@ -266,107 +278,71 @@ const PiPAutoscroll = () => {
                 {/* Start button */}
                 <button onClick={startPlaying} disabled={selectedCount === 0}
                     style={{
-                        width: '100%', padding: '12px', border: 'none', borderRadius: '10px',
-                        background: selectedCount === 0 ? 'rgba(139,92,246,0.08)' : 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
-                        color: selectedCount === 0 ? 'rgba(224,224,224,0.25)' : '#fff',
-                        fontSize: '14px', fontWeight: '700',
+                        width: '100%', padding: '10px',
+                        border: `1px solid ${selectedCount === 0 ? _B : _A}`,
+                        borderRadius: '2px',
+                        background: selectedCount === 0 ? 'transparent' : 'rgba(139,92,246,0.1)',
+                        color: selectedCount === 0 ? _TD : _TX,
+                        fontSize: '11px', fontWeight: '500',
                         cursor: selectedCount === 0 ? 'not-allowed' : 'pointer',
-                        flexShrink: 0, transition: 'all 0.2s',
+                        transition: 'all 0.15s', flexShrink: 0,
                     }}
-                >▶ Spustit čtení ({selectedCount})</button>
+                >Spustit · {selectedCount}</button>
             </div>
         );
     }
 
     // ═══ PLAYER ═══
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 100px)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
             {/* Controls */}
-            <div style={{
-                display: 'flex', gap: '4px', alignItems: 'center', flexWrap: 'wrap',
-                padding: '6px', background: 'rgba(15,15,25,0.8)', borderRadius: '6px', marginBottom: '6px',
-                flexShrink: 0,
-            }}>
-                <Btn onClick={goBack}>←</Btn>
-                <Btn onClick={() => setCurrentIdx(i => Math.max(0, i - 1))} title="Předchozí">⏮</Btn>
-                <Btn active={playing} onClick={() => setPlaying(!playing)} style={{ fontSize: '14px', padding: '5px 12px' }}>
+            <div style={{ display: 'flex', gap: '4px', alignItems: 'center', marginBottom: '6px', flexShrink: 0 }}>
+                <_MBtn onClick={goBack}>←</_MBtn>
+                <_MBtn onClick={() => setPlaying(!playing)} accent>
                     {playing ? '⏸' : '▶'}
-                </Btn>
-                <Btn onClick={() => setCurrentIdx(i => Math.min(playlist.length - 1, i + 1))} title="Další">⏭</Btn>
-                <Btn active={loop} onClick={() => setLoop(!loop)} activeColor="green" title="Opakovat">🔁</Btn>
-                <Btn onClick={() => setSpeedIdx(i => (i + 1) % SPEEDS.length)} style={{ marginLeft: 'auto', fontWeight: '600' }}>
+                </_MBtn>
+                <_MBtn onClick={() => setLoop(!loop)} active={loop}>🔁</_MBtn>
+                <span style={{ flex: 1 }} />
+                <span style={{ fontSize: '10px', color: _TD }}>{playlist.length} položek</span>
+                <_MBtn onClick={() => setSpeedIdx(i => (i + 1) % SPEEDS.length)}>
                     {SPEEDS[speedIdx]}×
-                </Btn>
+                </_MBtn>
             </div>
 
-            {/* Item header */}
-            {currentItem && (
+            {/* Scrollable concatenated content */}
+            <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', minHeight: 0 }}>
                 <div style={{
-                    display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px',
-                    padding: '6px 8px', background: 'rgba(20,20,35,0.7)', borderRadius: '6px',
-                    flexShrink: 0,
+                    fontSize: '11px', color: 'rgba(224,224,224,0.7)', lineHeight: '1.7',
+                    whiteSpace: 'pre-wrap', wordBreak: 'break-word',
                 }}>
-                    <span style={{
-                        fontSize: '9px', padding: '2px 6px', borderRadius: '8px', fontWeight: '600',
-                        background: currentItem.type === 'it' ? 'rgba(59,130,246,0.15)' : 'rgba(236,72,153,0.15)',
-                        color: currentItem.type === 'it' ? '#60a5fa' : '#f472b6',
-                    }}>{currentItem.type === 'it' ? 'IT' : 'ČJ'}</span>
-                    <span style={{
-                        fontSize: '12px', fontWeight: '600', color: '#a78bfa',
-                        overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1,
-                    }}>{currentItem.title}</span>
-                    <span style={{ fontSize: '10px', color: 'rgba(224,224,224,0.3)' }}>
-                        {currentIdx + 1}/{playlist.length}
-                    </span>
+                    {combinedContent}
+                    <div style={{ height: '60px' }} />
                 </div>
-            )}
-
-            {/* Scrollable content */}
-            <div ref={scrollRef} style={{
-                flex: 1, overflowY: 'auto', overflowX: 'hidden', padding: '4px',
-            }}>
-                {currentItem && (
-                    <div style={{
-                        fontSize: '11px', color: 'rgba(224,224,224,0.75)', lineHeight: '1.7',
-                        whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-                    }}>
-                        {currentItem.subtitle && (
-                            <div style={{ fontSize: '10px', color: 'rgba(224,224,224,0.4)', marginBottom: '8px' }}>
-                                {currentItem.subtitle}
-                            </div>
-                        )}
-                        {currentItem.content}
-                        {/* Extra space at end so auto-advance triggers */}
-                        <div style={{ height: '60px' }} />
-                    </div>
-                )}
             </div>
         </div>
     );
 };
 
-// ── Reusable button ──
-const Btn = ({ children, active, activeColor, onClick, title, style: extraStyle }) => (
-    <button onClick={onClick} title={title} style={{
-        padding: '5px 8px', border: '1px solid',
-        borderColor: active
-            ? (activeColor === 'green' ? 'rgba(34,197,94,0.4)' : 'rgba(139,92,246,0.4)')
-            : 'rgba(139,92,246,0.15)',
-        borderRadius: '4px',
-        background: active
-            ? (activeColor === 'green' ? 'rgba(34,197,94,0.15)' : 'rgba(139,92,246,0.2)')
-            : 'transparent',
-        color: active
-            ? (activeColor === 'green' ? '#4ade80' : '#a78bfa')
-            : 'rgba(224,224,224,0.5)',
-        fontSize: '13px', cursor: 'pointer', fontWeight: active ? '700' : '400',
-        ...extraStyle,
+// ── Helpers ──
+const _MBtn = ({ children, onClick, active, accent }) => (
+    <button onClick={onClick} style={{
+        padding: '5px 8px', border: `1px solid ${active ? _A : accent ? _A : _B}`,
+        borderRadius: '2px',
+        background: active ? 'rgba(139,92,246,0.15)' : accent ? 'rgba(139,92,246,0.1)' : 'transparent',
+        color: active || accent ? _A : _TM,
+        fontSize: '12px', cursor: 'pointer',
+        fontWeight: active ? '600' : '400',
+        minWidth: '30px', minHeight: '28px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
     }}>{children}</button>
 );
 
-const chipBtn = {
-    padding: '4px 8px', border: '1px solid rgba(139,92,246,0.2)', borderRadius: '4px',
-    background: 'transparent', color: 'rgba(224,224,224,0.5)', fontSize: '10px', cursor: 'pointer',
+const _ghost = {
+    padding: 0, border: 'none', background: 'transparent',
+    color: _TD, fontSize: '10px', cursor: 'pointer',
+    textDecoration: 'underline',
+    textDecorationColor: 'rgba(255,255,255,0.08)',
+    textUnderlineOffset: '2px',
 };
 
 export default PiPAutoscroll;
